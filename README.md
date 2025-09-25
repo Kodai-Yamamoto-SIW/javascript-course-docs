@@ -1,41 +1,43 @@
-# Website
+# ウェブサイト
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+このウェブサイトは、モダンな静的ウェブサイトジェネレーターである [Docusaurus](https://docusaurus.io/) を使用して構築されています。
 
-## Installation
-
-```bash
-yarn
-```
-
-## Local Development
+## インストール
 
 ```bash
-yarn start
+npm install
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+## ローカル開発
 
 ```bash
-yarn build
+npm run start
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+これにより、Docusaurusの開発サーバーとnpm依存としてインストールされた`@kodai-yamamoto-siw/workspace-launch-server` が同時に起動します。ブラウザが自動的に開き、バックエンドのエンドポイント（例: `/manifest`）がポート8787で利用可能になります。
 
-## Deployment
+ドキュメントUIのみが必要ですか？`npm run start:docusaurus`を実行してください。APIのみが必要ですか？`npm run server`を実行してください（内部的に`workspace-launch-server`バイナリを実行します）。
 
-Using SSH:
+## ビルド
 
 ```bash
-USE_SSH=true yarn deploy
+npm run build
 ```
 
-Not using SSH:
+このコマンドは、`build`ディレクトリに静的コンテンツを生成し、任意の静的コンテンツホスティングサービスを使用して提供できます。
+
+## デプロイ
+
+SSHを使用する場合:
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+USE_SSH=true npm run deploy
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+SSHを使用しない場合:
+
+```bash
+GIT_USER=<あなたのGitHubユーザー名> npm run deploy
+```
+
+GitHub Pagesをホスティングに使用している場合、このコマンドはウェブサイトをビルドし、`gh-pages`ブランチにプッシュする便利な方法です。
