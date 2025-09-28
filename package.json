@@ -21,6 +21,7 @@
     "@docusaurus/preset-classic": "^3.9.1",
     "@kodai-yamamoto-siw/code-preview": "github:Kodai-Yamamoto-SIW/code-preview",
     "@kodai-yamamoto-siw/workspace-launch-server": "github:Kodai-Yamamoto-SIW/workspace-launch-server",
+    "@kodai-yamamoto-siw/workspace-template-generator": "github:Kodai-Yamamoto-SIW/workspace-template-generator",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
