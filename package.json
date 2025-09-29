@@ -22,7 +22,7 @@
     "@docusaurus/core": "^3.9.1",
     "@docusaurus/preset-classic": "^3.9.1",
     "@kodai-yamamoto-siw/code-preview": "github:Kodai-Yamamoto-SIW/code-preview",
-    "@kodai-yamamoto-siw/docusaurus-microsoft-auth": "github:Kodai-Yamamoto-SIW/docusaurus-microsoft-auth#master",
+    "@kodai-yamamoto-siw/docusaurus-microsoft-auth": "github:Kodai-Yamamoto-SIW/docusaurus-microsoft-auth",
     "@kodai-yamamoto-siw/workspace-launch-server": "github:Kodai-Yamamoto-SIW/workspace-launch-server",
     "@kodai-yamamoto-siw/workspace-launch-ui": "github:Kodai-Yamamoto-SIW/workspace-launch-ui",
     "@kodai-yamamoto-siw/workspace-template-generator": "github:Kodai-Yamamoto-SIW/workspace-template-generator",
