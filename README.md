@@ -24,9 +24,9 @@ npm run start
 
 1. Azure portal → Microsoft Entra ID → アプリの登録 から新しいアプリを作成し、`http://localhost:3000` (or 開発用 URL) をリダイレクト URI (Web) として追加します。
 2. アプリケーション (クライアント) ID とディレクトリ (テナント) ID を控えます。
-3. `.env.example` を `.env` にコピーして値を書き換えます。
+3. `.env.example` を `.env` にコピーして共通の値を書き換えます。ローカル専用の値は `.env.development.local`、本番固有の値は `.env.production.local` に追加してください（`.env.local` も利用できます）。`docusaurus.config.ts` がこれらのファイルを順番に読み込み、後から読み込んだ値で上書きされます。
 
-`.env` に設定する例:
+`.env`（必要に応じて `.env.local` / `.env.development.local` で上書き）に設定する例:
 
 ```bash
 DOCUSAURUS_MICROSOFT_CLIENT_ID=<アプリケーション (クライアント) ID>
@@ -40,7 +40,7 @@ DOCUSAURUS_MICROSOFT_SCOPES=User.Read
 - `AUTHORITY_HOST` を省略すると `https://login.microsoftonline.com` が使われます。
 - `REDIRECT_URI` と `POST_LOGOUT_REDIRECT_URI` を省略すると現在のサイトの URL が使われます（GitHub Pages では `https://<your-account>.github.io/javascript-course-docs/`）。
 - 追加の Graph API 権限が必要な場合は `DOCUSAURUS_MICROSOFT_SCOPES` にカンマ区切りでスコープを設定してください。
-- 本番環境でも同じ環境変数を設定し、リダイレクト URI をホスティング URL に合わせて更新してください。
+- 本番環境では `.env.production.local` を作成し、本番用のリダイレクト URI やスコープに差し替えてください。`.env` に共通値を置き、必要に応じて `.env.production` / `.env.production.local` で上書きできます。
 
 ## ビルド
 

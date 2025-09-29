@@ -1,10 +1,30 @@
-import 'dotenv/config';
+import fs from 'node:fs';
+import path from 'node:path';
+import dotenv from 'dotenv';
 
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+const projectRoot = __dirname;
+
+const loadEnvFile = (relativePath: string) => {
+  const fullPath = path.resolve(projectRoot, relativePath);
+  if (fs.existsSync(fullPath)) {
+    dotenv.config({ path: fullPath, override: true });
+  }
+};
+
+loadEnvFile('.env');
+loadEnvFile('.env.local');
+
+const resolvedProfile = process.env.DOCUSAURUS_ENV ?? process.env.NODE_ENV;
+if (resolvedProfile) {
+  loadEnvFile(`.env.${resolvedProfile}`);
+  loadEnvFile(`.env.${resolvedProfile}.local`);
+}
 
 const authEnvEntries = Object.entries({
   DOCUSAURUS_MICROSOFT_CLIENT_ID: process.env.DOCUSAURUS_MICROSOFT_CLIENT_ID,
