@@ -1,8 +1,23 @@
+import 'dotenv/config';
+
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+const authEnvEntries = Object.entries({
+  DOCUSAURUS_MICROSOFT_CLIENT_ID: process.env.DOCUSAURUS_MICROSOFT_CLIENT_ID,
+  DOCUSAURUS_MICROSOFT_TENANT_ID: process.env.DOCUSAURUS_MICROSOFT_TENANT_ID,
+  DOCUSAURUS_MICROSOFT_AUTHORITY_HOST: process.env.DOCUSAURUS_MICROSOFT_AUTHORITY_HOST,
+  DOCUSAURUS_MICROSOFT_REDIRECT_URI: process.env.DOCUSAURUS_MICROSOFT_REDIRECT_URI,
+  DOCUSAURUS_MICROSOFT_POST_LOGOUT_REDIRECT_URI: process.env.DOCUSAURUS_MICROSOFT_POST_LOGOUT_REDIRECT_URI,
+  DOCUSAURUS_MICROSOFT_SCOPES: process.env.DOCUSAURUS_MICROSOFT_SCOPES,
+});
+
+const authCustomFields = Object.fromEntries(
+  authEnvEntries.filter(([, value]) => typeof value === 'string' && value.trim().length > 0),
+);
 
 const config: Config = {
   title: 'JavaScript 演習',
@@ -75,6 +90,7 @@ const config: Config = {
       items: [
         { type: 'docSidebar', sidebarId: 'mainSidebar', position: 'left', label: 'チュートリアル' },
         { href: 'https://github.com/Kodai-Yamamoto-SIW/javascript-course-docs', label: 'GitHub', position: 'right' },
+        { type: 'custom-auth-account', position: 'right' },
       ],
     },
     docs: {
@@ -94,6 +110,10 @@ const config: Config = {
       additionalLanguages: ['markup', 'css', 'javascript'],
     },
   } satisfies Preset.ThemeConfig,
+  customFields: {
+    auth: authCustomFields,
+  },
+  plugins: ['@kodai-yamamoto-siw/docusaurus-microsoft-auth'],
 };
 
 export default config;

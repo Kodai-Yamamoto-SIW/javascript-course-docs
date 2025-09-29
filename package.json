@@ -17,9 +17,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@azure/msal-browser": "^4.24.0",
+    "@azure/msal-react": "^3.0.0",
     "@docusaurus/core": "^3.9.1",
     "@docusaurus/preset-classic": "^3.9.1",
     "@kodai-yamamoto-siw/code-preview": "github:Kodai-Yamamoto-SIW/code-preview",
+    "@kodai-yamamoto-siw/docusaurus-microsoft-auth": "github:Kodai-Yamamoto-SIW/docusaurus-microsoft-auth#master",
     "@kodai-yamamoto-siw/workspace-launch-server": "github:Kodai-Yamamoto-SIW/workspace-launch-server",
     "@kodai-yamamoto-siw/workspace-launch-ui": "github:Kodai-Yamamoto-SIW/workspace-launch-ui",
     "@kodai-yamamoto-siw/workspace-template-generator": "github:Kodai-Yamamoto-SIW/workspace-template-generator",
@@ -34,6 +37,7 @@
     "@docusaurus/tsconfig": "^3.9.1",
     "@docusaurus/types": "^3.9.1",
     "concurrently": "^9.1.0",
+    "dotenv": "^16.4.5",
     "typescript": "~5.6.2"
   },
   "browserslist": {
