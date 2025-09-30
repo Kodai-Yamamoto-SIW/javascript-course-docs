@@ -40,7 +40,7 @@ const authCustomFields = Object.fromEntries(
 );
 
 const config: Config = {
-  title: 'JavaScript 演習',
+  title: 'JavaScript',
   tagline: 'JavaScriptの基礎から実践まで',
   favicon: 'img/favicon.ico',
 
@@ -101,9 +101,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'JavaScript 演習',
+      title: 'JavaScript',
       logo: {
-        alt: 'JavaScript 演習 Logo',
+        alt: 'JavaScript Logo',
         src: 'img/logo.svg',
       },
       hideOnScroll: false,
