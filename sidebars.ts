@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'basics/introduction',
         'basics/object-intro',
+        'basics/array-intro',
       ],
     },
   ],
