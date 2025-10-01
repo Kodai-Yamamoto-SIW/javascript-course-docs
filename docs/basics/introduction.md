@@ -93,7 +93,6 @@ function popAlignedRows(field) {
 - ファイル名、フォルダ名で区切りを入れるときによく使われる文字：「-」（ハイフン）、 「_」（アンダースコア）
 
 ### VSCode でフォルダを開く
-fai
 ![VSCodeへドラッグ&ドロップ1](/img/introduction/vscode-drag-and-drop-1.png)
 ![VSCodeへドラッグ&ドロップ2](/img/introduction/vscode-drag-and-drop-2.png)
 
