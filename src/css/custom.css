@@ -38,8 +38,8 @@
 /* 見出しをやわらかい色に */
 h2, h3, h4 {
   color: var(--ifm-heading-color);
-  margin-top: 2.2em;
-  margin-bottom: 0.7em;
+  margin-top: 1.9em;
+  margin-bottom: 0.5em;
 }
 
 /* 箇条書きの余白を広めに */

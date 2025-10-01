@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
       label: '基礎',
       items: [
         'basics/introduction',
+        'basics/object-intro',
       ],
     },
   ],
