@@ -3,7 +3,7 @@ sidebar_position: 3
 title: 配列のメソッド
 ---
 
-import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise';
+import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise/client';
 import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 
