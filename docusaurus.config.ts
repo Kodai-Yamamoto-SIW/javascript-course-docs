@@ -133,7 +133,10 @@ const config: Config = {
   customFields: {
     auth: authCustomFields,
   },
-  plugins: ['@kodai-yamamoto-siw/docusaurus-microsoft-auth'],
+  plugins: [
+    '@kodai-yamamoto-siw/docusaurus-microsoft-auth',
+    '@kodai-yamamoto-siw/exercise',
+  ],
 };
 
 export default config;

@@ -3,7 +3,7 @@ sidebar_position: 2
 title: 配列入門
 ---
 
-import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise';
+import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise/client';
 import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 
