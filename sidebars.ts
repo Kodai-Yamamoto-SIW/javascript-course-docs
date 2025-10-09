@@ -25,6 +25,7 @@ const sidebars: SidebarsConfig = {
         'basics/object-intro',
         'basics/array-intro',
         'basics/array-methods',
+        'basics/dom-css',
       ],
     },
   ],
