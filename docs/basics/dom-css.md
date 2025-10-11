@@ -23,8 +23,8 @@ _HTMLの解析が終わった後_ で、以下の関数を使用する。
 | `document.querySelector(セレクタ)` | 指定したCSSのセレクタ(文字列)に一致する、 _最初の要素_ を返す |
 
 <CodePreview initialHTML={`<body>
-  <p>テスト</p>
-</body>`} initialJS={`// body要素を取得
+    <p>テスト</p>
+  </body>`} initialJS={`// body要素を取得
 let bodyYouso = document.querySelector("body");
 
 // 取得した要素を出力
