@@ -292,7 +292,7 @@ document.querySelector(".taitoru").style.color = "blue";
 </div>
 ```
 
-:::info CSSのヒント（演習3用）
+:::info CSSのヒント
 | やりたいこと | 書き方 | 例 |
 | :-: | :-: | :-: |
 | 非表示 | `display: none;` | `display: none;` |
@@ -348,5 +348,76 @@ document.querySelector(".taitoru").style.color = "blue";
 
   // class="usui" の不透明度を20%にする
   document.querySelector(".usui").style.opacity = "0.2";`}/>
+</Solution>
+</Exercise>
+
+<Exercise title="演習3 - 発展">
+**body内が** 次のようになっているHTMLファイルに対して、JavaScriptでCSSを変更することで下のプレビューの見た目になるようにせよ。  
+
+```html
+<h2 class="banner">お知らせ</h2>
+<p>お知らせです</p>
+
+<div class="banner content">
+  <p class="alert">システム更新のお知らせ</p>
+  <p class="detail">本日18時よりメンテナンスを実施します</p>
+  <p class="message">ご迷惑をおかけします。<br/>よろしくお願い致します。</p>
+  <div class="icon">⚠️</div>
+</div>
+```
+
+<CodePreview
+  sourceId="演習3-発展"
+  htmlVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  consoleVisible={false}
+  initialHTML={`<h2 class="banner">お知らせ</h2>
+  <p>お知らせです</p>
+
+  <div class="banner content">
+    <p class="alert">システム更新のお知らせ</p>
+    <p class="detail">本日18時よりメンテナンスを実施します</p>
+    <p class="message">ご迷惑をおかけします。<br>よろしくお願い致します。</p>
+    <div class="icon">⚠️</div>
+  </div>`}
+  initialJS={`// .banner に色と余白を設定
+  let banner = document.querySelector(".banner");
+  banner.style.color = "white";
+  banner.style.backgroundColor = "#007acc";
+  banner.style.paddingTop = "20px";
+  banner.style.paddingBottom = "20px";
+
+  // .alert を赤・太字・左ボーダーに
+  let alert = document.querySelector(".alert");
+  alert.style.color = "red";
+  alert.style.fontWeight = "bold";
+  alert.style.borderLeft = "8px solid red";
+
+  // .detail に背景と内側余白
+  let detail = document.querySelector(".detail");
+  detail.style.backgroundColor = "#f9f9f9";
+  detail.style.padding = "12px 16px";
+
+  // .icon を黒い円にして不透明度を 0.7 に
+  let icon = document.querySelector(".icon");
+  icon.style.width = "60px";
+  icon.style.height = "60px";
+  icon.style.borderRadius = "50%";
+  icon.style.backgroundColor = "black";
+  icon.style.display = "grid";
+  icon.style.placeItems = "center";
+
+  // .message の行間を 2 倍に
+  document.querySelector(".message").style.lineHeight = "2";`}/>
+
+:::info CSSのヒント
+| やりたいこと | 書き方 |
+| :-: | :-: |
+| テキストを上下左右中央寄せ | 親要素に display: grid と place-items: center を指定する |
+:::
+
+<Solution>
+<CodePreview sourceId="演習3-発展"/>
 </Solution>
 </Exercise>
