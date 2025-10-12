@@ -83,17 +83,14 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
 </div>
 ```
 
-:::info
-ハイライトされている5つの要素は、
-- 見出し
-- 段落1
-- 段落3
-- 段落4
-- ボックス内の段落1
-:::
-
-<Solution>
-<CodePreview initialHTML={`<h1>見出し</h1>
+<CodePreview
+  title="出力例"
+  sourceId="演習1"
+  htmlVisible={false}
+  jsVisible={false}
+  previewVisible={false}
+  consoleVisible={true}
+  initialHTML={`<h1>見出し</h1>
 
   <p>これは段落1です。</p>
   <p>これは段落2です。</p>
@@ -105,20 +102,24 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
   <div class="hako">
     <p>ボックス内の段落1</p>
     <p>ボックス内の段落2</p>
-  </div>`} initialJS={`// h1要素を取得
-console.log(document.querySelector("h1")); // 出力: <h1>見出し</h1>
+  </div>`}
+  initialJS={`// h1要素を取得
+  console.log(document.querySelector("h1")); // 出力: <h1>見出し</h1>
 
-// 最初のp要素を取得
-console.log(document.querySelector("p")); // 出力: <p>これは段落1です。</p>
+  // 最初のp要素を取得
+  console.log(document.querySelector("p")); // 出力: <p>これは段落1です。</p>
 
-// id="main"のp要素を取得
-console.log(document.querySelector("#main")); // 出力: <p id="main">段落3 ここがメイン</p>
+  // id="main"のp要素を取得
+  console.log(document.querySelector("#main")); // 出力: <p id="main">段落3 ここがメイン</p>
 
-// class="raberu"の最初のp要素を取得
-console.log(document.querySelector(".raberu")); // 出力: <p class="raberu">段落4 ラベルA</p>
+  // class="raberu"の最初のp要素を取得
+  console.log(document.querySelector(".raberu")); // 出力: <p class="raberu">段落4 ラベルA</p>
 
-// class="hako"のdiv要素の中の最初のp要素を取得
-console.log(document.querySelector(".hako p")); // 出力: <p>ボックス内の段落1</p>`}/>
+  // class="hako"のdiv要素の中の最初のp要素を取得
+  console.log(document.querySelector(".hako p")); // 出力: <p>ボックス内の段落1</p>`}/>
+
+<Solution>
+<CodePreview sourceId="演習1"/>
 </Solution>
 </Exercise>
 
@@ -145,15 +146,13 @@ console.log(document.querySelector(".hako p")); // 出力: <p>ボックス内の
 </div>
 ```
 
-:::info
-ハイライトされている2つの要素は、
-- 開いている（.open のある）ドロワー内のボタン
-- 開いていない（.open のない）ドロワー内の段落
-:::
-
-
-<Solution>
 <CodePreview
+  title="出力例"
+  sourceId="演習1 - 発展"
+  htmlVisible={false}
+  jsVisible={false}
+  previewVisible={false}
+  consoleVisible={true}
   initialHTML={`<div class="moodaru open">
     <p>モーダルウィンドウ</p>
   </div>
@@ -173,6 +172,8 @@ console.log(document.querySelector(".hako p")); // 出力: <p>ボックス内の
   // .open を持たないドロワー内の p 要素を取得して出力
   console.log(document.querySelector(".dorowa:not(.open) p")); // 出力: <p>開いていないドロワー内の段落</p>`}/>
 
+<Solution>
+<CodePreview sourceId="演習1 - 発展"/>
 </Solution>
 </Exercise>
 
@@ -234,21 +235,29 @@ background-color のようなハイフンのあるCSSプロパティの場合は
 </div>
 ```
 
-<Solution>
-<CodePreview initialHTML={`<h1 class="taitoru">今日の天気</h1> <!-- 文字色を「青色」にせよ -->
+<CodePreview
+  title="出力例"
+  sourceId="演習2"
+  htmlVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<h1 class="taitoru">今日の天気</h1> <!-- 文字色を「青色」にせよ -->
   <p>晴れのちくもり</p> <!-- 背景色を「黄色」にせよ -->
 
   <div class="hako">
     <p>最高気温 18度</p> <!-- 文字サイズを「80px」にせよ -->
   </div>`}
   initialJS={`// class="taitoru"のh1要素の文字色を青に変更
-document.querySelector(".taitoru").style.color = "blue";
+  document.querySelector(".taitoru").style.color = "blue";
 
   // 最初のp要素の背景色を黄色に変更
   document.querySelector("p").style.backgroundColor = "yellow";
 
   // class="hako"のdiv要素の中のp要素の文字サイズを80pxに変更
   document.querySelector(".hako p").style.fontSize = "80px";`}/>
+
+<Solution>
+<CodePreview sourceId="演習2"/>
 </Solution>
 </Exercise>
 
@@ -292,18 +301,12 @@ document.querySelector(".taitoru").style.color = "blue";
 </div>
 ```
 
-:::info CSSのヒント
-| やりたいこと | 書き方 | 例 |
-| :-: | :-: | :-: |
-| 非表示 | `display: none;` | `display: none;` |
-| 横幅を変える | `width: 数値;` | `width: 100px;` |
-| 縦幅を変える | `height: 数値;` | `height: 100vh;` |
-| 円にする | 横幅と縦幅を同じにして `border-radius: 50%;` | `width: 60px; height: 60px; border-radius: 50%;` |
-| 透明度を変える（見え方の目安） | `opacity: 0〜1;` | 見えない → `opacity: 0;`<br/>完全に見える → `opacity: 1;`<br/>30%くらい → `opacity: 0.3;`<br/>50%くらい → `opacity: 0.5;` |
-:::
-
-<Solution>
 <CodePreview
+  title="出力例"
+  sourceId="演習3"
+  htmlVisible={false}
+  jsVisible={false}
+  previewVisible={true}
   initialHTML={`<!-- 文字色を赤にせよ -->
   <h1 class="taitoru">お知らせ</h1>
   <div class="hako">
@@ -348,6 +351,19 @@ document.querySelector(".taitoru").style.color = "blue";
 
   // class="usui" の不透明度を20%にする
   document.querySelector(".usui").style.opacity = "0.2";`}/>
+
+:::info CSSのヒント
+| やりたいこと | 書き方 | 例 |
+| :-: | :-: | :-: |
+| 非表示 | `display: none;` | `display: none;` |
+| 横幅を変える | `width: 数値;` | `width: 100px;` |
+| 縦幅を変える | `height: 数値;` | `height: 100vh;` |
+| 円にする | 横幅と縦幅を同じにして `border-radius: 50%;` | `width: 60px; height: 60px; border-radius: 50%;` |
+| 透明度を変える（見え方の目安） | `opacity: 0〜1;` | 見えない → `opacity: 0;`<br/>完全に見える → `opacity: 1;`<br/>30%くらい → `opacity: 0.3;`<br/>50%くらい → `opacity: 0.5;` |
+:::
+
+<Solution>
+<CodePreview sourceId="演習3"/>
 </Solution>
 </Exercise>
 
