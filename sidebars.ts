@@ -27,6 +27,7 @@ const sidebars: SidebarsConfig = {
         'basics/array-methods',
         'basics/dom-css',
         'basics/dom-innertext',
+        'basics/dom-events',
       ],
     },
   ],
