@@ -418,7 +418,7 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
 
 ---
 
-<Exercise title="演習4-発展">
+<Exercise title="演習4-発展1">
 **body内が** 次のようになっているHTMLファイルに対し、JavaScriptで次の動作を実装せよ。
 
 > - マウスが div 要素に乗ったとき: 背景色を "lightcoral" に、p 要素の中身を "ステータス: ホバー中" に変更する。  
@@ -427,7 +427,7 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
 > - クリック後は、マウスの乗り降りによる色やテキストの変化を無効にする（選択状態を維持）。
 
 <CodePreview
-  sourceId="演習4-発展"
+  sourceId="演習4-発展1"
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
@@ -464,6 +464,49 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
   });`}/>
 
 <Solution>
-<CodePreview sourceId="演習4-発展"/>
+<CodePreview sourceId="演習4-発展1"/>
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習4-発展2">
+**body内が** 次のようになっているHTMLファイルに対し、JavaScriptで次の動作を実装せよ。
+
+> - div 要素をクリックするたびに、p 要素に「クリック回数: ○回」と表示する（クリック回数をカウントする）。
+> - クリック回数が3回になったとき、div 要素の背景色を "gold" に変更し、p 要素の中身を "完了しました" に変更する。
+> - 3回に達した後は、それ以上クリックしても何も変化しない。
+
+<CodePreview
+  sourceId="演習4-発展2"
+  htmlVisible={true}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div></div>
+  <p>クリック回数: 0回</p>`}
+  initialCSS={`div {
+    width: 160px;
+    height: 160px;
+    background-color: lightblue;
+  }`}
+  initialJS={`// カウンター機能を含むイベント処理
+  let divYoso = document.querySelector("div");
+  let pYoso = document.querySelector("p");
+  let count = 0;
+
+  divYoso.addEventListener("click", function() {
+    if (count < 3) {
+      count++;
+      pYoso.innerText = "クリック回数: " + count + "回";
+      
+      if (count === 3) {
+        divYoso.style.backgroundColor = "gold";
+        pYoso.innerText = "完了しました";
+      }
+    }
+  });`}/>
+
+<Solution>
+<CodePreview sourceId="演習4-発展2"/>
 </Solution>
 </Exercise>
