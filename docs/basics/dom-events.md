@@ -415,3 +415,55 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
 <CodePreview sourceId="演習4"/>
 </Solution>
 </Exercise>
+
+---
+
+<Exercise title="演習4-発展">
+**body内が** 次のようになっているHTMLファイルに対し、JavaScriptで次の動作を実装せよ。
+
+> - マウスが div 要素に乗ったとき: 背景色を "lightcoral" に、p 要素の中身を "ステータス: ホバー中" に変更する。  
+> - マウスが div 要素から離れたとき: 背景色を "lightgray" に戻し、p 要素の中身を "ステータス: 待機中" に戻す。  
+> - div 要素をクリックしたとき: 背景色を "gold" に、p 要素の中身を "ステータス: 選択済み" に変更する。  
+> - クリック後は、マウスの乗り降りによる色やテキストの変化を無効にする（選択状態を維持）。
+
+<CodePreview
+  sourceId="演習4-発展"
+  htmlVisible={true}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div></div>
+  <p>ステータス: 待機中</p>`}
+  initialCSS={`div {
+    width: 160px;
+    height: 160px;
+    background-color: lightgray;
+  }`}
+  initialJS={`// 状態管理を含むイベント処理
+  let divYoso = document.querySelector("div");
+  let pYoso = document.querySelector("p");
+  let isSelected = false;
+
+  divYoso.addEventListener("mouseenter", function() {
+    if (!isSelected) {
+      divYoso.style.backgroundColor = "lightcoral";
+      pYoso.innerText = "ステータス: ホバー中";
+    }
+  });
+
+  divYoso.addEventListener("mouseleave", function() {
+    if (!isSelected) {
+      divYoso.style.backgroundColor = "lightgray";
+      pYoso.innerText = "ステータス: 待機中";
+    }
+  });
+
+  divYoso.addEventListener("click", function() {
+    divYoso.style.backgroundColor = "gold";
+    pYoso.innerText = "ステータス: 選択済み";
+    isSelected = true;
+  });`}/>
+
+<Solution>
+<CodePreview sourceId="演習4-発展"/>
+</Solution>
+</Exercise>
