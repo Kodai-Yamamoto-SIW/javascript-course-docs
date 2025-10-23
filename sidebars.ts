@@ -28,6 +28,7 @@ const sidebars: SidebarsConfig = {
         'basics/dom-css',
         'basics/dom-innertext',
         'basics/dom-events',
+        'basics/swiper',
       ],
     },
   ],
