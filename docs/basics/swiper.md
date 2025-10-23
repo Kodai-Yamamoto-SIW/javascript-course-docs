@@ -156,9 +156,11 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  initialHTML={`<!-- これを head 内に入れて -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
+  <!-- これを body 内に入れて -->
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">スライド1</div>
@@ -200,9 +202,11 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  initialHTML={`<!-- これを head 内に入れて -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
+  <!-- これを body 内に入れて -->
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">商品A</div>
@@ -239,5 +243,142 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
   jsVisible={true}
   previewVisible={true}
 />
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習2-発展1（自動再生とループ機能）">
+5枚のスライドを持つ、次のプレビューのようなスライダーを作成して下さい。
+
+- 3秒ごとに自動でスライドが切り替わる。
+- 最後のスライドの次は、最初のスライドに戻る（ループ再生）。
+- 矢印ボタンとページネーションも表示する。
+
+<CodePreview
+  sourceId="演習2発展1_自動再生ループ"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<!-- これを head 内に入れて -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <!-- これを body 内に入れて -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">ニュース1</div>
+      <div class="swiper-slide">ニュース2</div>
+      <div class="swiper-slide">ニュース3</div>
+      <div class="swiper-slide">ニュース4</div>
+      <div class="swiper-slide">ニュース5</div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>`}
+  initialCSS={`.swiper {
+    height: 250px;
+  }
+  .swiper-slide {
+    background-color: #fff3cd;
+  }`}
+  initialJS={`let swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+    },
+    navigation: {
+      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  });`}
+/>
+
+<Solution>
+<CodePreview
+  sourceId="演習2発展1_自動再生ループ"
+  htmlVisible={true}
+  cssVisible={true}
+  jsVisible={true}
+  previewVisible={true}
+/>
+
+**解説**:
+- `loop: true` で最後のスライドの次に最初のスライドに戻ります（ループ再生）。
+- `autoplay: { delay: 3000 }` で3秒（3000ミリ秒）ごとに自動でスライドが切り替わります。
+- これらのオプションを組み合わせることで、ニュースティッカーのような自動循環スライダーが作れます。
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習2-発展2（複数枚同時表示）">
+6枚のスライドを持つ、次のプレビューのようなスライダーを作成して下さい。
+
+- 一度に3枚のスライドを表示する。
+- スライド間のスペースは20pxにする。
+- 矢印ボタンとページネーションも表示する。
+
+<CodePreview
+  sourceId="演習2発展2_複数枚表示"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<!-- これを head 内に入れて -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <!-- これを body 内に入れて -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">画像1</div>
+      <div class="swiper-slide">画像2</div>
+      <div class="swiper-slide">画像3</div>
+      <div class="swiper-slide">画像4</div>
+      <div class="swiper-slide">画像5</div>
+      <div class="swiper-slide">画像6</div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>`}
+  initialCSS={`.swiper {
+    height: 250px;
+  }
+  .swiper-slide {
+    background-color: #d4edda;
+  }`}
+  initialJS={`let swiper = new Swiper('.swiper', {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    navigation: {
+      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  });`}
+/>
+
+<Solution>
+<CodePreview
+  sourceId="演習2発展2_複数枚表示"
+  htmlVisible={true}
+  cssVisible={true}
+  jsVisible={true}
+  previewVisible={true}
+/>
+
+**解説**:
+- `slidesPerView: 3` で一度に3枚のスライドを表示します。
+- `spaceBetween: 20` でスライド間のスペースを20pxに設定します。
+- このように複数枚を同時に表示することで、ギャラリーや商品一覧のようなレイアウトが作れます。
 </Solution>
 </Exercise>
