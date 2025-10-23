@@ -12,10 +12,121 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
 実際に使われていそうなサイトの例（代表例）:
 
-- Apple（公開ページで製品紹介のスライダーが確認できます）: https://www.apple.com/jp/
+- Apple Store（公開ページで製品紹介のスライダーが確認できます）: https://www.apple.com/jp/store
   - 使われる箇所: トップページの製品紹介スライダー → Swiper.jsのような機能で画像をスワイプ
 - Uniqlo（商品画像のスライダー）: https://www.uniqlo.com/jp/ja/
   - 使われる箇所: 商品詳細ページの画像ギャラリー → 左右にスワイプして別の商品画像を表示
+
+以下は、Swiper.jsを使った商品スライダーの実例です。左右の矢印ボタンやドラッグで操作できます。
+
+<CodePreview
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="product-card">
+          <div class="product-image">📱</div>
+          <h3>スマートフォン</h3>
+          <p class="price">¥89,800</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="product-card">
+          <div class="product-image">💻</div>
+          <h3>ノートパソコン</h3>
+          <p class="price">¥149,800</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="product-card">
+          <div class="product-image">⌚</div>
+          <h3>スマートウォッチ</h3>
+          <p class="price">¥45,800</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="product-card">
+          <div class="product-image">🎧</div>
+          <h3>ワイヤレスイヤホン</h3>
+          <p class="price">¥29,800</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="product-card">
+          <div class="product-image">📷</div>
+          <h3>デジタルカメラ</h3>
+          <p class="price">¥79,800</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>`}
+  initialCSS={`.swiper {
+    width: 100%;
+    height: 280px;
+    /* スライド幅計算とズレないよう左右パディングは外す */
+    padding: 20px 0;
+    /* 念のためはみ出しを隠す */
+    overflow: hidden;
+  }
+  .swiper-slide {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 子要素の幅計算でオーバーフローしないように */
+    min-width: 0;
+  }
+  .product-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    /* スライド幅に応じて縮み、最大200pxまで */
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+  }
+  .product-image {
+    font-size: 64px;
+    margin-bottom: 12px;
+  }
+  .product-card h3 {
+    font-size: 18px;
+    margin: 8px 0;
+    color: #333;
+  }
+  .price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 8px 0 0 0;
+  }`}
+  initialJS={`let swiper = new Swiper(".swiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });`}/>
 
 ---
 
@@ -32,10 +143,10 @@ Swiper.jsを使うには、HTMLファイルに以下のCDN（Content Delivery Ne
 
 ```html
 <!-- SwiperのCSSファイル -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
 
 <!-- SwiperのJavaScriptファイル -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 ```
 
 :::info
@@ -73,8 +184,8 @@ let swiper = new Swiper(".swiper", {
 ```
 
 <CodePreview
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -120,8 +231,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -182,8 +293,8 @@ let swiper = new Swiper(".swiper", {
 ```
 
 <CodePreview
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -235,8 +346,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -302,8 +413,8 @@ let swiper = new Swiper(".swiper", {
 ```
 
 <CodePreview
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -352,8 +463,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -411,8 +522,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -468,8 +579,8 @@ let swiper = new Swiper(".swiper", {
 ```
 
 <CodePreview
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -524,8 +635,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -573,8 +684,8 @@ let swiper = new Swiper(".swiper", {
 ```
 
 <CodePreview
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -626,8 +737,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -694,8 +805,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -751,8 +862,8 @@ let swiper = new Swiper(".swiper", {
 ```
 
 <CodePreview
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -802,8 +913,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -850,8 +961,8 @@ let swiper = new Swiper(".swiper", {
 ```
 
 <CodePreview
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -899,8 +1010,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -964,8 +1075,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -1039,8 +1150,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -1122,8 +1233,8 @@ let swiper = new Swiper(".swiper", {
   jsVisible={false}
   previewVisible={true}
   consoleVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -1197,8 +1308,8 @@ let swiper = new Swiper(".swiper", {
   htmlVisible={true}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
@@ -1280,8 +1391,8 @@ let swiper = new Swiper(".swiper", {
   jsVisible={false}
   previewVisible={true}
   consoleVisible={true}
-  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  initialHTML={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <div class="swiper">
     <div class="swiper-wrapper">
