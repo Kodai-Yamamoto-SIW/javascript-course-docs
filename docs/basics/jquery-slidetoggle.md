@@ -419,11 +419,11 @@ CSS:
     isOpen = !isOpen;
 
     let iconYoso = document.querySelector(".icon");
-    if (isOpen) { // 開いているとき
+    if (isOpen) { // 開いたとき
       iconYoso.innerText = "−"; // アイコンを「-」にする
       aaaYoso.style.backgroundColor = "pink"; // 背景色を変更
     }
-    else { // 閉じているとき
+    else { // 閉じたとき
       iconYoso.innerText = "＋"; // アイコンを「+」にする
       aaaYoso.style.backgroundColor = "#eee"; // 背景色を元の #eee に戻す
     }
@@ -432,5 +432,97 @@ CSS:
 
 <Solution>
 <CodePreview sourceId="演習2"/>
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習3（開いた回数を表示）">
+`h3.ccc` をクリックして「開いた」時だけ、`div.count` の「開いた回数」の表示が1ずつ増えるようにしてください（閉じる時は増えません）。
+
+HTML:
+```html
+<h3 class="ccc">メニュー</h3>
+<div class="ddd">中身</div>
+<div class="count">開いた回数: 0回</div>
+```
+
+CSS:
+```css
+.ccc {
+  cursor: pointer;
+  background-color: #eee;
+  padding: 8px;
+}
+
+.ddd {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.count {
+  margin-top: 8px;
+  color: #3366cc;
+}
+```
+
+<CodePreview
+  sourceId="演習3"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<!-- これを head 内に入れて -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- これを body 内に入れて -->
+  <h3 class="ccc">メニュー</h3>
+  <div class="ddd">中身</div>
+  <div class="count">開いた回数: 0回</div>`}
+  initialCSS={`.ccc {
+    cursor: pointer;
+    background-color: #eee;
+    padding: 8px;
+  }
+
+  .ddd {
+    padding: 8px;
+    border: 1px solid #ddd;
+
+    /* 初めは要素を非表示にしておく */
+    display: none;
+  }
+
+  .count {
+    margin-top: 8px;
+    color: #3366cc;
+  }`}
+  initialJS={`// 開いてる時に回数を増やすカウンタ用
+  let count = 0;
+  let isOpen = false;
+
+  // .ccc の要素をクリックしたときに～
+  document.querySelector(".ccc").addEventListener("click", function() {
+    // .ddd の要素の表示/非表示を滑らかに切り替える
+    $(".ddd").slideToggle();
+
+    // 開閉状態の true/false を反転
+    isOpen = !isOpen;
+
+    if (isOpen) { // 開いたとき
+      count++; // 回数を増やす
+      document.querySelector(".count").innerText = "開いた回数: " + count + "回"; // 表示を更新
+    }
+  });`}
+/>
+
+:::tip[ヒント]
+- 回数を記憶する変数（let count = 0;）を使いましょう。
+- if を使い「開いたときだけ」カウントアップするように分岐します。
+- 回数の表示書き換えには innerText を使います。
+:::
+
+<Solution>
+<CodePreview sourceId="演習3"/>
 </Solution>
 </Exercise>
