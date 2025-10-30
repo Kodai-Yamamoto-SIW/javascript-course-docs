@@ -526,3 +526,95 @@ CSS:
 <CodePreview sourceId="演習3"/>
 </Solution>
 </Exercise>
+
+---
+
+<Exercise title="演習3-発展（＋/−を滑らかに切り替え）">
+`h3.ccc` の右側にある「＋」または「−」が、メニューの開閉に合わせて**回転アニメーション付きで滑らかに切り替わる**ようにしてください。  
+※「＋/−」のテキストがただ切り替わるのではなく、`transform`と`transition`で回転しながら変化するようにします。
+
+HTML:
+```html
+<h3 class="ccc">メニュー<span class="icon">＋</span></h3>
+<div class="ddd">中身</div>
+```
+
+CSS:
+```css
+.ccc {
+  cursor: pointer;
+  background-color: #eee;
+  padding: 8px;
+}
+.ddd {
+  padding: 8px;
+  border: 1px solid #ddd;
+  display: none;
+}
+.icon {
+  margin-left: 8px;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+```
+
+<CodePreview
+  sourceId="演習3-発展"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<!-- これを head 内に入れて -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- これを body 内に入れて -->
+  <h3 class="ccc">メニュー<span class="icon">＋</span></h3>
+  <div class="ddd">中身</div>
+  `}
+  initialCSS={`.ccc {
+    cursor: pointer;
+    background-color: #eee;
+    padding: 8px;
+  }
+  .ddd {
+    padding: 8px;
+    border: 1px solid #ddd;
+    display: none;
+  }
+  .icon {
+    margin-left: 8px;
+    display: inline-block;
+    transition: transform 0.3s;
+  }`}
+  initialJS={`let iconYoso = document.querySelector(".icon");
+  let cccYoso = document.querySelector(".ccc");
+  let isOpen = false;
+
+  // .ccc の要素をクリックしたとき
+  cccYoso.addEventListener("click", function() {
+    $(".ddd").slideToggle();
+
+    // 開閉状態を反転
+    isOpen = !isOpen;
+
+    // アイコンの切り替え（アニメーション付きで+→−）
+    if (isOpen) {
+      iconYoso.style.transform = "rotate(180deg)";
+      iconYoso.innerText = "−"; // rotate180後に−に
+    } else {
+      iconYoso.style.transform = "rotate(0deg)";
+      iconYoso.innerText = "＋"; // 元に戻す
+    }
+  });`}
+/>
+
+:::tip[ヒント]
+- `transition`と`transform`でアニメーションを作れます。
+- CSSの `transform: rotate(角度deg)` の指定で特定の角度に回転させることが出来ます。(`transform: rotate(45deg);` など) 
+- クリック時に「＋から−」「−から＋」へ回転付きで変わるように工夫してください。
+:::
+
+<Solution>
+<CodePreview sourceId="演習3-発展"/>
+</Solution>
+</Exercise>
