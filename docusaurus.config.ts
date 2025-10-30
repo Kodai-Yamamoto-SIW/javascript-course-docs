@@ -135,7 +135,12 @@ const config: Config = {
   },
   plugins: [
     '@kodai-yamamoto-siw/docusaurus-microsoft-auth',
-    '@kodai-yamamoto-siw/exercise',
+    [
+      '@kodai-yamamoto-siw/exercise',
+      {
+        headingLevel: 3
+      }
+    ]
   ],
 };
 

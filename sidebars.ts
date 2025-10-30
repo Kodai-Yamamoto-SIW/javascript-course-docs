@@ -29,6 +29,7 @@ const sidebars: SidebarsConfig = {
         'basics/dom-innertext',
         'basics/dom-events',
         'basics/swiper',
+        'basics/jquery-slidetoggle',
       ],
     },
   ],
