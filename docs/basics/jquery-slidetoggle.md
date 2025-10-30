@@ -253,6 +253,7 @@ CSS:
 状態に応じて色や記号の変更などを if を使った分岐で行います。
 
 <CodePreview
+  sourceId="isOpen"
   htmlVisible={true}
   cssVisible={true}
   previewVisible={true}
@@ -260,7 +261,7 @@ CSS:
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- これを body 内に入れて -->
-  <h3 class="aaa">メニュー</h3>
+  <h3 class="aaa">メニュー<span class="icon">＋</span></h3>
   <div class="bbb">中身</div>
   `}
   initialCSS={`.aaa {
@@ -288,6 +289,27 @@ CSS:
     // 開閉状態が反転するので、isOpen の true/false を反転
     isOpen = !isOpen;
 
+    // isOpen の値を出してみる
+    console.log(isOpen);
+  });`}/>
+
+<CodePreview
+  sourceId="isOpen"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+  initialJS={`// 開いていますかー？　を表す変数を作って用意しておく
+  // 最初は閉じているので、開いていない = false を入れておく
+  let isOpen = false;
+
+  // .aaa の要素をクリックしたときに～
+  document.querySelector(".aaa").addEventListener("click", function() {
+    // .bbb の要素の表示/非表示を滑らかに切り替える
+    $(".bbb").slideToggle();
+
+    // 開閉状態が反転するので、isOpen の true/false を反転
+    isOpen = !isOpen;
+
     // 開閉状態に応じて、何かをする。（とりあえず例として console.log）
     if (isOpen) { // 開いているとき
       console.log("ひらいています");
@@ -298,29 +320,10 @@ CSS:
   });`}/>
 
 <CodePreview
+  sourceId="isOpen"
   htmlVisible={true}
   cssVisible={true}
   previewVisible={true}
-  initialHTML={`<!-- これを head 内に入れて -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-  <!-- これを body 内に入れて -->
-  <h3 class="aaa">メニュー<span class="icon">＋</span></h3>
-  <div class="bbb">中身</div>
-  `}
-  initialCSS={`.aaa {
-    cursor: pointer;
-    background-color: #eee;
-    padding: 8px;
-  }
-
-  .bbb {
-    padding: 8px;
-    border: 1px solid #ddd;
-
-    /* 初めは要素を非表示にしておく */
-    display: none;
-  }`}
   initialJS={`// 開いていますかー？　を表す変数を作って用意しておく
   // 最初は閉じているので、開いていない = false を入れておく
   let isOpen = false;
