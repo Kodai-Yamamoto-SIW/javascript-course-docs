@@ -186,6 +186,7 @@ HTML:
 ```html
 <h3 class="PPP">メニュー</h3>
 <div class="QQQ">中身</div>
+<p>後続のテキスト</p>
 ```
 
 CSS:
