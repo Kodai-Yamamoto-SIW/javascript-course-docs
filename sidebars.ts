@@ -30,6 +30,7 @@ const sidebars: SidebarsConfig = {
         'basics/dom-events',
         'basics/swiper',
         'basics/jquery-slidetoggle',
+        'basics/dom-css-transition',
       ],
     },
   ],
