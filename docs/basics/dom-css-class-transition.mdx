@@ -364,3 +364,667 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
 ---
 
+## 演習-発展（実践的な例）
+
+ここからは、実際のウェブサイトでよく見かける機能を作成する演習です。
+好きなものを選んで挑戦してみましょう。
+
+---
+
+<Exercise title="演習1-発展（タブの切り替え）">
+
+次のプレビューのように動作する、タブ切り替えUIを作成せよ。
+
+**動作要件**:
+- 3つのタブボタンがあり、それぞれクリックすると対応するコンテンツが表示される
+- 選択されているタブには `active` クラスが付き、見た目が変わる
+- コンテンツの切り替えは、`active` クラスの有無で表示・非表示を制御する
+- 最初は1つ目のタブとコンテンツが選択されている状態
+
+<CodePreview
+  sourceId="演習1-発展"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="tabs">
+    <button class="tab active" data-tab="1">ホーム</button>
+    <button class="tab" data-tab="2">プロフィール</button>
+    <button class="tab" data-tab="3">設定</button>
+  </div>
+  <div class="tab-contents">
+    <div class="tab-content active" data-content="1">ホームの内容です</div>
+    <div class="tab-content" data-content="2">プロフィールの内容です</div>
+    <div class="tab-content" data-content="3">設定の内容です</div>
+  </div>`}
+  initialCSS={`.tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .tab {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .tab.active {
+    background-color: #007bff;
+    color: white;
+  }
+  .tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+  }
+  .tab-content.active {
+    display: block;
+  }`}
+  initialJS={`// すべてのタブボタンを取得
+  let tabYosos = document.querySelectorAll(".tab");
+
+  // すべてのタブをループで処理
+  for (let i = 0; i < tabYosos.length; i++) {
+    // 各タブにクリックイベントを登録
+    tabYosos[i].addEventListener("click", function() {
+      // クリックされたタブの番号を取得
+      let tabNumber = tabYosos[i].getAttribute("data-tab");
+
+      // すべてのタブからactiveクラスを削除
+      for (let j = 0; j < tabYosos.length; j++) {
+        tabYosos[j].classList.remove("active");
+      }
+
+      // クリックされたタブにactiveクラスを追加
+      tabYosos[i].classList.add("active");
+
+      // すべてのコンテンツからactiveクラスを削除
+      let contentYosos = document.querySelectorAll(".tab-content");
+      for (let k = 0; k < contentYosos.length; k++) {
+        contentYosos[k].classList.remove("active");
+      }
+
+      // 対応するコンテンツにactiveクラスを追加
+      let targetContent = document.querySelector('.tab-content[data-content="' + tabNumber + '"]');
+      targetContent.classList.add("active");
+    });
+  }`}
+/><Solution>
+<CodePreview sourceId="演習1-発展" />
+
+**解説**:
+- `data-tab` と `data-content` 属性を使って、タブとコンテンツを紐付けています
+- タブがクリックされたら、まずすべてのタブとコンテンツから `active` を削除し、クリックされたタブと対応するコンテンツにのみ `active` を追加することで切り替えを実現しています
+- ループを使ってすべての要素を処理することで、タブの数が増えても対応できます
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習2-発展（アコーディオン）">
+
+次のプレビューのように動作する、アコーディオンUIを作成せよ。
+
+**動作要件**:
+- 質問をクリックすると、対応する回答が表示される
+- もう一度クリックすると回答が非表示になる
+- 回答の表示・非表示は滑らかにアニメーションする
+- 複数の質問を同時に開くことができる
+
+<CodePreview
+  sourceId="演習2-発展"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="faq-item">
+    <div class="question">JavaScriptとは何ですか？</div>
+    <div class="answer">JavaScriptはWebページに動きをつけるプログラミング言語です。</div>
+  </div>
+  <div class="faq-item">
+    <div class="question">CSSとは何ですか？</div>
+    <div class="answer">CSSはWebページの見た目を整えるための言語です。</div>
+  </div>
+  <div class="faq-item">
+    <div class="question">HTMLとは何ですか？</div>
+    <div class="answer">HTMLはWebページの構造を作るための言語です。</div>
+  </div>`}
+  initialCSS={`.faq-item {
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+  }
+  .question {
+    padding: 16px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    user-select: none;
+  }
+  .question:hover {
+    background-color: #e8e8e8;
+  }
+  .answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 16px;
+    background-color: white;
+    transition: all 0.3s;
+  }
+  .answer.open {
+    max-height: 200px;
+    padding: 16px;
+  }`}
+  initialJS={`// すべての質問要素を取得
+  let questionYosos = document.querySelectorAll(".question");
+
+  // すべての質問をループで処理
+  for (let i = 0; i < questionYosos.length; i++) {
+    // 各質問にクリックイベントを登録
+    questionYosos[i].addEventListener("click", function() {
+      // クリックされた質問の次の要素（回答）を取得
+      let answerYoso = questionYosos[i].nextElementSibling;
+
+      // 回答のopenクラスを付けたり外したりして切り替え
+      answerYoso.classList.toggle("open");
+    });
+  }`}
+/><Solution>
+<CodePreview sourceId="演習2-発展" />
+
+**解説**:
+- `max-height` と `padding` を使って、回答の表示・非表示を制御しています
+- `transition: all 0.3s;` で滑らかなアニメーションを実現
+- `nextElementSibling` を使って、クリックされた質問の直後にある回答要素を取得しています
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習3-発展（カード選択）">
+
+次のプレビューのように動作する、複数選択可能なカードUIを作成せよ。
+
+**動作要件**:
+- 3つのカードがあり、クリックすると選択状態になる
+- 選択されたカードには `selected` クラスが付き、見た目が変わる
+- もう一度クリックすると選択が解除される
+- 複数のカードを同時に選択できる
+- 選択中のカード数を表示する
+
+<CodePreview
+  sourceId="演習3-発展"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="cards">
+    <div class="card">カード1</div>
+    <div class="card">カード2</div>
+    <div class="card">カード3</div>
+  </div>
+  <p>選択中: <span class="count">0</span>枚</p>`}
+  initialCSS={`.cards {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .card {
+    width: 120px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .card:hover {
+    border-color: #999;
+  }
+  .card.selected {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+    transform: scale(1.05);
+  }`}
+  initialJS={`// すべてのカード要素を取得
+  let cardYosos = document.querySelectorAll(".card");
+
+  // カウント表示要素を取得
+  let countYoso = document.querySelector(".count");
+
+  // すべてのカードをループで処理
+  for (let i = 0; i < cardYosos.length; i++) {
+    // 各カードにクリックイベントを登録
+    cardYosos[i].addEventListener("click", function() {
+      // selectedクラスを付けたり外したりして切り替え
+      cardYosos[i].classList.toggle("selected");
+
+      // 選択中のカード数をカウント
+      let selectedCount = 0;
+      for (let j = 0; j < cardYosos.length; j++) {
+        if (cardYosos[j].classList.contains("selected")) {
+          selectedCount = selectedCount + 1;
+        }
+      }
+
+      // カウントを表示
+      countYoso.innerText = selectedCount;
+    });
+  }`}
+/><Solution>
+<CodePreview sourceId="演習3-発展" />
+
+**解説**:
+- カードをクリックするたびに `selected` クラスを toggle で切り替えています
+- その後、すべてのカードをループで確認し、`classList.contains("selected")` で選択中のカードをカウントしています
+- `transform: scale(1.05);` で選択時に少し大きくなるアニメーションを追加しています
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習4-発展（お気に入りボタン）">
+
+次のプレビューのように動作する、お気に入りボタンを作成せよ。
+
+**動作要件**:
+- ハートボタンをクリックすると、お気に入り状態のON/OFFが切り替わる
+- お気に入り状態では色が変わり、少し大きくなる
+- 変化は滑らかにアニメーションする
+- 状態に応じてテキストも「お気に入りに追加」「お気に入り済み」と切り替わる
+
+<CodePreview
+  sourceId="演習4-発展"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="favorite-btn">♥</div>
+  <p class="status-text">お気に入りに追加</p>`}
+  initialCSS={`.favorite-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #ccc;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+  }
+  .favorite-btn:hover {
+    transform: scale(1.1);
+  }
+  .favorite-btn.active {
+    color: #e91e63;
+    border-color: #e91e63;
+    transform: scale(1.15);
+  }
+  .status-text {
+    margin-top: 12px;
+    color: #666;
+  }`}
+  initialJS={`// ボタンとテキスト要素を取得
+  let btnYoso = document.querySelector(".favorite-btn");
+  let textYoso = document.querySelector(".status-text");
+
+  // ボタンがクリックされたときの処理を登録
+  btnYoso.addEventListener("click", function() {
+    // activeクラスを付けたり外したりして切り替え
+    btnYoso.classList.toggle("active");
+
+    // activeクラスが付いているかどうかで表示を切り替え
+    if (btnYoso.classList.contains("active")) {
+      textYoso.innerText = "お気に入り済み";
+    } else {
+      textYoso.innerText = "お気に入りに追加";
+    }
+  });`}
+/><Solution>
+<CodePreview sourceId="演習4-発展" />
+
+**解説**:
+- ハートマーク（♥）をボタンとして使用しています
+- `border-radius: 50%;` で円形のボタンを作成
+- ホバー時と選択時で異なる `transform: scale()` を指定することで、動きに変化をつけています
+- `classList.contains` を使って状態を確認し、テキストを切り替えています
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習5-発展（通知バナー）">
+
+次のプレビューのように動作する、通知バナーを作成せよ。
+
+**動作要件**:
+- 「通知を表示」ボタンをクリックすると、画面上部に通知バナーが表示される
+- 通知バナーの×ボタンをクリックすると、バナーが非表示になる
+- バナーの表示・非表示は滑らかにアニメーションする
+- バナーが表示されている間は、「通知を表示」ボタンは無効化される
+
+<CodePreview
+  sourceId="演習5-発展"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="notification">
+    <span>新しいメッセージが届きました</span>
+    <button class="close-btn">×</button>
+  </div>
+  <button class="show-btn">通知を表示</button>`}
+  initialCSS={`.notification {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.4s;
+  }
+  .notification.show {
+    top: 20px;
+  }
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+  }
+  .show-btn {
+    padding: 10px 20px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .show-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }`}
+  initialJS={`// 各要素を取得
+  let notificationYoso = document.querySelector(".notification");
+  let closeBtnYoso = document.querySelector(".close-btn");
+  let showBtnYoso = document.querySelector(".show-btn");
+
+  // 「通知を表示」ボタンがクリックされたときの処理
+  showBtnYoso.addEventListener("click", function() {
+    // 通知にshowクラスを追加
+    notificationYoso.classList.add("show");
+
+    // ボタンを無効化
+    showBtnYoso.classList.add("disabled");
+  });
+
+  // 「×」ボタンがクリックされたときの処理
+  closeBtnYoso.addEventListener("click", function() {
+    // 通知からshowクラスを削除
+    notificationYoso.classList.remove("show");
+
+    // ボタンを有効化
+    showBtnYoso.classList.remove("disabled");
+  });`}
+/><Solution>
+<CodePreview sourceId="演習5-発展" />
+
+**解説**:
+- `position: fixed;` で画面に固定し、`top: -100px;` で最初は画面外に配置
+- `show` クラスが付くと `top: 20px;` になり、画面内に滑らかに降りてきます
+- ボタンに `disabled` クラスを付けることで見た目を変え、視覚的に無効状態を表現しています
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習6-発展（画像ギャラリー切り替え）">
+
+次のプレビューのように動作する、画像ギャラリーを作成せよ。
+
+**動作要件**:
+- 3つのサムネイル画像があり、クリックすると大きく表示される画像が切り替わる
+- 選択中のサムネイルには枠が付く
+- 画像の切り替えは滑らかにアニメーションする（透明度で切り替え）
+
+<CodePreview
+  sourceId="演習6-発展"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="main-image-container">
+    <div class="main-image active" data-img="1">画像1（メイン）</div>
+    <div class="main-image" data-img="2">画像2（メイン）</div>
+    <div class="main-image" data-img="3">画像3（メイン）</div>
+  </div>
+  <div class="thumbnails">
+    <div class="thumbnail active" data-thumb="1">画像1</div>
+    <div class="thumbnail" data-thumb="2">画像2</div>
+    <div class="thumbnail" data-thumb="3">画像3</div>
+  </div>`}
+  initialCSS={`.main-image-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f0f0f0;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .main-image.active {
+    opacity: 1;
+  }
+  .main-image[data-img="1"] {
+    background-color: #ffcdd2;
+  }
+  .main-image[data-img="2"] {
+    background-color: #c8e6c9;
+  }
+  .main-image[data-img="3"] {
+    background-color: #bbdefb;
+  }
+  .thumbnails {
+    display: flex;
+    gap: 8px;
+  }
+  .thumbnail {
+    width: 90px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border: 3px solid transparent;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s;
+  }
+  .thumbnail:hover {
+    border-color: #999;
+  }
+  .thumbnail.active {
+    border-color: #2196f3;
+  }
+  .thumbnail[data-thumb="1"] {
+    background-color: #ffcdd2;
+  }
+  .thumbnail[data-thumb="2"] {
+    background-color: #c8e6c9;
+  }
+  .thumbnail[data-thumb="3"] {
+    background-color: #bbdefb;
+  }`}
+  initialJS={`// すべてのサムネイルを取得
+  let thumbnailYosos = document.querySelectorAll(".thumbnail");
+
+  // すべてのサムネイルをループで処理
+  for (let i = 0; i < thumbnailYosos.length; i++) {
+    // 各サムネイルにクリックイベントを登録
+    thumbnailYosos[i].addEventListener("click", function() {
+      // クリックされたサムネイルの番号を取得
+      let imgNumber = thumbnailYosos[i].getAttribute("data-thumb");
+
+      // すべてのサムネイルからactiveクラスを削除
+      for (let j = 0; j < thumbnailYosos.length; j++) {
+        thumbnailYosos[j].classList.remove("active");
+      }
+
+      // クリックされたサムネイルにactiveクラスを追加
+      thumbnailYosos[i].classList.add("active");
+
+      // すべてのメイン画像からactiveクラスを削除
+      let mainImageYosos = document.querySelectorAll(".main-image");
+      for (let k = 0; k < mainImageYosos.length; k++) {
+        mainImageYosos[k].classList.remove("active");
+      }
+
+      // 対応するメイン画像にactiveクラスを追加
+      let targetImage = document.querySelector('.main-image[data-img="' + imgNumber + '"]');
+      targetImage.classList.add("active");
+    });
+  }`}
+/><Solution>
+<CodePreview sourceId="演習6-発展" />
+
+**解説**:
+- `position: absolute;` と `opacity` を使って、複数の画像を重ねて配置し、透明度で切り替えています
+- `data-thumb` と `data-img` 属性を使って、サムネイルとメイン画像を紐付けています
+- タブ切り替えと似た仕組みですが、画像の切り替えに特化した実装になっています
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習7-発展（プライスカード選択）">
+
+次のプレビューのように動作する、料金プランの選択UIを作成せよ。
+
+**動作要件**:
+- 3つの料金プランカードがあり、1つだけ選択できる
+- カードをクリックすると、そのカードだけが選択状態になる（他は自動的に解除）
+- 選択されたカードには `selected` クラスが付き、見た目が変わる
+- 選択されたプラン名を下部に表示する
+
+<CodePreview
+  sourceId="演習7-発展"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="price-cards">
+    <div class="price-card" data-plan="ベーシック">
+      <h3>ベーシック</h3>
+      <p class="price">¥1,000/月</p>
+    </div>
+    <div class="price-card" data-plan="スタンダード">
+      <h3>スタンダード</h3>
+      <p class="price">¥2,000/月</p>
+    </div>
+    <div class="price-card" data-plan="プレミアム">
+      <h3>プレミアム</h3>
+      <p class="price">¥3,000/月</p>
+    </div>
+  </div>
+  <p>選択中のプラン: <span class="selected-plan">未選択</span></p>`}
+  initialCSS={`.price-cards {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .price-card {
+    flex: 1;
+    padding: 24px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .price-card:hover {
+    border-color: #999;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .price-card.selected {
+    border-color: #4caf50;
+    background-color: #f1f8f4;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  }
+  .price-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+  }
+  .price {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4caf50;
+  }
+  .selected-plan {
+    font-weight: bold;
+    color: #4caf50;
+  }`}
+  initialJS={`// すべての料金カードを取得
+  let cardYosos = document.querySelectorAll(".price-card");
+
+  // 選択中のプラン表示要素を取得
+  let planYoso = document.querySelector(".selected-plan");
+
+  // すべてのカードをループで処理
+  for (let i = 0; i < cardYosos.length; i++) {
+    // 各カードにクリックイベントを登録
+    cardYosos[i].addEventListener("click", function() {
+      // クリックされたカードのプラン名を取得
+      let planName = cardYosos[i].getAttribute("data-plan");
+
+      // すべてのカードからselectedクラスを削除
+      for (let j = 0; j < cardYosos.length; j++) {
+        cardYosos[j].classList.remove("selected");
+      }
+
+      // クリックされたカードにselectedクラスを追加
+      cardYosos[i].classList.add("selected");
+
+      // 選択中のプラン名を表示
+      planYoso.innerText = planName;
+    });
+  }`}
+/><Solution>
+<CodePreview sourceId="演習7-発展" />
+
+**解説**:
+- ラジオボタンのような「1つだけ選択」の動作を、カードUIで実現しています
+- クリック時にまずすべてのカードから `selected` を削除してから、クリックされたカードにのみ追加することで、排他的な選択を実現
+- `transform: translateY(-4px);` で選択時に少し浮き上がる効果を追加しています
+</Solution>
+</Exercise>
+
+---
+
