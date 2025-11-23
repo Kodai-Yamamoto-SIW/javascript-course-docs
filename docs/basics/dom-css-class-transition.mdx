@@ -601,15 +601,23 @@ for (let cardYoso of cardYosos) {
   initialJS={`// すべての質問要素を取得
   let questionYosos = document.querySelectorAll(".question");
 
+  // すべての回答要素を取得
+  let answerYosos = document.querySelectorAll(".answer");
+
   // すべての質問をループで処理
   for (let questionYoso of questionYosos) {
     // 各質問にクリックイベントを登録
     questionYoso.addEventListener("click", function() {
-      // クリックされた質問の次の要素（回答）を取得
-      let answerYoso = questionYoso.nextElementSibling;
+      // クリックされた質問に対応する回答要素を探す
+      for (let i = 0; i < questionYosos.length; i++) {
+        if (questionYosos[i] === questionYoso) {
+          // 同じ順番の位置にあるanswerを取得
+          let answerYoso = answerYosos[i];
 
-      // 回答のopenクラスを付けたり外したりして切り替え
-      answerYoso.classList.toggle("open");
+          // 回答のopenクラスを付けたり外したりして切り替え
+          answerYoso.classList.toggle("open");
+        }
+      }
     });
   }`}
 /><Solution>
@@ -617,7 +625,7 @@ for (let cardYoso of cardYosos) {
 
 **解説**:
 - `display: none;` と `display: block;` で回答の表示・非表示を制御しています
-- `nextElementSibling` を使って、クリックされた質問の直後にある回答要素を取得しています
+- `querySelectorAll(".question")` と `querySelectorAll(".answer")` で、それぞれ質問と回答をまとめて取得し、同じ順番の組み合わせとして対応付けています
 </Solution>
 </Exercise>
 
