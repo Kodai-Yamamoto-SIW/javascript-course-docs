@@ -550,18 +550,20 @@ for (let cardYoso of cardYosos) {
 - `for (let cardYoso of cardYosos)` と書くことで、`cardYosos` の中身を先頭から順番に `cardYoso` に取り出してくれる
 - 中かっこの中には「1つぶん」の処理だけを書けばよい（それが全部の要素に対して繰り返される）
 
-この組み合わせ（`querySelectorAll` + `for...of`）を使うことで、演習-発展3 以降の「複数の質問」「複数のカード」「複数のタブ」などに同じ処理をつけていきます。
+この組み合わせ（`querySelectorAll` + `for...of`）を使って、だんだん複雑なUIに挑戦していきます。
 
 ---
 
-<Exercise title="演習-発展3（アコーディオン）">
+<Exercise title="演習-発展3（まずは単純なカード選択）">
 
-次のプレビューのように動作する、アコーディオンUIを作成せよ。
+最初は、**単一の for...of だけ** を使ったシンプルな例に挑戦します。
+
+次のプレビューのように動作する、複数選択可能なカードUIを作成せよ。
 
 **動作要件**:
-- 質問をクリックすると、対応する回答が表示される
-- もう一度クリックすると回答が非表示になる
-- 複数の質問を同時に開くことができる
+- 3つのカードがあり、クリックすると選択状態になる
+- 選択されたカードには `selected` クラスが付き、見た目が変わる
+- もう一度クリックすると選択が解除される
 
 <CodePreview
   sourceId="演習-発展3"
@@ -569,69 +571,47 @@ for (let cardYoso of cardYosos) {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="faq-item">
-    <div class="question">JavaScriptとは何ですか?</div>
-    <div class="answer">JavaScriptはWebページに動きをつけるプログラミング言語です。</div>
-  </div>
-  <div class="faq-item">
-    <div class="question">CSSとは何ですか？</div>
-    <div class="answer">CSSはWebページの見た目を整えるための言語です。</div>
-  </div>
-  <div class="faq-item">
-    <div class="question">HTMLとは何ですか？</div>
-    <div class="answer">HTMLはWebページの構造を作るための言語です。</div>
-  </div>`}
-  initialCSS={`.faq-item {
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
-  }
-  .question {
-    padding: 16px;
-    background-color: #f5f5f5;
-    cursor: pointer;
-  }
-  .answer {
-    display: none;
-    padding: 16px;
+  initialHTML={`<div class="card">カード1</div>
+  <div class="card">カード2</div>
+  <div class="card">カード3</div>`}
+  initialCSS={`.card {
+    width: 120px;
+    height: 100px;
     background-color: white;
+    border: 2px solid #ccc;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
   }
-  .answer.open {
-    display: block;
+  .card.selected {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
   }`}
-  initialJS={`// すべての質問要素を取得
-  let questionYosos = document.querySelectorAll(".question");
+  initialJS={`// すべてのカード要素を取得
+  let cardYosos = document.querySelectorAll(".card");
 
-  // すべての回答要素を取得
-  let answerYosos = document.querySelectorAll(".answer");
-
-  // すべての質問をループで処理
-  for (let questionYoso of questionYosos) {
-    // 各質問にクリックイベントを登録
-    questionYoso.addEventListener("click", function() {
-      // クリックされた質問に対応する回答要素を探す
-      for (let i = 0; i < questionYosos.length; i++) {
-        if (questionYosos[i] === questionYoso) {
-          // 同じ順番の位置にあるanswerを取得
-          let answerYoso = answerYosos[i];
-
-          // 回答のopenクラスを付けたり外したりして切り替え
-          answerYoso.classList.toggle("open");
-        }
-      }
+  // すべてのカードをループで処理
+  for (let cardYoso of cardYosos) {
+    // 各カードにクリックイベントを登録
+    cardYoso.addEventListener("click", function() {
+      // selectedクラスを付けたり外したりして切り替え
+      cardYoso.classList.toggle("selected");
     });
   }`}
 /><Solution>
 <CodePreview sourceId="演習-発展3" />
 
 **解説**:
-- `display: none;` と `display: block;` で回答の表示・非表示を制御しています
-- `querySelectorAll(".question")` と `querySelectorAll(".answer")` で、それぞれ質問と回答をまとめて取得し、同じ順番の組み合わせとして対応付けています
+- `querySelectorAll(".card")` で3つのカードをまとめて取得しています
+- `for...of` の中では「1枚のカード」に対する処理だけを書き、toggle で選択の ON/OFF をしています
 </Solution>
 </Exercise>
 
 ---
 
-<Exercise title="演習-発展4（カード選択）">
+<Exercise title="演習-発展4（単一 for-of でカード選択＋カウント）">
+
+次に、**単一の for...of の中で完結する** 少しだけ発展したパターンを練習します。
 
 次のプレビューのように動作する、複数選択可能なカードUIを作成せよ。
 
@@ -694,23 +674,34 @@ for (let cardYoso of cardYosos) {
 <CodePreview sourceId="演習-発展4" />
 
 **解説**:
-- カードをクリックするたびに `selected` クラスを toggle で切り替えています
-- その後、すべてのカードをループで確認し、`classList.contains("selected")` で選択中のカードをカウントしています
-- 選択されたカードは背景色と枠線の色が変わります
+- `for...of` の外でカードのまとまりとカウント表示を取得しています
+- クリックされたときに、再び `for...of` を使って「今選択されているカードの数」を数えています
 </Solution>
 </Exercise>
 
 ---
 
-<Exercise title="演習-発展5（タブの切り替え）">
+ここまでで、
 
-次のプレビューのように動作する、タブ切り替えUIを作成せよ。
+- 「1つぶんの処理」を `for...of` の中に書く
+- 必要なら、その中で再度 `for...of` を使って「全体の状態」を数え直す
+
+という2パターンを練習しました。
+
+ここから先は、**複数の for...of や、ふつうの for 文（インデックスつき）を組み合わせないと実現しにくいパターン** に挑戦していきます。
+
+---
+
+<Exercise title="演習-発展5（アコーディオン）">
+
+次のプレビューのように動作する、アコーディオンUIを作成せよ。
 
 **動作要件**:
-- 3つのタブボタンがあり、それぞれクリックすると対応するコンテンツが表示される
-- 選択されているタブには `active` クラスが付き、見た目が変わる
-- コンテンツの切り替えは、`active` クラスの有無で表示・非表示を制御する
-- 最初は1つ目のタブとコンテンツが選択されている状態
+- 質問をクリックすると、対応する回答が表示される
+- もう一度クリックすると回答が非表示になる
+- 複数の質問を同時に開くことができる
+
+ヒント: 質問と回答は「同じ順番」で並んでいるので、`for` 文でインデックス番号を使って対応付けるパターンを考えてみよう。
 
 <CodePreview
   sourceId="演習-発展5"
@@ -718,256 +709,65 @@ for (let cardYoso of cardYosos) {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<button class="tab active" data-tab="1">ホーム</button>
-  <button class="tab" data-tab="2">プロフィール</button>
-  <button class="tab" data-tab="3">設定</button>
-  <div class="tab-content active" data-content="1">ホームの内容です</div>
-  <div class="tab-content" data-content="2">プロフィールの内容です</div>
-  <div class="tab-content" data-content="3">設定の内容です</div>`}
-  initialCSS={`.tab {
-    padding: 10px 20px;
-    background-color: #f0f0f0;
-    border: none;
-    margin-right: 8px;
+  initialHTML={`<div class="faq-item">
+    <div class="question">JavaScriptとは何ですか?</div>
+    <div class="answer">JavaScriptはWebページに動きをつけるプログラミング言語です。</div>
+  </div>
+  <div class="faq-item">
+    <div class="question">CSSとは何ですか？</div>
+    <div class="answer">CSSはWebページの見た目を整えるための言語です。</div>
+  </div>
+  <div class="faq-item">
+    <div class="question">HTMLとは何ですか？</div>
+    <div class="answer">HTMLはWebページの構造を作るための言語です。</div>
+  </div>`}
+  initialCSS={`.faq-item {
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+  }
+  .question {
+    padding: 16px;
+    background-color: #f5f5f5;
     cursor: pointer;
   }
-  .tab.active {
-    background-color: #007bff;
-    color: white;
-  }
-  .tab-content {
+  .answer {
     display: none;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-top: 16px;
+    padding: 16px;
+    background-color: white;
   }
-  .tab-content.active {
+  .answer.open {
     display: block;
   }`}
-  initialJS={`// すべてのタブボタンを取得
-  let tabYosos = document.querySelectorAll(".tab");
+  initialJS={`// すべての質問要素を取得
+  let questionYosos = document.querySelectorAll(".question");
 
-  // すべてのタブをループで処理
-  for (let tabYoso of tabYosos) {
-    // 各タブにクリックイベントを登録
-    tabYoso.addEventListener("click", function() {
-      // クリックされたタブの番号を取得
-      let tabNumber = tabYoso.getAttribute("data-tab");
+  // すべての回答要素を取得
+  let answerYosos = document.querySelectorAll(".answer");
 
-      // すべてのタブからactiveクラスを削除
-      for (let currentTabYoso of tabYosos) {
-        currentTabYoso.classList.remove("active");
+  // すべての質問をループで処理
+  for (let questionYoso of questionYosos) {
+    // 各質問にクリックイベントを登録
+    questionYoso.addEventListener("click", function() {
+      // クリックされた質問に対応する回答要素を探す
+      for (let i = 0; i < questionYosos.length; i++) {
+        if (questionYosos[i] === questionYoso) {
+          // 同じ順番の位置にあるanswerを取得
+          let answerYoso = answerYosos[i];
+
+          // 回答のopenクラスを付けたり外したりして切り替え
+          answerYoso.classList.toggle("open");
+        }
       }
-
-      // クリックされたタブにactiveクラスを追加
-      tabYoso.classList.add("active");
-
-      // すべてのコンテンツからactiveクラスを削除
-      let contentYosos = document.querySelectorAll(".tab-content");
-      for (let contentYoso of contentYosos) {
-        contentYoso.classList.remove("active");
-      }
-
-      // 対応するコンテンツにactiveクラスを追加
-      let targetContent = document.querySelector('.tab-content[data-content="' + tabNumber + '"]');
-      targetContent.classList.add("active");
     });
   }`}
 /><Solution>
 <CodePreview sourceId="演習-発展5" />
 
 **解説**:
-- `data-tab` と `data-content` 属性を使って、タブとコンテンツを紐付けています
-- タブがクリックされたら、まずすべてのタブとコンテンツから `active` を削除し、クリックされたタブと対応するコンテンツにのみ `active` を追加することで切り替えを実現しています
-- ループを使ってすべての要素を処理することで、タブの数が増えても対応できます
+- `display: none;` と `display: block;` で回答の表示・非表示を制御しています
+- `querySelectorAll(".question")` と `querySelectorAll(".answer")` で、それぞれ質問と回答をまとめて取得し、同じ順番の組み合わせとして対応付けています
+- クリックされた質問と同じインデックス番号の回答要素を探すために、ふつうの `for` 文を使っています
 </Solution>
 </Exercise>
 
 ---
-
-<Exercise title="演習-発展6（画像ギャラリー切り替え）">
-
-次のプレビューのように動作する、画像ギャラリーを作成せよ。
-
-**動作要件**:
-- 3つのサムネイル画像があり、クリックすると大きく表示される画像が切り替わる
-- 選択中のサムネイルには枠が付く
-
-<CodePreview
-  sourceId="演習-発展6"
-  htmlVisible={false}
-  cssVisible={false}
-  jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div class="main-image active" data-img="1">画像1（メイン）</div>
-  <div class="main-image" data-img="2">画像2（メイン）</div>
-  <div class="main-image" data-img="3">画像3（メイン）</div>
-  <div class="thumbnail active" data-thumb="1">画像1</div>
-  <div class="thumbnail" data-thumb="2">画像2</div>
-  <div class="thumbnail" data-thumb="3">画像3</div>`}
-  initialCSS={`.main-image {
-    width: 300px;
-    height: 200px;
-    background-color: #f0f0f0;
-    margin-bottom: 16px;
-    display: none;
-  }
-  .main-image.active {
-    display: block;
-  }
-  .main-image[data-img="1"] {
-    background-color: #ffcdd2;
-  }
-  .main-image[data-img="2"] {
-    background-color: #c8e6c9;
-  }
-  .main-image[data-img="3"] {
-    background-color: #bbdefb;
-  }
-  .thumbnail {
-    width: 90px;
-    height: 60px;
-    background-color: #e0e0e0;
-    border: 3px solid transparent;
-    margin-right: 8px;
-    cursor: pointer;
-  }
-  .thumbnail.active {
-    border-color: #2196f3;
-  }
-  .thumbnail[data-thumb="1"] {
-    background-color: #ffcdd2;
-  }
-  .thumbnail[data-thumb="2"] {
-    background-color: #c8e6c9;
-  }
-  .thumbnail[data-thumb="3"] {
-    background-color: #bbdefb;
-  }`}
-  initialJS={`// すべてのサムネイルを取得
-  let thumbnailYosos = document.querySelectorAll(".thumbnail");
-
-  // すべてのサムネイルをループで処理
-  for (let thumbnailYoso of thumbnailYosos) {
-    // 各サムネイルにクリックイベントを登録
-    thumbnailYoso.addEventListener("click", function() {
-      // クリックされたサムネイルの番号を取得
-      let imgNumber = thumbnailYoso.getAttribute("data-thumb");
-
-      // すべてのサムネイルからactiveクラスを削除
-      for (let currentThumbnailYoso of thumbnailYosos) {
-        currentThumbnailYoso.classList.remove("active");
-      }
-
-      // クリックされたサムネイルにactiveクラスを追加
-      thumbnailYoso.classList.add("active");
-
-      // すべてのメイン画像からactiveクラスを削除
-      let mainImageYosos = document.querySelectorAll(".main-image");
-      for (let mainImageYoso of mainImageYosos) {
-        mainImageYoso.classList.remove("active");
-      }
-
-      // 対応するメイン画像にactiveクラスを追加
-      let targetImage = document.querySelector('.main-image[data-img="' + imgNumber + '"]');
-      targetImage.classList.add("active");
-    });
-  }`}
-/><Solution>
-<CodePreview sourceId="演習-発展6" />
-
-**解説**:
-- `data-thumb` と `data-img` 属性を使って、サムネイルとメイン画像を紐付けています
-- タブ切り替えと似た仕組みですが、画像の切り替えに特化した実装になっています
-</Solution>
-</Exercise>
-
----
-
-<Exercise title="演習-発展7（プライスカード選択）">
-
-次のプレビューのように動作する、料金プランの選択UIを作成せよ。
-
-**動作要件**:
-- 3つの料金プランカードがあり、1つだけ選択できる
-- カードをクリックすると、そのカードだけが選択状態になる（他は自動的に解除）
-- 選択されたカードには `selected` クラスが付き、見た目が変わる
-- 選択されたプラン名を下部に表示する
-
-<CodePreview
-  sourceId="演習-発展7"
-  htmlVisible={false}
-  cssVisible={false}
-  jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div class="price-card" data-plan="ベーシック">
-    <h3>ベーシック</h3>
-    <p class="price">¥1,000/月</p>
-  </div>
-  <div class="price-card" data-plan="スタンダード">
-    <h3>スタンダード</h3>
-    <p class="price">¥2,000/月</p>
-  </div>
-  <div class="price-card" data-plan="プレミアム">
-    <h3>プレミアム</h3>
-    <p class="price">¥3,000/月</p>
-  </div>
-  <p>選択中のプラン: <span class="selected-plan">未選択</span></p>`}
-  initialCSS={`.price-card {
-    width: 150px;
-    padding: 20px;
-    background-color: white;
-    border: 2px solid #ddd;
-    margin-right: 16px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .price-card.selected {
-    border-color: #4caf50;
-    background-color: #f1f8f4;
-  }
-  .price-card h3 {
-    margin: 0 0 12px 0;
-  }
-  .price {
-    margin: 0;
-    color: #4caf50;
-  }`}
-  initialJS={`// すべての料金カードを取得
-  let cardYosos = document.querySelectorAll(".price-card");
-
-  // 選択中のプラン表示要素を取得
-  let planYoso = document.querySelector(".selected-plan");
-
-  // すべてのカードをループで処理
-  for (let cardYoso of cardYosos) {
-    // 各カードにクリックイベントを登録
-    cardYoso.addEventListener("click", function() {
-      // クリックされたカードのプラン名を取得
-      let planName = cardYoso.getAttribute("data-plan");
-
-      // すべてのカードからselectedクラスを削除
-      for (let currentCardYoso of cardYosos) {
-        currentCardYoso.classList.remove("selected");
-      }
-
-      // クリックされたカードにselectedクラスを追加
-      cardYoso.classList.add("selected");
-
-      // 選択中のプラン名を表示
-      planYoso.innerText = planName;
-    });
-  }`}
-/><Solution>
-<CodePreview sourceId="演習-発展7" />
-
-**解説**:
-- ラジオボタンのような「1つだけ選択」の動作を、カードUIで実現しています
-- クリック時にまずすべてのカードから `selected` を削除してから、クリックされたカードにのみ追加することで、排他的な選択を実現
-- 選択されたカードは背景色と枠線の色が変わります
-</Solution>
-</Exercise>
-
----
-
