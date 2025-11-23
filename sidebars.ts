@@ -31,6 +31,7 @@ const sidebars: SidebarsConfig = {
         'basics/swiper',
         'basics/jquery-slidetoggle',
         'basics/dom-css-transition',
+        'basics/dom-css-class-transition',
       ],
     },
   ],

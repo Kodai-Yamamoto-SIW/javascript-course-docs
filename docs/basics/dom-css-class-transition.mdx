@@ -1,0 +1,366 @@
+---
+title: クラス切り替えでCSSアニメーション
+sidebar_position: 999
+---
+
+import Exercise, { Solution } from "@kodai-yamamoto-siw/exercise/client";
+import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
+
+## 今日の学習はこんなところで使うよ
+
+この章では、**要素に付けるクラス名をJavaScriptで切り替えて見た目を変える方法**と、
+そこに **CSS Transition** を足してアニメーションさせる方法を学びます。
+メニューの開閉、モーダルウィンドウの表示・非表示、カードの選択状態のON/OFFなど、「状態」を表すクラスを付け替えることで、見た目の変化とアニメーションをコントロールできます。
+
+まずは **transitionなしで単に見た目が切り替わるだけの例** を見て、
+「クラスをつけ外しすると、適用されるCSSが変わる」ということを確認します。
+そのあとで「同じコードにtransitionを足すと滑らかにアニメーションする」という流れで学習します。
+
+---
+
+## まずは「クラス切り替えだけ」で見た目を変える
+
+### 基本の考え方（クラス切り替え）
+
+1. **CSS側**で「通常の状態」と「変化後の状態」のスタイルを、クラスで分けて書く。
+2. **JavaScript側**で、イベントに応じてクラスを追加・削除する。
+3. 特によく使うのが `classList.toggle` で、付いていなければクラスを追加、付いていればクラスを削除できる。
+4. クラスが変わる → 適用されるCSSが変わる → 見た目がパッと切り替わる。
+
+```js
+要素.classList.toggle("クラス名"); // クラスが付いていなければ追加、付いていれば削除
+```
+
+### シンプルな例: ボックスをクリックしたら瞬時に大きくなる
+
+<CodePreview
+  initialHTML={`<div class="box">クリックでサイズ変更</div>`}
+  initialCSS={`.box {
+    width: 120px;
+    height: 120px;
+    background-color: skyblue;
+  }
+  .box.big {
+    width: 200px;
+    height: 200px;
+    background-color: deepskyblue;
+  }`}
+  initialJS={`// boxクラスの要素を取得
+  let boxYoso = document.querySelector(".box");
+
+  // クリックされたときの処理を登録
+  boxYoso.addEventListener("click", function() {
+    // bigクラスを付けたり外したりして切り替え
+    boxYoso.classList.toggle("big");
+  });`}
+/>
+
+#### なぜクリックでサイズが変わるのか
+
+1. HTMLでは `div` に最初 `class="box"` だけが付いているため、CSSの `.box { ... }` の幅と高さ (120px) が適用される。
+2. JavaScriptで `boxYoso.addEventListener("click", ...)` を書くことで、クリックされた瞬間に中の処理が実行される。
+3. 処理の中で `boxYoso.classList.toggle("big")` を呼び出すと、最初は `big` クラスが付いていないので `big` クラスが追加される。
+4. 要素のクラスが `class="box big"` （box と big の2つのクラスがついているという意味（※クラスは半角スペース区切りで複数つけることができる））になると、CSSの `.box.big { ... }` で指定した幅200px・高さ200px・背景色deepskyblue が新しく適用される。
+
+つまり「イベントでクラスを付ける → そのクラス用のCSSが適用される」という流れでサイズが変化している。
+
+---
+
+<Exercise title="演習1（transitionなしでクラス切り替え）">
+
+次のプレビューのように動作するよう、HTML/CSS/JavaScriptを書け（幅や色は自由で良い）。
+
+**動作**: 要素をクリックすると `active` クラスが付いたり外れたりすることで見た目が切り替わる（transition は使わない）。
+
+<CodePreview
+  sourceId="演習1"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="box">クリックしてね</div>`}
+  initialCSS={`.box {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+  }
+  .box.active {
+    width: 220px;
+    height: 220px;
+    background-color: lightgreen;
+  }`}
+  initialJS={`// boxクラスの要素を取得
+  let boxYoso = document.querySelector(".box");
+
+  // クリックされたときの処理を登録
+  boxYoso.addEventListener("click", function() {
+    // activeクラスを付けたり外したりして切り替え
+    boxYoso.classList.toggle("active");
+  });`}
+/><Solution>
+<CodePreview sourceId="演習1" />
+</Solution>
+</Exercise>
+
+---
+
+## 同じコードにtransitionを足してアニメーションさせる
+
+次に、さきほどと同じ「クラスを切り替えるコード」に、CSSの `transition` を足してみます。
+
+1. CSS側で、アニメーションさせたい要素に `transition` を追加する。
+2. クラスが切り替わると、プロパティの変化がパッとではなく、指定した時間をかけて滑らかに変化する。
+
+### 例: 先ほどのボックスにtransitionを追加する
+
+<CodePreview
+  initialHTML={`<div class="box">クリックでサイズ変更</div>`}
+  initialCSS={`.box {
+    width: 120px;
+    height: 120px;
+    background-color: skyblue;
+    transition: all 0.3s;
+  }
+  .box.big {
+    width: 200px;
+    height: 200px;
+    background-color: deepskyblue;
+  }`}
+  initialJS={`// boxクラスの要素を取得
+  let boxYoso = document.querySelector(".box");
+
+  // クリックされたときの処理を登録
+  boxYoso.addEventListener("click", function() {
+    // bigクラスを付けたり外したりして切り替え
+    boxYoso.classList.toggle("big");
+  });`}
+/>
+
+:::tip transition を書く場所が大事
+`transition` は両方の状態で常に残る共通クラス（例: `.box`）に書く。そこで指定すると付ける時も外す時も滑らかになる。変化側だけ（例: `.box.big`）に置くと戻りが一瞬になる。複数なら `transition: all 0.3s;`、特定なら `transition: width 0.3s, height 0.3s;`。
+:::
+
+---
+
+<Exercise title="演習2（滑らかになるようにアニメーション化）">
+
+演習1と同じように動作するが、次のプレビューのように、さらにサイズや色の変化が滑らかに見えるようにしたHTML/CSS/JavaScriptを作成せよ（幅や色は自由で良い）。
+
+**動作**: 要素をクリックすると `active` クラスが付いたり外れたりすることで見た目が切り替わり、その変化が滑らかにアニメーションする。
+
+<CodePreview
+  sourceId="演習2"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="box">クリックしてね</div>`}
+  initialCSS={`.box {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+    transition: all 0.4s;
+  }
+  .box.active {
+    width: 220px;
+    height: 220px;
+    background-color: lightgreen;
+  }`}
+  initialJS={`// boxクラスの要素を取得
+  let boxYoso = document.querySelector(".box");
+
+  // クリックされたときの処理を登録
+  boxYoso.addEventListener("click", function() {
+    // activeクラスを付けたり外したりして切り替え
+    boxYoso.classList.toggle("active");
+  });`}
+/><Solution>
+<CodePreview sourceId="演習2" />
+</Solution>
+</Exercise>
+
+---
+
+## classListでクラスを操作する
+
+クラスの追加・削除には、要素の `classList` を使います。
+
+```js
+要素.classList.add("クラス名");      // クラスを追加
+要素.classList.remove("クラス名");   // クラスを削除
+要素.classList.toggle("クラス名");   // 付いていれば削除、なければ追加
+```
+
+### 例: ホバーでクラスを付け外しする
+
+<CodePreview
+  initialHTML={`<div class="card">マウスを乗せてね</div>`}
+  initialCSS={`.card {
+    width: 180px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    transition: all 0.3s;
+  }
+  .card.hovered {
+    background-color: #ffe0b2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }`}
+  initialJS={`// cardクラスの要素を取得
+  let cardYoso = document.querySelector(".card");
+
+  // マウスが乗ったときの処理を登録
+  cardYoso.addEventListener("mouseenter", function() {
+    // hoveredクラスを追加
+    cardYoso.classList.add("hovered");
+  });
+
+  // マウスが離れたときの処理を登録
+  cardYoso.addEventListener("mouseleave", function() {
+    // hoveredクラスを削除
+    cardYoso.classList.remove("hovered");
+  });`}
+/>
+
+---
+
+<Exercise title="演習3（hoverで影をつける）">
+
+次のように動作するよう、CSSとJavaScriptを書け（幅や色は自由で良い）。
+
+**動作**: カードにマウスを乗せると背景色が変わり影が付く。マウスが離れると元に戻る。変化は滑らかにアニメーションする。また、p要素のテキストも状態に応じて切り替わる。
+
+<CodePreview
+  sourceId="演習3"
+  htmlVisible={true}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="card">マウスを乗せてね</div>
+  <p>ステータス: <span class="status">通常</span></p>`}
+  initialCSS={`.card {
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid #ccc;
+    transition: all 0.3s;
+  }
+  .card.hovered {
+    background-color: #fff3cd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }`}
+  initialJS={`// cardクラスの要素とstatus要素を取得
+  let cardYoso = document.querySelector(".card");
+  let statusYoso = document.querySelector(".status");
+
+  // マウスが乗ったときの処理を登録
+  cardYoso.addEventListener("mouseenter", function() {
+    // hoveredクラスを追加
+    cardYoso.classList.add("hovered");
+
+    // ステータステキストを変更
+    statusYoso.innerText = "ホバー中";
+  });
+
+  // マウスが離れたときの処理を登録
+  cardYoso.addEventListener("mouseleave", function() {
+    // hoveredクラスを削除
+    cardYoso.classList.remove("hovered");
+
+    // ステータステキストを元に戻す
+    statusYoso.innerText = "通常";
+  });`}
+/><Solution>
+<CodePreview sourceId="演習3" />
+</Solution>
+</Exercise>
+
+---
+
+## classList.contains で「今そのクラスが付いているか」を調べる
+
+クラスの ON/OFF を切り替えるだけなら `classList.toggle` だけで十分ですが、
+「今そのクラスが付いているかどうかで処理を分けたい」こともよくあります。
+
+そのときに使うのが `classList.contains` です。
+
+```js
+要素.classList.contains("クラス名"); // 付いていれば true、付いていなければ false
+```
+
+この戻り値（true / false）を使って、`if` 文でメッセージや見た目を切り替えることができます。
+
+### 例: 選択中なら「ON」、そうでなければ「OFF」と表示する
+
+<CodePreview
+  initialHTML={`<button class="btn">ボタン</button>
+  <p>状態: <span class="status">OFF</span></p>`}
+  initialCSS={`.btn {
+    padding: 8px 16px;
+  }
+  .btn.selected {
+    background-color: lightcoral;
+  }`}
+  initialJS={`// ボタンとステータスの要素を取得
+  let btnYoso = document.querySelector(".btn");
+  let statusYoso = document.querySelector(".status");
+
+  // ボタンがクリックされたときの処理を登録
+  btnYoso.addEventListener("click", function() {
+    // selectedクラスを付けたり外したりして切り替え
+    btnYoso.classList.toggle("selected");
+
+    // selectedクラスが付いているかどうかで表示を切り替え
+    if (btnYoso.classList.contains("selected")) {
+      statusYoso.innerText = "ON";
+    } else {
+      statusYoso.innerText = "OFF";
+    }
+  });`}
+/>
+
+---
+
+<Exercise title="演習4（ON/OFF表示をclassList.containsで切り替える）">
+
+次のプレビューのように動作するよう、HTML/CSS/JavaScriptを書け（幅や色は自由で良い）。
+
+**動作**: ボタンをクリックするたびに、見た目と「有効/無効」の表示が切り替わる。`classList.contains` を使って、ボタンが選択されているかどうかでテキストを変えること。
+
+<CodePreview
+  sourceId="演習4"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<button class="btn">通知を切り替え</button>
+  <p>通知の状態: <span class="status">無効</span></p>`}
+  initialCSS={`.btn {
+    padding: 8px 16px;
+  }
+  .btn.selected {
+    background-color: lightgreen;
+  }`}
+  initialJS={`// ボタンとステータスの要素を取得
+  let btnYoso = document.querySelector(".btn");
+  let statusYoso = document.querySelector(".status");
+
+  // ボタンがクリックされたときの処理を登録
+  btnYoso.addEventListener("click", function() {
+    // selectedクラスを付けたり外したりして切り替え
+    btnYoso.classList.toggle("selected");
+
+    // selectedクラスが付いているかどうかで表示を切り替え
+    if (btnYoso.classList.contains("selected")) {
+      statusYoso.innerText = "有効";
+    } else {
+      statusYoso.innerText = "無効";
+    }
+  });`}
+/><Solution>
+<CodePreview sourceId="演習4" />
+</Solution>
+</Exercise>
+
+---
+
