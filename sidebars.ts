@@ -34,6 +34,13 @@ const sidebars: SidebarsConfig = {
         'basics/dom-css-class-transition',
       ],
     },
+    {
+      type: 'category',
+      label: 'UIコンポーネント',
+      items: [
+        'ui-components/drawer-menu',
+      ],
+    },
   ],
 };
 
