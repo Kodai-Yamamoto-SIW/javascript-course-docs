@@ -12,9 +12,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
 このページでは、ドロワーメニューの作り方を順を追って学んでいきます。
 
-## 演習1: ヘッダーとハンバーガーアイコンの作成
-
-<Exercise>
+<Exercise title="演習1（ヘッダーとハンバーガーアイコンの作成）">
 
 まずは、ヘッダーとハンバーガーアイコンの見た目を作りましょう。以下のプレビューと同じ見た目になるように、HTML と CSS を書いてください。
 
@@ -74,9 +72,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 </Solution>
 </Exercise>
 
-## 演習2: メニューコンテンツの作成
-
-<Exercise>
+<Exercise title="演習2（メニューコンテンツの作成）">
 
 続いて、メニューコンテンツを作りましょう。以下のプレビューと同じ見た目になるように、HTML と CSS を書いてください。
 
@@ -161,9 +157,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 </Solution>
 </Exercise>
 
-## 演習3: 開閉機能の作成
-
-<Exercise>
+<Exercise title="演習3（開閉機能の作成）">
 
 ついに、JavaScript で開閉機能を作りましょう。以下のプレビューのように、ハンバーガーアイコンをクリックしたら、メニューが出し入れするように、CSS と JavaScript を書いてください。
 
@@ -266,9 +260,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 </Solution>
 </Exercise>
 
-## 演習4: アニメーション化
-
-<Exercise>
+<Exercise title="演習4（アニメーション化）">
 
 あとは適切にアニメーションするように調整しましょう。以下のプレビューのように、ハンバーガーアイコンをクリックしたら、
 - 滑らかにメニューが出し入れする
