@@ -915,7 +915,6 @@ CSS上で24√2 px は、calc(24px * sqrt(2)) で表すことができます。
     padding: 12px 36px; /* リンクの内側の余白 */
     color: black; /* リンクの色を黒に */
     text-decoration: none; /* 下線を消す */
-    border-radius: 4px; /* 角を少し丸くする */
     transition: background-color 0.3s; /* 背景色の変化を滑らかにする */
   }
 
