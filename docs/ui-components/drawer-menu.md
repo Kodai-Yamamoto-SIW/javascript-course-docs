@@ -152,7 +152,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習2"/>
 </Solution>
 </Exercise>
@@ -255,7 +255,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習3"/>
 </Solution>
 </Exercise>
@@ -356,7 +356,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習4"/>
 </Solution>
 </Exercise>
@@ -487,7 +487,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習-発展1"/>
 </Solution>
 </Exercise>
@@ -634,8 +634,172 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習-発展2"/>
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展3（ハンバーガーアイコンの長さ調整）">
+
+先ほどの演習-発展2では、実は×が綺麗な正方形になっていません。
+![×が綺麗な正方形になっていない図](../../static/img/drawer-menu/cross-icon-misalignment.png)
+- なぜでしょうか？
+- どうすれば綺麗な正方形になるでしょうか？
+- 綺麗な正方形になるように、CSS を修正してください。
+
+<CodePreview
+  sourceId="演習-発展3"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <button class="ham-btn">
+      <span class="ham-icon">
+        <span class="line top"></span>
+        <span class="line middle"></span>
+        <span class="line bottom"></span>
+      </span>
+    </button>
+  </header>
+  <nav class="ham-nav">
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">サービス</a></li>
+      <li><a href="#">会社情報</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="#">お問い合わせ2</a></li>
+      <li><a href="#">お問い合わせ3</a></li>
+      <li><a href="#">お問い合わせ4</a></li>
+    </ul>
+  </nav>
+  <div class="overlay"></div>`}
+  initialCSS={`body {
+      margin: 0;
+  }
+
+  header {
+    border-bottom: solid black 1px;
+  }
+
+  /* ハンバーガーのボタンとアイコンの調整 */
+  .ham-btn {
+    display: block;
+    padding: 20px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  .ham-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ham-icon .line {
+    width: calc(24px * sqrt(2)); /* ここを 24√2 px になるように調整 */
+    height: 4px;
+
+    display: block;
+    background-color: black;
+
+    transform-origin: left center;
+    transition: all 1s;
+  }
+
+  .ham-icon.open .line.top {
+    transform: rotate(45deg);
+  }
+  .ham-icon.open .line.middle {
+    opacity: 0;
+  }
+  .ham-icon.open .line.bottom {
+    transform: rotate(-45deg);
+  }
+  
+  /* ハンバーガーのメニューコンテンツ部分の調整 */
+  .ham-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+
+    padding: 60px 20px 0;
+
+    transform: translateX(-100%);
+    transition: all 1s;
+    z-index: 1;
+  }
+  
+  .ham-nav.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* オーバーレイ部分の調整 */
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 0;
+  }
+
+  .overlay.open {
+    opacity: 1;
+  `}
+  initialJS={`const hamBtnYoso = document.querySelector('.ham-btn');
+  const hamNavYoso = document.querySelector('.ham-nav');
+  const overlayYoso = document.querySelector('.overlay');
+  const hamIconYoso = document.querySelector('.ham-icon');
+
+  hamBtnYoso.addEventListener('click', () => {
+    hamNavYoso.classList.toggle('open');
+    overlayYoso.classList.toggle('open');
+    hamIconYoso.classList.toggle('open');
+  });
+  
+  overlayYoso.addEventListener('click', () => {
+    hamNavYoso.classList.remove('open');
+    overlayYoso.classList.remove('open');
+    hamIconYoso.classList.remove('open');
+  });`}
+/>
+
+<Solution>
+答えは、線の横幅が少し短く、足りないからです。（あるいは別の表現で、線の高さが高すぎる、間隔が広すぎる、などとも言えます）  
+この解答では、ぴったり正方形になるように、もう少し線の width を長くしてあげることにします。
+
+勘で長さを調整しても良いですが、正確に正方形にするには、数学的に図を書いて計算で求めることができます。
+
+まず、高さ方向の長さについて考えると、![ハンバーガーアイコンの各線の高さは4px, 間隔は8px](../../static/img/drawer-menu/hamburger-height-size-detail.png)
+このようになっているので、一番上の線の中心線と、一番下の線の中心線の間隔（つまり今長方形になっている領域の高さ）は、4*2 + 8*2 = 24 px です。
+![ハンバーガーアイコンの長方形領域の高さサイズは24px](../../static/img/drawer-menu/hamburger-height-size.png)
+
+ということは、上下の線を、左端の中央位置を基準に45度回転させたときに正方形になるようにするには、下の図のようになる必要があります。
+![縦24px、横24pxの正方形に×が収まる](../../static/img/drawer-menu/cross-icon-square-alignment-highlight.png)
+
+ということは、線は、この正方形の対角線になります。  
+45度の直角三角形の辺の長さの比は 1:1:√2 なので、
+![45度の直角三角形の辺の長さの比は 1:1:√2](../../static/img/drawer-menu/trigonometric_ratio_45deg.png)
+
+線の長さは、正方形の対角線の長さである 24√2 px になる必要があることが分かります。
+![線の長さは24√2px](../../static/img/drawer-menu/cross-icon-alignment-size-answer.png)
+
+CSS上で24√2 px は、calc(24px * sqrt(2)) で表すことができます。
+
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習-発展3"/>
 </Solution>
 </Exercise>
 
