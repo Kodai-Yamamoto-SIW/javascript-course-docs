@@ -156,7 +156,112 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-演習1から増えたところだけ、プロパティの後ろにコメントを書いています。
+前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習2"/>
 </Solution>
 </Exercise>
+
+## 演習3: 開閉機能の作成
+
+<Exercise>
+
+ついに、JavaScript で開閉機能を作りましょう。以下のプレビューのように、ハンバーガーアイコンをクリックしたら、メニューが出し入れするように、CSS と JavaScript を書いてください。
+
+<CodePreview
+  sourceId="演習3"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <button class="ham-btn">
+      <span class="ham-icon">
+        <span class="line top"></span>
+        <span class="line middle"></span>
+        <span class="line bottom"></span>
+      </span>
+    </button>
+  </header>
+  <nav class="ham-nav">
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">サービス</a></li>
+      <li><a href="#">会社情報</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="#">お問い合わせ2</a></li>
+      <li><a href="#">お問い合わせ3</a></li>
+      <li><a href="#">お問い合わせ4</a></li>
+    </ul>
+  </nav>`}
+  initialCSS={`body {
+      margin: 0;
+  }
+
+  header {
+    border-bottom: solid black 1px;
+  }
+
+  /* ハンバーガーのボタンとアイコンの調整 */
+  .ham-btn {
+    display: block;
+    padding: 20px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+  }
+
+  .ham-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ham-icon .line {
+    width: 32px;
+    height: 4px;
+
+    display: block;
+    background-color: black;
+  }
+  
+  /* ハンバーガーのメニューコンテンツ部分の調整 */
+  .ham-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    /* box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); これは、open の時の方に移動 */
+
+    padding: 60px 20px 0;
+
+    transform: translateX(-100%); /* 初期の閉じている状態では、画面左に隠す */
+    transition: all 1.5s; /* 滑らかに変化するようにする */
+  }
+  
+  .ham-nav.open {
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 閉じているときにも影をつけると画面端にちらっと見えてしまうので、開いている時だけ影をつける */
+    transform: translateX(0); /* open クラスがついているときは、元の位置に表示する */
+  }`}
+  initialJS={`// ハンバーガーボタンの要素を取得
+  const hamBtn = document.querySelector('.ham-btn');
+  // ハンバーガーメニューの要素を取得
+  const hamNav = document.querySelector('.ham-nav');
+
+  // ハンバーガーボタンがクリックされたときの処理
+  hamBtn.addEventListener('click', () => {
+    // ham-nav クラスに対して、open クラスの付け外しを行う
+    hamNav.classList.toggle('open');
+  });`}
+/>
+
+<Solution>
+前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習3"/>
+</Solution>
+</Exercise>
+
