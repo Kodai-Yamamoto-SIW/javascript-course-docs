@@ -74,7 +74,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
 <Exercise title="演習2（メニューコンテンツの作成）">
 
-続いて、メニューコンテンツを作りましょう。以下のプレビューと同じ見た目になるように、HTML と CSS を書いてください。
+続いて、ドロワーメニューのメニューコンテンツを作りましょう。以下のプレビューと同じ見た目になるように、HTML と CSS を書いてください。
 
 <CodePreview
   sourceId="演習2"
