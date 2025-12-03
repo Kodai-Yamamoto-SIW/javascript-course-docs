@@ -91,7 +91,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
       </span>
     </button>
   </header>
-  <nav class="ham-nav">
+  <nav class="drawer">
     <ul>
       <li><a href="#">ホーム</a></li>
       <li><a href="#">サービス</a></li>
@@ -137,8 +137,8 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     background-color: black;
   }
   
-  /* ハンバーガーのメニューコンテンツ部分の調整 */
-  .ham-nav {
+  /* ドロワーのメニューコンテンツ部分の調整 */
+  .drawer {
     position: fixed; /* 画面内で、位置固定 */
     top: 0; /* 要素の上端は画面の上端に合わせる */
     bottom: 0; /* 要素の下端は画面の下端に合わせる(top:0, bottom:0 によって高さが画面いっぱいになる) */
@@ -179,7 +179,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
       </span>
     </button>
   </header>
-  <nav class="ham-nav">
+  <nav class="drawer">
     <ul>
       <li><a href="#">ホーム</a></li>
       <li><a href="#">サービス</a></li>
@@ -225,8 +225,8 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     background-color: black;
   }
   
-  /* ハンバーガーのメニューコンテンツ部分の調整 */
-  .ham-nav {
+  /* ドロワーのメニューコンテンツ部分の調整 */
+  .drawer {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -239,18 +239,18 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transform: translateX(-100%); /* 初期の閉じている状態では、画面左に隠す */
   }
   
-  .ham-nav.open { /* メニューコンテンツに open クラスがついているとき（開いているとき） */
+  .drawer.open { /* メニューコンテンツに open クラスがついているとき（開いているとき） */
     transform: translateX(0); /* 元の位置に表示する */
   }`}
   initialJS={`// ハンバーガーボタンの要素を取得
-  const hamBtnYoso = document.querySelector('.ham-btn');
-  // ハンバーガーメニューの要素を取得
-  const hamNavYoso = document.querySelector('.ham-nav');
+  let hamBtnYoso = document.querySelector('.ham-btn');
+  // ドロワーの要素を取得
+  let drawerYoso = document.querySelector('.drawer');
 
   // ハンバーガーボタンがクリックされたときの処理
   hamBtnYoso.addEventListener('click', () => {
-    // ham-nav クラスに対して、open クラスの付け外しを行う
-    hamNavYoso.classList.toggle('open');
+    // ドロワー要素に対して、open クラスの付け外しを行う
+    drawerYoso.classList.toggle('open');
   });`}
 />
 
@@ -282,7 +282,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
       </span>
     </button>
   </header>
-  <nav class="ham-nav">
+  <nav class="drawer">
     <ul>
       <li><a href="#">ホーム</a></li>
       <li><a href="#">サービス</a></li>
@@ -328,8 +328,8 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     background-color: black;
   }
   
-  /* ハンバーガーのメニューコンテンツ部分の調整 */
-  .ham-nav {
+  /* ドロワーのメニューコンテンツ部分の調整 */
+  .drawer {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -343,15 +343,15 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transition: all 1s; /* 滑らかに変化するようにする */
   }
   
-  .ham-nav.open {
+  .drawer.open {
     transform: translateX(0);
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 開いている時だけ影をつけるようにする */
   }`}
-  initialJS={`const hamBtnYoso = document.querySelector('.ham-btn');
-  const hamNavYoso = document.querySelector('.ham-nav');
+  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  let drawerYoso = document.querySelector('.drawer');
 
   hamBtnYoso.addEventListener('click', () => {
-    hamNavYoso.classList.toggle('open');
+    drawerYoso.classList.toggle('open');
   });`}
 />
 
@@ -386,7 +386,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
       </span>
     </button>
   </header>
-  <nav class="ham-nav">
+  <nav class="drawer">
     <ul>
       <li><a href="#">ホーム</a></li>
       <li><a href="#">サービス</a></li>
@@ -433,8 +433,8 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     background-color: black;
   }
   
-  /* ハンバーガーのメニューコンテンツ部分の調整 */
-  .ham-nav {
+  /* ドロワーのメニューコンテンツ部分の調整 */
+  .drawer {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -448,7 +448,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     z-index: 1; /* オーバーレイの上に表示するために、z-index を 1 に */
   }
   
-  .ham-nav.open {
+  .drawer.open {
     transform: translateX(0);
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
   }
@@ -469,19 +469,19 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
   .overlay.open { /* オーバーレイに open クラスがついているとき（開いているとき） */
     opacity: 1; /* 見えるようにする */
   `}
-  initialJS={`const hamBtnYoso = document.querySelector('.ham-btn');
-  const hamNavYoso = document.querySelector('.ham-nav');
+  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  let drawerYoso = document.querySelector('.drawer');
   // オーバーレイ部分の要素を取得
-  const overlayYoso = document.querySelector('.overlay');
+  let overlayYoso = document.querySelector('.overlay');
 
   hamBtnYoso.addEventListener('click', () => {
-    hamNavYoso.classList.toggle('open');
+    drawerYoso.classList.toggle('open');
     overlayYoso.classList.toggle('open'); // オーバーレイ部分も open クラスの付け外しを行う
   });
   
   // オーバーレイ部分がクリックされたときの処理
   overlayYoso.addEventListener('click', () => {
-    hamNavYoso.classList.remove('open'); // メニューを閉じる
+    drawerYoso.classList.remove('open'); // メニューを閉じる
     overlayYoso.classList.remove('open'); // オーバーレイ部分も閉じる
   });`}
 />
@@ -518,7 +518,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
       </span>
     </button>
   </header>
-  <nav class="ham-nav">
+  <nav class="drawer">
     <ul>
       <li><a href="#">ホーム</a></li>
       <li><a href="#">サービス</a></li>
@@ -578,8 +578,8 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transform: rotate(-45deg); /* -45度回転 */
   }
   
-  /* ハンバーガーのメニューコンテンツ部分の調整 */
-  .ham-nav {
+  /* ドロワーのメニューコンテンツ部分の調整 */
+  .drawer {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -593,7 +593,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     z-index: 1;
   }
   
-  .ham-nav.open {
+  .drawer.open {
     transform: translateX(0);
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
   }
@@ -614,20 +614,20 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
   .overlay.open {
     opacity: 1;
   `}
-  initialJS={`const hamBtnYoso = document.querySelector('.ham-btn');
-  const hamNavYoso = document.querySelector('.ham-nav');
-  const overlayYoso = document.querySelector('.overlay');
+  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  let drawerYoso = document.querySelector('.drawer');
+  let overlayYoso = document.querySelector('.overlay');
   // ハンバーガーアイコン部分の要素を取得
-  const hamIconYoso = document.querySelector('.ham-icon');
+  let hamIconYoso = document.querySelector('.ham-icon');
 
   hamBtnYoso.addEventListener('click', () => {
-    hamNavYoso.classList.toggle('open');
+    drawerYoso.classList.toggle('open');
     overlayYoso.classList.toggle('open');
     hamIconYoso.classList.toggle('open'); // ハンバーガーアイコン部分も open クラスの付け外しを行う
   });
   
   overlayYoso.addEventListener('click', () => {
-    hamNavYoso.classList.remove('open');
+    drawerYoso.classList.remove('open');
     overlayYoso.classList.remove('open');
     hamIconYoso.classList.remove('open'); // ハンバーガーアイコン部分も open クラスを外す
   });`}
@@ -662,7 +662,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
       </span>
     </button>
   </header>
-  <nav class="ham-nav">
+  <nav class="drawer">
     <ul>
       <li><a href="#">ホーム</a></li>
       <li><a href="#">サービス</a></li>
@@ -722,8 +722,8 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transform: rotate(-45deg);
   }
   
-  /* ハンバーガーのメニューコンテンツ部分の調整 */
-  .ham-nav {
+  /* ドロワーのメニューコンテンツ部分の調整 */
+  .drawer {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -737,7 +737,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     z-index: 1;
   }
   
-  .ham-nav.open {
+  .drawer.open {
     transform: translateX(0);
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
   }
@@ -758,19 +758,19 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
   .overlay.open {
     opacity: 1;
   `}
-  initialJS={`const hamBtnYoso = document.querySelector('.ham-btn');
-  const hamNavYoso = document.querySelector('.ham-nav');
-  const overlayYoso = document.querySelector('.overlay');
-  const hamIconYoso = document.querySelector('.ham-icon');
+  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  let drawerYoso = document.querySelector('.drawer');
+  let overlayYoso = document.querySelector('.overlay');
+  let hamIconYoso = document.querySelector('.ham-icon');
 
   hamBtnYoso.addEventListener('click', () => {
-    hamNavYoso.classList.toggle('open');
+    drawerYoso.classList.toggle('open');
     overlayYoso.classList.toggle('open');
     hamIconYoso.classList.toggle('open');
   });
   
   overlayYoso.addEventListener('click', () => {
-    hamNavYoso.classList.remove('open');
+    drawerYoso.classList.remove('open');
     overlayYoso.classList.remove('open');
     hamIconYoso.classList.remove('open');
   });`}
