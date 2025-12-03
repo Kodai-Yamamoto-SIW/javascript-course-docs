@@ -167,8 +167,116 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
 ついに、JavaScript で開閉機能を作りましょう。以下のプレビューのように、ハンバーガーアイコンをクリックしたら、メニューが出し入れするように、CSS と JavaScript を書いてください。
 
+（次の演習でアニメーションさせたいので）transform プロパティを使用して、画面左外にメニューを隠すようにしてください。  
+また、CSSの変更はクラスのつけ外しで行ってください。
+
 <CodePreview
   sourceId="演習3"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <button class="ham-btn">
+      <span class="ham-icon">
+        <span class="line top"></span>
+        <span class="line middle"></span>
+        <span class="line bottom"></span>
+      </span>
+    </button>
+  </header>
+  <nav class="ham-nav">
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">サービス</a></li>
+      <li><a href="#">会社情報</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="#">お問い合わせ2</a></li>
+      <li><a href="#">お問い合わせ3</a></li>
+      <li><a href="#">お問い合わせ4</a></li>
+    </ul>
+  </nav>`}
+  initialCSS={`body {
+      margin: 0;
+  }
+
+  header {
+    border-bottom: solid black 1px;
+  }
+
+  /* ハンバーガーのボタンとアイコンの調整 */
+  .ham-btn {
+    display: block;
+    padding: 20px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+  }
+
+  .ham-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ham-icon .line {
+    width: 32px;
+    height: 4px;
+
+    display: block;
+    background-color: black;
+  }
+  
+  /* ハンバーガーのメニューコンテンツ部分の調整 */
+  .ham-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
+
+    padding: 60px 20px 0;
+
+    transform: translateX(-100%); /* 初期の閉じている状態では、画面左に隠す */
+  }
+  
+  .ham-nav.open {
+    transform: translateX(0); /* open クラスがついているときは、元の位置に表示する */
+  }`}
+  initialJS={`// ハンバーガーボタンの要素を取得
+  const hamBtn = document.querySelector('.ham-btn');
+  // ハンバーガーメニューの要素を取得
+  const hamNav = document.querySelector('.ham-nav');
+
+  // ハンバーガーボタンがクリックされたときの処理
+  hamBtn.addEventListener('click', () => {
+    // ham-nav クラスに対して、open クラスの付け外しを行う
+    hamNav.classList.toggle('open');
+  });`}
+/>
+
+<Solution>
+前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習3"/>
+</Solution>
+</Exercise>
+
+## 演習4: アニメーション化
+
+<Exercise>
+
+あとは適切にアニメーションするように調整しましょう。以下のプレビューのように、ハンバーガーアイコンをクリックしたら、
+- 滑らかにメニューが出し入れする
+- 閉じているときにメニューの影がちらっと見えないようにする
+ように CSS を書き換えてください。
+
+<CodePreview
+  sourceId="演習4"
   htmlVisible={false}
   cssVisible={false}
   jsVisible={false}
@@ -239,29 +347,25 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
     padding: 60px 20px 0;
 
-    transform: translateX(-100%); /* 初期の閉じている状態では、画面左に隠す */
-    transition: all 1.5s; /* 滑らかに変化するようにする */
+    transform: translateX(-100%);
+    transition: all 1s; /* 滑らかに変化するようにする */
   }
   
   .ham-nav.open {
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 閉じているときにも影をつけると画面端にちらっと見えてしまうので、開いている時だけ影をつける */
-    transform: translateX(0); /* open クラスがついているときは、元の位置に表示する */
+    transform: translateX(0);
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 開いている時だけ影をつけるようにする */
   }`}
-  initialJS={`// ハンバーガーボタンの要素を取得
-  const hamBtn = document.querySelector('.ham-btn');
-  // ハンバーガーメニューの要素を取得
+  initialJS={`const hamBtn = document.querySelector('.ham-btn');
   const hamNav = document.querySelector('.ham-nav');
 
-  // ハンバーガーボタンがクリックされたときの処理
   hamBtn.addEventListener('click', () => {
-    // ham-nav クラスに対して、open クラスの付け外しを行う
     hamNav.classList.toggle('open');
   });`}
 />
 
 <Solution>
 前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
-<CodePreview sourceId="演習3"/>
+<CodePreview sourceId="演習4"/>
 </Solution>
 </Exercise>
 
