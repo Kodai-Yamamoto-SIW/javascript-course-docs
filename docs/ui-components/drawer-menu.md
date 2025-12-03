@@ -243,14 +243,14 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transform: translateX(0); /* open クラスがついているときは、元の位置に表示する */
   }`}
   initialJS={`// ハンバーガーボタンの要素を取得
-  const hamBtn = document.querySelector('.ham-btn');
+  const hamBtnYoso = document.querySelector('.ham-btn');
   // ハンバーガーメニューの要素を取得
-  const hamNav = document.querySelector('.ham-nav');
+  const hamNavYoso = document.querySelector('.ham-nav');
 
   // ハンバーガーボタンがクリックされたときの処理
-  hamBtn.addEventListener('click', () => {
+  hamBtnYoso.addEventListener('click', () => {
     // ham-nav クラスに対して、open クラスの付け外しを行う
-    hamNav.classList.toggle('open');
+    hamNavYoso.classList.toggle('open');
   });`}
 />
 
@@ -347,17 +347,148 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transform: translateX(0);
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 開いている時だけ影をつけるようにする */
   }`}
-  initialJS={`const hamBtn = document.querySelector('.ham-btn');
-  const hamNav = document.querySelector('.ham-nav');
+  initialJS={`const hamBtnYoso = document.querySelector('.ham-btn');
+  const hamNavYoso = document.querySelector('.ham-nav');
 
-  hamBtn.addEventListener('click', () => {
-    hamNav.classList.toggle('open');
+  hamBtnYoso.addEventListener('click', () => {
+    hamNavYoso.classList.toggle('open');
   });`}
 />
 
 <Solution>
 前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習4"/>
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展1（オーバーレイ）">
+
+以下のプレビューのように、メニューが開いているときは、ページの内容の上にグレーの半透明のもの（オーバーレイと言います）が表示されるようにしてください。
+また、オーバーレイ部分をクリックしたらメニューが閉じるようにしてください。
+
+:::tip
+ヒント
+- オーバーレイは画面全体を覆う、要素として作ります。そのため、それ用の要素を HTML に追加する必要があります。
+:::
+
+<CodePreview
+  sourceId="演習-発展1"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <button class="ham-btn">
+      <span class="ham-icon">
+        <span class="line top"></span>
+        <span class="line middle"></span>
+        <span class="line bottom"></span>
+      </span>
+    </button>
+  </header>
+  <nav class="ham-nav">
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">サービス</a></li>
+      <li><a href="#">会社情報</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="#">お問い合わせ2</a></li>
+      <li><a href="#">お問い合わせ3</a></li>
+      <li><a href="#">お問い合わせ4</a></li>
+    </ul>
+  </nav>
+  <div class="overlay"></div>`}
+  initialCSS={`body {
+      margin: 0;
+  }
+
+  header {
+    border-bottom: solid black 1px;
+  }
+
+  /* ハンバーガーのボタンとアイコンの調整 */
+  .ham-btn {
+    display: block;
+    padding: 20px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 2; /* メニューコンテンツより上に表示するために、z-index を 2 に */
+  }
+
+  .ham-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ham-icon .line {
+    width: 32px;
+    height: 4px;
+
+    display: block;
+    background-color: black;
+  }
+  
+  /* ハンバーガーのメニューコンテンツ部分の調整 */
+  .ham-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+
+    padding: 60px 20px 0;
+
+    transform: translateX(-100%);
+    transition: all 1s;
+    z-index: 1; /* オーバーレイの上に表示するために、z-index を 1 に */
+  }
+  
+  .ham-nav.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* オーバーレイ部分の調整 */
+  .overlay {
+    position: fixed; /* 画面内で位置固定 */
+    top: 0; /* 上端を画面の上端に合わせる */
+    bottom: 0; /* 下端を画面の下端に合わせる */
+    left: 0; /* 左端を画面の左端に合わせる */
+    right: 0; /* 右端を画面の右端に合わせる */
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+    opacity: 0; /* 初期状態では透明にする */
+    transition: opacity 1s; /* opacity の変化を滑らかにする */
+    z-index: 0; /* メニューの下に表示するために、z-index を 0 に */
+  }
+
+  .overlay.open {
+    opacity: 1; /* 見えるようにする */
+  `}
+  initialJS={`const hamBtnYoso = document.querySelector('.ham-btn');
+  const hamNavYoso = document.querySelector('.ham-nav');
+  // オーバーレイ部分の要素を取得
+  const overlayYoso = document.querySelector('.overlay');
+
+  hamBtnYoso.addEventListener('click', () => {
+    hamNavYoso.classList.toggle('open');
+    overlayYoso.classList.toggle('open'); // オーバーレイ部分も open クラスの付け外しを行う
+  });
+  
+  // オーバーレイ部分がクリックされたときの処理
+  overlayYoso.addEventListener('click', () => {
+    hamNavYoso.classList.remove('open'); // メニューを閉じる
+    overlayYoso.classList.remove('open'); // オーバーレイ部分も閉じる
+  });`}
+/>
+
+<Solution>
+前の演習から増えたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習-発展1"/>
 </Solution>
 </Exercise>
 
