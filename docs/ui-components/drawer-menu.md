@@ -146,7 +146,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     background-color: white; /* 背景をつけないと透明になるから */
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 右側に影をつける */
 
-    padding: 60px 20px 0; /* 上に60px、左右に20px、下に0の余白 */
+    padding-top: 60px; /* 上に60pxの余白 */
   }
   `}
 />
@@ -234,7 +234,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     background-color: white;
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
 
-    padding: 60px 20px 0;
+    padding-top: 60px;
 
     transform: translateX(-100%); /* 初期の閉じている状態では、画面左に隠す */
   }
@@ -337,7 +337,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     background-color: white;
     /* box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); これは、open の時の方に移動 */
 
-    padding: 60px 20px 0;
+    padding-top: 60px;
 
     transform: translateX(-100%);
     transition: all 1s; /* 滑らかに変化するようにする */
@@ -441,7 +441,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     left: 0;
     background-color: white;
 
-    padding: 60px 20px 0;
+    padding-top: 60px;
 
     transform: translateX(-100%);
     transition: all 1s;
@@ -586,7 +586,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     left: 0;
     background-color: white;
 
-    padding: 60px 20px 0;
+    padding-top: 60px;
 
     transform: translateX(-100%);
     transition: all 1s;
@@ -730,7 +730,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     left: 0;
     background-color: white;
 
-    padding: 60px 20px 0;
+    padding-top: 60px;
 
     transform: translateX(-100%);
     transition: all 1s;
@@ -800,6 +800,166 @@ CSS上で24√2 px は、calc(24px * sqrt(2)) で表すことができます。
 
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習-発展3"/>
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展4（メニューコンテンツのデザイン調整）">
+
+以下のプレビューのように、メニューコンテンツのデザインを調整してください。
+- リストのマーカー（黒丸）を消す
+- リンクの下線を消す
+- リンクの色を黒にする
+- リンクにホバーしたときに背景色をライトグレー(#f0f0f0)にする
+
+<CodePreview
+  sourceId="演習-発展4"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <button class="ham-btn">
+      <span class="ham-icon">
+        <span class="line top"></span>
+        <span class="line middle"></span>
+        <span class="line bottom"></span>
+      </span>
+    </button>
+  </header>
+  <nav class="drawer">
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">サービス</a></li>
+      <li><a href="#">会社情報</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <div class="overlay"></div>`}
+  initialCSS={`body {
+      margin: 0;
+  }
+
+  header {
+    border-bottom: solid black 1px;
+  }
+
+  /* ハンバーガーのボタンとアイコンの調整 */
+  .ham-btn {
+    display: block;
+    padding: 20px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  .ham-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ham-icon .line {
+    width: calc(24px * sqrt(2));
+    height: 4px;
+
+    display: block;
+    background-color: black;
+
+    transform-origin: left center;
+    transition: all 1s;
+  }
+
+  .ham-icon.open .line.top {
+    transform: rotate(45deg);
+  }
+  .ham-icon.open .line.middle {
+    opacity: 0;
+  }
+  .ham-icon.open .line.bottom {
+    transform: rotate(-45deg);
+  }
+  
+  /* ドロワーのメニューコンテンツ部分の調整 */
+  .drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+
+    padding-top: 60px;
+
+    transform: translateX(-100%);
+    transition: all 1s;
+    z-index: 1;
+  }
+  
+  .drawer.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* メニューリストのスタイル調整 */
+  .drawer ul {
+    list-style: none; /* リストマーカーを消す */
+    padding: 0; /* デフォルトのパディングを消す */
+    margin: 0; /* デフォルトのマージンを消す */
+  }
+
+  .drawer a {
+    display: block; /* 余計な余白を生まないために、ブロック要素にする */
+    padding: 12px 36px; /* リンクの内側の余白 */
+    color: black; /* リンクの色を黒に */
+    text-decoration: none; /* 下線を消す */
+    border-radius: 4px; /* 角を少し丸くする */
+    transition: background-color 0.3s; /* 背景色の変化を滑らかにする */
+  }
+
+  .drawer a:hover {
+    background-color: #f0f0f0; /* ホバー時の背景色をライトグレーに */
+  }
+  
+  /* オーバーレイ部分の調整 */
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 0;
+  }
+
+  .overlay.open {
+    opacity: 1;
+  }`}
+  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  let drawerYoso = document.querySelector('.drawer');
+  let overlayYoso = document.querySelector('.overlay');
+  let hamIconYoso = document.querySelector('.ham-icon');
+
+  hamBtnYoso.addEventListener('click', () => {
+    drawerYoso.classList.toggle('open');
+    overlayYoso.classList.toggle('open');
+    hamIconYoso.classList.toggle('open');
+  });
+  
+  overlayYoso.addEventListener('click', () => {
+    drawerYoso.classList.remove('open');
+    overlayYoso.classList.remove('open');
+    hamIconYoso.classList.remove('open');
+  });`}
+/>
+
+<Solution>
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習-発展4"/>
 </Solution>
 </Exercise>
 
