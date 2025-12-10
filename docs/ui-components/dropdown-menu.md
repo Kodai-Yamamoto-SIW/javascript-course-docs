@@ -598,3 +598,116 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <CodePreview sourceId="演習-発展3"/>
 </Solution>
 </Exercise>
+
+<Exercise title="演習-発展4（回転アニメーションの追加）">
+
+演習-発展3 で作ったアニメーションに、さらに回転のアニメーションも追加しましょう。以下のプレビューのように、上から降りてきながら拡大し、同時に少し回転しながら表示されるようにしてください。
+
+:::tip
+- `transform: rotate()` を使って、要素を回転させることができます
+- 角度の単位は `deg`（度）を使います
+- 複数の変形を組み合わせる場合は、半角スペースで区切って指定します
+::::
+
+<CodePreview
+  sourceId="演習-発展4"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <nav>
+      <ul class="menu">
+        <li>ホーム</li>
+        <li class="dd-menu">
+          <span>サービス</span>
+          <ul class="dd-submenu">
+            <li>Web開発</li>
+            <li>モバイルアプリ開発</li>
+            <li>UI/UXデザイン</li>
+          </ul>
+        </li>
+        <li>会社情報</li>
+        <li>お問い合わせ</li>
+      </ul>
+    </nav>
+  </header>`}
+  initialCSS={`body {
+    margin: 0;
+  }
+
+  header {
+    border-bottom: solid #ddd 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu > li {
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+
+  .menu > li:hover {
+    background-color: #f5f5f5;
+  }
+
+  .dd-menu {
+    position: relative;
+  }
+  
+  .dd-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: solid #ddd 1px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95) rotate(-3deg); /* 上に移動 + 縮小 + 反時計回りに3度回転した状態から開始 */
+    transform-origin: top left;
+    transition: all 0.3s;
+  }
+
+  .dd-submenu li {
+    padding: 12px 20px;
+    cursor: pointer;
+  }
+
+  .dd-submenu li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .dd-submenu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: revert; /* 元の状態に戻す　というのは、実は revert という特別な値を設定することで簡単に実現できます。(このような特別な値は initial, inherit, revert, unset などがあり、これらの特別な値は、全てのCSSのプロパティに使用できます) */
+  }`}
+  initialJS={`let ddMenuYoso = document.querySelector('.dd-menu');
+
+  ddMenuYoso.addEventListener('mouseenter', function() {
+    let submenu = ddMenuYoso.querySelector('.dd-submenu');
+    submenu.classList.add('open');
+  });
+
+  ddMenuYoso.addEventListener('mouseleave', function() {
+    let submenu = ddMenuYoso.querySelector('.dd-submenu');
+    submenu.classList.remove('open');
+  });`}
+/>
+
+<Solution>
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習-発展4"/>
+</Solution>
+</Exercise>
