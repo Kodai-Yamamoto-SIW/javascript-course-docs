@@ -374,7 +374,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 </Solution>
 </Exercise>
 
-<Exercise title="演習-発展2（アニメーションの追加）">
+<Exercise title="演習-発展2（スライドダウンアニメーションの追加）">
 
 今のアニメーションに、さらに上から降りてくるアニメーションを追加しましょう。以下のプレビューのように、上からスライドダウンしてくるようにしてください。
 
@@ -481,5 +481,120 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習-発展2"/>
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展3（スケールアニメーションの追加）">
+
+演習-発展2 で作ったスライドダウンアニメーションに、さらに拡大アニメーションも追加しましょう。以下のプレビューのように、上から降りてきながら、同時に小さい状態から拡大して表示されるようにしてください。
+
+:::tip
+- `transform` プロパティには、複数の変形を半角スペースで区切って指定できます
+- 例: `transform: translateY(-10px) scale(0.95);` （上に10px移動 & 95%の大きさ）
+- translateY が上下方向の移動、scale が拡大・縮小を表します
+- `transform-origin` を使って、拡大の基準点を設定できます
+- 例: `transform-origin: left top;` （左上を基準に拡大・縮小）
+::::
+
+<CodePreview
+  sourceId="演習-発展3"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <nav>
+      <ul class="menu">
+        <li>ホーム</li>
+        <li class="dd-menu">
+          <span>サービス</span>
+          <ul class="dd-submenu">
+            <li>Web開発</li>
+            <li>モバイルアプリ開発</li>
+            <li>UI/UXデザイン</li>
+          </ul>
+        </li>
+        <li>会社情報</li>
+        <li>お問い合わせ</li>
+      </ul>
+    </nav>
+  </header>`}
+  initialCSS={`body {
+    margin: 0;
+  }
+
+  header {
+    border-bottom: solid #ddd 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu > li {
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+
+  .menu > li:hover {
+    background-color: #f5f5f5;
+  }
+
+  .dd-menu {
+    position: relative;
+  }
+  
+  .dd-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: solid #ddd 1px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95); /* 上に10px移動した位置から開始 + 少し小さい状態から開始 */
+    transform-origin: left top; /* 左上を基準に変形 */
+    transition: all 0.3s;
+  }
+
+  .dd-submenu li {
+    padding: 12px 20px;
+    cursor: pointer;
+  }
+
+  .dd-submenu li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .dd-submenu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1); /* 元の位置に移動 + 通常サイズ */
+  }`}
+  initialJS={`let ddMenuYoso = document.querySelector('.dd-menu');
+
+  ddMenuYoso.addEventListener('mouseenter', function() {
+    let submenu = ddMenuYoso.querySelector('.dd-submenu');
+    submenu.classList.add('open');
+  });
+
+  ddMenuYoso.addEventListener('mouseleave', function() {
+    let submenu = ddMenuYoso.querySelector('.dd-submenu');
+    submenu.classList.remove('open');
+  });`}
+/>
+
+<Solution>
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習-発展3"/>
 </Solution>
 </Exercise>
