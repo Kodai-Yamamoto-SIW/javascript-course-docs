@@ -340,12 +340,12 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transition: all 0.3s;
   }
 
-  .dd-submenu li { /* サブメニュー項目のスタイル */
+  .dd-submenu > li { /* サブメニュー項目のスタイル */
     padding: 12px 20px; /* 上下12px、左右20pxの余白 */
     cursor: pointer; /* カーソルをポインターに */
   }
 
-  .dd-submenu li:hover { /* サブメニュー項目にホバーしたとき */
+  .dd-submenu > li:hover { /* サブメニュー項目にホバーしたとき */
     background-color: #f5f5f5; /* 背景色を薄いグレーに */
   }
   
@@ -451,12 +451,12 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transition: all 0.3s, transform 0.3s, visibility 0.3s;
   }
 
-  .dd-submenu li {
+  .dd-submenu > li {
     padding: 12px 20px;
     cursor: pointer;
   }
 
-  .dd-submenu li:hover {
+  .dd-submenu > li:hover {
     background-color: #f5f5f5;
   }
   
@@ -566,12 +566,12 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transition: all 0.3s;
   }
 
-  .dd-submenu li {
+  .dd-submenu > li {
     padding: 12px 20px;
     cursor: pointer;
   }
 
-  .dd-submenu li:hover {
+  .dd-submenu > li:hover {
     background-color: #f5f5f5;
   }
   
@@ -679,12 +679,12 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transition: all 0.3s;
   }
 
-  .dd-submenu li {
+  .dd-submenu > li {
     padding: 12px 20px;
     cursor: pointer;
   }
 
-  .dd-submenu li:hover {
+  .dd-submenu > li:hover {
     background-color: #f5f5f5;
   }
   
@@ -799,12 +799,12 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     transition: all 0.3s;
   }
 
-  .dd-submenu li {
+  .dd-submenu > li {
     padding: 12px 20px;
     cursor: pointer;
   }
 
-  .dd-submenu li:hover {
+  .dd-submenu > li:hover {
     background-color: #f5f5f5;
   }
   
@@ -835,5 +835,149 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
 <CodePreview sourceId="演習-発展5"/>
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展6（サブメニュー項目の段階的表示）">
+
+さらに、サブメニューの各項目が順番に左から移動してきながらフェードインするアニメーションを追加しましょう。加えて、以下のプレビューのように、メニューを開いたときに各項目が最初の項目から順にアニメーションが開始されるようにしてください。
+
+:::tip
+- CSS の `transition-delay` プロパティを使うと、アニメーションの開始タイミングをずらすことができます
+- `:nth-child()` 疑似クラスを使って、項目ごとに異なる遅延時間を設定します
+- 例: `.dd-submenu > li:nth-child(1)` で .dd-submenu の子の1番目のliの項目、`:nth-child(2)` で2番目の項目、… のように指定できます
+::::
+
+<CodePreview
+  sourceId="演習-発展6"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <nav>
+      <ul class="menu">
+        <li>ホーム</li>
+        <li class="dd-menu">
+          <span>サービス</span>
+          <ul class="dd-submenu">
+            <li>Web開発</li>
+            <li>モバイルアプリ開発</li>
+            <li>UI/UXデザイン</li>
+          </ul>
+        </li>
+        <li class="dd-menu">
+          <span>会社情報</span>
+          <ul class="dd-submenu">
+            <li>会社概要</li>
+            <li>代表挨拶</li>
+            <li>アクセス</li>
+          </ul>
+        </li>
+        <li>お問い合わせ</li>
+      </ul>
+    </nav>
+  </header>`}
+  initialCSS={`body {
+    margin: 0;
+  }
+
+  header {
+    border-bottom: solid #ddd 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu > li {
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+
+  .menu > li:hover {
+    background-color: #f5f5f5;
+  }
+
+  .dd-menu {
+    position: relative;
+  }
+  
+  .dd-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: solid #ddd 1px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95) rotate(-3deg);
+    transform-origin: top left;
+    transition: all 0.3s;
+  }
+
+  .dd-submenu > li {
+    padding: 12px 20px;
+    cursor: pointer;
+    opacity: 0; /* 最初は各項目を透明に */
+    transform: translateX(-10px); /* 少し左にずらした状態から開始 */
+    transition: opacity 0.3s, transform 0.3s; /* 各項目のアニメーション */
+  }
+
+  .dd-submenu > li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* 各サブメニュー項目の遅延設定 */
+  .dd-submenu > li:nth-child(1) {
+    transition-delay: 0.1s; /* 1番目は0.1秒遅れて表示 */
+  }
+  
+  .dd-submenu > li:nth-child(2) {
+    transition-delay: 0.2s; /* 2番目は0.2秒遅れて表示 */
+  }
+  
+  .dd-submenu > li:nth-child(3) {
+    transition-delay: 0.3s; /* 3番目は0.3秒遅れて表示 */
+  }
+
+  .dd-submenu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: revert;
+  }
+
+  /* サブメニューが開いたときの、各項目の設定 */
+  .dd-submenu.open > li {
+    opacity: revert; /* 元の位置に */
+    transform: revert; /* 元の位置に */
+  }`}
+  initialJS={`let ddMenuYosos = document.querySelectorAll('.dd-menu');
+
+  for (let ddMenuYoso of ddMenuYosos) {
+    ddMenuYoso.addEventListener('mouseenter', function() {
+      let submenu = ddMenuYoso.querySelector('.dd-submenu');
+      submenu.classList.add('open');
+    });
+
+    ddMenuYoso.addEventListener('mouseleave', function() {
+      let submenu = ddMenuYoso.querySelector('.dd-submenu');
+      submenu.classList.remove('open');
+    });
+  }`}
+/>
+
+<Solution>
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習-発展6"/>
 </Solution>
 </Exercise>
