@@ -711,3 +711,129 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <CodePreview sourceId="演習-発展4"/>
 </Solution>
 </Exercise>
+
+<Exercise title="演習-発展5（複数のドロップダウンメニュー対応）">
+
+今までは「サービス」メニューだけにドロップダウン機能をつけていましたが、複数のメニュー項目でドロップダウンが使えるように拡張しましょう。以下のプレビューのように、「会社情報」にもドロップダウンメニューを追加してください。
+
+:::tip
+- 複数の要素に同じイベントを設定する場合は、`querySelectorAll` を使って全ての要素の配列を取得します(初めて使う場合は、「[複数の要素を取得する（querySelectorAll）](../basics/dom-css-transition#複数の要素を取得するqueryselectorall)」を参照してください)
+- `for of 文` を使って、それぞれの要素に対してイベントリスナーを設定します
+- `document.querySelector` ではなく、`要素.querySelector` を使うことで、その要素の中からさらに要素を探すことができます
+::::
+
+<CodePreview
+  sourceId="演習-発展5"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<header>
+    <nav>
+      <ul class="menu">
+        <li>ホーム</li>
+        <li class="dd-menu">
+          <span>サービス</span>
+          <ul class="dd-submenu">
+            <li>Web開発</li>
+            <li>モバイルアプリ開発</li>
+            <li>UI/UXデザイン</li>
+          </ul>
+        </li>
+        <li class="dd-menu"> <!-- 会社情報にも dd-menu クラスを追加 -->
+          <span>会社情報</span>
+          <ul class="dd-submenu">
+            <li>会社概要</li>
+            <li>代表挨拶</li>
+            <li>アクセス</li>
+          </ul>
+        </li>
+        <li>お問い合わせ</li>
+      </ul>
+    </nav>
+  </header>`}
+  initialCSS={`body {
+    margin: 0;
+  }
+
+  header {
+    border-bottom: solid #ddd 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu > li {
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+
+  .menu > li:hover {
+    background-color: #f5f5f5;
+  }
+
+  .dd-menu {
+    position: relative;
+  }
+  
+  .dd-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: solid #ddd 1px;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95) rotate(-3deg);
+    transform-origin: top left;
+    transition: all 0.3s;
+  }
+
+  .dd-submenu li {
+    padding: 12px 20px;
+    cursor: pointer;
+  }
+
+  .dd-submenu li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .dd-submenu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: revert;
+  }`}
+  initialJS={`// 全てのドロップダウンメニューの要素を取得
+  let ddMenuYosos = document.querySelectorAll('.dd-menu');
+
+  // それぞれのドロップダウンメニューに対してイベントを設定
+  for (let ddMenuYoso of ddMenuYosos) {
+    // マウスが乗ったときの処理
+    ddMenuYoso.addEventListener('mouseenter', function() {
+      let submenu = ddMenuYoso.querySelector('.dd-submenu'); // 要素.querySelector を使って、ddMenuYoso の中から .dd-submenu にマッチする要素を取得
+      submenu.classList.add('open');
+    });
+
+    // マウスが離れたときの処理
+    ddMenuYoso.addEventListener('mouseleave', function() {
+      let submenu = ddMenuYoso.querySelector('.dd-submenu'); // 要素.querySelector を使って、ddMenuYoso の中から .dd-submenu にマッチする要素を取得
+      submenu.classList.remove('open');
+    });
+  }`}
+/>
+
+<Solution>
+前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
+<CodePreview sourceId="演習-発展5"/>
+</Solution>
+</Exercise>
