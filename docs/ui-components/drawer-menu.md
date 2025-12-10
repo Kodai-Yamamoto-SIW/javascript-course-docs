@@ -147,8 +147,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 右側に影をつける */
 
     padding-top: 60px; /* 上に60pxの余白 */
-  }
-  `}
+  }`}
 />
 
 <Solution>
@@ -468,7 +467,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
   .overlay.open { /* オーバーレイに open クラスがついているとき（開いているとき） */
     opacity: 1; /* 見えるようにする */
-  `}
+  }`}
   initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
   let drawerYoso = document.querySelector('.drawer');
   // オーバーレイ部分の要素を取得
@@ -613,7 +612,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
   .overlay.open {
     opacity: 1;
-  `}
+  }`}
   initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
   let drawerYoso = document.querySelector('.drawer');
   let overlayYoso = document.querySelector('.overlay');
@@ -757,7 +756,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
   .overlay.open {
     opacity: 1;
-  `}
+  }`}
   initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
   let drawerYoso = document.querySelector('.drawer');
   let overlayYoso = document.querySelector('.overlay');
