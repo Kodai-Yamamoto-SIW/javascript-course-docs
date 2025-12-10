@@ -39,6 +39,7 @@ const sidebars: SidebarsConfig = {
       label: 'UIコンポーネント',
       items: [
         'ui-components/drawer-menu',
+        'ui-components/dropdown-menu',
       ],
     },
   ],
