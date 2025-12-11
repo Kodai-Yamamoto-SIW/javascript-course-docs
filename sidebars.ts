@@ -40,6 +40,7 @@ const sidebars: SidebarsConfig = {
         'ui-components/accordion-menu_jquery-slidetoggle',
         'ui-components/drawer-menu',
         'ui-components/dropdown-menu',
+        'ui-components/modal_remodal',
       ],
     },
   ],
