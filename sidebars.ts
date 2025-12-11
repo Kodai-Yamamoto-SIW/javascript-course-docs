@@ -28,8 +28,6 @@ const sidebars: SidebarsConfig = {
         'basics/dom-css',
         'basics/dom-innertext',
         'basics/dom-events',
-        'basics/swiper',
-        'basics/jquery-slidetoggle',
         'basics/dom-css-transition',
         'basics/dom-css-class-transition',
       ],
@@ -38,6 +36,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'UIコンポーネント',
       items: [
+        'ui-components/slider_swiper',
+        'ui-components/accordion-menu_jquery-slidetoggle',
         'ui-components/drawer-menu',
         'ui-components/dropdown-menu',
       ],

@@ -1,5 +1,5 @@
 ---
-title: jQueryでアコーディオン（slideToggle）
+title: アコーディオンメニュー (jQuery - slideToggle)
 ---
 
 import Exercise, { Solution } from "@kodai-yamamoto-siw/exercise/client";

@@ -1,5 +1,5 @@
 ---
-title: スライダーを作ろう
+title: スライダー (Swiper.js)
 ---
 
 import Exercise, { Solution } from "@kodai-yamamoto-siw/exercise/client";
