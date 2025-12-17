@@ -58,6 +58,8 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 
 今回使用するライブラリは「Magnific Popup」という、ポップアップを簡単に実装できる jQuery プラグインです。
 
+ベースは jQuery となるため、jQuery の基本的な扱いは、[以前 jQuery を学習した際の内容](accordion-menu_jquery-slidetoggle)を思い出してみてください。
+
 - まず公式サイトをざっと眺める: https://dimsemenov.com/plugins/magnific-popup/
 - 検索キーワード例:
   - 「Magnific Popup 使い方」,「Magnific Popup 始め方」
@@ -92,13 +94,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-<CodePreview
-  sourceId="演習1_テキストリンク画像"
-  htmlVisible={true}
-  cssVisible={true}
-  jsVisible={true}
-  previewVisible={true}
-/>
+<CodePreview sourceId="演習1_テキストリンク画像"/>
 
 **解説**:
 - テキストリンクの `href` に画像のパスを指定します。
@@ -136,13 +132,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-<CodePreview
-  sourceId="演習2_画像ポップアップ"
-  htmlVisible={true}
-  cssVisible={true}
-  jsVisible={true}
-  previewVisible={true}
-/>
+<CodePreview sourceId="演習2_画像ポップアップ"/>
 
 **解説**:
 - `<a>` タグの `href` に画像のパスを指定します。
@@ -179,13 +169,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-<CodePreview
-  sourceId="演習3_テキスト"
-  htmlVisible={true}
-  cssVisible={true}
-  jsVisible={true}
-  previewVisible={true}
-/>
+<CodePreview sourceId="演習3_テキスト"/>
 
 **解説**:
 - `href="#content"` でポップアップに表示するコンテンツのIDを指定します。
@@ -234,13 +218,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-<CodePreview
-  sourceId="演習発展1_モーダル"
-  htmlVisible={true}
-  cssVisible={true}
-  jsVisible={true}
-  previewVisible={true}
-/>
+<CodePreview sourceId="演習発展1_モーダル"/>
 
 **解説**:
 - CSSで `.white-popup` クラスにスタイルを適用して、モーダルウィンドウ風の見た目にします。
@@ -274,13 +252,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-<CodePreview
-  sourceId="演習発展2_YouTube"
-  htmlVisible={true}
-  cssVisible={true}
-  jsVisible={true}
-  previewVisible={true}
-/>
+<CodePreview sourceId="演習発展2_YouTube"/>
 
 **解説**:
 - `href` にYouTubeの動画URLを指定します。
@@ -332,13 +304,7 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 />
 
 <Solution>
-<CodePreview
-  sourceId="演習発展3_ギャラリー"
-  htmlVisible={true}
-  cssVisible={true}
-  jsVisible={true}
-  previewVisible={true}
-/>
+<CodePreview sourceId="演習発展3_ギャラリー"/>
 
 **解説**:
 - `delegate: 'a'` で、親要素（.gallery）内の `<a>` タグをトリガーとして指定します。
