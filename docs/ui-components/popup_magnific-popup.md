@@ -97,9 +97,25 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <CodePreview sourceId="演習1_テキストリンク画像"/>
 
 **解説**:
-- テキストリンクの `href` に画像のパスを指定します。
-- `type: 'image'` で画像ポップアップモードになります。
-- CSSは一切書かなくても動作します。
+
+**1. HTMLの準備**
+- `<a>` タグの `href` 属性に、表示したい画像のパスを指定します
+- リンクテキストは「画像を見る」など、分かりやすい文言にしましょう
+- クラス名（`class="image-link"`）は、JavaScriptで要素を特定するために使います
+
+**2. JavaScriptの設定**
+```javascript
+$('.image-link').magnificPopup({
+  type: 'image',
+});
+```
+- `$('.image-link')`: クラス名が `image-link` の要素を選択（jQuery記法）
+- `.magnificPopup()`: Magnific Popupを適用するメソッド
+- `type: 'image'`: 画像をポップアップ表示するモードに設定
+
+**3. ポイント**
+- CSSは一切書かなくても、ライブラリが自動的に見栄えの良いポップアップを作成してくれます
+- `href` に指定した画像が、ポップアップで拡大表示されます
 </Solution>
 </Exercise>
 
@@ -135,9 +151,29 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <CodePreview sourceId="演習2_画像ポップアップ"/>
 
 **解説**:
-- `<a>` タグの `href` に画像のパスを指定します。
-- `<img>` タグで小さいサムネイルを表示し、クリックで大きい画像を表示します。
-- `type: 'image'` で画像ポップアップモードになります。
+
+**1. HTMLの構造**
+```html
+<a class="image-popup" href="img/christmas_chicken.jpg">
+  <img src="img/christmas_chicken.jpg" width="200" alt="サムネイル">
+</a>
+```
+- `<a>` タグで画像を囲むことで、画像自体をクリック可能にします
+- `href`: ポップアップで表示する画像のパス（拡大表示用）
+- `<img src>`: ページ上に表示する小さいサムネイル画像
+- `width="200"`: サムネイルのサイズを指定（小さく表示）
+
+**2. JavaScriptの設定**
+```javascript
+$('.image-popup').magnificPopup({
+  type: 'image',
+});
+```
+- 画像をクリックすると、`href` に指定した画像が大きくポップアップ表示されます
+
+**3. ポイント**
+- サムネイル画像とポップアップ画像を同じパスにすることで、シンプルな実装が可能です
+- 実務では、サムネイル用の軽量な画像と、ポップアップ用の高画質画像を別々に用意することもあります
 </Solution>
 </Exercise>
 
@@ -172,9 +208,36 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <CodePreview sourceId="演習3_テキスト"/>
 
 **解説**:
-- `href="#content"` でポップアップに表示するコンテンツのIDを指定します。
-- `mfp-hide` クラスを付けると、通常時は非表示になります。
-- `type: 'inline'` でページ内のHTML要素をポップアップとして表示します。
+
+**1. HTMLの準備**
+```html
+<a class="open-popup" href="#content">詳細を見る</a>
+
+<div id="content" class="mfp-hide">
+  <p>これはポップアップで表示されるテキストです。</p>
+</div>
+```
+- `href="#content"`: ポップアップで表示する要素のIDを `#` 付きで指定
+- `<div id="content">`: ポップアップとして表示したいコンテンツ
+- `class="mfp-hide"`: Magnific Popup専用のクラス。通常時はこの要素を非表示にします
+
+**2. JavaScriptの設定**
+```javascript
+$('.open-popup').magnificPopup({
+  type: 'inline',
+});
+```
+- `type: 'inline'`: ページ内に既に存在するHTML要素をポップアップとして表示するモード
+- 画像ではなく、テキストやフォームなどのHTMLコンテンツを表示する場合に使います
+
+**3. 動作の流れ**
+1. 通常時: `mfp-hide` により、`#content` の要素は画面に表示されません
+2. リンクをクリック: Magnific Popupが `#content` をポップアップ表示します
+3. 閉じる: 背景クリックまたは×ボタンで閉じると、再び非表示になります
+
+**4. ポイント**
+- この方法を使えば、複雑なHTMLコンテンツもポップアップで表示できます
+- お知らせ、利用規約、フォームなど、様々な用途に応用できます
 </Solution>
 </Exercise>
 
@@ -221,9 +284,46 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <CodePreview sourceId="演習発展1_モーダル"/>
 
 **解説**:
-- CSSで `.white-popup` クラスにスタイルを適用して、モーダルウィンドウ風の見た目にします。
-- `background: white` で白い背景を設定します。
-- `padding` と `border-radius` で見栄えを整えます。
+
+**1. HTMLの構造**
+```html
+<a class="open-modal" href="#modal-content">お知らせを見る</a>
+
+<div id="modal-content" class="mfp-hide white-popup">
+  <h2>お知らせ</h2>
+  <p>これはモーダルウィンドウ風のポップアップです。</p>
+  <p>背景をクリックすると閉じることができます。</p>
+</div>
+```
+- `class="mfp-hide white-popup"`: 2つのクラスを指定
+  - `mfp-hide`: Magnific Popup用（非表示にする）
+  - `white-popup`: 自分で作成するスタイル用のクラス
+
+**2. CSSでデザインを整える**
+```css
+.white-popup {
+  background: white;        /* 白い背景 */
+  padding: 30px;            /* 内側の余白 */
+  max-width: 500px;         /* 最大幅を制限 */
+  margin: 0 auto;           /* 中央揃え */
+  border-radius: 8px;       /* 角を丸くする */
+}
+.white-popup h2 {
+  margin-top: 0;            /* 見出しの上の余白を削除 */
+}
+```
+
+**3. JavaScriptの設定**
+```javascript
+$('.open-modal').magnificPopup({
+  type: 'inline',
+});
+```
+- 演習3と同じ仕組みですが、CSSで見た目を大幅にカスタマイズしています
+
+**4. ポイント**
+- Magnific Popupは機能を提供し、デザインは自分で自由にカスタマイズできます
+- この方法で、自社サイトのデザインに合わせたポップアップを作成できます
 </Solution>
 </Exercise>
 
@@ -255,9 +355,40 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <CodePreview sourceId="演習発展2_YouTube"/>
 
 **解説**:
-- `href` にYouTubeの動画URLを指定します。
-- `type: 'iframe'` でiframeとして動画を埋め込みます。
-- Magnific PopupがYouTubeのURLを自動的に埋め込み形式に変換してくれます。
+
+**1. HTMLの準備**
+```html
+<a class="video-popup" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">動画を見る</a>
+```
+- `href`: YouTube動画の通常のURLをそのまま指定します
+- 特別な埋め込みコードに変換する必要はありません
+
+**2. JavaScriptの設定**
+```javascript
+$('.video-popup').magnificPopup({
+  type: 'iframe',
+});
+```
+- `type: 'iframe'`: iframeを使ってコンテンツを埋め込むモード
+- YouTubeやVimeoなどの動画サービスに対応しています
+
+**3. 内部の動作**
+1. Magnific Popupが、YouTubeのURLを検出します
+2. 自動的に埋め込み用のiframeコードに変換します
+   - 例: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+   - → `https://www.youtube.com/embed/dQw4w9WgXcQ` に変換
+3. ポップアップ内でiframeとして動画を表示します
+
+**4. ポイント**
+- YouTubeのURLをコピーして貼り付けるだけで動作します
+- Vimeoなど、他の動画サービスにも対応しています
+- レスポンシブ対応で、スマホでも適切なサイズで表示されます
+
+**5. 応用例**
+- 商品紹介動画
+- チュートリアル動画
+- プロモーション動画
+など、動画コンテンツをサイトにスマートに組み込めます
 </Solution>
 </Exercise>
 
@@ -307,9 +438,64 @@ import { CodePreview } from "@kodai-yamamoto-siw/code-preview";
 <CodePreview sourceId="演習発展3_ギャラリー"/>
 
 **解説**:
-- `delegate: 'a'` で、親要素（.gallery）内の `<a>` タグをトリガーとして指定します。
-- `gallery: { enabled: true }` でギャラリーモードを有効にし、左右の矢印で画像を切り替えられるようになります。
-- 複数の画像を一つのギャラリーとしてまとめて表示できます。
+
+**1. HTMLの構造**
+```html
+<div class="gallery">
+  <a href="img/christmas_chicken.jpg">
+    <img src="img/christmas_chicken.jpg" width="150" alt="画像1">
+  </a>
+  <a href="img/christmas_snowman.jpg">
+    <img src="img/christmas_snowman.jpg" width="150" alt="画像2">
+  </a>
+  <a href="img/whole_cake.jpg">
+    <img src="img/whole_cake.jpg" width="150" alt="画像3">
+  </a>
+</div>
+```
+- 親要素 `<div class="gallery">` で複数の画像リンクをグループ化します
+- 各画像は `<a>` タグで囲み、`href` に拡大表示用の画像パスを指定します
+
+**2. JavaScriptの設定**
+```javascript
+$('.gallery').magnificPopup({
+  delegate: 'a',            // どの子要素をトリガーにするか
+  type: 'image',            // 画像ポップアップモード
+  gallery: {
+    enabled: true,          // ギャラリーモードを有効化
+  },
+});
+```
+
+**3. 重要なオプションの説明**
+
+**`delegate: 'a'`**
+- `.gallery` 自体ではなく、その中の `<a>` タグをクリック対象として指定します
+- これにより、複数の画像リンクを一つのギャラリーとしてまとめられます
+
+**`gallery: { enabled: true }`**
+- ギャラリーモードを有効にします
+- 有効にすると以下の機能が使えます:
+  - 左右の矢印ボタンで画像を切り替え
+  - キーボードの矢印キーでも操作可能
+  - 画像の番号表示（例: 1/3）
+
+**4. 動作の流れ**
+1. どれか一つの画像をクリック
+2. その画像がポップアップで表示される
+3. 左矢印（←）をクリック: 前の画像へ
+4. 右矢印（→）をクリック: 次の画像へ
+5. 最後の画像の次は、最初の画像に戻ります（ループ）
+
+**5. 実用例**
+- 商品ギャラリー（ECサイト）
+- 作品ポートフォリオ
+- 施設の写真ギャラリー
+- イベントの写真アルバム
+
+**6. ポイント**
+- ギャラリー内の画像数は自由に増やせます
+- 画像の順番は、HTML内の記述順になります
 </Solution>
 </Exercise>
 
