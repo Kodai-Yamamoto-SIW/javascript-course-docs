@@ -5,7 +5,7 @@ hide_title: true
 hide_table_of_contents: true
 ---
 
-import Exercise, { Solution } from "@kodai-yamamoto-siw/exercise/client";
+import Exercise, { Solution } from "@metyatech/exercise/client";
 
 # JavaScriptⅡ 期末試験 対策問題集
 

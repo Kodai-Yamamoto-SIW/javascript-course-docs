@@ -1,6 +1,6 @@
 import React from 'react';
-import WorkspaceLaunchButton from '@kodai-yamamoto-siw/workspace-launch-ui';
-import { useAuthAccountContext } from '@kodai-yamamoto-siw/docusaurus-microsoft-auth/client';
+import WorkspaceLaunchButton from '@metyatech/workspace-launch-ui';
+import { useAuthAccountContext } from '@metyatech/docusaurus-microsoft-auth/client';
 
 type WorkspaceLaunchButtonProps = React.ComponentProps<typeof WorkspaceLaunchButton>;
 

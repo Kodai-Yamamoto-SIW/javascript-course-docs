@@ -2,8 +2,8 @@
 title: 関数（戻り値）
 ---
 
-import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise/client';
-import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
+import Exercise, { Solution } from '@metyatech/exercise/client';
+import { CodePreview } from '@metyatech/code-preview';
 
 # 関数（戻り値）
 

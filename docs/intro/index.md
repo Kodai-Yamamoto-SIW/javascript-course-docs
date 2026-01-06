@@ -3,7 +3,7 @@ sidebar_position: 1
 title: JavaScript
 ---
 
-import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
+import { CodePreview } from '@metyatech/code-preview';
 
 ## 自己紹介 😊
 

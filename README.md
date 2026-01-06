@@ -14,13 +14,13 @@ npm install
 npm run start
 ```
 
-これにより、Docusaurusの開発サーバーとnpm依存としてインストールされた`@kodai-yamamoto-siw/workspace-launch-server` が同時に起動します。ブラウザが自動的に開き、バックエンドのエンドポイント（例: `/manifest`）がポート8787で利用可能になります。
+これにより、Docusaurusの開発サーバーとnpm依存としてインストールされた`@metyatech/workspace-launch-server` が同時に起動します。ブラウザが自動的に開き、バックエンドのエンドポイント（例: `/manifest`）がポート8787で利用可能になります。
 
 ドキュメントUIのみが必要ですか？`npm run start:docusaurus`を実行してください。APIのみが必要ですか？`npm run server`を実行してください（内部的に`workspace-launch-server`バイナリを実行します）。
 
 ## 認証設定 (Microsoft Teams サインイン)
 
-このサイトは `@kodai-yamamoto-siw/docusaurus-microsoft-auth` プラグインを通じて Microsoft Teams / Microsoft 365 アカウントでのサインインを必須としています。事前に Azure ポータルでアプリ登録を作成し、以下の環境変数を設定してください。
+このサイトは `@metyatech/docusaurus-microsoft-auth` プラグインを通じて Microsoft Teams / Microsoft 365 アカウントでのサインインを必須としています。事前に Azure ポータルでアプリ登録を作成し、以下の環境変数を設定してください。
 
 1. Azure portal → Microsoft Entra ID → アプリの登録 から新しいアプリを作成し、`http://localhost:3000` (or 開発用 URL) をリダイレクト URI (Web) として追加します。
 2. アプリケーション (クライアント) ID とディレクトリ (テナント) ID を控えます。

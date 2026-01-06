@@ -50,12 +50,12 @@ const config: Config = {
   },
 
   // Production site URL (GitHub Pages)
-  url: 'https://kodai-yamamoto-siw.github.io',
+  url: 'https://metyatech.github.io',
   // For GitHub Pages, set to '/<projectName>/'
   baseUrl: '/javascript-course-docs/',
 
   // GitHub Pages deployment config
-  organizationName: 'Kodai-Yamamoto-SIW', // GitHub org/user name
+  organizationName: 'metyatech', // GitHub org/user name
   projectName: 'javascript-course-docs', // Repo name
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
@@ -109,7 +109,7 @@ const config: Config = {
       hideOnScroll: false,
       items: [
         { type: 'docSidebar', sidebarId: 'mainSidebar', position: 'left', label: 'チュートリアル' },
-        { href: 'https://github.com/Kodai-Yamamoto-SIW/javascript-course-docs', label: 'GitHub', position: 'right' },
+        { href: 'https://github.com/metyatech/javascript-course-docs', label: 'GitHub', position: 'right' },
         { type: 'custom-auth-account', position: 'right' },
       ],
     },
@@ -134,9 +134,9 @@ const config: Config = {
     auth: authCustomFields,
   },
   plugins: [
-    '@kodai-yamamoto-siw/docusaurus-microsoft-auth',
+    '@metyatech/docusaurus-microsoft-auth',
     [
-      '@kodai-yamamoto-siw/exercise',
+      '@metyatech/exercise',
       {
         headingLevel: 3
       }
