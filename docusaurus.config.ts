@@ -140,7 +140,8 @@ const config: Config = {
       {
         headingLevel: 3
       }
-    ]
+    ],
+    '@metyatech/docusaurus-download-assets',
   ],
 };
 

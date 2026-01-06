@@ -22,6 +22,7 @@
     "@docusaurus/core": "^3.9.1",
     "@docusaurus/plugin-ideal-image": "^3.9.1",
     "@docusaurus/preset-classic": "^3.9.1",
+    "@metyatech/docusaurus-download-assets": "github:metyatech/docusaurus-download-assets",
     "@kodai-yamamoto-siw/code-preview": "github:Kodai-Yamamoto-SIW/code-preview",
     "@kodai-yamamoto-siw/docusaurus-microsoft-auth": "github:Kodai-Yamamoto-SIW/docusaurus-microsoft-auth",
     "@kodai-yamamoto-siw/exercise": "github:Kodai-Yamamoto-SIW/exercise-module",
