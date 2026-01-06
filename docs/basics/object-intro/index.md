@@ -37,7 +37,7 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 };
 console.log(mypet);`}/>
 
-![上記例のイメージ](/img/object-intro/object-example.png)
+![上記例のイメージ](./img/object-example.png)
 
 ### オブジェクトの中の値へのアクセス
 
@@ -61,7 +61,7 @@ console.log(mypet.taijuu);`}/>
 
 * _プロパティ_
   * オブジェクト内の各キーと値の組のこと
-  ![プロパティ](/img/object-intro/property.png)
+  ![プロパティ](./img/property.png)
 
 ## オブジェクトのプロパティに設定できる値
 

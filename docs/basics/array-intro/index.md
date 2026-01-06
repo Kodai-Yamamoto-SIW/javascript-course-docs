@@ -242,7 +242,7 @@ let tetrisField =
     ];
 ```
 
-![出力例](/img/array-intro/tetris-exercise-1.png)
+![出力例](./img/tetris-exercise-1.png)
 
 <Solution>
 各行ごとに文字を連結して 1 行ずつ出力します。外側のループで行、内側のループでセルを処理し、行の前後に `|` を付けます。
@@ -269,7 +269,7 @@ for (let row of tetrisField) {
 <Exercise title="演習2-発展4（2）">
 （1）の tetrisField はテトリスというパズルゲームのフィールドを表している。このゲームでは、■が横一列すべて埋まったら、その行の■が消えて、それより上の行の内容がすべて１つ下の行に移動することになる。その処理を実装し、結果を出力せよ。（下の図のようになれば良い）
 
-![出力例](/img/array-intro/tetris-exercise-2.png)
+![出力例](./img/tetris-exercise-2.png)
 
 <Solution>
 横一列が「■」で埋まった行を削除し、上の行を 1 行ずつ落とす処理を実装します。

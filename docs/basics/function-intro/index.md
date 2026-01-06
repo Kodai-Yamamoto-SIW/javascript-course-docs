@@ -124,7 +124,7 @@ like("うどん"); // 出力: 私はうどんが好き`}/>
 </Exercise>
 
 ## console.log は実は関数
-実は、console.log は、次のように console.log という名前の関数だと考えることができます（[オブジェクト入門](./object-intro.md) で詳しく扱います）。
+実は、console.log は、次のように console.log という名前の関数だと考えることができます（[オブジェクト入門](../object-intro/index.md) で詳しく扱います）。
 
 ```js
 // 簡易イメージ
