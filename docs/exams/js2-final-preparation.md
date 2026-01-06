@@ -9,12 +9,14 @@ import Exercise, { Solution } from "@kodai-yamamoto-siw/exercise/client";
 
 # JavaScriptⅡ 期末試験 対策問題集
 
-この問題集は、期末試験（本試験）と同じ考え方で解ける問題を先に練習するためのものです。各問題の「本試験では」を読み、学習の方向性を確認してください。
+この問題集は、期末試験（本試験）と同じ考え方で解ける問題を先に練習するためのものです。  
+各問題の「本試験では」を読み、学習の方向性を確認してください。
 
 ---
 
 <Exercise title="問題1：クリックでテキストを1回だけ変更（プログラム作成）">
-要件を満たすような JavaScript を作成せよ。JavaScript のみ答えること。なお、JavaScript は HTML 全体が読み込まれた後の適切なタイミングで実行されるものとする。
+要件を満たすような JavaScript を作成せよ。JavaScript のみ答えること。  
+なお、JavaScript は HTML 全体が読み込まれた後の適切なタイミングで実行されるものとする。
 
 **HTML:**
 
@@ -71,7 +73,8 @@ startBtnYoso.addEventListener('click', function() {
 ---
 
 <Exercise title="問題2：クリックで表示/非表示を切り替える（クラスの付け外し）">
-要件を満たすような JavaScript を作成せよ。JavaScript のみ答えること。なお、JavaScript は HTML 全体が読み込まれた後の適切なタイミングで実行されるものとする。
+要件を満たすような JavaScript を作成せよ。JavaScript のみ答えること。  
+なお、JavaScript は HTML 全体が読み込まれた後の適切なタイミングで実行されるものとする。
 
 **HTML:**
 
@@ -101,7 +104,8 @@ startBtnYoso.addEventListener('click', function() {
 ![問題2の期待動作](/img/exams/js2-final-preparation-q2.gif)
 
 :::tip 本試験では
-クリックする要素・切り替える要素のセレクタや、付け外しするクラス名が変わります。CSSを見て「どのクラスが付いたら表示になるか」を読み取り、JavaScriptからそのクラスを付け外ししてください。
+クリックする要素・切り替える要素のセレクタや、付け外しするクラス名が変わります。  
+CSSを見て「どのクラスが付いたら表示になるか」を読み取り、JavaScriptからそのクラスを付け外ししてください。
 :::
 
 :::info 採点基準・配点
@@ -146,7 +150,8 @@ questionTitleYoso.addEventListener('click', function() {
 ---
 
 <Exercise title="問題3：マウスが乗ったら表示、離れたら非表示（mouseenter / mouseleave）">
-要件を満たすような JavaScript を作成せよ。JavaScript のみ答えること。なお、JavaScript は HTML 全体が読み込まれた後の適切なタイミングで実行されるものとする。
+要件を満たすような JavaScript を作成せよ。JavaScript のみ答えること。  
+なお、JavaScript は HTML 全体が読み込まれた後の適切なタイミングで実行されるものとする。
 
 **HTML:**
 
@@ -251,7 +256,8 @@ menuWrapYoso.addEventListener('mouseleave', function() {
 ---
 
 <Exercise title="問題4：ポップアップ（モーダル）のCSS穴埋め（opacity / visibility / transition / transform）">
-次の HTML / JavaScript を使って、ポップアップが表示される機能を作成する。この機能が正しく動作するように、CSS の空欄を埋めよ。
+次の HTML / JavaScript を使って、ポップアップが表示される機能を作成する。  
+この機能が正しく動作するように、CSS の空欄を埋めよ。
 
 **HTML:**
 
