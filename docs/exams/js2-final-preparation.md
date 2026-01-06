@@ -255,7 +255,7 @@ menuWrapYoso.addEventListener('mouseleave', function() {
 
 ---
 
-<Exercise title="問題4：ポップアップ（モーダル）のCSS穴埋め（opacity / visibility / transition / transform）">
+<Exercise title="問題4：ポップアップ（モーダル）のCSS穴埋め（opacity / visibility / transition / transform）" enableBlanks>
 次の HTML / JavaScript を使って、ポップアップが表示される機能を作成する。  
 この機能が正しく動作するように、CSS の空欄を埋めよ。
 
@@ -356,14 +356,6 @@ ${.modalLayer.isOpen .modalPanel} {
 :::
 
 <Solution>
-### 解答
-
-- 1つ目：`0`
-- 2つ目：`.modalLayer.isOpen`
-- 3つ目：`1`
-- 4つ目：`transform`（`all` でも可）
-- 5つ目：`.modalLayer.isOpen .modalPanel`
-
 ### 解説
 
 この問題は、モーダル（ポップアップ）を作るときによく使うCSSの組み合わせを確認する問題です。
