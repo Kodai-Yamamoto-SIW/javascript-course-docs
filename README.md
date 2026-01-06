@@ -1,67 +1,75 @@
-# ウェブサイト
+# Website
 
-このウェブサイトは、モダンな静的ウェブサイトジェネレーターである [Docusaurus](https://docusaurus.io/) を使用して構築されています。
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-## インストール
+## Setup
 
 ```bash
 npm install
 ```
 
-## ローカル開発
+## Development Commands
+
+### Local Development
 
 ```bash
 npm run start
 ```
 
-これにより、Docusaurusの開発サーバーとnpm依存としてインストールされた`@metyatech/workspace-launch-server` が同時に起動します。ブラウザが自動的に開き、バックエンドのエンドポイント（例: `/manifest`）がポート8787で利用可能になります。
+This starts the Docusaurus dev server and `@metyatech/workspace-launch-server` (as an npm dependency) in parallel. A browser opens automatically and backend endpoints (e.g. `/manifest`) are available on port `8787`.
 
-ドキュメントUIのみが必要ですか？`npm run start:docusaurus`を実行してください。APIのみが必要ですか？`npm run server`を実行してください（内部的に`workspace-launch-server`バイナリを実行します）。
+Need only the docs UI? Run `npm run start:docusaurus`. Need only the API? Run `npm run server` (internally executes the `workspace-launch-server` binary).
 
-## 認証設定 (Microsoft Teams サインイン)
-
-このサイトは `@metyatech/docusaurus-microsoft-auth` プラグインを通じて Microsoft Teams / Microsoft 365 アカウントでのサインインを必須としています。事前に Azure ポータルでアプリ登録を作成し、以下の環境変数を設定してください。
-
-1. Azure portal → Microsoft Entra ID → アプリの登録 から新しいアプリを作成し、`http://localhost:3000` (or 開発用 URL) をリダイレクト URI (Web) として追加します。
-2. アプリケーション (クライアント) ID とディレクトリ (テナント) ID を控えます。
-3. `.env.example` を `.env` にコピーして共通の値を書き換えます。ローカル専用の値は `.env.development.local`、本番固有の値は `.env.production.local` に追加してください（`.env.local` も利用できます）。`docusaurus.config.ts` がこれらのファイルを順番に読み込み、後から読み込んだ値で上書きされます。
-
-`.env`（必要に応じて `.env.local` / `.env.development.local` で上書き）に設定する例:
+### Build
 
 ```bash
-DOCUSAURUS_MICROSOFT_CLIENT_ID=<アプリケーション (クライアント) ID>
-DOCUSAURUS_MICROSOFT_TENANT_ID=<ディレクトリ (テナント) ID>
+npm run build
+```
+
+This generates static content into the `build` directory.
+
+### Deploy
+
+Using SSH:
+
+```bash
+USE_SSH=true npm run deploy
+```
+
+Not using SSH:
+
+```bash
+GIT_USER=<your GitHub username> npm run deploy
+```
+
+For GitHub Pages hosting, this builds the website and pushes to the `gh-pages` branch.
+
+### Typecheck
+
+```bash
+npm run typecheck
+```
+
+## Environment Variables/Settings (Microsoft Teams Sign-in)
+
+This site requires sign-in with Microsoft Teams / Microsoft 365 accounts via `@metyatech/docusaurus-microsoft-auth`.
+
+1. In Azure portal, create a new Entra ID app registration and add `http://localhost:3000` (or your dev URL) as a Web redirect URI.
+2. Copy the Application (client) ID and Directory (tenant) ID.
+3. Copy `.env.example` to `.env` and update common values. Add local-only values to `.env.development.local` and production-only values to `.env.production.local` (you can also use `.env.local`). `docusaurus.config.ts` loads these files in order and later files override earlier values.
+
+Example `.env` values:
+
+```bash
+DOCUSAURUS_MICROSOFT_CLIENT_ID=<Application (client) ID>
+DOCUSAURUS_MICROSOFT_TENANT_ID=<Directory (tenant) ID>
 DOCUSAURUS_MICROSOFT_AUTHORITY_HOST=https://login.microsoftonline.com
 DOCUSAURUS_MICROSOFT_REDIRECT_URI=http://localhost:3000
 DOCUSAURUS_MICROSOFT_POST_LOGOUT_REDIRECT_URI=http://localhost:3000
 DOCUSAURUS_MICROSOFT_SCOPES=User.Read
 ```
 
-- `AUTHORITY_HOST` を省略すると `https://login.microsoftonline.com` が使われます。
-- `REDIRECT_URI` と `POST_LOGOUT_REDIRECT_URI` を省略すると現在のサイトの URL が使われます（GitHub Pages では `https://<your-account>.github.io/javascript-course-docs/`）。
-- 追加の Graph API 権限が必要な場合は `DOCUSAURUS_MICROSOFT_SCOPES` にカンマ区切りでスコープを設定してください。
-- 本番環境では `.env.production.local` を作成し、本番用のリダイレクト URI やスコープに差し替えてください。`.env` に共通値を置き、必要に応じて `.env.production` / `.env.production.local` で上書きできます。
-
-## ビルド
-
-```bash
-npm run build
-```
-
-このコマンドは、`build`ディレクトリに静的コンテンツを生成し、任意の静的コンテンツホスティングサービスを使用して提供できます。
-
-## デプロイ
-
-SSHを使用する場合:
-
-```bash
-USE_SSH=true npm run deploy
-```
-
-SSHを使用しない場合:
-
-```bash
-GIT_USER=<あなたのGitHubユーザー名> npm run deploy
-```
-
-GitHub Pagesをホスティングに使用している場合、このコマンドはウェブサイトをビルドし、`gh-pages`ブランチにプッシュする便利な方法です。
+- If `AUTHORITY_HOST` is omitted, `https://login.microsoftonline.com` is used.
+- If `REDIRECT_URI` and `POST_LOGOUT_REDIRECT_URI` are omitted, the current site URL is used (GitHub Pages: `https://<your-account>.github.io/javascript-course-docs/`).
+- For additional Graph API permissions, set comma-separated scopes in `DOCUSAURUS_MICROSOFT_SCOPES`.
+- For production, create `.env.production.local` and override redirect URIs/scopes as needed.
