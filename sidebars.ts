@@ -43,6 +43,11 @@ const sidebars: SidebarsConfig = {
         'ui-components/popup_magnific-popup',
       ],
     },
+    {
+      type: 'category',
+      label: '試験対策',
+      items: ['exams/js2-final-preparation'],
+    },
   ],
 };
 
