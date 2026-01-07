@@ -681,13 +681,12 @@ moreYoso.addEventListener('click', function() {
 
 ## 発展課題
 
-<Exercise title="演習-発展1（画像ギャラリーの「もっと見る」）">
+<Exercise title="演習-発展1（コンテンツの最後に「もっと見る」ボタンを配置）">
 
-以下のプレビューと同じように、画像ギャラリーで「もっと見る」を実装してください。
+以下のプレビューと同じように、「もっと見る」ボタンをコンテンツの外ではなく、コンテンツの下部（フェードの上）に配置してください。
 
-- 最初は3枚の画像だけ表示
-- 「もっと見る」ボタンをクリックすると、残りの画像も表示される
-- 「閉じる」ボタンをクリックすると、最初の3枚だけに戻る
+- ボタンはコンテンツの下部に固定配置
+- 開いたときにボタンがコンテンツの最後に移動する
 
 <CodePreview
   sourceId="演習-発展1"
@@ -695,188 +694,7 @@ moreYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="gallery">
-    <div class="image-item">画像 1</div>
-    <div class="image-item">画像 2</div>
-    <div class="image-item">画像 3</div>
-    <div class="image-item hidden">画像 4</div>
-    <div class="image-item hidden">画像 5</div>
-    <div class="image-item hidden">画像 6</div>
-  </div>
-  <button class="more">もっと見る</button>`}
-  initialCSS={`.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .image-item {
-    aspect-ratio: 1;
-    background: #ddd;
-    border: 1px solid #999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hidden {
-    display: none; /* 最初は非表示 */
-  }
-
-  .more {
-    display: block;
-    margin: 0 auto;
-    padding: 8px 16px;
-    border: 1px solid #ccc;
-    background: white;
-    cursor: pointer;
-  }`}
-  initialJS={`let moreYoso = document.querySelector('.more');
-  let hiddenImages = document.querySelectorAll('.image-item.hidden'); // 非表示の画像を全て取得
-
-  let isOpen = false;
-
-  moreYoso.addEventListener('click', function() {
-    isOpen = !isOpen;
-    
-    if (isOpen) {
-      // 全ての非表示画像を表示する
-      hiddenImages.forEach(function(image) {
-        image.classList.remove('hidden');
-      });
-      moreYoso.innerText = '閉じる';
-    } else {
-      // 全ての非表示画像を隠す
-      hiddenImages.forEach(function(image) {
-        image.classList.add('hidden');
-      });
-      moreYoso.innerText = 'もっと見る';
-    }
-  });`}
-/>
-
-<Solution>
-<CodePreview sourceId="演習-発展1" />
-</Solution>
-</Exercise>
-
----
-
-<Exercise title="演習-発展2（横スクロールの「もっと見る」）">
-
-以下のプレビューと同じように、横スクロール可能なカードリストで「もっと見る」を実装してください。
-
-- 最初は一部だけ見えている状態
-- 「もっと見る」ボタンをクリックすると、横スクロールできるようになる
-
-<CodePreview
-  sourceId="演習-発展2"
-  htmlVisible={true}
-  cssVisible={false}
-  jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div class="scroll-wrap">
-    <div class="card-list">
-      <div class="card">カード 1</div>
-      <div class="card">カード 2</div>
-      <div class="card">カード 3</div>
-      <div class="card">カード 4</div>
-      <div class="card">カード 5</div>
-      <div class="card">カード 6</div>
-    </div>
-    <div class="fade-right"></div>
-  </div>
-  <button class="more">もっと見る</button>`}
-  initialCSS={`.scroll-wrap {
-    position: relative;
-    margin-bottom: 16px;
-  }
-
-  .card-list {
-    display: flex;
-    gap: 16px;
-    overflow-x: hidden; /* 最初は横スクロールを隠す */
-    transition: overflow-x 0.3s;
-  }
-
-  .scroll-wrap.open .card-list {
-    overflow-x: auto; /* 開いたら横スクロール可能にする */
-  }
-
-  .card {
-    min-width: 150px;
-    height: 100px;
-    background: #ddd;
-    border: 1px solid #999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .fade-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 80px;
-    background: linear-gradient(to left, white, transparent);
-    transition: opacity 0.3s;
-    pointer-events: none; /* クリックを素通しさせる */
-  }
-
-  .scroll-wrap.open .fade-right {
-    opacity: 0;
-  }
-
-  .more {
-    display: block;
-    margin: 0 auto;
-    padding: 8px 16px;
-    border: 1px solid #ccc;
-    background: white;
-    cursor: pointer;
-  }`}
-  initialJS={`let moreYoso = document.querySelector('.more');
-  let scrollWrap = document.querySelector('.scroll-wrap');
-
-  let isOpen = false;
-
-  moreYoso.addEventListener('click', function() {
-    scrollWrap.classList.toggle('open');
-    
-    isOpen = !isOpen;
-    
-    if (isOpen) {
-      moreYoso.innerText = '閉じる';
-    } else {
-      moreYoso.innerText = 'もっと見る';
-    }
-  });`}
-/>
-
-<Solution>
-<CodePreview sourceId="演習-発展2" />
-</Solution>
-</Exercise>
-
----
-
-<Exercise title="演習-発展3（上下両方向から開く「もっと見る」）">
-
-以下のプレビューと同じように、上下にフェードがあり、中央部分だけが見えている状態から開く「もっと見る」を実装してください。
-
-- 上下にフェードを配置
-- 「もっと見る」ボタンをクリックすると、上下両方向に広がる
-
-<CodePreview
-  sourceId="演習-発展3"
-  htmlVisible={true}
-  cssVisible={false}
-  jsVisible={false}
-  previewVisible={true}
   initialHTML={`<div class="wrap">
-    <div class="fade-top"></div>
     <p class="content">
       これは長いコンテンツのサンプルです。<br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
@@ -889,9 +707,9 @@ moreYoso.addEventListener('click', function() {
       Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
       Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
     </p>
-    <div class="fade-bottom"></div>
-  </div>
-  <button class="more">もっと見る</button>`}
+    <div class="fade"></div>
+    <button class="more">もっと見る</button>
+  </div>`}
   initialCSS={`.wrap {
     position: relative;
   }
@@ -900,49 +718,45 @@ moreYoso.addEventListener('click', function() {
     max-height: 110px;
     overflow: hidden;
     transition: max-height 0.5s;
-    padding-top: 50px; /* 上部フェードの高さ分の余白 */
+    padding-bottom: 40px; /* ボタンの高さ分の余白 */
   }
 
   .wrap.open .content {
-    max-height: 600px;
-    padding-top: 0; /* 開いたら余白を消す */
+    max-height: 500px;
+    padding-bottom: 0;
   }
 
-  .fade-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: linear-gradient(white, transparent);
-    transition: opacity 0.3s;
-  }
-
-  .wrap.open .fade-top {
-    opacity: 0;
-  }
-
-  .fade-bottom {
+  .fade {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 80px; /* ボタンの高さも含めた高さ */
     background: linear-gradient(transparent, white);
     transition: opacity 0.3s;
+    pointer-events: none; /* クリックを素通しさせる */
   }
 
-  .wrap.open .fade-bottom {
+  .wrap.open .fade {
     opacity: 0;
   }
 
   .more {
-    display: block;
-    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* 中央に配置 */
     padding: 8px 16px;
     border: 1px solid #ccc;
     background: white;
     cursor: pointer;
+    z-index: 1; /* フェードの上に配置 */
+  }
+
+  .wrap.open .more {
+    position: static; /* 開いたら通常配置に戻る */
+    transform: none; /* 開いたら中央配置を解除 */
+    margin-top: 10px;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
   let wrapperYoso = document.querySelector('.wrap');
@@ -963,13 +777,13 @@ moreYoso.addEventListener('click', function() {
 />
 
 <Solution>
-<CodePreview sourceId="演習-発展3" />
+<CodePreview sourceId="演習-発展1" />
 </Solution>
 </Exercise>
 
 ---
 
-<Exercise title="演習-発展4（段階的に開く「もっと見る」）">
+<Exercise title="演習-発展2（段階的に開く「もっと見る」）">
 
 以下のプレビューと同じように、3段階で開く「もっと見る」を実装してください。
 
@@ -979,7 +793,7 @@ moreYoso.addEventListener('click', function() {
 - 3回目のクリックで最初の状態に戻る
 
 <CodePreview
-  sourceId="演習-発展4"
+  sourceId="演習-発展2"
   htmlVisible={true}
   cssVisible={false}
   jsVisible={false}
@@ -1072,13 +886,13 @@ moreYoso.addEventListener('click', function() {
 />
 
 <Solution>
-<CodePreview sourceId="演習-発展4" />
+<CodePreview sourceId="演習-発展2" />
 </Solution>
 </Exercise>
 
 ---
 
-<Exercise title="演習-発展5（デザイン調整）">
+<Exercise title="演習-発展3（デザイン調整）">
 
 以下のプレビューと同じように、見た目を整えてください。
 
@@ -1086,7 +900,7 @@ moreYoso.addEventListener('click', function() {
 - ボタンのデザインを改善（角丸、ホバー効果など）
 
 <CodePreview
-  sourceId="演習-発展1"
+  sourceId="演習-発展3"
   htmlVisible={true}
   cssVisible={false}
   jsVisible={false}
@@ -1189,6 +1003,6 @@ moreYoso.addEventListener('click', function() {
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、コードの後ろにコメントを書いています。
-<CodePreview sourceId="演習-発展1" />
+<CodePreview sourceId="演習-発展3" />
 </Solution>
 </Exercise>
