@@ -22,13 +22,13 @@ import { CodePreview } from "@metyatech/code-preview";
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>これは長いコンテンツのサンプルです。</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
+  <p class="content">
+    これは長いコンテンツのサンプルです。<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -37,6 +37,7 @@ import { CodePreview } from "@metyatech/code-preview";
 }
 
 .content {
+  margin: 0;
   max-height: 100px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -100,14 +101,15 @@ btnYoso.addEventListener('click', function() {
 `overflow: hidden;` を組み合わせると、はみ出た部分が隠れます。
 
 <CodePreview
-  initialHTML={`<div class="content">
-  <p>これは長いコンテンツのサンプルです。</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>`}
+  initialHTML={`<p class="content">
+  これは長いコンテンツのサンプルです。<br>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
+  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>`}
   initialCSS={`.content {
+  margin: 0;
   max-height: 100px; /* 高さを100pxに制限 */
   overflow: hidden; /* はみ出た部分を隠す */
 }`}
@@ -123,14 +125,15 @@ btnYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content">
-  <p>Web開発の基礎を学びましょう。</p>
-  <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
-  <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
-  <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
-  <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
-</div>`}
+  initialHTML={`<p class="content">
+  Web開発の基礎を学びましょう。<br>
+  HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+  これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+  最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+  実際に手を動かして、たくさんのコードを書いてみましょう。
+</p>`}
   initialCSS={`.content {
+  margin: 0;
   max-height: 150px;
   overflow: hidden;
 }`}
@@ -154,13 +157,13 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>これは長いコンテンツのサンプルです。</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-  </div>
+  <p class="content">
+    これは長いコンテンツのサンプルです。<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+  </p>
   <div class="fade"></div>
 </div>`}
   initialCSS={`.content-wrapper {
@@ -168,6 +171,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 100px;
   overflow: hidden;
 }
@@ -198,13 +202,13 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>Web開発の基礎を学びましょう。</p>
-    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
-    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
-    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
-    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
-  </div>
+  <p class="content">
+    Web開発の基礎を学びましょう。<br>
+    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+    実際に手を動かして、たくさんのコードを書いてみましょう。
+  </p>
   <div class="fade"></div>
 </div>`}
   initialCSS={`.content-wrapper {
@@ -212,6 +216,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 120px;
   overflow: hidden;
 }
@@ -243,13 +248,13 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>これは長いコンテンツのサンプルです。</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-  </div>
+  <p class="content">
+    これは長いコンテンツのサンプルです。<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -258,6 +263,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 100px;
   overflow: hidden;
 }
@@ -315,13 +321,13 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>Web開発の基礎を学びましょう。</p>
-    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
-    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
-    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
-    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
-  </div>
+  <p class="content">
+    Web開発の基礎を学びましょう。<br>
+    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+    実際に手を動かして、たくさんのコードを書いてみましょう。
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -330,6 +336,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 120px;
   overflow: hidden;
 }
@@ -387,13 +394,13 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>これは長いコンテンツのサンプルです。</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-  </div>
+  <p class="content">
+    これは長いコンテンツのサンプルです。<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -402,6 +409,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 100px;
   overflow: hidden;
   transition: max-height 0.5s; /* アニメーション追加 */
@@ -460,13 +468,13 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>Web開発の基礎を学びましょう。</p>
-    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
-    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
-    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
-    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
-  </div>
+  <p class="content">
+    Web開発の基礎を学びましょう。<br>
+    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+    実際に手を動かして、たくさんのコードを書いてみましょう。
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -475,6 +483,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 120px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -531,13 +540,13 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>これは長いコンテンツのサンプルです。</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-  </div>
+  <p class="content">
+    これは長いコンテンツのサンプルです。<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -546,6 +555,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 100px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -611,13 +621,13 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>Web開発の基礎を学びましょう。</p>
-    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
-    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
-    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
-    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
-  </div>
+  <p class="content">
+    Web開発の基礎を学びましょう。<br>
+    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+    実際に手を動かして、たくさんのコードを書いてみましょう。
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -626,6 +636,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 120px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -690,13 +701,13 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>これは長いコンテンツのサンプルです。</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
+  <p class="content">
+    これは長いコンテンツのサンプルです。<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -705,6 +716,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 100px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -774,13 +786,13 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>Web開発の基礎を学びましょう。</p>
-    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
-    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
-    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
-    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
-  </div>
+  <p class="content">
+    Web開発の基礎を学びましょう。<br>
+    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+    実際に手を動かして、たくさんのコードを書いてみましょう。
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
@@ -792,6 +804,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 120px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -800,14 +813,6 @@ btnYoso.addEventListener('click', function() {
 
 .content.open {
   max-height: 500px;
-}
-
-.content p {
-  margin: 0 0 12px 0;
-}
-
-.content p:last-child {
-  margin-bottom: 0;
 }
 
 .fade {
@@ -881,13 +886,13 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <div class="content">
-    <p>Web開発の基礎を学びましょう。</p>
-    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
-    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
-    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
-    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
-  </div>
+  <p class="content">
+    Web開発の基礎を学びましょう。<br>
+    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+    実際に手を動かして、たくさんのコードを書いてみましょう。
+  </p>
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">
@@ -902,6 +907,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 120px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -910,14 +916,6 @@ btnYoso.addEventListener('click', function() {
 
 .content.open {
   max-height: 500px;
-}
-
-.content p {
-  margin: 0 0 12px 0;
-}
-
-.content p:last-child {
-  margin-bottom: 0;
 }
 
 .fade {
@@ -1006,12 +1004,12 @@ btnYoso.addEventListener('click', function() {
   previewVisible={true}
   initialHTML={`<div class="show-more-container">
   <div class="content-wrapper">
-    <div class="content">
-      <p><strong>セクション1</strong></p>
-      <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
-      <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
-      <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
-    </div>
+    <p class="content">
+      <strong>セクション1</strong><br>
+      HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+      これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+      最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。
+    </p>
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>
@@ -1019,12 +1017,12 @@ btnYoso.addEventListener('click', function() {
 
 <div class="show-more-container">
   <div class="content-wrapper">
-    <div class="content">
-      <p><strong>セクション2</strong></p>
-      <p>プログラミングは論理的思考を養います。</p>
-      <p>問題を小さく分解し、一つずつ解決していく力が身につきます。</p>
-      <p>失敗を恐れず、たくさん試行錯誤することが上達の秘訣です。</p>
-    </div>
+    <p class="content">
+      <strong>セクション2</strong><br>
+      プログラミングは論理的思考を養います。<br>
+      問題を小さく分解し、一つずつ解決していく力が身につきます。<br>
+      失敗を恐れず、たくさん試行錯誤することが上達の秘訣です。
+    </p>
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>
@@ -1041,6 +1039,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 80px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -1049,14 +1048,6 @@ btnYoso.addEventListener('click', function() {
 
 .content.open {
   max-height: 300px;
-}
-
-.content p {
-  margin: 0 0 12px 0;
-}
-
-.content p:last-child {
-  margin-bottom: 0;
 }
 
 .fade {
@@ -1217,12 +1208,12 @@ btnYoso.addEventListener('click', function() {
   previewVisible={true}
   initialHTML={`<div class="show-more-container">
   <div class="content-wrapper">
-    <div class="content">
-      <p>このコンテンツは長いです。</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-    </div>
+    <p class="content">
+      このコンテンツは長いです。<br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+    </p>
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>
@@ -1230,9 +1221,7 @@ btnYoso.addEventListener('click', function() {
 
 <div class="show-more-container">
   <div class="content-wrapper">
-    <div class="content">
-      <p>このコンテンツは短いです。</p>
-    </div>
+    <p class="content">このコンテンツは短いです。</p>
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>
@@ -1249,6 +1238,7 @@ btnYoso.addEventListener('click', function() {
 }
 
 .content {
+  margin: 0;
   max-height: 100px;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -1257,14 +1247,6 @@ btnYoso.addEventListener('click', function() {
 
 .content.open {
   max-height: 500px;
-}
-
-.content p {
-  margin: 0 0 12px 0;
-}
-
-.content p:last-child {
-  margin-bottom: 0;
 }
 
 .fade {
