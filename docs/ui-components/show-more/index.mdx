@@ -8,9 +8,87 @@ import { CodePreview } from "@metyatech/code-preview";
 
 ## もっと見るとは
 
-「もっと見る」は、長いコンテンツの後半を隠しておき、ボタンをクリックすると残りが表示される UI パターンです。ページをすっきり見せつつ、ユーザーが興味を持てば続きを読めるようにできます。
+「もっと見る」は、ブログ記事の概要表示やQ&Aサイトの回答、商品説明など、長い文章を最初は一部だけ表示し、ボタンで全文を表示する場面で使われます。
+
+長いコンテンツの後半を隠しておき、ボタンをクリックすると残りが表示される UI パターンです。ページをすっきり見せつつ、ユーザーが興味を持てば続きを読めるようにできます。
 
 このページでは、コンテンツを隠す方法・フェード効果・開閉の切り替えを順を追って学びます。
+
+以下は、完成イメージです。「もっと見る」ボタンをクリックすると、隠れていたコンテンツが表示されます。
+
+<CodePreview
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>これは長いコンテンツのサンプルです。</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+let isOpen = false;
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+  
+  isOpen = !isOpen;
+  
+  if (isOpen) {
+    btnYoso.innerText = '閉じる';
+  } else {
+    btnYoso.innerText = 'もっと見る';
+  }
+});`}
+/>
+
+---
 
 ## STEP 1: コンテンツを途中で切る
 
