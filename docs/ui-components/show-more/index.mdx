@@ -826,7 +826,6 @@ moreYoso.addEventListener('click', function() {
     max-height: 110px;
     overflow: hidden;
     transition: max-height 0.5s;
-    padding-bottom: 40px; /* ボタンの高さ分の余白 */
   }
 
   .wrap.open .content {
@@ -839,7 +838,7 @@ moreYoso.addEventListener('click', function() {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 80px; /* ボタンの高さも含めた高さ */
+    height: 50px;
     background: linear-gradient(transparent, white);
     transition: opacity 0.3s;
     pointer-events: none; /* クリックを素通しさせる */
@@ -853,14 +852,13 @@ moreYoso.addEventListener('click', function() {
     position: absolute;
     bottom: 10px;
     left: 50%;
-    transform: translateX(-50%); /* 中央に配置 */
+    transform: translateX(-50%); /* left:50% と これで、左右中央配置 */
     z-index: 1; /* フェードの上に配置 */
   }
 
   .wrap.open .more {
     position: static; /* 開いたら通常配置に戻る */
     transform: none; /* 開いたら中央配置を解除 */
-    margin-top: 10px;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
   let wrapperYoso = document.querySelector('.wrap');
