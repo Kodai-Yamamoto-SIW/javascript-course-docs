@@ -106,21 +106,21 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<p class="content">
-  これは長いコンテンツのサンプルです。<br>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
-  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
-  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-  Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
-  Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
-  Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
-  Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
-  Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
-</p>`}
+    これは長いコンテンツのサンプルです。<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+    Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
+    Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
+    Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
+    Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
+    Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
+  </p>`}
   initialCSS={`.content {
-  max-height: 100px; /* 高さを100pxに制限 */
-  overflow: hidden; /* はみ出た部分を隠す */
-}`}
+    max-height: 100px; /* 高さを100pxに制限 */
+    overflow: hidden; /* はみ出た部分を隠す */
+  }`}
 />
 
 <Exercise title="演習1（コンテンツの高さ制限）">
@@ -134,20 +134,20 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<p class="content">
-  Web開発の基礎を学びましょう。<br>
-  HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
-  これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
-  最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
-  実際に手を動かして、たくさんのコードを書いてみましょう。<br>
-  まずは小さな部品（ボタンやメニュー）から作ると理解しやすいです。<br>
-  レイアウトが崩れたら、開発者ツールで要素を確認してみましょう。<br>
-  分からないときは、原因を一つずつ切り分けるのがコツです。<br>
-  少しずつ積み上げると、できることが確実に増えていきます。
-</p>`}
+    Web開発の基礎を学びましょう。<br>
+    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+    実際に手を動かして、たくさんのコードを書いてみましょう。<br>
+    まずは小さな部品（ボタンやメニュー）から作ると理解しやすいです。<br>
+    レイアウトが崩れたら、開発者ツールで要素を確認してみましょう。<br>
+    分からないときは、原因を一つずつ切り分けるのがコツです。<br>
+    少しずつ積み上げると、できることが確実に増えていきます。
+  </p>`}
   initialCSS={`.content {
-  max-height: 150px;
-  overflow: hidden;
-}`}
+    max-height: 150px;
+    overflow: hidden;
+  }`}
 />
 
 <Solution>
@@ -168,37 +168,37 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    これは長いコンテンツのサンプルです。<br>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-    Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
-    Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
-    Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
-    Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
-    Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
-  </p>
-  <div class="fade"></div>
-</div>`}
+    <p class="content">
+      これは長いコンテンツのサンプルです。<br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
+      Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
+      Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
+      Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
+      Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
+      Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
+    </p>
+    <div class="fade"></div>
+  </div>`}
   initialCSS={`.content-wrapper {
-  position: relative; /* fadeの配置基準 */
-}
+    position: relative; /* fadeの配置基準 */
+  }
 
-.content {
-  max-height: 100px;
-  overflow: hidden;
-}
+  .content {
+    max-height: 100px;
+    overflow: hidden;
+  }
 
-.fade {
-  position: absolute; /* 親要素を基準に配置 */
-  bottom: 0; /* 下端に配置 */
-  left: 0;
-  right: 0; /* left:0 + right:0 で横幅いっぱい */
-  height: 50px; /* フェードの高さ */
-  background: linear-gradient(transparent, white); /* 上が透明、下が白 */
-}`}
+  .fade {
+    position: absolute; /* 親要素を基準に配置 */
+    bottom: 0; /* 下端に配置 */
+    left: 0;
+    right: 0; /* left:0 + right:0 で横幅いっぱい */
+    height: 50px; /* フェードの高さ */
+    background: linear-gradient(transparent, white); /* 上が透明、下が白 */
+  }`}
 />
 
 :::tip linear-gradient について
@@ -217,36 +217,36 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    Web開発の基礎を学びましょう。<br>
-    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
-    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
-    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
-    実際に手を動かして、たくさんのコードを書いてみましょう。<br>
-    まずは見た目だけ、次に動きを追加する順番がおすすめです。<br>
-    CSSの指定が効かないときは、セレクタと優先順位を確認します。<br>
-    JavaScriptは「要素を取る → イベントを付ける → クラスを切り替える」が基本です。<br>
-    何度も試して、少しずつ慣れていきましょう。
-  </p>
-  <div class="fade"></div>
-</div>`}
+    <p class="content">
+      Web開発の基礎を学びましょう。<br>
+      HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+      これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+      最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+      実際に手を動かして、たくさんのコードを書いてみましょう。<br>
+      まずは見た目だけ、次に動きを追加する順番がおすすめです。<br>
+      CSSの指定が効かないときは、セレクタと優先順位を確認します。<br>
+      JavaScriptは「要素を取る → イベントを付ける → クラスを切り替える」が基本です。<br>
+      何度も試して、少しずつ慣れていきましょう。
+    </p>
+    <div class="fade"></div>
+  </div>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-}
+    position: relative;
+  }
 
-.content {
-  max-height: 120px;
-  overflow: hidden;
-}
+  .content {
+    max-height: 120px;
+    overflow: hidden;
+  }
 
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(transparent, white);
-}`}
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, white);
+  }`}
 />
 
 <Solution>
@@ -266,69 +266,69 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    これは長いコンテンツのサンプルです。<br>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-    Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
-    Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
-    Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
-    Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
-    Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      これは長いコンテンツのサンプルです。<br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
+      Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
+      Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
+      Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
+      Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
+      Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-}
+    position: relative;
+  }
 
-.content {
-  max-height: 100px;
-  overflow: hidden;
-}
+  .content {
+    max-height: 100px;
+    overflow: hidden;
+  }
 
-.content.open {
-  max-height: none; /* 高さ制限を解除 */
-}
+  .content.open {
+    max-height: none; /* 高さ制限を解除 */
+  }
 
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(transparent, white);
-}
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(transparent, white);
+  }
 
-.content-wrapper.open .fade {
-  display: none; /* 開いたらフェードを非表示 */
-}
+  .content-wrapper.open .fade {
+    display: none; /* 開いたらフェードを非表示 */
+  }
 
-.show-more-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-}`}
+  .show-more-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }`}
   initialJS={`// ボタンの要素を取得
-let btnYoso = document.querySelector('.show-more-btn');
-// コンテンツの要素を取得
-let contentYoso = document.querySelector('.content');
-// ラッパーの要素を取得
-let wrapperYoso = document.querySelector('.content-wrapper');
+  let btnYoso = document.querySelector('.show-more-btn');
+  // コンテンツの要素を取得
+  let contentYoso = document.querySelector('.content');
+  // ラッパーの要素を取得
+  let wrapperYoso = document.querySelector('.content-wrapper');
 
-// ボタンがクリックされたときの処理
-btnYoso.addEventListener('click', function() {
-  // コンテンツに open クラスを付け外し
-  contentYoso.classList.toggle('open');
-  // ラッパーにも open クラスを付け外し（フェードの表示切り替え用）
-  wrapperYoso.classList.toggle('open');
-});`}
+  // ボタンがクリックされたときの処理
+  btnYoso.addEventListener('click', function() {
+    // コンテンツに open クラスを付け外し
+    contentYoso.classList.toggle('open');
+    // ラッパーにも open クラスを付け外し（フェードの表示切り替え用）
+    wrapperYoso.classList.toggle('open');
+  });`}
 />
 
 <Exercise title="演習3（開閉機能の作成）">
@@ -343,62 +343,62 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    Web開発の基礎を学びましょう。<br>
-    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
-    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
-    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
-    実際に手を動かして、たくさんのコードを書いてみましょう。<br>
-    まずはHTMLで部品を置き、次にCSSで整え、最後にJSで動かします。<br>
-    クリック時の挙動は、イベントリスナーで追加できます。<br>
-    開閉状態はクラスで表すと、CSSだけで見た目を変えられて便利です。<br>
-    一度作れたら、別のUIにも応用できます。
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      Web開発の基礎を学びましょう。<br>
+      HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+      これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+      最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+      実際に手を動かして、たくさんのコードを書いてみましょう。<br>
+      まずはHTMLで部品を置き、次にCSSで整え、最後にJSで動かします。<br>
+      クリック時の挙動は、イベントリスナーで追加できます。<br>
+      開閉状態はクラスで表すと、CSSだけで見た目を変えられて便利です。<br>
+      一度作れたら、別のUIにも応用できます。
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-}
+    position: relative;
+  }
 
-.content {
-  max-height: 120px;
-  overflow: hidden;
-}
+  .content {
+    max-height: 120px;
+    overflow: hidden;
+  }
 
-.content.open {
-  max-height: none;
-}
+  .content.open {
+    max-height: none;
+  }
 
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(transparent, white);
-}
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, white);
+  }
 
-.content-wrapper.open .fade {
-  display: none;
-}
+  .content-wrapper.open .fade {
+    display: none;
+  }
 
-.show-more-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-}`}
+  .show-more-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
+  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.content-wrapper');
 
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  wrapperYoso.classList.toggle('open');
-});`}
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+  });`}
 />
 
 <Solution>
@@ -419,65 +419,65 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    これは長いコンテンツのサンプルです。<br>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-    Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
-    Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
-    Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
-    Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
-    Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      これは長いコンテンツのサンプルです。<br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
+      Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
+      Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
+      Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
+      Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
+      Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-}
+    position: relative;
+  }
 
-.content {
-  max-height: 100px;
-  overflow: hidden;
-  transition: max-height 0.5s; /* アニメーション追加 */
-}
+  .content {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.5s; /* アニメーション追加 */
+  }
 
-.content.open {
-  max-height: 500px; /* 十分大きな値を指定 */
-}
+  .content.open {
+    max-height: 500px; /* 十分大きな値を指定 */
+  }
 
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s; /* フェードアウト用 */
-}
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s; /* フェードアウト用 */
+  }
 
-.content-wrapper.open .fade {
-  opacity: 0; /* 透明にする */
-}
+  .content-wrapper.open .fade {
+    opacity: 0; /* 透明にする */
+  }
 
-.show-more-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-}`}
+  .show-more-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
+  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.content-wrapper');
 
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  wrapperYoso.classList.toggle('open');
-});`}
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+  });`}
 />
 
 :::tip max-height に大きな値を指定する理由
@@ -497,64 +497,64 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    Web開発の基礎を学びましょう。<br>
-    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
-    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
-    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
-    実際に手を動かして、たくさんのコードを書いてみましょう。<br>
-    アニメーションがあると、状態変化が分かりやすくなります。<br>
-    ただし動きをつけすぎると見づらくなるので、ほどよく調整します。<br>
-    transition は「どのプロパティを何秒で変えるか」を指定します。<br>
-    いろいろな値を試して、自分の好みを見つけましょう。
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      Web開発の基礎を学びましょう。<br>
+      HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+      これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+      最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+      実際に手を動かして、たくさんのコードを書いてみましょう。<br>
+      アニメーションがあると、状態変化が分かりやすくなります。<br>
+      ただし動きをつけすぎると見づらくなるので、ほどよく調整します。<br>
+      transition は「どのプロパティを何秒で変えるか」を指定します。<br>
+      いろいろな値を試して、自分の好みを見つけましょう。
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-}
+    position: relative;
+  }
 
-.content {
-  max-height: 120px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-}
+  .content {
+    max-height: 120px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
 
-.content.open {
-  max-height: 500px;
-}
+  .content.open {
+    max-height: 500px;
+  }
 
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s;
-}
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
 
-.content-wrapper.open .fade {
-  opacity: 0;
-}
+  .content-wrapper.open .fade {
+    opacity: 0;
+  }
 
-.show-more-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-}`}
+  .show-more-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
+  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.content-wrapper');
 
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  wrapperYoso.classList.toggle('open');
-});`}
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+  });`}
 />
 
 <Solution>
@@ -572,78 +572,78 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    これは長いコンテンツのサンプルです。<br>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-    Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
-    Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
-    Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
-    Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
-    Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      これは長いコンテンツのサンプルです。<br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
+      Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
+      Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
+      Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
+      Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
+      Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-}
-
-.content {
-  max-height: 100px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-}
-
-.content.open {
-  max-height: 500px;
-}
-
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s;
-}
-
-.content-wrapper.open .fade {
-  opacity: 0;
-}
-
-.show-more-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-}`}
-  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
-
-// 開いているかどうかを記録する変数
-let isOpen = false;
-
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  wrapperYoso.classList.toggle('open');
-  
-  // 状態を反転
-  isOpen = !isOpen;
-  
-  // 状態に応じてボタンのテキストを変更
-  if (isOpen) {
-    btnYoso.innerText = '閉じる';
-  } else {
-    btnYoso.innerText = 'もっと見る';
+    position: relative;
   }
-});`}
+
+  .content {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  .content.open {
+    max-height: 500px;
+  }
+
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
+
+  .content-wrapper.open .fade {
+    opacity: 0;
+  }
+
+  .show-more-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.content-wrapper');
+
+  // 開いているかどうかを記録する変数
+  let isOpen = false;
+
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+    
+    // 状態を反転
+    isOpen = !isOpen;
+    
+    // 状態に応じてボタンのテキストを変更
+    if (isOpen) {
+      btnYoso.innerText = '閉じる';
+    } else {
+      btnYoso.innerText = 'もっと見る';
+    }
+  });`}
 />
 
 <Exercise title="演習5（ボタンテキストの切り替え）">
@@ -657,74 +657,74 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    Web開発の基礎を学びましょう。<br>
-    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
-    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
-    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
-    実際に手を動かして、たくさんのコードを書いてみましょう。<br>
-    ボタンの文言が変わると、今の状態がすぐ分かります。<br>
-    たとえば「もっと見る / 閉じる」のようにペアで用意すると親切です。<br>
-    状態を変数で持つか、クラスの有無で判定する方法があります。<br>
-    どちらでも作れるので、読みやすい方を選びましょう。
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      Web開発の基礎を学びましょう。<br>
+      HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+      これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+      最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+      実際に手を動かして、たくさんのコードを書いてみましょう。<br>
+      ボタンの文言が変わると、今の状態がすぐ分かります。<br>
+      たとえば「もっと見る / 閉じる」のようにペアで用意すると親切です。<br>
+      状態を変数で持つか、クラスの有無で判定する方法があります。<br>
+      どちらでも作れるので、読みやすい方を選びましょう。
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-}
-
-.content {
-  max-height: 120px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-}
-
-.content.open {
-  max-height: 500px;
-}
-
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s;
-}
-
-.content-wrapper.open .fade {
-  opacity: 0;
-}
-
-.show-more-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-}`}
-  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
-
-let isOpen = false;
-
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  wrapperYoso.classList.toggle('open');
-  
-  isOpen = !isOpen;
-  
-  if (isOpen) {
-    btnYoso.innerText = '閉じる';
-  } else {
-    btnYoso.innerText = 'もっと見る';
+    position: relative;
   }
-});`}
+
+  .content {
+    max-height: 120px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  .content.open {
+    max-height: 500px;
+  }
+
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
+
+  .content-wrapper.open .fade {
+    opacity: 0;
+  }
+
+  .show-more-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.content-wrapper');
+
+  let isOpen = false;
+
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+    
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      btnYoso.innerText = '閉じる';
+    } else {
+      btnYoso.innerText = 'もっと見る';
+    }
+  });`}
 />
 
 <Solution>
@@ -740,75 +740,75 @@ btnYoso.addEventListener('click', function() {
 
 <CodePreview
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    これは長いコンテンツのサンプルです。<br>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-    Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
-    Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
-    Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
-    Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
-    Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      これは長いコンテンツのサンプルです。<br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+      Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
+      Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
+      Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
+      Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
+      Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-}
-
-.content {
-  max-height: 100px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-}
-
-.content.open {
-  max-height: 500px;
-}
-
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s;
-}
-
-.content-wrapper.open .fade {
-  opacity: 0;
-}
-
-.show-more-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-}`}
-  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
-
-let isOpen = false;
-
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  wrapperYoso.classList.toggle('open');
-  
-  isOpen = !isOpen;
-  
-  if (isOpen) {
-    btnYoso.innerText = '閉じる';
-  } else {
-    btnYoso.innerText = 'もっと見る';
+    position: relative;
   }
-});`}
+
+  .content {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  .content.open {
+    max-height: 500px;
+  }
+
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
+
+  .content-wrapper.open .fade {
+    opacity: 0;
+  }
+
+  .show-more-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.content-wrapper');
+
+  let isOpen = false;
+
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+    
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      btnYoso.innerText = '閉じる';
+    } else {
+      btnYoso.innerText = 'もっと見る';
+    }
+  });`}
 />
 
 ---
@@ -829,86 +829,86 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    Web開発の基礎を学びましょう。<br>
-    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
-    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
-    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
-    実際に手を動かして、たくさんのコードを書いてみましょう。<br>
-    余白や枠線があると、読みやすさが一気に上がります。<br>
-    ボタンはホバー時に色が変わると、押せることが伝わります。<br>
-    角丸や影を付けると、カードっぽい見た目になります。<br>
-    デザインは好みもあるので、いろいろ試してみましょう。
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      Web開発の基礎を学びましょう。<br>
+      HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+      これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+      最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+      実際に手を動かして、たくさんのコードを書いてみましょう。<br>
+      余白や枠線があると、読みやすさが一気に上がります。<br>
+      ボタンはホバー時に色が変わると、押せることが伝わります。<br>
+      角丸や影を付けると、カードっぽい見た目になります。<br>
+      デザインは好みもあるので、いろいろ試してみましょう。
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.content {
-  max-height: 120px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-  padding: 16px;
-}
-
-.content.open {
-  max-height: 500px;
-}
-
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s;
-}
-
-.content-wrapper.open .fade {
-  opacity: 0;
-}
-
-.show-more-btn {
-  display: block;
-  width: 100%;
-  margin-top: 0;
-  padding: 12px 16px;
-  border: none;
-  border-top: 1px solid #ddd;
-  background: #f5f5f5;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
-}
-
-.show-more-btn:hover {
-  background: #e8e8e8;
-}`}
-  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
-
-let isOpen = false;
-
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  wrapperYoso.classList.toggle('open');
-  
-  isOpen = !isOpen;
-  
-  if (isOpen) {
-    btnYoso.innerText = '閉じる';
-  } else {
-    btnYoso.innerText = 'もっと見る';
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
   }
-});`}
+
+  .content {
+    max-height: 120px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    padding: 16px;
+  }
+
+  .content.open {
+    max-height: 500px;
+  }
+
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
+
+  .content-wrapper.open .fade {
+    opacity: 0;
+  }
+
+  .show-more-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    padding: 12px 16px;
+    border: none;
+    border-top: 1px solid #ddd;
+    background: #f5f5f5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+
+  .show-more-btn:hover {
+    background: #e8e8e8;
+  }`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.content-wrapper');
+
+  let isOpen = false;
+
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+    
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      btnYoso.innerText = '閉じる';
+    } else {
+      btnYoso.innerText = 'もっと見る';
+    }
+  });`}
 />
 
 <Solution>
@@ -932,102 +932,102 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    Web開発の基礎を学びましょう。<br>
-    HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
-    これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
-    最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
-    実際に手を動かして、たくさんのコードを書いてみましょう。<br>
-    矢印があると、開閉できることが直感的に分かります。<br>
-    開いたら矢印が回転すると、状態の変化がより伝わります。<br>
-    テキストとアイコンは並べ方を整えると見た目が良くなります。<br>
-    まずは動作を作ってから、見た目を整えていきましょう。
-  </p>
-  <div class="fade"></div>
-</div>
-<button class="show-more-btn">
-  <span class="btn-text">もっと見る</span>
-  <span class="arrow">▼</span>
-</button>`}
+    <p class="content">
+      Web開発の基礎を学びましょう。<br>
+      HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+      これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+      最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+      実際に手を動かして、たくさんのコードを書いてみましょう。<br>
+      矢印があると、開閉できることが直感的に分かります。<br>
+      開いたら矢印が回転すると、状態の変化がより伝わります。<br>
+      テキストとアイコンは並べ方を整えると見た目が良くなります。<br>
+      まずは動作を作ってから、見た目を整えていきましょう。
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">
+    <span class="btn-text">もっと見る</span>
+    <span class="arrow">▼</span>
+  </button>`}
   initialCSS={`.content-wrapper {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.content {
-  max-height: 120px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-  padding: 16px;
-}
-
-.content.open {
-  max-height: 500px;
-}
-
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s;
-}
-
-.content-wrapper.open .fade {
-  opacity: 0;
-}
-
-.show-more-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding: 12px 16px;
-  border: none;
-  border-top: 1px solid #ddd;
-  background: #f5f5f5;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
-}
-
-.show-more-btn:hover {
-  background: #e8e8e8;
-}
-
-.arrow {
-  font-size: 10px;
-  transition: transform 0.3s;
-}
-
-.show-more-btn.open .arrow {
-  transform: rotate(180deg);
-}`}
-  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
-let btnTextYoso = document.querySelector('.btn-text');
-
-let isOpen = false;
-
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  wrapperYoso.classList.toggle('open');
-  btnYoso.classList.toggle('open');
-  
-  isOpen = !isOpen;
-  
-  if (isOpen) {
-    btnTextYoso.innerText = '閉じる';
-  } else {
-    btnTextYoso.innerText = 'もっと見る';
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
   }
-});`}
+
+  .content {
+    max-height: 120px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    padding: 16px;
+  }
+
+  .content.open {
+    max-height: 500px;
+  }
+
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
+
+  .content-wrapper.open .fade {
+    opacity: 0;
+  }
+
+  .show-more-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-top: 1px solid #ddd;
+    background: #f5f5f5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+
+  .show-more-btn:hover {
+    background: #e8e8e8;
+  }
+
+  .arrow {
+    font-size: 10px;
+    transition: transform 0.3s;
+  }
+
+  .show-more-btn.open .arrow {
+    transform: rotate(180deg);
+  }`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.content-wrapper');
+  let btnTextYoso = document.querySelector('.btn-text');
+
+  let isOpen = false;
+
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+    btnYoso.classList.toggle('open');
+    
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      btnTextYoso.innerText = '閉じる';
+    } else {
+      btnTextYoso.innerText = 'もっと見る';
+    }
+  });`}
 />
 
 <Solution>
@@ -1052,112 +1052,112 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="show-more-container">
-  <div class="content-wrapper">
-    <p class="content">
-      <strong>セクション1</strong><br>
-      HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
-      これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
-      最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
-      まずは一つずつ、動く部品を増やしていきましょう。<br>
-      小さな成功体験を積むと、学習が続けやすくなります。<br>
-      分からないときは、表示と動作を分けて確認します。
-    </p>
-    <div class="fade"></div>
+    <div class="content-wrapper">
+      <p class="content">
+        <strong>セクション1</strong><br>
+        HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
+        これらを組み合わせることで、魅力的なWebサイトが作れます。<br>
+        最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。<br>
+        まずは一つずつ、動く部品を増やしていきましょう。<br>
+        小さな成功体験を積むと、学習が続けやすくなります。<br>
+        分からないときは、表示と動作を分けて確認します。
+      </p>
+      <div class="fade"></div>
+    </div>
+    <button class="show-more-btn">もっと見る</button>
   </div>
-  <button class="show-more-btn">もっと見る</button>
-</div>
 
-<div class="show-more-container">
-  <div class="content-wrapper">
-    <p class="content">
-      <strong>セクション2</strong><br>
-      プログラミングは論理的思考を養います。<br>
-      問題を小さく分解し、一つずつ解決していく力が身につきます。<br>
-      失敗を恐れず、たくさん試行錯誤することが上達の秘訣です。<br>
-      うまくいかない原因を仮説→検証する流れが大切です。<br>
-      コードを少しずつ変えて、結果の違いを観察してみましょう。<br>
-      継続して練習すると、理解が深まっていきます。
-    </p>
-    <div class="fade"></div>
-  </div>
-  <button class="show-more-btn">もっと見る</button>
-</div>`}
+  <div class="show-more-container">
+    <div class="content-wrapper">
+      <p class="content">
+        <strong>セクション2</strong><br>
+        プログラミングは論理的思考を養います。<br>
+        問題を小さく分解し、一つずつ解決していく力が身につきます。<br>
+        失敗を恐れず、たくさん試行錯誤することが上達の秘訣です。<br>
+        うまくいかない原因を仮説→検証する流れが大切です。<br>
+        コードを少しずつ変えて、結果の違いを観察してみましょう。<br>
+        継続して練習すると、理解が深まっていきます。
+      </p>
+      <div class="fade"></div>
+    </div>
+    <button class="show-more-btn">もっと見る</button>
+  </div>`}
   initialCSS={`.show-more-container {
-  margin-bottom: 20px;
-}
+    margin-bottom: 20px;
+  }
 
-.content-wrapper {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 8px 8px 0 0;
-  overflow: hidden;
-}
+  .content-wrapper {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+  }
 
-.content {
-  max-height: 80px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-  padding: 16px;
-}
+  .content {
+    max-height: 80px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    padding: 16px;
+  }
 
-.content.open {
-  max-height: 300px;
-}
+  .content.open {
+    max-height: 300px;
+  }
 
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s;
-}
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
 
-.content-wrapper.open .fade {
-  opacity: 0;
-}
+  .content-wrapper.open .fade {
+    opacity: 0;
+  }
 
-.show-more-btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  background: #f5f5f5;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
-}
+  .show-more-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background: #f5f5f5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
 
-.show-more-btn:hover {
-  background: #e8e8e8;
-}`}
+  .show-more-btn:hover {
+    background: #e8e8e8;
+  }`}
   initialJS={`// すべての show-more-container を取得
-let containers = document.querySelectorAll('.show-more-container');
+  let containers = document.querySelectorAll('.show-more-container');
 
-// それぞれのコンテナに対して処理を設定
-containers.forEach(function(container) {
-  let btnYoso = container.querySelector('.show-more-btn');
-  let contentYoso = container.querySelector('.content');
-  let wrapperYoso = container.querySelector('.content-wrapper');
-  
-  let isOpen = false;
-  
-  btnYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
-    wrapperYoso.classList.toggle('open');
+  // それぞれのコンテナに対して処理を設定
+  containers.forEach(function(container) {
+    let btnYoso = container.querySelector('.show-more-btn');
+    let contentYoso = container.querySelector('.content');
+    let wrapperYoso = container.querySelector('.content-wrapper');
     
-    isOpen = !isOpen;
+    let isOpen = false;
     
-    if (isOpen) {
-      btnYoso.innerText = '閉じる';
-    } else {
-      btnYoso.innerText = 'もっと見る';
-    }
-  });
-});`}
+    btnYoso.addEventListener('click', function() {
+      contentYoso.classList.toggle('open');
+      wrapperYoso.classList.toggle('open');
+      
+      isOpen = !isOpen;
+      
+      if (isOpen) {
+        btnYoso.innerText = '閉じる';
+      } else {
+        btnYoso.innerText = 'もっと見る';
+      }
+    });
+  });`}
 />
 
 <Solution>
@@ -1187,54 +1187,54 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="content-wrapper">
-  <p class="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit. Aliquam erat volutpat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue. Etiam ultricies nisi vel augue.
-  </p>
-</div>
-<button class="show-more-btn">もっと見る</button>`}
+    <p class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit. Aliquam erat volutpat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue. Etiam ultricies nisi vel augue.
+    </p>
+  </div>
+  <button class="show-more-btn">もっと見る</button>`}
   initialCSS={`.content-wrapper {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.content {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-
-.content.open {
-  display: block;
-  -webkit-line-clamp: unset;
-}
-
-.show-more-btn {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: white;
-  cursor: pointer;
-}`}
-  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
-let contentYoso = document.querySelector('.content');
-
-let isOpen = false;
-
-btnYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
-  
-  isOpen = !isOpen;
-  
-  if (isOpen) {
-    btnYoso.innerText = '閉じる';
-  } else {
-    btnYoso.innerText = 'もっと見る';
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
   }
-});`}
+
+  .content {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .content.open {
+    display: block;
+    -webkit-line-clamp: unset;
+  }
+
+  .show-more-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+  }`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+  let contentYoso = document.querySelector('.content');
+
+  let isOpen = false;
+
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      btnYoso.innerText = '閉じる';
+    } else {
+      btnYoso.innerText = 'もっと見る';
+    }
+  });`}
 />
 
 <Solution>
@@ -1260,116 +1260,116 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="show-more-container">
-  <div class="content-wrapper">
-    <p class="content">
-      このコンテンツは長いです。<br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-    </p>
-    <div class="fade"></div>
+    <div class="content-wrapper">
+      <p class="content">
+        このコンテンツは長いです。<br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+      </p>
+      <div class="fade"></div>
+    </div>
+    <button class="show-more-btn">もっと見る</button>
   </div>
-  <button class="show-more-btn">もっと見る</button>
-</div>
 
-<div class="show-more-container">
-  <div class="content-wrapper">
-    <p class="content">このコンテンツは短いです。短文なので最初から全文が見えます。</p>
-    <div class="fade"></div>
-  </div>
-  <button class="show-more-btn">もっと見る</button>
-</div>`}
+  <div class="show-more-container">
+    <div class="content-wrapper">
+      <p class="content">このコンテンツは短いです。短文なので最初から全文が見えます。</p>
+      <div class="fade"></div>
+    </div>
+    <button class="show-more-btn">もっと見る</button>
+  </div>`}
   initialCSS={`.show-more-container {
-  margin-bottom: 20px;
-}
+    margin-bottom: 20px;
+  }
 
-.content-wrapper {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-}
+  .content-wrapper {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
 
-.content {
-  max-height: 100px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-  padding: 16px;
-}
+  .content {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    padding: 16px;
+  }
 
-.content.open {
-  max-height: 500px;
-}
+  .content.open {
+    max-height: 500px;
+  }
 
-.fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: linear-gradient(transparent, white);
-  transition: opacity 0.3s;
-}
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
 
-.content-wrapper.open .fade {
-  opacity: 0;
-}
+  .content-wrapper.open .fade {
+    opacity: 0;
+  }
 
-.show-more-btn {
-  display: none;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  background: #f5f5f5;
-  cursor: pointer;
-}
+  .show-more-btn {
+    display: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background: #f5f5f5;
+    cursor: pointer;
+  }
 
-.show-more-btn.visible {
-  display: block;
-}
+  .show-more-btn.visible {
+    display: block;
+  }
 
-.content-wrapper.no-overflow {
-  border-radius: 8px;
-}
+  .content-wrapper.no-overflow {
+    border-radius: 8px;
+  }
 
-.content-wrapper.no-overflow .fade {
-  display: none;
-}`}
+  .content-wrapper.no-overflow .fade {
+    display: none;
+  }`}
   initialJS={`let containers = document.querySelectorAll('.show-more-container');
 
-containers.forEach(function(container) {
-  let btnYoso = container.querySelector('.show-more-btn');
-  let contentYoso = container.querySelector('.content');
-  let wrapperYoso = container.querySelector('.content-wrapper');
-  
-  // コンテンツが切れているかチェック
-  if (contentYoso.scrollHeight > contentYoso.clientHeight) {
-    // 切れている場合はボタンを表示
-    btnYoso.classList.add('visible');
-  } else {
-    // 切れていない場合はフェードも非表示に
-    wrapperYoso.classList.add('no-overflow');
-  }
-  
-  let isOpen = false;
-  
-  btnYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
-    wrapperYoso.classList.toggle('open');
+  containers.forEach(function(container) {
+    let btnYoso = container.querySelector('.show-more-btn');
+    let contentYoso = container.querySelector('.content');
+    let wrapperYoso = container.querySelector('.content-wrapper');
     
-    isOpen = !isOpen;
-    
-    if (isOpen) {
-      btnYoso.innerText = '閉じる';
+    // コンテンツが切れているかチェック
+    if (contentYoso.scrollHeight > contentYoso.clientHeight) {
+      // 切れている場合はボタンを表示
+      btnYoso.classList.add('visible');
     } else {
-      btnYoso.innerText = 'もっと見る';
+      // 切れていない場合はフェードも非表示に
+      wrapperYoso.classList.add('no-overflow');
     }
-  });
-});`}
+    
+    let isOpen = false;
+    
+    btnYoso.addEventListener('click', function() {
+      contentYoso.classList.toggle('open');
+      wrapperYoso.classList.toggle('open');
+      
+      isOpen = !isOpen;
+      
+      if (isOpen) {
+        btnYoso.innerText = '閉じる';
+      } else {
+        btnYoso.innerText = 'もっと見る';
+      }
+    });
+  });`}
 />
 
 <Solution>
