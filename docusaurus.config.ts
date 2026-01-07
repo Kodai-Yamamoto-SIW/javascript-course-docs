@@ -109,6 +109,7 @@ const config: Config = {
       hideOnScroll: false,
       items: [
         { type: 'docSidebar', sidebarId: 'mainSidebar', position: 'left', label: 'チュートリアル' },
+        { type: 'doc', docId: 'exams/js2-final-preparation/index', position: 'left', label: '試験対策' },
         { href: 'https://github.com/metyatech/javascript-course-docs', label: 'GitHub', position: 'right' },
         { type: 'custom-auth-account', position: 'right' },
       ],
