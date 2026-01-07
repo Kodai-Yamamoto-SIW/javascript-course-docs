@@ -21,7 +21,7 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
   <p class="content">
     これは長いコンテンツのサンプルです。<br>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
@@ -37,7 +37,7 @@ import { CodePreview } from "@metyatech/code-preview";
   <div class="fade"></div>
 </div>
 <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
   position: relative;
 }
 
@@ -61,7 +61,7 @@ import { CodePreview } from "@metyatech/code-preview";
   transition: opacity 0.3s;
 }
 
-.content-wrapper.open .fade {
+.wrap.open .fade {
   opacity: 0;
 }
 
@@ -75,7 +75,7 @@ import { CodePreview } from "@metyatech/code-preview";
 }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
 let contentYoso = document.querySelector('.content');
-let wrapperYoso = document.querySelector('.content-wrapper');
+let wrapperYoso = document.querySelector('.wrap');
 
 let isOpen = false;
 
@@ -167,7 +167,7 @@ btnYoso.addEventListener('click', function() {
 フェードは、透明から白へのグラデーションを持つ要素を、コンテンツの下部に重ねて作ります。
 
 <CodePreview
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       これは長いコンテンツのサンプルです。<br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
@@ -182,7 +182,7 @@ btnYoso.addEventListener('click', function() {
     </p>
     <div class="fade"></div>
   </div>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative; /* fadeの配置基準 */
   }
 
@@ -202,13 +202,13 @@ btnYoso.addEventListener('click', function() {
 />
 
 :::tip linear-gradient について
-`linear-gradient(色1, 色2)` で、色1から色2へ徐々に変化するグラデーションを作れます。  
+`linear-gradient(色1, 色2)` で、色1から色2へ徐々に変化するグラデーション画像を作れます。  
 `transparent` は「透明」を意味する特別な色の値です。
 :::
 
 <Exercise title="演習2（フェードの追加）">
 
-以下のプレビューと同じように、コンテンツの下部にフェードを重ねてください。
+以下のプレビューと同じように、コンテンツの高さを適度に制限し、下部にフェードを重ねてください。
 
 <CodePreview
   sourceId="演習2"
@@ -216,7 +216,7 @@ btnYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       Web開発の基礎を学びましょう。<br>
       HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
@@ -230,12 +230,12 @@ btnYoso.addEventListener('click', function() {
     </p>
     <div class="fade"></div>
   </div>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
   }
 
   .content {
-    max-height: 120px;
+    max-height: 110px;
     overflow: hidden;
   }
 
@@ -265,7 +265,7 @@ btnYoso.addEventListener('click', function() {
 開いている状態を `open` クラスで表現します。
 
 <CodePreview
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       これは長いコンテンツのサンプルです。<br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
@@ -281,7 +281,7 @@ btnYoso.addEventListener('click', function() {
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
   }
 
@@ -303,7 +303,7 @@ btnYoso.addEventListener('click', function() {
     background: linear-gradient(transparent, white);
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     display: none; /* 開いたらフェードを非表示 */
   }
 
@@ -320,7 +320,7 @@ btnYoso.addEventListener('click', function() {
   // コンテンツの要素を取得
   let contentYoso = document.querySelector('.content');
   // ラッパーの要素を取得
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
 
   // ボタンがクリックされたときの処理
   btnYoso.addEventListener('click', function() {
@@ -342,7 +342,7 @@ btnYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       Web開発の基礎を学びましょう。<br>
       HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
@@ -357,7 +357,7 @@ btnYoso.addEventListener('click', function() {
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
   }
 
@@ -379,7 +379,7 @@ btnYoso.addEventListener('click', function() {
     background: linear-gradient(transparent, white);
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     display: none;
   }
 
@@ -393,7 +393,7 @@ btnYoso.addEventListener('click', function() {
   }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
   let contentYoso = document.querySelector('.content');
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
 
   btnYoso.addEventListener('click', function() {
     contentYoso.classList.toggle('open');
@@ -418,7 +418,7 @@ btnYoso.addEventListener('click', function() {
 ただし、`max-height: none` にはアニメーションできないため、開いた状態では十分大きな値（例: `1100px`）を指定します。
 
 <CodePreview
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       これは長いコンテンツのサンプルです。<br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
@@ -434,7 +434,7 @@ btnYoso.addEventListener('click', function() {
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
   }
 
@@ -458,7 +458,7 @@ btnYoso.addEventListener('click', function() {
     transition: opacity 0.3s; /* フェードアウト用 */
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0; /* 透明にする */
   }
 
@@ -472,7 +472,7 @@ btnYoso.addEventListener('click', function() {
   }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
   let contentYoso = document.querySelector('.content');
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
 
   btnYoso.addEventListener('click', function() {
     contentYoso.classList.toggle('open');
@@ -496,7 +496,7 @@ btnYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       Web開発の基礎を学びましょう。<br>
       HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
@@ -511,7 +511,7 @@ btnYoso.addEventListener('click', function() {
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
   }
 
@@ -535,7 +535,7 @@ btnYoso.addEventListener('click', function() {
     transition: opacity 0.3s;
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0;
   }
 
@@ -549,7 +549,7 @@ btnYoso.addEventListener('click', function() {
   }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
   let contentYoso = document.querySelector('.content');
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
 
   btnYoso.addEventListener('click', function() {
     contentYoso.classList.toggle('open');
@@ -571,7 +571,7 @@ btnYoso.addEventListener('click', function() {
 ### innerText でテキストを変更する
 
 <CodePreview
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       これは長いコンテンツのサンプルです。<br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
@@ -587,7 +587,7 @@ btnYoso.addEventListener('click', function() {
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
   }
 
@@ -611,7 +611,7 @@ btnYoso.addEventListener('click', function() {
     transition: opacity 0.3s;
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0;
   }
 
@@ -625,7 +625,7 @@ btnYoso.addEventListener('click', function() {
   }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
   let contentYoso = document.querySelector('.content');
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
 
   // 開いているかどうかを記録する変数
   let isOpen = false;
@@ -656,7 +656,7 @@ btnYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       Web開発の基礎を学びましょう。<br>
       HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
@@ -671,7 +671,7 @@ btnYoso.addEventListener('click', function() {
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
   }
 
@@ -695,7 +695,7 @@ btnYoso.addEventListener('click', function() {
     transition: opacity 0.3s;
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0;
   }
 
@@ -709,7 +709,7 @@ btnYoso.addEventListener('click', function() {
   }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
   let contentYoso = document.querySelector('.content');
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
 
   let isOpen = false;
 
@@ -739,7 +739,7 @@ btnYoso.addEventListener('click', function() {
 ここまでの内容をまとめた完成形です。
 
 <CodePreview
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       これは長いコンテンツのサンプルです。<br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
@@ -755,7 +755,7 @@ btnYoso.addEventListener('click', function() {
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
   }
 
@@ -779,7 +779,7 @@ btnYoso.addEventListener('click', function() {
     transition: opacity 0.3s;
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0;
   }
 
@@ -793,7 +793,7 @@ btnYoso.addEventListener('click', function() {
   }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
   let contentYoso = document.querySelector('.content');
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
 
   let isOpen = false;
 
@@ -828,7 +828,7 @@ btnYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       Web開発の基礎を学びましょう。<br>
       HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
@@ -843,7 +843,7 @@ btnYoso.addEventListener('click', function() {
     <div class="fade"></div>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -871,7 +871,7 @@ btnYoso.addEventListener('click', function() {
     transition: opacity 0.3s;
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0;
   }
 
@@ -893,7 +893,7 @@ btnYoso.addEventListener('click', function() {
   }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
   let contentYoso = document.querySelector('.content');
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
 
   let isOpen = false;
 
@@ -931,7 +931,7 @@ btnYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       Web開発の基礎を学びましょう。<br>
       HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
@@ -949,7 +949,7 @@ btnYoso.addEventListener('click', function() {
     <span class="btn-text">もっと見る</span>
     <span class="arrow">▼</span>
   </button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     position: relative;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -977,7 +977,7 @@ btnYoso.addEventListener('click', function() {
     transition: opacity 0.3s;
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0;
   }
 
@@ -1010,7 +1010,7 @@ btnYoso.addEventListener('click', function() {
   }`}
   initialJS={`let btnYoso = document.querySelector('.show-more-btn');
   let contentYoso = document.querySelector('.content');
-  let wrapperYoso = document.querySelector('.content-wrapper');
+  let wrapperYoso = document.querySelector('.wrap');
   let btnTextYoso = document.querySelector('.btn-text');
 
   let isOpen = false;
@@ -1052,7 +1052,7 @@ btnYoso.addEventListener('click', function() {
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="show-more-container">
-    <div class="content-wrapper">
+    <div class="wrap">
       <p class="content">
         <strong>セクション1</strong><br>
         HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
@@ -1068,7 +1068,7 @@ btnYoso.addEventListener('click', function() {
   </div>
 
   <div class="show-more-container">
-    <div class="content-wrapper">
+    <div class="wrap">
       <p class="content">
         <strong>セクション2</strong><br>
         プログラミングは論理的思考を養います。<br>
@@ -1086,7 +1086,7 @@ btnYoso.addEventListener('click', function() {
     margin-bottom: 20px;
   }
 
-  .content-wrapper {
+  .wrap {
     position: relative;
     border: 1px solid #ddd;
     border-radius: 8px 8px 0 0;
@@ -1114,7 +1114,7 @@ btnYoso.addEventListener('click', function() {
     transition: opacity 0.3s;
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0;
   }
 
@@ -1141,7 +1141,7 @@ btnYoso.addEventListener('click', function() {
   containers.forEach(function(container) {
     let btnYoso = container.querySelector('.show-more-btn');
     let contentYoso = container.querySelector('.content');
-    let wrapperYoso = container.querySelector('.content-wrapper');
+    let wrapperYoso = container.querySelector('.wrap');
     
     let isOpen = false;
     
@@ -1186,13 +1186,13 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="content-wrapper">
+  initialHTML={`<div class="wrap">
     <p class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit. Aliquam erat volutpat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue. Etiam ultricies nisi vel augue.
     </p>
   </div>
   <button class="show-more-btn">もっと見る</button>`}
-  initialCSS={`.content-wrapper {
+  initialCSS={`.wrap {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
@@ -1260,7 +1260,7 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
   jsVisible={false}
   previewVisible={true}
   initialHTML={`<div class="show-more-container">
-    <div class="content-wrapper">
+    <div class="wrap">
       <p class="content">
         このコンテンツは長いです。<br>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
@@ -1275,7 +1275,7 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
   </div>
 
   <div class="show-more-container">
-    <div class="content-wrapper">
+    <div class="wrap">
       <p class="content">このコンテンツは短いです。短文なので最初から全文が見えます。</p>
       <div class="fade"></div>
     </div>
@@ -1285,7 +1285,7 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
     margin-bottom: 20px;
   }
 
-  .content-wrapper {
+  .wrap {
     position: relative;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -1313,7 +1313,7 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
     transition: opacity 0.3s;
   }
 
-  .content-wrapper.open .fade {
+  .wrap.open .fade {
     opacity: 0;
   }
 
@@ -1332,11 +1332,11 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
     display: block;
   }
 
-  .content-wrapper.no-overflow {
+  .wrap.no-overflow {
     border-radius: 8px;
   }
 
-  .content-wrapper.no-overflow .fade {
+  .wrap.no-overflow .fade {
     display: none;
   }`}
   initialJS={`let containers = document.querySelectorAll('.show-more-container');
@@ -1344,7 +1344,7 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
   containers.forEach(function(container) {
     let btnYoso = container.querySelector('.show-more-btn');
     let contentYoso = container.querySelector('.content');
-    let wrapperYoso = container.querySelector('.content-wrapper');
+    let wrapperYoso = container.querySelector('.wrap');
     
     // コンテンツが切れているかチェック
     if (contentYoso.scrollHeight > contentYoso.clientHeight) {
