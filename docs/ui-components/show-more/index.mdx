@@ -143,8 +143,8 @@ moreYoso.addEventListener('click', function() {
     少しずつ積み上げると、できることが確実に増えていきます。
   </p>`}
   initialCSS={`.content {
-    max-height: 130px;
-    overflow: hidden;
+    max-height: 130px; /* 高さを130pxに制限 */
+    overflow: hidden; /* はみ出た部分を隠す */
   }`}
 />
 
@@ -214,7 +214,7 @@ moreYoso.addEventListener('click', function() {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="wrap">
+  initialHTML={`<div class="wrap"> <!-- コンテンツとフェードをまとめるラッパー -->
     <p class="content">
       Web開発の基礎を学びましょう。<br>
       HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。<br>
@@ -226,10 +226,10 @@ moreYoso.addEventListener('click', function() {
       JavaScriptは「要素を取る → イベントを付ける → クラスを切り替える」が基本です。<br>
       何度も試して、少しずつ慣れていきましょう。
     </p>
-    <div class="fade"></div>
+    <div class="fade"></div> <!-- 下部に重ねるフェード -->
   </div>`}
   initialCSS={`.wrap {
-    position: relative;
+    position: relative; /* fade を絶対配置で重ねるための基準 */
   }
 
   .content {
@@ -238,16 +238,17 @@ moreYoso.addEventListener('click', function() {
   }
 
   .fade {
-    position: absolute;
-    bottom: 0;
+    position: absolute; /* コンテンツの上に重ねる */
+    bottom: 0; /* 下端に配置 */
     left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(transparent, white);
+    right: 0; /* left:0 + right:0 で横幅いっぱい */
+    height: 60px; /* フェードの高さ */
+    background: linear-gradient(transparent, white); /* 上が透明、下が白 */
   }`}
 />
 
 <Solution>
+前の演習から増えたり、変わったりしたところだけ、コードの後ろにコメントを書いています。
 <CodePreview sourceId="演習2" />
 </Solution>
 </Exercise>
@@ -341,7 +342,7 @@ moreYoso.addEventListener('click', function() {
     </p>
     <div class="fade"></div>
   </div>
-  <button class="more">もっと見る</button>`}
+  <button class="more">もっと見る</button> <!-- クリックで開閉するボタン -->`}
   initialCSS={`.wrap {
     position: relative;
   }
@@ -352,7 +353,7 @@ moreYoso.addEventListener('click', function() {
   }
 
   .wrap.open .content {
-    max-height: none;
+    max-height: none; /* open のときは高さ制限を解除 */
   }
 
   .fade {
@@ -365,17 +366,18 @@ moreYoso.addEventListener('click', function() {
   }
 
   .wrap.open .fade {
-    display: none;
+    display: none; /* open のときはフェードを消す */
   }`}
-  initialJS={`let moreYoso = document.querySelector('.more');
-  let wrapperYoso = document.querySelector('.wrap');
+  initialJS={`let moreYoso = document.querySelector('.more'); // ボタンを取得
+  let wrapperYoso = document.querySelector('.wrap'); // ラッパーを取得
 
-  moreYoso.addEventListener('click', function() {
-    wrapperYoso.classList.toggle('open');
+  moreYoso.addEventListener('click', function() { // クリックで開閉する処理を追加
+    wrapperYoso.classList.toggle('open'); // open クラスの付け外し
   });`}
 />
 
 <Solution>
+前の演習から増えたり、変わったりしたところだけ、コードの後ろにコメントを書いています。
 <CodePreview sourceId="演習3" />
 </Solution>
 </Exercise>
@@ -487,11 +489,11 @@ moreYoso.addEventListener('click', function() {
   .content {
     max-height: 120px;
     overflow: hidden;
-    transition: max-height 0.5s;
+    transition: max-height 0.5s; /* max-height を滑らかに変化させる */
   }
 
   .wrap.open .content {
-    max-height: 500px;
+    max-height: 500px; /* none はアニメーションできないので大きな値にする */
   }
 
   .fade {
@@ -501,11 +503,11 @@ moreYoso.addEventListener('click', function() {
     right: 0;
     height: 60px;
     background: linear-gradient(transparent, white);
-    transition: opacity 0.3s;
+    transition: opacity 0.3s; /* フェードも滑らかに消す */
   }
 
   .wrap.open .fade {
-    opacity: 0;
+    opacity: 0; /* 透明にして見えなくする */
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
   let wrapperYoso = document.querySelector('.wrap');
@@ -516,6 +518,7 @@ moreYoso.addEventListener('click', function() {
 />
 
 <Solution>
+前の演習から増えたり、変わったりしたところだけ、コードの後ろにコメントを書いています。
 <CodePreview sourceId="演習4" />
 </Solution>
 </Exercise>
@@ -648,22 +651,23 @@ moreYoso.addEventListener('click', function() {
   initialJS={`let moreYoso = document.querySelector('.more');
   let wrapperYoso = document.querySelector('.wrap');
 
-  let isOpen = false;
+  let isOpen = false; // 開いているかどうかを記録
 
   moreYoso.addEventListener('click', function() {
     wrapperYoso.classList.toggle('open');
     
-    isOpen = !isOpen;
+    isOpen = !isOpen; // 状態を反転
     
     if (isOpen) {
-      moreYoso.innerText = '閉じる';
+      moreYoso.innerText = '閉じる'; // 開いているときの文言
     } else {
-      moreYoso.innerText = 'もっと見る';
+      moreYoso.innerText = 'もっと見る'; // 閉じているときの文言
     }
   });`}
 />
 
 <Solution>
+前の演習から増えたり、変わったりしたところだけ、コードの後ろにコメントを書いています。
 <CodePreview sourceId="演習5" />
 </Solution>
 </Exercise>
@@ -702,20 +706,20 @@ moreYoso.addEventListener('click', function() {
   <button class="more">もっと見る</button>`}
   initialCSS={`.wrap {
     position: relative;
-    border: 1px solid #e5e7eb;
-    border-bottom: none;
-    border-radius: 12px 12px 0 0;
-    background: #fff;
-    overflow: hidden;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb; /* 枠線を追加 */
+    border-bottom: none; /* ボタンとつながるので下の枠線は消す */
+    border-radius: 12px 12px 0 0; /* 上側だけ角丸にする */
+    background: #fff; /* 背景色 */
+    overflow: hidden; /* 角丸から内容がはみ出さないようにする */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06); /* うっすら影をつける */
   }
 
   .content {
     max-height: 120px;
     overflow: hidden;
     transition: max-height 0.5s;
-    padding: 16px;
-    line-height: 1.7;
+    padding: 16px; /* 内側の余白をつけて読みやすくする */
+    line-height: 1.7; /* 行間を広げる */
   }
 
   .wrap.open .content {
@@ -737,31 +741,31 @@ moreYoso.addEventListener('click', function() {
   }
 
   .more {
-    display: block;
-    width: 100%;
-    margin-top: 0;
-    padding: 12px 16px;
-    border: 1px solid #e5e7eb;
-    border-top: none;
-    border-radius: 0 0 12px 12px;
-    background: #f9fafb;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.2s;
+    display: block; /* ブロック要素にして横幅を扱いやすくする */
+    width: 100%; /* ボタンを横幅いっぱいにする */
+    margin-top: 0; /* wrap と隙間を作らない */
+    padding: 12px 16px; /* 押しやすい余白 */
+    border: 1px solid #e5e7eb; /* 枠線 */
+    border-top: none; /* wrap の下端と二重線になるので消す */
+    border-radius: 0 0 12px 12px; /* 下側だけ角丸にする */
+    background: #f9fafb; /* 背景色を少しグレーに */
+    cursor: pointer; /* クリックできることを示す */
+    font-size: 14px; /* 文字サイズ */
+    font-weight: 600; /* 少し太字に */
+    transition: background 0.2s; /* ホバー時の背景変化を滑らかに */
   }
 
   .more:hover {
-    background: #f3f4f6;
+    background: #f3f4f6; /* ホバーで少し濃く */
   }
 
   .more:active {
-    background: #e5e7eb;
+    background: #e5e7eb; /* 押している間はさらに濃く */
   }
 
   .more:focus-visible {
-    outline: 2px solid #9ca3af;
-    outline-offset: 2px;
+    outline: 2px solid #9ca3af; /* キーボード操作時にフォーカスリング */
+    outline-offset: 2px; /* 枠線の外側にずらす */
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
   let wrapperYoso = document.querySelector('.wrap');
@@ -782,6 +786,7 @@ moreYoso.addEventListener('click', function() {
 />
 
 <Solution>
+前の演習から増えたり、変わったりしたところだけ、コードの後ろにコメントを書いています。
 <CodePreview sourceId="演習-発展1" />
 </Solution>
 </Exercise>
