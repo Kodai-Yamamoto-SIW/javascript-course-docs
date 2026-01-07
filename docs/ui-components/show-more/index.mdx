@@ -681,7 +681,115 @@ moreYoso.addEventListener('click', function() {
 
 ## 発展課題
 
-<Exercise title="演習-発展1（コンテンツの最後に「もっと見る」ボタンを配置）">
+<Exercise title="演習-発展1（段階的に開く「もっと見る」）">
+
+以下のプレビューと同じように、3段階で開く「もっと見る」を実装してください。
+
+- 最初は高さ110pxまで表示
+- 1回目のクリックで220pxまで表示（ボタンは「さらに見る」）
+- 2回目のクリックで全体を表示（ボタンは「閉じる」）
+- 3回目のクリックで最初の状態に戻る
+
+<CodePreview
+  sourceId="演習-発展1"
+  htmlVisible={true}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="wrap">
+    <p class="content">
+      これは長いコンテンツのサンプルです。<br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
+      Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
+      Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
+      Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
+      Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
+      Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.<br>
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames.<br>
+      Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.<br>
+      Donec eu libero sit amet quam egestas semper, aenean ultricies mi vitae est.<br>
+      Mauris placerat eleifend leo, pellentesque ornare sem lacinia eu.
+    </p>
+    <div class="fade"></div>
+  </div>
+  <button class="more">もっと見る</button>`}
+  initialCSS={`.wrap {
+    position: relative;
+  }
+
+  .content {
+    max-height: 110px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  .wrap.stage1 .content {
+    max-height: 220px; /* 1段階目 */
+  }
+
+  .wrap.stage2 .content {
+    max-height: 600px; /* 2段階目（全体表示） */
+  }
+
+  .fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(transparent, white);
+    transition: opacity 0.3s;
+  }
+
+  .wrap.stage2 .fade {
+    opacity: 0;
+  }`}
+  initialJS={`let moreYoso = document.querySelector('.more');
+  let wrapperYoso = document.querySelector('.wrap');
+
+  let stage = 0; // 0: 閉じている, 1: 1段階目, 2: 2段階目
+
+  moreYoso.addEventListener('click', function() {
+    stage = stage + 1; // 段階を1つ進める
+    
+    if (stage > 2) {
+      stage = 0; // 2を超えたら0に戻す
+    }
+
+    // クラスをリセット
+    wrapperYoso.classList.remove('stage1');
+    wrapperYoso.classList.remove('stage2');
+    
+    if (stage === 1) {
+      // クラスを stage1 に切り替え
+      wrapperYoso.classList.add('stage1');
+
+      // ボタンのテキストを切り替え
+      moreYoso.innerText = 'さらに見る';
+    } else if (stage === 2) {
+      // クラスを stage2 に切り替え
+      wrapperYoso.classList.add('stage2');
+
+      // ボタンのテキストを切り替え
+      moreYoso.innerText = '閉じる';
+    } else {
+      // ボタンのテキストを切り替え
+      moreYoso.innerText = 'もっと見る';
+    }
+  });`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習-発展1" />
+</Solution>
+</Exercise>
+
+---
+
+<Exercise title="演習-発展2（コンテンツの最後に「もっと見る」ボタンを配置）">
 
 以下のプレビューと同じように、「もっと見る」ボタンをコンテンツの外ではなく、コンテンツの下部（フェードの上）に配置してください。
 
@@ -689,7 +797,7 @@ moreYoso.addEventListener('click', function() {
 - 開いたときにボタンがコンテンツの最後に移動する
 
 <CodePreview
-  sourceId="演習-発展1"
+  sourceId="演習-発展2"
   htmlVisible={true}
   cssVisible={false}
   jsVisible={false}
@@ -769,115 +877,6 @@ moreYoso.addEventListener('click', function() {
     isOpen = !isOpen;
     
     if (isOpen) {
-      moreYoso.innerText = '閉じる';
-    } else {
-      moreYoso.innerText = 'もっと見る';
-    }
-  });`}
-/>
-
-<Solution>
-<CodePreview sourceId="演習-発展1" />
-</Solution>
-</Exercise>
-
----
-
-<Exercise title="演習-発展2（段階的に開く「もっと見る」）">
-
-以下のプレビューと同じように、3段階で開く「もっと見る」を実装してください。
-
-- 最初は高さ110pxまで表示
-- 1回目のクリックで220pxまで表示（ボタンは「さらに見る」）
-- 2回目のクリックで全体を表示（ボタンは「閉じる」）
-- 3回目のクリックで最初の状態に戻る
-
-<CodePreview
-  sourceId="演習-発展2"
-  htmlVisible={true}
-  cssVisible={false}
-  jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div class="wrap">
-    <p class="content">
-      これは長いコンテンツのサンプルです。<br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br>
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br>
-      Curabitur pretium tincidunt lacus, nulla gravida orci a odio.<br>
-      Nullam varius, turpis et commodo pharetra, est eros bibendum elit.<br>
-      Aliquam erat volutpat, suspendisse potenti, sed dignissim lacinia nunc.<br>
-      Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.<br>
-      Etiam ultricies nisi vel augue, curabitur ullamcorper ultricies nisi.<br>
-      Pellentesque habitant morbi tristique senectus et netus et malesuada fames.<br>
-      Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.<br>
-      Donec eu libero sit amet quam egestas semper, aenean ultricies mi vitae est.<br>
-      Mauris placerat eleifend leo, pellentesque ornare sem lacinia eu.
-    </p>
-    <div class="fade"></div>
-  </div>
-  <button class="more">もっと見る</button>`}
-  initialCSS={`.wrap {
-    position: relative;
-  }
-
-  .content {
-    max-height: 110px;
-    overflow: hidden;
-    transition: max-height 0.5s;
-  }
-
-  .wrap.stage1 .content {
-    max-height: 220px; /* 1段階目 */
-  }
-
-  .wrap.stage2 .content {
-    max-height: 600px; /* 2段階目（全体表示） */
-  }
-
-  .fade {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: linear-gradient(transparent, white);
-    transition: opacity 0.3s;
-  }
-
-  .wrap.stage2 .fade {
-    opacity: 0;
-  }
-
-  .more {
-    display: block;
-    margin-top: 10px;
-    padding: 8px 16px;
-    border: 1px solid #ccc;
-    background: white;
-    cursor: pointer;
-  }`}
-  initialJS={`let moreYoso = document.querySelector('.more');
-  let wrapperYoso = document.querySelector('.wrap');
-
-  let stage = 0; // 0: 閉じている, 1: 1段階目, 2: 2段階目
-
-  moreYoso.addEventListener('click', function() {
-    stage = stage + 1; // 段階を1つ進める
-    
-    if (stage > 2) {
-      stage = 0; // 2を超えたら0に戻す
-    }
-    
-    // クラスをリセット
-    wrapperYoso.classList.remove('stage1', 'stage2');
-    
-    if (stage === 1) {
-      wrapperYoso.classList.add('stage1');
-      moreYoso.innerText = 'さらに見る';
-    } else if (stage === 2) {
-      wrapperYoso.classList.add('stage2');
       moreYoso.innerText = '閉じる';
     } else {
       moreYoso.innerText = 'もっと見る';
