@@ -47,7 +47,7 @@ import { CodePreview } from "@metyatech/code-preview";
   transition: max-height 0.5s;
 }
 
-.content.open {
+.wrap.open .content {
   max-height: 500px;
 }
 
@@ -74,13 +74,11 @@ import { CodePreview } from "@metyatech/code-preview";
   cursor: pointer;
 }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-let contentYoso = document.querySelector('.content');
 let wrapperYoso = document.querySelector('.wrap');
 
 let isOpen = false;
 
 moreYoso.addEventListener('click', function() {
-  contentYoso.classList.toggle('open');
   wrapperYoso.classList.toggle('open');
   
   isOpen = !isOpen;
@@ -290,7 +288,7 @@ moreYoso.addEventListener('click', function() {
     overflow: hidden;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: none; /* 高さ制限を解除 */
   }
 
@@ -317,16 +315,12 @@ moreYoso.addEventListener('click', function() {
   }`}
   initialJS={`// ボタンの要素を取得
   let moreYoso = document.querySelector('.more');
-  // コンテンツの要素を取得
-  let contentYoso = document.querySelector('.content');
   // ラッパーの要素を取得
   let wrapperYoso = document.querySelector('.wrap');
 
   // ボタンがクリックされたときの処理
   moreYoso.addEventListener('click', function() {
-    // コンテンツに open クラスを付け外し
-    contentYoso.classList.toggle('open');
-    // ラッパーにも open クラスを付け外し（フェードの表示切り替え用）
+    // ラッパーに open クラスを付け外し（開閉状態を表す）
     wrapperYoso.classList.toggle('open');
   });`}
 />
@@ -366,7 +360,7 @@ moreYoso.addEventListener('click', function() {
     overflow: hidden;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: none;
   }
 
@@ -392,11 +386,9 @@ moreYoso.addEventListener('click', function() {
     cursor: pointer;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
   let wrapperYoso = document.querySelector('.wrap');
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
     wrapperYoso.classList.toggle('open');
   });`}
 />
@@ -444,7 +436,7 @@ moreYoso.addEventListener('click', function() {
     transition: max-height 0.5s; /* アニメーション追加 */
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 500px; /* 十分大きな値を指定 */
   }
 
@@ -471,11 +463,9 @@ moreYoso.addEventListener('click', function() {
     cursor: pointer;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
   let wrapperYoso = document.querySelector('.wrap');
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
     wrapperYoso.classList.toggle('open');
   });`}
 />
@@ -521,7 +511,7 @@ moreYoso.addEventListener('click', function() {
     transition: max-height 0.5s;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 500px;
   }
 
@@ -548,11 +538,9 @@ moreYoso.addEventListener('click', function() {
     cursor: pointer;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
   let wrapperYoso = document.querySelector('.wrap');
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
     wrapperYoso.classList.toggle('open');
   });`}
 />
@@ -597,7 +585,7 @@ moreYoso.addEventListener('click', function() {
     transition: max-height 0.5s;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 500px;
   }
 
@@ -624,14 +612,12 @@ moreYoso.addEventListener('click', function() {
     cursor: pointer;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
   let wrapperYoso = document.querySelector('.wrap');
 
   // 開いているかどうかを記録する変数
   let isOpen = false;
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
     wrapperYoso.classList.toggle('open');
     
     // 状態を反転
@@ -681,7 +667,7 @@ moreYoso.addEventListener('click', function() {
     transition: max-height 0.5s;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 500px;
   }
 
@@ -708,13 +694,11 @@ moreYoso.addEventListener('click', function() {
     cursor: pointer;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
   let wrapperYoso = document.querySelector('.wrap');
 
   let isOpen = false;
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
     wrapperYoso.classList.toggle('open');
     
     isOpen = !isOpen;
@@ -765,7 +749,7 @@ moreYoso.addEventListener('click', function() {
     transition: max-height 0.5s;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 500px;
   }
 
@@ -792,13 +776,11 @@ moreYoso.addEventListener('click', function() {
     cursor: pointer;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
   let wrapperYoso = document.querySelector('.wrap');
 
   let isOpen = false;
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
     wrapperYoso.classList.toggle('open');
     
     isOpen = !isOpen;
@@ -857,7 +839,7 @@ moreYoso.addEventListener('click', function() {
     padding: 16px;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 500px;
   }
 
@@ -892,13 +874,11 @@ moreYoso.addEventListener('click', function() {
     background: #e8e8e8;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
   let wrapperYoso = document.querySelector('.wrap');
 
   let isOpen = false;
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
     wrapperYoso.classList.toggle('open');
     
     isOpen = !isOpen;
@@ -963,7 +943,7 @@ moreYoso.addEventListener('click', function() {
     padding: 16px;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 500px;
   }
 
@@ -1009,14 +989,12 @@ moreYoso.addEventListener('click', function() {
     transform: rotate(180deg);
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
   let wrapperYoso = document.querySelector('.wrap');
   let btnTextYoso = document.querySelector('.btn-text');
 
   let isOpen = false;
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
     wrapperYoso.classList.toggle('open');
     moreYoso.classList.toggle('open');
     
@@ -1100,7 +1078,7 @@ moreYoso.addEventListener('click', function() {
     padding: 16px;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 300px;
   }
 
@@ -1140,13 +1118,11 @@ moreYoso.addEventListener('click', function() {
   // それぞれのコンテナに対して処理を設定
   containers.forEach(function(container) {
     let moreYoso = container.querySelector('.more');
-    let contentYoso = container.querySelector('.content');
     let wrapperYoso = container.querySelector('.wrap');
     
     let isOpen = false;
     
     moreYoso.addEventListener('click', function() {
-      contentYoso.classList.toggle('open');
       wrapperYoso.classList.toggle('open');
       
       isOpen = !isOpen;
@@ -1205,7 +1181,7 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
     overflow: hidden;
   }
 
-  .content.open {
+  .wrap.open .content {
     display: block;
     -webkit-line-clamp: unset;
   }
@@ -1220,12 +1196,12 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
     cursor: pointer;
   }`}
   initialJS={`let moreYoso = document.querySelector('.more');
-  let contentYoso = document.querySelector('.content');
+  let wrapperYoso = document.querySelector('.wrap');
 
   let isOpen = false;
 
   moreYoso.addEventListener('click', function() {
-    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
     
     isOpen = !isOpen;
     
@@ -1299,7 +1275,7 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
     padding: 16px;
   }
 
-  .content.open {
+  .wrap.open .content {
     max-height: 500px;
   }
 
@@ -1358,7 +1334,6 @@ CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...
     let isOpen = false;
     
     moreYoso.addEventListener('click', function() {
-      contentYoso.classList.toggle('open');
       wrapperYoso.classList.toggle('open');
       
       isOpen = !isOpen;
