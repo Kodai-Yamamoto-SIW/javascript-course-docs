@@ -579,6 +579,7 @@ moreYoso.addEventListener('click', function() {
   let wrapperYoso = document.querySelector('.wrap');
 
   // 開いているかどうかを記録する変数
+  // 最初は閉じているので false
   let isOpen = false;
 
   moreYoso.addEventListener('click', function() {
@@ -588,9 +589,12 @@ moreYoso.addEventListener('click', function() {
     isOpen = !isOpen;
     
     // 状態に応じてボタンのテキストを変更
+    // 開いているとき
     if (isOpen) {
       moreYoso.innerText = '閉じる';
-    } else {
+    }
+    // 閉じているとき
+    else {
       moreYoso.innerText = 'もっと見る';
     }
   });`}
@@ -651,16 +655,17 @@ moreYoso.addEventListener('click', function() {
   initialJS={`let moreYoso = document.querySelector('.more');
   let wrapperYoso = document.querySelector('.wrap');
 
-  let isOpen = false; // 開いているかどうかを記録
+  // 開いているかどうかを記録する変数
+  let isOpen = false; // 最初は閉じているので false
 
   moreYoso.addEventListener('click', function() {
     wrapperYoso.classList.toggle('open');
     
     isOpen = !isOpen; // 状態を反転
     
-    if (isOpen) {
+    if (isOpen) { // 開いているとき
       moreYoso.innerText = '閉じる'; // 開いているときの文言
-    } else {
+    } else { // 閉じているとき
       moreYoso.innerText = 'もっと見る'; // 閉じているときの文言
     }
   });`}
