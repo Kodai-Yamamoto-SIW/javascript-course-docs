@@ -41,6 +41,7 @@ const sidebars: SidebarsConfig = {
         'ui-components/drawer-menu/index',
         'ui-components/dropdown-menu/index',
         'ui-components/popup_magnific-popup/index',
+        'ui-components/show-more/index',
       ],
     },
   ],

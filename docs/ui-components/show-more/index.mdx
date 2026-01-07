@@ -1,0 +1,1264 @@
+---
+title: もっと見る
+sidebar_position: 999
+---
+
+import Exercise, { Solution } from "@metyatech/exercise/client";
+import { CodePreview } from "@metyatech/code-preview";
+
+## もっと見るとは
+
+「もっと見る」は、長いコンテンツの後半を隠しておき、ボタンをクリックすると残りが表示される UI パターンです。ページをすっきり見せつつ、ユーザーが興味を持てば続きを読めるようにできます。
+
+このページでは、コンテンツを隠す方法・フェード効果・開閉の切り替えを順を追って学びます。
+
+## STEP 1: コンテンツを途中で切る
+
+まずは、コンテンツの高さを制限して途中までしか見えないようにします。
+
+### 高さを制限する
+
+`height` や `max-height` を指定すると、要素の高さを制限できます。  
+`overflow: hidden;` を組み合わせると、はみ出た部分が隠れます。
+
+<CodePreview
+  initialHTML={`<div class="content">
+  <p>これは長いコンテンツのサンプルです。</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>`}
+  initialCSS={`.content {
+  max-height: 100px; /* 高さを100pxに制限 */
+  overflow: hidden; /* はみ出た部分を隠す */
+}`}
+/>
+
+<Exercise title="演習1（コンテンツの高さ制限）">
+
+以下のプレビューと同じように、コンテンツの高さが150pxに制限されるようにしてください。
+
+<CodePreview
+  sourceId="演習1"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content">
+  <p>Web開発の基礎を学びましょう。</p>
+  <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
+  <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
+  <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
+  <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
+</div>`}
+  initialCSS={`.content {
+  max-height: 150px;
+  overflow: hidden;
+}`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習1" />
+</Solution>
+</Exercise>
+
+---
+
+## STEP 2: フェードで「まだ続きがある」感を出す
+
+高さを制限しただけだと、コンテンツが途中でぶつ切りに見えます。  
+下部にフェード（グラデーション）を重ねると、「続きがある」ことを視覚的に伝えられます。
+
+### フェードの作り方
+
+フェードは、透明から白へのグラデーションを持つ要素を、コンテンツの下部に重ねて作ります。
+
+<CodePreview
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>これは長いコンテンツのサンプルです。</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+  </div>
+  <div class="fade"></div>
+</div>`}
+  initialCSS={`.content-wrapper {
+  position: relative; /* fadeの配置基準 */
+}
+
+.content {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.fade {
+  position: absolute; /* 親要素を基準に配置 */
+  bottom: 0; /* 下端に配置 */
+  left: 0;
+  right: 0; /* left:0 + right:0 で横幅いっぱい */
+  height: 50px; /* フェードの高さ */
+  background: linear-gradient(transparent, white); /* 上が透明、下が白 */
+}`}
+/>
+
+:::tip linear-gradient について
+`linear-gradient(色1, 色2)` で、色1から色2へ徐々に変化するグラデーションを作れます。  
+`transparent` は「透明」を意味する特別な色の値です。
+:::
+
+<Exercise title="演習2（フェードの追加）">
+
+以下のプレビューと同じように、コンテンツの下部にフェードを重ねてください。
+
+<CodePreview
+  sourceId="演習2"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>Web開発の基礎を学びましょう。</p>
+    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
+    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
+    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
+    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
+  </div>
+  <div class="fade"></div>
+</div>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 120px;
+  overflow: hidden;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, white);
+}`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習2" />
+</Solution>
+</Exercise>
+
+---
+
+## STEP 3: 「もっと見る」ボタンを追加する
+
+ボタンを追加して、クリックしたらコンテンツが開くようにします。
+
+### クラスの付け外しで開閉を切り替える
+
+開いている状態を `open` クラスで表現します。
+
+<CodePreview
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>これは長いコンテンツのサンプルです。</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.content.open {
+  max-height: none; /* 高さ制限を解除 */
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(transparent, white);
+}
+
+.content-wrapper.open .fade {
+  display: none; /* 開いたらフェードを非表示 */
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`// ボタンの要素を取得
+let btnYoso = document.querySelector('.show-more-btn');
+// コンテンツの要素を取得
+let contentYoso = document.querySelector('.content');
+// ラッパーの要素を取得
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+// ボタンがクリックされたときの処理
+btnYoso.addEventListener('click', function() {
+  // コンテンツに open クラスを付け外し
+  contentYoso.classList.toggle('open');
+  // ラッパーにも open クラスを付け外し（フェードの表示切り替え用）
+  wrapperYoso.classList.toggle('open');
+});`}
+/>
+
+<Exercise title="演習3（開閉機能の作成）">
+
+以下のプレビューと同じように、ボタンをクリックするとコンテンツが開閉するようにしてください。  
+開いたときはフェードが消えるようにしてください。
+
+<CodePreview
+  sourceId="演習3"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>Web開発の基礎を学びましょう。</p>
+    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
+    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
+    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
+    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 120px;
+  overflow: hidden;
+}
+
+.content.open {
+  max-height: none;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, white);
+}
+
+.content-wrapper.open .fade {
+  display: none;
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+});`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習3" />
+</Solution>
+</Exercise>
+
+---
+
+## STEP 4: アニメーションを追加する
+
+`transition` を使って、開閉を滑らかにします。
+
+### max-height をアニメーションさせる
+
+`max-height` の値を変化させることでアニメーションできます。  
+ただし、`max-height: none` にはアニメーションできないため、開いた状態では十分大きな値（例: `1000px`）を指定します。
+
+<CodePreview
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>これは長いコンテンツのサンプルです。</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.5s; /* アニメーション追加 */
+}
+
+.content.open {
+  max-height: 500px; /* 十分大きな値を指定 */
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s; /* フェードアウト用 */
+}
+
+.content-wrapper.open .fade {
+  opacity: 0; /* 透明にする */
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+});`}
+/>
+
+:::tip max-height に大きな値を指定する理由
+`transition` は `none` などのキーワードにはアニメーションできません。  
+そのため、「十分に大きな数値」を指定して、実質的に高さ制限がないように見せます。
+:::
+
+<Exercise title="演習4（アニメーション化）">
+
+以下のプレビューと同じように、コンテンツの開閉が滑らかにアニメーションするようにしてください。  
+フェードも滑らかに消えるようにしてください。
+
+<CodePreview
+  sourceId="演習4"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>Web開発の基礎を学びましょう。</p>
+    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
+    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
+    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
+    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 120px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+});`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習4" />
+</Solution>
+</Exercise>
+
+---
+
+## STEP 5: ボタンのテキストを切り替える
+
+開いているときと閉じているときでボタンの文言を変えると、より使いやすくなります。
+
+### innerText でテキストを変更する
+
+<CodePreview
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>これは長いコンテンツのサンプルです。</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+// 開いているかどうかを記録する変数
+let isOpen = false;
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+  
+  // 状態を反転
+  isOpen = !isOpen;
+  
+  // 状態に応じてボタンのテキストを変更
+  if (isOpen) {
+    btnYoso.innerText = '閉じる';
+  } else {
+    btnYoso.innerText = 'もっと見る';
+  }
+});`}
+/>
+
+<Exercise title="演習5（ボタンテキストの切り替え）">
+
+以下のプレビューと同じように、開いているときは「閉じる」、閉じているときは「もっと見る」とボタンに表示されるようにしてください。
+
+<CodePreview
+  sourceId="演習5"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>Web開発の基礎を学びましょう。</p>
+    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
+    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
+    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
+    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 120px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+let isOpen = false;
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+  
+  isOpen = !isOpen;
+  
+  if (isOpen) {
+    btnYoso.innerText = '閉じる';
+  } else {
+    btnYoso.innerText = 'もっと見る';
+  }
+});`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習5" />
+</Solution>
+</Exercise>
+
+---
+
+## 完成形
+
+ここまでの内容をまとめた完成形です。
+
+<CodePreview
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>これは長いコンテンツのサンプルです。</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+}
+
+.content {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+let isOpen = false;
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+  
+  isOpen = !isOpen;
+  
+  if (isOpen) {
+    btnYoso.innerText = '閉じる';
+  } else {
+    btnYoso.innerText = 'もっと見る';
+  }
+});`}
+/>
+
+---
+
+## 発展課題
+
+<Exercise title="演習-発展1（デザイン調整）">
+
+以下のプレビューと同じように、見た目を整えてください。
+
+- コンテンツにパディングと枠線を追加
+- ボタンのデザインを改善（角丸、ホバー効果など）
+
+<CodePreview
+  sourceId="演習-発展1"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>Web開発の基礎を学びましょう。</p>
+    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
+    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
+    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
+    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.content {
+  max-height: 120px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  padding: 16px;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+.content p {
+  margin: 0 0 12px 0;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  padding: 12px 16px;
+  border: none;
+  border-top: 1px solid #ddd;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.show-more-btn:hover {
+  background: #e8e8e8;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+
+let isOpen = false;
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+  
+  isOpen = !isOpen;
+  
+  if (isOpen) {
+    btnYoso.innerText = '閉じる';
+  } else {
+    btnYoso.innerText = 'もっと見る';
+  }
+});`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習-発展1" />
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展2（矢印アイコンの追加）">
+
+以下のプレビューと同じように、ボタンに矢印アイコンを追加してください。  
+開いているときは上向き、閉じているときは下向きにしてください。
+
+:::tip
+矢印は CSS の `border` を使って三角形を作るか、Unicode文字（例: ▼ ▲）を使う方法があります。
+:::
+
+<CodePreview
+  sourceId="演習-発展2"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content-wrapper">
+  <div class="content">
+    <p>Web開発の基礎を学びましょう。</p>
+    <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
+    <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
+    <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
+    <p>実際に手を動かして、たくさんのコードを書いてみましょう。</p>
+  </div>
+  <div class="fade"></div>
+</div>
+<button class="show-more-btn">
+  <span class="btn-text">もっと見る</span>
+  <span class="arrow">▼</span>
+</button>`}
+  initialCSS={`.content-wrapper {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.content {
+  max-height: 120px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  padding: 16px;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+.content p {
+  margin: 0 0 12px 0;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-top: 1px solid #ddd;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.show-more-btn:hover {
+  background: #e8e8e8;
+}
+
+.arrow {
+  font-size: 10px;
+  transition: transform 0.3s;
+}
+
+.show-more-btn.open .arrow {
+  transform: rotate(180deg);
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+let wrapperYoso = document.querySelector('.content-wrapper');
+let btnTextYoso = document.querySelector('.btn-text');
+
+let isOpen = false;
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  wrapperYoso.classList.toggle('open');
+  btnYoso.classList.toggle('open');
+  
+  isOpen = !isOpen;
+  
+  if (isOpen) {
+    btnTextYoso.innerText = '閉じる';
+  } else {
+    btnTextYoso.innerText = 'もっと見る';
+  }
+});`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習-発展2" />
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展3（複数の「もっと見る」を設置）">
+
+1つのページに複数の「もっと見る」を設置する場合、それぞれが独立して動作する必要があります。  
+以下のプレビューと同じように、2つの「もっと見る」が独立して動作するようにしてください。
+
+:::tip
+`querySelectorAll` を使うと、複数の要素をまとめて取得できます。  
+取得した要素に対してループ処理を行うことで、それぞれに独立した処理を設定できます。
+:::
+
+<CodePreview
+  sourceId="演習-発展3"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="show-more-container">
+  <div class="content-wrapper">
+    <div class="content">
+      <p><strong>セクション1</strong></p>
+      <p>HTMLは構造を作り、CSSは見た目を整え、JavaScriptは動きを加えます。</p>
+      <p>これらを組み合わせることで、魅力的なWebサイトが作れます。</p>
+      <p>最初は難しく感じるかもしれませんが、一歩ずつ進めば必ず身につきます。</p>
+    </div>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>
+</div>
+
+<div class="show-more-container">
+  <div class="content-wrapper">
+    <div class="content">
+      <p><strong>セクション2</strong></p>
+      <p>プログラミングは論理的思考を養います。</p>
+      <p>問題を小さく分解し、一つずつ解決していく力が身につきます。</p>
+      <p>失敗を恐れず、たくさん試行錯誤することが上達の秘訣です。</p>
+    </div>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>
+</div>`}
+  initialCSS={`.show-more-container {
+  margin-bottom: 20px;
+}
+
+.content-wrapper {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.content {
+  max-height: 80px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  padding: 16px;
+}
+
+.content.open {
+  max-height: 300px;
+}
+
+.content p {
+  margin: 0 0 12px 0;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.show-more-btn:hover {
+  background: #e8e8e8;
+}`}
+  initialJS={`// すべての show-more-container を取得
+let containers = document.querySelectorAll('.show-more-container');
+
+// それぞれのコンテナに対して処理を設定
+containers.forEach(function(container) {
+  let btnYoso = container.querySelector('.show-more-btn');
+  let contentYoso = container.querySelector('.content');
+  let wrapperYoso = container.querySelector('.content-wrapper');
+  
+  let isOpen = false;
+  
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+    
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      btnYoso.innerText = '閉じる';
+    } else {
+      btnYoso.innerText = 'もっと見る';
+    }
+  });
+});`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習-発展3" />
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展4（行数制限で切る）">
+
+高さ(px)ではなく、行数で表示を制限したい場合があります。  
+CSS の `-webkit-line-clamp` を使うと、指定した行数で切って「...」を表示できます。
+
+以下のプレビューと同じように、3行で切り、開くと全文が表示されるようにしてください。
+
+:::tip
+`-webkit-line-clamp` を使うには、以下のプロパティを組み合わせます：
+- `display: -webkit-box;`
+- `-webkit-box-orient: vertical;`
+- `-webkit-line-clamp: 行数;`
+- `overflow: hidden;`
+:::
+
+<CodePreview
+  sourceId="演習-発展4"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="content-wrapper">
+  <p class="content">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</div>
+<button class="show-more-btn">もっと見る</button>`}
+  initialCSS={`.content-wrapper {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.content {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.content.open {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+.show-more-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}`}
+  initialJS={`let btnYoso = document.querySelector('.show-more-btn');
+let contentYoso = document.querySelector('.content');
+
+let isOpen = false;
+
+btnYoso.addEventListener('click', function() {
+  contentYoso.classList.toggle('open');
+  
+  isOpen = !isOpen;
+  
+  if (isOpen) {
+    btnYoso.innerText = '閉じる';
+  } else {
+    btnYoso.innerText = 'もっと見る';
+  }
+});`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習-発展4" />
+</Solution>
+</Exercise>
+
+<Exercise title="演習-発展5（最初から開いている状態も対応）">
+
+コンテンツが短い場合、最初から全文が見えているのにボタンが表示されるのは不自然です。  
+コンテンツの実際の高さが制限値を超えている場合のみボタンを表示するようにしてください。
+
+:::tip
+- `scrollHeight` を使うと、要素の実際の高さ（スクロールしないと見えない部分も含む）を取得できます。
+- `clientHeight` を使うと、要素の表示されている高さを取得できます。
+- これらを比較することで、コンテンツが切れているかどうかを判定できます。
+:::
+
+<CodePreview
+  sourceId="演習-発展5"
+  htmlVisible={false}
+  cssVisible={false}
+  jsVisible={false}
+  previewVisible={true}
+  initialHTML={`<div class="show-more-container">
+  <div class="content-wrapper">
+    <div class="content">
+      <p>このコンテンツは長いです。</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    </div>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>
+</div>
+
+<div class="show-more-container">
+  <div class="content-wrapper">
+    <div class="content">
+      <p>このコンテンツは短いです。</p>
+    </div>
+    <div class="fade"></div>
+  </div>
+  <button class="show-more-btn">もっと見る</button>
+</div>`}
+  initialCSS={`.show-more-container {
+  margin-bottom: 20px;
+}
+
+.content-wrapper {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.content {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  padding: 16px;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+.content p {
+  margin: 0 0 12px 0;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, white);
+  transition: opacity 0.3s;
+}
+
+.content-wrapper.open .fade {
+  opacity: 0;
+}
+
+.show-more-btn {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.show-more-btn.visible {
+  display: block;
+}
+
+.content-wrapper.no-overflow {
+  border-radius: 8px;
+}
+
+.content-wrapper.no-overflow .fade {
+  display: none;
+}`}
+  initialJS={`let containers = document.querySelectorAll('.show-more-container');
+
+containers.forEach(function(container) {
+  let btnYoso = container.querySelector('.show-more-btn');
+  let contentYoso = container.querySelector('.content');
+  let wrapperYoso = container.querySelector('.content-wrapper');
+  
+  // コンテンツが切れているかチェック
+  if (contentYoso.scrollHeight > contentYoso.clientHeight) {
+    // 切れている場合はボタンを表示
+    btnYoso.classList.add('visible');
+  } else {
+    // 切れていない場合はフェードも非表示に
+    wrapperYoso.classList.add('no-overflow');
+  }
+  
+  let isOpen = false;
+  
+  btnYoso.addEventListener('click', function() {
+    contentYoso.classList.toggle('open');
+    wrapperYoso.classList.toggle('open');
+    
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      btnYoso.innerText = '閉じる';
+    } else {
+      btnYoso.innerText = 'もっと見る';
+    }
+  });
+});`}
+/>
+
+<Solution>
+<CodePreview sourceId="演習-発展5" />
+</Solution>
+</Exercise>
