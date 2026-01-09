@@ -30,8 +30,8 @@ HTML要素の中に表示されているテキストを、JavaScriptで書き換
 <CodePreview>
 ```html
 <body>
-    <p>元のメッセージ</p>
-  </body>
+  <p>元のメッセージ</p>
+</body>
 ```
 
 ```javascript
@@ -60,15 +60,15 @@ document.querySelector("p").innerText = "新しいメッセージ";
   previewVisible={true}>
 ```html
 <p>読み込み中...</p> <!-- "読み込み完了" に変更 -->
-  <p class="info">古い情報</p> <!-- "最新情報" に変更 -->
+<p class="info">古い情報</p> <!-- "最新情報" に変更 -->
 ```
 
 ```javascript
 // 最初のp要素の中身を変更
-  document.querySelector("p").innerText = "読み込み完了";
+document.querySelector("p").innerText = "読み込み完了";
 
-  // class="info"の要素の中身を変更
-  document.querySelector(".info").innerText = "最新情報";
+// class="info"の要素の中身を変更
+document.querySelector(".info").innerText = "最新情報";
 ```
 </CodePreview>
 
@@ -110,27 +110,27 @@ document.querySelector("p").innerText = "新しいメッセージ";
   previewVisible={true}>
 ```html
 <ul class="option1">
-    <li class="item">1 - 項目A</li>
-    <li class="item selected">1 - 項目B</li>
-  </ul>
-  <ul class="option2">
-    <li class="item">2- 項目A</li>
-    <li class="item selected">2 - 項目B</li> <!-- 中身を「2 - 選択中B」に変更 -->
-    <li class="item">2 - 項目C</li>
-  </ul>
-  <div id="container">
-    <p>段落1</p>
-    <p>段落2</p>
-    <p>段落3</p> <!-- 中身を「ラスト段落」に変更 -->
-  </div>
+  <li class="item">1 - 項目A</li>
+  <li class="item selected">1 - 項目B</li>
+</ul>
+<ul class="option2">
+  <li class="item">2- 項目A</li>
+  <li class="item selected">2 - 項目B</li> <!-- 中身を「2 - 選択中B」に変更 -->
+  <li class="item">2 - 項目C</li>
+</ul>
+<div id="container">
+  <p>段落1</p>
+  <p>段落2</p>
+  <p>段落3</p> <!-- 中身を「ラスト段落」に変更 -->
+</div>
 ```
 
 ```javascript
 // .option2の中の選択中(.selected)のli要素の中身を変更
-  document.querySelector(".option2 .selected").innerText = "2 - 選択中B";
+document.querySelector(".option2 .selected").innerText = "2 - 選択中B";
 
-  // id="container"の中の最後のp要素の中身を変更
-  document.querySelector("#container p:last-child").innerText = "ラスト段落";
+// id="container"の中の最後のp要素の中身を変更
+document.querySelector("#container p:last-child").innerText = "ラスト段落";
 ```
 </CodePreview>
 

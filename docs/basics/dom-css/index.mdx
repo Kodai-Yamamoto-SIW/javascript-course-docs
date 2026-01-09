@@ -25,8 +25,8 @@ _HTMLの解析が終わった後_ で、以下の関数を使用する。
 <CodePreview>
 ```html
 <body>
-    <p>テスト</p>
-  </body>
+  <p>テスト</p>
+</body>
 ```
 
 ```javascript
@@ -101,34 +101,34 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
 ```html
 <h1>見出し</h1>
 
-  <p>これは段落1です。</p>
-  <p>これは段落2です。</p>
+<p>これは段落1です。</p>
+<p>これは段落2です。</p>
 
-  <p id="main">段落3 ここがメイン</p>
+<p id="main">段落3 ここがメイン</p>
 
-  <p class="raberu">段落4 ラベルA</p>
-  <p class="raberu">段落5 ラベルB</p>
-  <div class="hako">
-    <p>ボックス内の段落1</p>
-    <p>ボックス内の段落2</p>
-  </div>
+<p class="raberu">段落4 ラベルA</p>
+<p class="raberu">段落5 ラベルB</p>
+<div class="hako">
+  <p>ボックス内の段落1</p>
+  <p>ボックス内の段落2</p>
+</div>
 ```
 
 ```javascript
 // h1要素を取得
-  console.log(document.querySelector("h1")); // 出力: <h1>見出し</h1>
+console.log(document.querySelector("h1")); // 出力: <h1>見出し</h1>
 
-  // 最初のp要素を取得
-  console.log(document.querySelector("p")); // 出力: <p>これは段落1です。</p>
+// 最初のp要素を取得
+console.log(document.querySelector("p")); // 出力: <p>これは段落1です。</p>
 
-  // id="main"のp要素を取得
-  console.log(document.querySelector("#main")); // 出力: <p id="main">段落3 ここがメイン</p>
+// id="main"のp要素を取得
+console.log(document.querySelector("#main")); // 出力: <p id="main">段落3 ここがメイン</p>
 
-  // class="raberu"の最初のp要素を取得
-  console.log(document.querySelector(".raberu")); // 出力: <p class="raberu">段落4 ラベルA</p>
+// class="raberu"の最初のp要素を取得
+console.log(document.querySelector(".raberu")); // 出力: <p class="raberu">段落4 ラベルA</p>
 
-  // class="hako"のdiv要素の中の最初のp要素を取得
-  console.log(document.querySelector(".hako p")); // 出力: <p>ボックス内の段落1</p>
+// class="hako"のdiv要素の中の最初のp要素を取得
+console.log(document.querySelector(".hako p")); // 出力: <p>ボックス内の段落1</p>
 ```
 </CodePreview>
 
@@ -169,26 +169,26 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
   consoleVisible={true}>
 ```html
 <div class="moodaru open">
-    <p>モーダルウィンドウ</p>
-  </div>
+  <p>モーダルウィンドウ</p>
+</div>
 
-  <div class="dorowa open">
-    <button class="botan">ボタン1</button>
-    <p>開いているドロワー内の段落</p>
-  </div>
+<div class="dorowa open">
+  <button class="botan">ボタン1</button>
+  <p>開いているドロワー内の段落</p>
+</div>
 
-  <div class="dorowa">
-    <button class="botan">ボタン2</button>
-    <p>開いていないドロワー内の段落</p>
-  </div>
+<div class="dorowa">
+  <button class="botan">ボタン2</button>
+  <p>開いていないドロワー内の段落</p>
+</div>
 ```
 
 ```javascript
 // 開いているドロワー内の button 要素を取得して出力
-  console.log(document.querySelector(".dorowa.open button")); // 出力: <button class="botan">ボタン1</button>
+console.log(document.querySelector(".dorowa.open button")); // 出力: <button class="botan">ボタン1</button>
 
-  // .open を持たないドロワー内の p 要素を取得して出力
-  console.log(document.querySelector(".dorowa:not(.open) p")); // 出力: <p>開いていないドロワー内の段落</p>
+// .open を持たないドロワー内の p 要素を取得して出力
+console.log(document.querySelector(".dorowa:not(.open) p")); // 出力: <p>開いていないドロワー内の段落</p>
 ```
 </CodePreview>
 
@@ -210,20 +210,20 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
 <CodePreview>
 ```html
 <style>
-  p {
-    color: green;
-    font-size: 100px; /* 見やすいように大きくしただけ */
-  }
-  </style>
-  <body>
-    <p>テスト文章</p>
-  </body>
+p {
+  color: green;
+  font-size: 100px; /* 見やすいように大きくしただけ */
+}
+</style>
+<body>
+  <p>テスト文章</p>
+</body>
 ```
 
 ```javascript
 // p要素の文字色を赤に変更
-  // 要素 = document.querySelector("p")
-  document.querySelector("p").style.color = "red";
+// 要素 = document.querySelector("p")
+document.querySelector("p").style.color = "red";
 ```
 </CodePreview>
 
@@ -234,19 +234,19 @@ background-color のようなハイフンのあるCSSプロパティの場合は
 <CodePreview>
 ```html
 <style>
-  p {
-    font-size: 100px;
-  }
-  </style>
-  <body>
-    <p>テスト文章</p>
-  </body>
+p {
+  font-size: 100px;
+}
+</style>
+<body>
+  <p>テスト文章</p>
+</body>
 ```
 
 ```javascript
 // p要素の背景色を水色に変更
-  // 要素 = document.querySelector("p")
-  document.querySelector("p").style.backgroundColor = "lightblue";
+// 要素 = document.querySelector("p")
+document.querySelector("p").style.backgroundColor = "lightblue";
 ```
 </CodePreview>
 
@@ -275,22 +275,22 @@ background-color のようなハイフンのあるCSSプロパティの場合は
   previewVisible={true}>
 ```html
 <h1 class="taitoru">今日の天気</h1> <!-- 文字色を「青色」にせよ -->
-  <p>晴れのちくもり</p> <!-- 背景色を「黄色」にせよ -->
+<p>晴れのちくもり</p> <!-- 背景色を「黄色」にせよ -->
 
-  <div class="hako">
-    <p>最高気温 18度</p> <!-- 文字サイズを「80px」にせよ -->
-  </div>
+<div class="hako">
+  <p>最高気温 18度</p> <!-- 文字サイズを「80px」にせよ -->
+</div>
 ```
 
 ```javascript
 // class="taitoru"のh1要素の文字色を青に変更
-  document.querySelector(".taitoru").style.color = "blue";
+document.querySelector(".taitoru").style.color = "blue";
 
-  // 最初のp要素の背景色を黄色に変更
-  document.querySelector("p").style.backgroundColor = "yellow";
+// 最初のp要素の背景色を黄色に変更
+document.querySelector("p").style.backgroundColor = "yellow";
 
-  // class="hako"のdiv要素の中のp要素の文字サイズを80pxに変更
-  document.querySelector(".hako p").style.fontSize = "80px";
+// class="hako"のdiv要素の中のp要素の文字サイズを80pxに変更
+document.querySelector(".hako p").style.fontSize = "80px";
 ```
 </CodePreview>
 
@@ -347,52 +347,52 @@ background-color のようなハイフンのあるCSSプロパティの場合は
   previewVisible={true}>
 ```html
 <!-- 文字色を赤にせよ -->
-  <h1 class="taitoru">お知らせ</h1>
-  <div class="hako">
-    <!-- 要素を非表示にせよ -->
-    <p class="messeji">このメッセージは非表示にせよ</p>
-    <p class="messeji">このメッセージは消さないでよい</p>
+<h1 class="taitoru">お知らせ</h1>
+<div class="hako">
+  <!-- 要素を非表示にせよ -->
+  <p class="messeji">このメッセージは非表示にせよ</p>
+  <p class="messeji">このメッセージは消さないでよい</p>
 
-    <!-- 背景: オレンジ / 文字: 白 / サイズ: 20px -->
-    <p class="notice">この部分には3つの装飾を加えよ</p>
-    <p>この段落には何もしない</p>
+  <!-- 背景: オレンジ / 文字: 白 / サイズ: 20px -->
+  <p class="notice">この部分には3つの装飾を加えよ</p>
+  <p>この段落には何もしない</p>
 
-    <!-- 文字を太字にせよ -->
-    <p class="tyuui">重要：内容を強調せよ</p>
+  <!-- 文字を太字にせよ -->
+  <p class="tyuui">重要：内容を強調せよ</p>
 
-    <!-- 幅/高さ 60px / 背景: skyblue / 円にせよ -->
-    <div class="maru"></div>
+  <!-- 幅/高さ 60px / 背景: skyblue / 円にせよ -->
+  <div class="maru"></div>
 
-    <!-- 不透明度を 20% にせよ -->
-    <p class="usui">詳細はこちらをご確認ください</p>
-  </div>
+  <!-- 不透明度を 20% にせよ -->
+  <p class="usui">詳細はこちらをご確認ください</p>
+</div>
 ```
 
 ```javascript
 // h1.taitoru を赤に
-  document.querySelector(".taitoru").style.color = "red";
+document.querySelector(".taitoru").style.color = "red";
 
-  // 最初の class="messeji" を非表示にする
-  document.querySelector(".messeji").style.display = "none";
+// 最初の class="messeji" を非表示にする
+document.querySelector(".messeji").style.display = "none";
 
-  // class="notice" に背景色オレンジ、文字色白、文字サイズ20px を設定
-  let noticeYouso = document.querySelector(".notice");
-  noticeYouso.style.backgroundColor = "orange";
-  noticeYouso.style.color = "white";
-  noticeYouso.style.fontSize = "20px";
+// class="notice" に背景色オレンジ、文字色白、文字サイズ20px を設定
+let noticeYouso = document.querySelector(".notice");
+noticeYouso.style.backgroundColor = "orange";
+noticeYouso.style.color = "white";
+noticeYouso.style.fontSize = "20px";
 
-  // class="tyuui" の文字を太字にする
-  document.querySelector(".tyuui").style.fontWeight = "bold";
+// class="tyuui" の文字を太字にする
+document.querySelector(".tyuui").style.fontWeight = "bold";
 
-  // .maru を幅/高さ60px、背景色 skyblue、丸くする
-  let maruYouso = document.querySelector(".maru");
-  maruYouso.style.width = "60px";
-  maruYouso.style.height = "60px";
-  maruYouso.style.backgroundColor = "skyblue";
-  maruYouso.style.borderRadius = "50%";
+// .maru を幅/高さ60px、背景色 skyblue、丸くする
+let maruYouso = document.querySelector(".maru");
+maruYouso.style.width = "60px";
+maruYouso.style.height = "60px";
+maruYouso.style.backgroundColor = "skyblue";
+maruYouso.style.borderRadius = "50%";
 
-  // class="usui" の不透明度を20%にする
-  document.querySelector(".usui").style.opacity = "0.2";
+// class="usui" の不透明度を20%にする
+document.querySelector(".usui").style.opacity = "0.2";
 ```
 </CodePreview>
 
@@ -434,46 +434,46 @@ background-color のようなハイフンのあるCSSプロパティの場合は
   consoleVisible={false}>
 ```html
 <h2 class="banner">お知らせ</h2>
-  <p>お知らせです</p>
+<p>お知らせです</p>
 
-  <div class="banner content">
-    <p class="alert">システム更新のお知らせ</p>
-    <p class="detail">本日18時よりメンテナンスを実施します</p>
-    <p class="message">ご迷惑をおかけします。<br>よろしくお願い致します。</p>
-    <div class="icon">⚠️</div>
-  </div>
+<div class="banner content">
+  <p class="alert">システム更新のお知らせ</p>
+  <p class="detail">本日18時よりメンテナンスを実施します</p>
+  <p class="message">ご迷惑をおかけします。<br>よろしくお願い致します。</p>
+  <div class="icon">⚠️</div>
+</div>
 ```
 
 ```javascript
 // .banner に色と余白を設定
-  let banner = document.querySelector(".banner");
-  banner.style.color = "white";
-  banner.style.backgroundColor = "#007acc";
-  banner.style.paddingTop = "20px";
-  banner.style.paddingBottom = "20px";
+let banner = document.querySelector(".banner");
+banner.style.color = "white";
+banner.style.backgroundColor = "#007acc";
+banner.style.paddingTop = "20px";
+banner.style.paddingBottom = "20px";
 
-  // .alert を赤・太字・左ボーダーに
-  let alert = document.querySelector(".alert");
-  alert.style.color = "red";
-  alert.style.fontWeight = "bold";
-  alert.style.borderLeft = "8px solid red";
+// .alert を赤・太字・左ボーダーに
+let alert = document.querySelector(".alert");
+alert.style.color = "red";
+alert.style.fontWeight = "bold";
+alert.style.borderLeft = "8px solid red";
 
-  // .detail に背景と内側余白
-  let detail = document.querySelector(".detail");
-  detail.style.backgroundColor = "#f9f9f9";
-  detail.style.padding = "12px 16px";
+// .detail に背景と内側余白
+let detail = document.querySelector(".detail");
+detail.style.backgroundColor = "#f9f9f9";
+detail.style.padding = "12px 16px";
 
-  // .icon を黒い円にして不透明度を 0.7 に
-  let icon = document.querySelector(".icon");
-  icon.style.width = "60px";
-  icon.style.height = "60px";
-  icon.style.borderRadius = "50%";
-  icon.style.backgroundColor = "black";
-  icon.style.display = "grid";
-  icon.style.placeItems = "center";
+// .icon を黒い円にして不透明度を 0.7 に
+let icon = document.querySelector(".icon");
+icon.style.width = "60px";
+icon.style.height = "60px";
+icon.style.borderRadius = "50%";
+icon.style.backgroundColor = "black";
+icon.style.display = "grid";
+icon.style.placeItems = "center";
 
-  // .message の行間を 2 倍に
-  document.querySelector(".message").style.lineHeight = "2";
+// .message の行間を 2 倍に
+document.querySelector(".message").style.lineHeight = "2";
 ```
 </CodePreview>
 

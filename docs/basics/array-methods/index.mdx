@@ -85,14 +85,14 @@ let fruits = ["りんご", "みかん"];
 <CodePreview>
 ```javascript
 let fruits = ["りんご", "みかん"];
-  // 1: 末尾に複数を追加
-  fruits.push("バナナ", "ぶどう");
-  console.log(fruits); // 出力: ["りんご","みかん","バナナ","ぶどう"]
+// 1: 末尾に複数を追加
+fruits.push("バナナ", "ぶどう");
+console.log(fruits); // 出力: ["りんご","みかん","バナナ","ぶどう"]
 
-  // 2: 末尾から1つ取り出す
-  let removed = fruits.pop();
-  console.log("取り出されたもの: " + removed); // 出力: "ぶどう"
-  console.log("残りの配列: " + fruits); // 出力: ["りんご","みかん","バナナ"]
+// 2: 末尾から1つ取り出す
+let removed = fruits.pop();
+console.log("取り出されたもの: " + removed); // 出力: "ぶどう"
+console.log("残りの配列: " + fruits); // 出力: ["りんご","みかん","バナナ"]
 ```
 </CodePreview>
  </Solution>
@@ -163,14 +163,14 @@ let colors = ["青", "緑"];
 <CodePreview>
 ```javascript
 let colors = ["青", "緑"];
-  // 1: 先頭に複数を追加（引数の順序で先頭へ並ぶ）
-  colors.unshift("赤", "黄");
-  console.log(colors); // 出力: ["赤","黄","青","緑"]
+// 1: 先頭に複数を追加（引数の順序で先頭へ並ぶ）
+colors.unshift("赤", "黄");
+console.log(colors); // 出力: ["赤","黄","青","緑"]
 
-  // 2: 先頭から1つ取り出す
-  let removed = colors.shift();
-  console.log("取り出されたもの: " + removed); // 出力: "赤"
-  console.log("残りの配列: " + colors); // 出力: ["黄","青","緑"]
+// 2: 先頭から1つ取り出す
+let removed = colors.shift();
+console.log("取り出されたもの: " + removed); // 出力: "赤"
+console.log("残りの配列: " + colors); // 出力: ["黄","青","緑"]
 ```
 </CodePreview>
 </Solution>
@@ -238,8 +238,8 @@ let array = [3, 7, 10];
 <CodePreview>
 ```javascript
 let array = [3, 7, 10];
-  let result = array.map(function(v) { return "No." + v; });
-  console.log(result); // 出力: ["No.3", "No.7", "No.10"]
+let result = array.map(function(v) { return "No." + v; });
+console.log(result); // 出力: ["No.3", "No.7", "No.10"]
 ```
 </CodePreview>
 </Solution>
@@ -381,9 +381,9 @@ let arrayC = [1, 12, 25, 7, 32, 10, 5, 430];
 <CodePreview>
 ```javascript
 let arrayC = [1, 12, 25, 7, 32, 10, 5, 430];
-  let pos = arrayC.indexOf(25);
-  arrayC.fill(0, pos + 1);
-  console.log(arrayC); // 出力: [1,12,25,0,0,0,0,0]
+let pos = arrayC.indexOf(25);
+arrayC.fill(0, pos + 1);
+console.log(arrayC); // 出力: [1,12,25,0,0,0,0,0]
 ```
 </CodePreview>
 </Solution>
@@ -465,17 +465,17 @@ console.log("飲料の平均価格: " + avg);
 <CodePreview>
 ```javascript
 let items = [
-    { type: "飲料", name: "お茶", price: 124 },
-    { type: "食料", name: "パン", price: 138 },
-    { type: "飲料", name: "水", price: 88 },
-    { type: "食料", name: "菓子", price: 98 },
-    { type: "飲料", name: "コーヒー", price: 110 },
-  ];
-  let idx = items.findIndex(function(it) { return it.type === "飲料" && it.price >= 100; });
-  let found = items[idx];
-  console.log("インデックス: " + idx);
-  console.log("名前: " + found.name);
-  console.log("価格: " + found.price);
+  { type: "飲料", name: "お茶", price: 124 },
+  { type: "食料", name: "パン", price: 138 },
+  { type: "飲料", name: "水", price: 88 },
+  { type: "食料", name: "菓子", price: 98 },
+  { type: "飲料", name: "コーヒー", price: 110 },
+];
+let idx = items.findIndex(function(it) { return it.type === "飲料" && it.price >= 100; });
+let found = items[idx];
+console.log("インデックス: " + idx);
+console.log("名前: " + found.name);
+console.log("価格: " + found.price);
 ```
 </CodePreview>
 </Solution>

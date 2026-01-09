@@ -30,24 +30,24 @@ import { CodePreview } from "@metyatech/code-preview";
 
 ```css
 button {
-    padding: 10px 20px;
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-  }
+  padding: 10px 20px;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
 ```
 
 ```javascript
 // いいねボタンがクリックされたら数を増やす
-  let buttonYoso = document.querySelector("button");
-  let count = 0;
+let buttonYoso = document.querySelector("button");
+let count = 0;
 
-  buttonYoso.addEventListener("click", function() {
-    count = count + 1;
-    buttonYoso.innerText = "❤️ " + count + " いいね";
-  });
+buttonYoso.addEventListener("click", function() {
+  count = count + 1;
+  buttonYoso.innerText = "❤️ " + count + " いいね";
+});
 ```
 </CodePreview>
 
@@ -60,57 +60,57 @@ button {
   previewVisible={true}>
 ```html
 <div class="help-container">
-    <div class="help-icon">?</div>
-    <div class="tooltip">ヒント: 詳細なヒント</div>
-  </div>
+  <div class="help-icon">?</div>
+  <div class="tooltip">ヒント: 詳細なヒント</div>
+</div>
 ```
 
 ```css
 .help-container {
-    display: inline-block;
-    position: relative;
-    padding: 50px;
-  }
-  .help-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 24px;
-  }
-  .tooltip {
-    position: absolute;
-    top: 50%;
-    left: 100px;
-    transform: translateY(-50%);
-    background-color: #333;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    white-space: nowrap;
-    font-size: 14px;
-    opacity: 0;
-    pointer-events: none;
-  }
+  display: inline-block;
+  position: relative;
+  padding: 50px;
+}
+.help-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 24px;
+}
+.tooltip {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+}
 ```
 
 ```javascript
 // ヘルプアイコンにマウスを乗せたらヒントを表示
-  let icon = document.querySelector(".help-icon");
-  let tooltip = document.querySelector(".tooltip");
+let icon = document.querySelector(".help-icon");
+let tooltip = document.querySelector(".tooltip");
 
-  icon.addEventListener("mouseenter", function() {
-    tooltip.style.opacity = "1";
-  });
+icon.addEventListener("mouseenter", function() {
+  tooltip.style.opacity = "1";
+});
 
-  icon.addEventListener("mouseleave", function() {
-    tooltip.style.opacity = "0";
-  });
+icon.addEventListener("mouseleave", function() {
+  tooltip.style.opacity = "0";
+});
 ```
 </CodePreview>
 
@@ -144,17 +144,17 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
 <CodePreview>
 ```html
 <button>クリックしてね</button>
-  <p>まだクリックされていません</p>
+<p>まだクリックされていません</p>
 ```
 
 ```javascript
 // ボタンがクリックされたら、メッセージを変更する
-  let buttonYoso = document.querySelector("button");
-  let pYoso = document.querySelector("p");
+let buttonYoso = document.querySelector("button");
+let pYoso = document.querySelector("p");
 
-  buttonYoso.addEventListener("click", function() {
-    pYoso.innerText = "ボタンがクリックされました！";
-  });
+buttonYoso.addEventListener("click", function() {
+  pYoso.innerText = "ボタンがクリックされました！";
+});
 ```
 </CodePreview>
 
@@ -165,19 +165,19 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
 
 ```css
 div {
-    width: 100px;
-    height: 100px;
-    background-color: lightblue;
-  }
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+}
 ```
 
 ```javascript
 // ボックスをクリックしたら、背景色を赤に変更
-  let divYoso = document.querySelector("div");
+let divYoso = document.querySelector("div");
 
-  divYoso.addEventListener("click", function() {
-    divYoso.style.backgroundColor = "red";
-  });
+divYoso.addEventListener("click", function() {
+  divYoso.style.backgroundColor = "red";
+});
 ```
 </CodePreview>
 
@@ -195,17 +195,17 @@ div {
   previewVisible={true}>
 ```html
 <button>変更ボタン</button>
-  <p>初期テキスト</p>
+<p>初期テキスト</p>
 ```
 
 ```javascript
 // ボタンがクリックされたときの処理
-  let buttonYoso = document.querySelector("button");
-  let pYoso = document.querySelector("p");
+let buttonYoso = document.querySelector("button");
+let pYoso = document.querySelector("p");
 
-  buttonYoso.addEventListener("click", function() {
-    pYoso.innerText = "テキストが変更されました";
-  });
+buttonYoso.addEventListener("click", function() {
+  pYoso.innerText = "テキストが変更されました";
+});
 ```
 </CodePreview>
 
@@ -232,20 +232,20 @@ div {
 
 ```css
 div {
-    width: 200px;
-    height: 200px;
-    background-color: yellow;
-  }
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+}
 ```
 
 ```javascript
 // div要素がクリックされたときの処理
-  let divYoso = document.querySelector("div");
+let divYoso = document.querySelector("div");
 
-  divYoso.addEventListener("click", function() {
-    divYoso.style.backgroundColor = "blue";
-    divYoso.style.width = "300px";
-  });
+divYoso.addEventListener("click", function() {
+  divYoso.style.backgroundColor = "blue";
+  divYoso.style.width = "300px";
+});
 ```
 </CodePreview>
 
@@ -268,31 +268,31 @@ div {
   previewVisible={true}>
 ```html
 <div>
-    <h3>タイトル</h3>
-    <p>説明文</p>
-  </div>
+  <h3>タイトル</h3>
+  <p>説明文</p>
+</div>
 ```
 
 ```css
 div {
-    width: 150px;
-    height: 150px;
-    background-color: lightgray;
-    padding: 10px;
-  }
+  width: 150px;
+  height: 150px;
+  background-color: lightgray;
+  padding: 10px;
+}
 ```
 
 ```javascript
 // div要素がクリックされたときの処理
-  let divYoso = document.querySelector("div");
-  let h3Yoso = document.querySelector("h3");
-  let pYoso = document.querySelector("p");
+let divYoso = document.querySelector("div");
+let h3Yoso = document.querySelector("h3");
+let pYoso = document.querySelector("p");
 
-  divYoso.addEventListener("click", function() {
-    divYoso.style.backgroundColor = "lightblue";
-    h3Yoso.innerText = "選択されました";
-    pYoso.innerText = "このカードが選択中です";
-  });
+divYoso.addEventListener("click", function() {
+  divYoso.style.backgroundColor = "lightblue";
+  h3Yoso.innerText = "選択されました";
+  pYoso.innerText = "このカードが選択中です";
+});
 ```
 </CodePreview>
 
@@ -316,25 +316,25 @@ div {
 <CodePreview>
 ```html
 <div></div>
-  <p>マウスを乗せてください</p>
+<p>マウスを乗せてください</p>
 ```
 
 ```css
 div {
-    width: 150px;
-    height: 150px;
-    background-color: lightgreen;
-  }
+  width: 150px;
+  height: 150px;
+  background-color: lightgreen;
+}
 ```
 
 ```javascript
 // マウスが乗ったら、ステータスメッセージを変更
-  let divYoso = document.querySelector("div");
-  let pYoso = document.querySelector("p");
+let divYoso = document.querySelector("div");
+let pYoso = document.querySelector("p");
 
-  divYoso.addEventListener("mouseenter", function() {
-    pYoso.innerText = "マウスが乗りました";
-  });
+divYoso.addEventListener("mouseenter", function() {
+  pYoso.innerText = "マウスが乗りました";
+});
 ```
 </CodePreview>
 
@@ -345,19 +345,19 @@ div {
 
 ```css
 div {
-    width: 100px;
-    height: 100px;
-    background-color: lightblue;
-  }
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+}
 ```
 
 ```javascript
 // マウスが乗ったら、背景色を黄色に変更
-  let divYoso = document.querySelector("div");
+let divYoso = document.querySelector("div");
 
-  divYoso.addEventListener("mouseenter", function() {
-    divYoso.style.backgroundColor = "yellow";
-  });
+divYoso.addEventListener("mouseenter", function() {
+  divYoso.style.backgroundColor = "yellow";
+});
 ```
 </CodePreview>
 
@@ -380,19 +380,19 @@ div {
 
 ```css
 div {
-    width: 100px;
-    height: 100px;
-    background-color: lightcoral;
-  }
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+}
 ```
 
 ```javascript
 // マウスが乗ったときの処理
-  let divYoso = document.querySelector("div");
+let divYoso = document.querySelector("div");
 
-  divYoso.addEventListener("mouseenter", function() {
-    divYoso.style.borderRadius = "50%";
-  });
+divYoso.addEventListener("mouseenter", function() {
+  divYoso.style.borderRadius = "50%";
+});
 ```
 </CodePreview>
 
@@ -416,25 +416,25 @@ div {
 <CodePreview>
 ```html
 <div></div>
-  <p>マウスを乗せてから離してください</p>
+<p>マウスを乗せてから離してください</p>
 ```
 
 ```css
 div {
-    width: 150px;
-    height: 150px;
-    background-color: blue;
-  }
+  width: 150px;
+  height: 150px;
+  background-color: blue;
+}
 ```
 
 ```javascript
 // マウスが離れたら、メッセージを変更
-  let divYoso = document.querySelector("div");
-  let pYoso = document.querySelector("p");
+let divYoso = document.querySelector("div");
+let pYoso = document.querySelector("p");
 
-  divYoso.addEventListener("mouseleave", function() {
-    pYoso.innerText = "マウスが離れました";
-  });
+divYoso.addEventListener("mouseleave", function() {
+  pYoso.innerText = "マウスが離れました";
+});
 ```
 </CodePreview>
 
@@ -447,31 +447,31 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
 <CodePreview>
 ```html
 <div></div>
-  <p>マウスを乗せてみてください</p>
+<p>マウスを乗せてみてください</p>
 ```
 
 ```css
 div {
-    width: 150px;
-    height: 150px;
-    background-color: lightblue;
-  }
+  width: 150px;
+  height: 150px;
+  background-color: lightblue;
+}
 ```
 
 ```javascript
 // マウスが乗ったときと離れたときで動作を変える
-  let divYoso = document.querySelector("div");
-  let pYoso = document.querySelector("p");
+let divYoso = document.querySelector("div");
+let pYoso = document.querySelector("p");
 
-  divYoso.addEventListener("mouseenter", function() {
-    divYoso.style.backgroundColor = "orange";
-    pYoso.innerText = "マウスが乗っています";
-  });
+divYoso.addEventListener("mouseenter", function() {
+  divYoso.style.backgroundColor = "orange";
+  pYoso.innerText = "マウスが乗っています";
+});
 
-  divYoso.addEventListener("mouseleave", function() {
-    divYoso.style.backgroundColor = "lightblue";
-    pYoso.innerText = "マウスが離れました";
-  });
+divYoso.addEventListener("mouseleave", function() {
+  divYoso.style.backgroundColor = "lightblue";
+  pYoso.innerText = "マウスが離れました";
+});
 ```
 </CodePreview>
 
@@ -494,31 +494,31 @@ div {
   previewVisible={true}>
 ```html
 <div></div>
-  <p>ステータス: 待機中</p>
+<p>ステータス: 待機中</p>
 ```
 
 ```css
 div {
-    width: 160px;
-    height: 160px;
-    background-color: lightgray;
-  }
+  width: 160px;
+  height: 160px;
+  background-color: lightgray;
+}
 ```
 
 ```javascript
 // マウスが乗ったときと離れたときの処理
-  let divYoso = document.querySelector("div");
-  let pYoso = document.querySelector("p");
+let divYoso = document.querySelector("div");
+let pYoso = document.querySelector("p");
 
-  divYoso.addEventListener("mouseenter", function() {
-    divYoso.style.backgroundColor = "lightcoral";
-    pYoso.innerText = "ステータス: ホバー中";
-  });
+divYoso.addEventListener("mouseenter", function() {
+  divYoso.style.backgroundColor = "lightcoral";
+  pYoso.innerText = "ステータス: ホバー中";
+});
 
-  divYoso.addEventListener("mouseleave", function() {
-    divYoso.style.backgroundColor = "lightgray";
-    pYoso.innerText = "ステータス: 待機中";
-  });
+divYoso.addEventListener("mouseleave", function() {
+  divYoso.style.backgroundColor = "lightgray";
+  pYoso.innerText = "ステータス: 待機中";
+});
 ```
 </CodePreview>
 
@@ -544,42 +544,42 @@ div {
   previewVisible={true}>
 ```html
 <div></div>
-  <p>ステータス: 待機中</p>
+<p>ステータス: 待機中</p>
 ```
 
 ```css
 div {
-    width: 160px;
-    height: 160px;
-    background-color: lightgray;
-  }
+  width: 160px;
+  height: 160px;
+  background-color: lightgray;
+}
 ```
 
 ```javascript
 // 状態管理を含むイベント処理
-  let divYoso = document.querySelector("div");
-  let pYoso = document.querySelector("p");
-  let isSelected = false;
+let divYoso = document.querySelector("div");
+let pYoso = document.querySelector("p");
+let isSelected = false;
 
-  divYoso.addEventListener("mouseenter", function() {
-    if (!isSelected) {
-      divYoso.style.backgroundColor = "lightcoral";
-      pYoso.innerText = "ステータス: ホバー中";
-    }
-  });
+divYoso.addEventListener("mouseenter", function() {
+  if (!isSelected) {
+    divYoso.style.backgroundColor = "lightcoral";
+    pYoso.innerText = "ステータス: ホバー中";
+  }
+});
 
-  divYoso.addEventListener("mouseleave", function() {
-    if (!isSelected) {
-      divYoso.style.backgroundColor = "lightgray";
-      pYoso.innerText = "ステータス: 待機中";
-    }
-  });
+divYoso.addEventListener("mouseleave", function() {
+  if (!isSelected) {
+    divYoso.style.backgroundColor = "lightgray";
+    pYoso.innerText = "ステータス: 待機中";
+  }
+});
 
-  divYoso.addEventListener("click", function() {
-    divYoso.style.backgroundColor = "gold";
-    pYoso.innerText = "ステータス: 選択済み";
-    isSelected = true;
-  });
+divYoso.addEventListener("click", function() {
+  divYoso.style.backgroundColor = "gold";
+  pYoso.innerText = "ステータス: 選択済み";
+  isSelected = true;
+});
 ```
 </CodePreview>
 
@@ -604,34 +604,34 @@ div {
   previewVisible={true}>
 ```html
 <div></div>
-  <p>クリック回数: 0回</p>
+<p>クリック回数: 0回</p>
 ```
 
 ```css
 div {
-    width: 160px;
-    height: 160px;
-    background-color: lightblue;
-  }
+  width: 160px;
+  height: 160px;
+  background-color: lightblue;
+}
 ```
 
 ```javascript
 // カウンター機能を含むイベント処理
-  let divYoso = document.querySelector("div");
-  let pYoso = document.querySelector("p");
-  let count = 0;
+let divYoso = document.querySelector("div");
+let pYoso = document.querySelector("p");
+let count = 0;
 
-  divYoso.addEventListener("click", function() {
-    if (count < 3) {
-      count++;
-      pYoso.innerText = "クリック回数: " + count + "回";
-      
-      if (count === 3) {
-        divYoso.style.backgroundColor = "gold";
-        pYoso.innerText = "完了しました";
-      }
+divYoso.addEventListener("click", function() {
+  if (count < 3) {
+    count++;
+    pYoso.innerText = "クリック回数: " + count + "回";
+    
+    if (count === 3) {
+      divYoso.style.backgroundColor = "gold";
+      pYoso.innerText = "完了しました";
     }
-  });
+  }
+});
 ```
 </CodePreview>
 

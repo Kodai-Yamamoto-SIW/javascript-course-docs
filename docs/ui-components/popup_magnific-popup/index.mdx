@@ -26,33 +26,33 @@ import { CodePreview } from "@metyatech/code-preview";
   previewVisible={true}>
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-  <a class="open-popup-link" href="#popup-content">ポップアップを開く</a>
+<a class="open-popup-link" href="#popup-content">ポップアップを開く</a>
 
-  <div id="popup-content" class="mfp-hide white-popup">
-    <h2>お知らせ</h2>
-    <p>これはポップアップの内容です。</p>
-    <p>背景をクリックすると、閉じることができます。</p>
-  </div>
+<div id="popup-content" class="mfp-hide white-popup">
+  <h2>お知らせ</h2>
+  <p>これはポップアップの内容です。</p>
+  <p>背景をクリックすると、閉じることができます。</p>
+</div>
 ```
 
 ```css
 .white-popup {
-    background: white;
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
+  background: white;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
 ```
 
 ```javascript
 $('.open-popup-link').magnificPopup({
-    type: 'inline',
-    closeBtnInside: true,
-    midClick: true,
-  });
+  type: 'inline',
+  closeBtnInside: true,
+  midClick: true,
+});
 ```
 </CodePreview>
 
@@ -93,18 +93,18 @@ $('.open-popup-link').magnificPopup({
 >
 ```html
 <!-- これを head 内に入れて -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-  <!-- これを body 内に入れて -->
-  <a class="image-link" href="img/christmas_chicken.jpg">画像を見る</a>
+<!-- これを body 内に入れて -->
+<a class="image-link" href="img/christmas_chicken.jpg">画像を見る</a>
 ```
 
 ```javascript
 $('.image-link').magnificPopup({
-    type: 'image',
-  });
+  type: 'image',
+});
 ```
 </CodePreview>
 
@@ -151,20 +151,20 @@ $('.image-link').magnificPopup({
 >
 ```html
 <!-- これを head 内に入れて -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-  <!-- これを body 内に入れて -->
-  <a class="image-popup" href="img/christmas_chicken.jpg">
-    <img src="img/christmas_chicken.jpg" width="200" alt="サムネイル">
-  </a>
+<!-- これを body 内に入れて -->
+<a class="image-popup" href="img/christmas_chicken.jpg">
+  <img src="img/christmas_chicken.jpg" width="200" alt="サムネイル">
+</a>
 ```
 
 ```javascript
 $('.image-popup').magnificPopup({
-    type: 'image',
-  });
+  type: 'image',
+});
 ```
 </CodePreview>
 
@@ -212,22 +212,22 @@ $('.image-popup').magnificPopup({
 >
 ```html
 <!-- これを head 内に入れて -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-  <!-- これを body 内に入れて -->
-  <a class="open-popup" href="#content">詳細を見る</a>
+<!-- これを body 内に入れて -->
+<a class="open-popup" href="#content">詳細を見る</a>
 
-  <div id="content" class="mfp-hide">
-    <p>これはポップアップで表示されるテキストです。</p>
-  </div>
+<div id="content" class="mfp-hide">
+  <p>これはポップアップで表示されるテキストです。</p>
+</div>
 ```
 
 ```javascript
 $('.open-popup').magnificPopup({
-    type: 'inline',
-  });
+  type: 'inline',
+});
 ```
 </CodePreview>
 
@@ -282,37 +282,37 @@ $('.open-popup').magnificPopup({
 >
 ```html
 <!-- これを head 内に入れて -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-  <!-- これを body 内に入れて -->
-  <a class="open-modal" href="#modal-content">お知らせを見る</a>
+<!-- これを body 内に入れて -->
+<a class="open-modal" href="#modal-content">お知らせを見る</a>
 
-  <div id="modal-content" class="mfp-hide white-popup">
-    <h2>お知らせ</h2>
-    <p>これはモーダルウィンドウ風のポップアップです。</p>
-    <p>背景をクリックすると閉じることができます。</p>
-  </div>
+<div id="modal-content" class="mfp-hide white-popup">
+  <h2>お知らせ</h2>
+  <p>これはモーダルウィンドウ風のポップアップです。</p>
+  <p>背景をクリックすると閉じることができます。</p>
+</div>
 ```
 
 ```css
 .white-popup {
-    background: white;
-    padding: 30px;
-    max-width: 500px;
-    margin: 0 auto;
-    border-radius: 8px;
-  }
-  .white-popup h2 {
-    margin-top: 0;
-  }
+  background: white;
+  padding: 30px;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+.white-popup h2 {
+  margin-top: 0;
+}
 ```
 
 ```javascript
 $('.open-modal').magnificPopup({
-    type: 'inline',
-  });
+  type: 'inline',
+});
 ```
 </CodePreview>
 
@@ -377,12 +377,12 @@ $('.open-modal').magnificPopup({
 >
 ```html
 <!-- これを head 内に入れて -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-  <!-- これを body 内に入れて -->
-  <a class="video-popup" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">動画を見る</a>
+<!-- これを body 内に入れて -->
+<a class="video-popup" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">動画を見る</a>
 ```
 
 ```css
@@ -391,8 +391,8 @@ $('.open-modal').magnificPopup({
 
 ```javascript
 $('.video-popup').magnificPopup({
-    type: 'iframe',
-  });
+  type: 'iframe',
+});
 ```
 </CodePreview>
 
@@ -456,32 +456,32 @@ $('.video-popup').magnificPopup({
 >
 ```html
 <!-- これを head 内に入れて -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-  <!-- これを body 内に入れて -->
-  <div class="gallery">
-    <a href="img/christmas_chicken.jpg">
-      <img src="img/christmas_chicken.jpg" width="150" alt="画像1">
-    </a>
-    <a href="img/christmas_snowman.jpg">
-      <img src="img/christmas_snowman.jpg" width="150" alt="画像2">
-    </a>
-    <a href="img/whole_cake.jpg">
-      <img src="img/whole_cake.jpg" width="150" alt="画像3">
-    </a>
-  </div>
+<!-- これを body 内に入れて -->
+<div class="gallery">
+  <a href="img/christmas_chicken.jpg">
+    <img src="img/christmas_chicken.jpg" width="150" alt="画像1">
+  </a>
+  <a href="img/christmas_snowman.jpg">
+    <img src="img/christmas_snowman.jpg" width="150" alt="画像2">
+  </a>
+  <a href="img/whole_cake.jpg">
+    <img src="img/whole_cake.jpg" width="150" alt="画像3">
+  </a>
+</div>
 ```
 
 ```javascript
 $('.gallery').magnificPopup({
-    delegate: 'a',
-    type: 'image',
-    gallery: {
-      enabled: true,
-    },
-  });
+  delegate: 'a',
+  type: 'image',
+  gallery: {
+    enabled: true,
+  },
+});
 ```
 </CodePreview>
 
