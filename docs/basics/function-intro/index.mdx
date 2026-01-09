@@ -24,23 +24,31 @@ function 関数名() {
 関数名();
 ```
 
-<CodePreview initialJS={`function sayHello() {
+<CodePreview>
+```javascript
+function sayHello() {
     console.log("こんにちは"); // 出力: こんにちは
     console.log("(Hello)"); // 出力: (Hello)
 }
 
-sayHello();`}/>
+sayHello();
+```
+</CodePreview>
 
 <Exercise title="演習1">
 自分の名前、好きなこと、出身地を 1 行ずつ出力する関数 `shokai` を作り、呼び出して出力を確認せよ。
 
 <Solution>
-<CodePreview initialJS={`function shokai() {
+<CodePreview>
+```javascript
+function shokai() {
     console.log("名前: ヤマダ"); // 出力: 名前: ヤマダ
     console.log("好き: ゲーム"); // 出力: 好き: ゲーム
     console.log("出身: 東京"); // 出力: 出身: 東京
 }
-shokai();`}/>
+shokai();
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -56,12 +64,16 @@ shokai();`}/>
 ```
 
 <Solution>
-<CodePreview initialJS={`function showStars() {
+<CodePreview>
+```javascript
+function showStars() {
     console.log("★"); // 出力: ★
     console.log("★★"); // 出力: ★★
     console.log("★★★"); // 出力: ★★★
 }
-showStars();`}/>
+showStars();
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -78,12 +90,16 @@ function 関数名(引数名) {
 }
 ```
 
-<CodePreview initialJS={`function aisatu(namae) {
+<CodePreview>
+```javascript
+function aisatu(namae) {
     console.log(namae + "さんこんにちは");
 }
 
 aisatu("山本"); // 出力: 山本さんこんにちは
-aisatu("佐藤"); // 出力: 佐藤さんこんにちは`}/>
+aisatu("佐藤"); // 出力: 佐藤さんこんにちは
+```
+</CodePreview>
 
 ---
 
@@ -96,11 +112,15 @@ function weatherReport(weather) {
 ```
 
 <Solution>
-<CodePreview initialJS={`function weatherReport(weather) {
+<CodePreview>
+```javascript
+function weatherReport(weather) {
     console.log("今日の天気は " + weather + " です。");
 }
 weatherReport("晴れ"); // 出力: 今日の天気は 晴れ です。
-weatherReport("雨"); // 出力: 今日の天気は 雨 です。`}/>
+weatherReport("雨"); // 出力: 今日の天気は 雨 です。
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -115,10 +135,14 @@ weatherReport("雨"); // 出力: 今日の天気は 雨 です。`}/>
 例）like("うどん") → 出力: 私はうどんが好き
 
 <Solution>
-<CodePreview initialJS={`function like(item) {
+<CodePreview>
+```javascript
+function like(item) {
     console.log("私は" + item + "が好き");
 }
-like("うどん"); // 出力: 私はうどんが好き`}/>
+like("うどん"); // 出力: 私はうどんが好き
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -154,7 +178,9 @@ reportScore(score) を作り、次の引数で呼び出して期待どおり出�
     よくできました！
 
 <Solution>
-<CodePreview initialJS={`function reportScore(score) {
+<CodePreview>
+```javascript
+function reportScore(score) {
     console.log(score + "点です");
     if (score >= 80) {
         console.log("よくできました！");
@@ -162,7 +188,9 @@ reportScore(score) を作り、次の引数で呼び出して期待どおり出�
 }
 reportScore(80); // 出力: 80点です, よくできました！
 reportScore(75); // 出力: 75点です
-reportScore(90); // 出力: 90点です, よくできました！`}/>
+reportScore(90); // 出力: 90点です, よくできました！
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -177,7 +205,9 @@ judge(score) を作り、次の引数で呼び出して期待どおり出力さ�
   - judge(60) → 出力: 頑張ったね
 
 <Solution>
-<CodePreview initialJS={`function judge(score) {
+<CodePreview>
+```javascript
+function judge(score) {
     if (score < 90) {
         console.log("頑張ったね");
     } else {
@@ -186,7 +216,9 @@ judge(score) を作り、次の引数で呼び出して期待どおり出力さ�
 }
 judge(90); // 出力: すごい！
 judge(100); // 出力: すごい！
-judge(60); // 出力: 頑張ったね`}/>
+judge(60); // 出力: 頑張ったね
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -206,13 +238,17 @@ judge(60); // 出力: 頑張ったね`}/>
 ```
 
 <Solution>
-<CodePreview initialJS={`function outSeq(n) {
+<CodePreview>
+```javascript
+function outSeq(n) {
     for (let i = 1; i <= n; i++) {
         console.log(i);
     }
 }
 outSeq(5); // 出力: 1 2 3 4 5 (各行に1つずつ)
-`}/>
+
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -228,14 +264,18 @@ outSeq(5); // 出力: 1 2 3 4 5 (各行に1つずつ)
 ```
 
 <Solution>
-<CodePreview initialJS={`function outSum(n) {
+<CodePreview>
+```javascript
+function outSum(n) {
     let goukei = 0;
     for (let i = 1; i <= n; i++) {
         goukei += i;
     }
     console.log(goukei);
 }
-outSum(10); // 出力: 55`}/>
+outSum(10); // 出力: 55
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -251,7 +291,9 @@ outSum(10); // 出力: 55`}/>
 ```
 
 <Solution>
-<CodePreview initialJS={`function outStars(n) {
+<CodePreview>
+```javascript
+function outStars(n) {
     for (let i = 1; i <= n; i++) {
         let line = "";
         for (let j = 1; j <= i; j++) {
@@ -260,7 +302,9 @@ outSum(10); // 出力: 55`}/>
         console.log(line);
     }
 }
-outStars(3); // 出力: ★, ★★, ★★★ (各行に1つずつ表示)`}/>
+outStars(3); // 出力: ★, ★★, ★★★ (各行に1つずつ表示)
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -294,7 +338,9 @@ FizzBuzz
 ```
 
 <Solution>
-<CodePreview initialJS={`function fizzbuzz(n) {
+<CodePreview>
+```javascript
+function fizzbuzz(n) {
     for (let i = 1; i <= n; i++) {
         if (i % 15 === 0) {
             console.log("FizzBuzz");
@@ -307,7 +353,9 @@ FizzBuzz
         }
     }
 }
-fizzbuzz(15); // 出力: 1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz`}/>
+fizzbuzz(15); // 出力: 1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz
+```
+</CodePreview>
 </Solution>
 
 </Exercise>

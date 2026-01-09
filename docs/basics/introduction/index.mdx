@@ -15,7 +15,9 @@ import { CodePreview } from '@metyatech/code-preview';
 :::info
 #### JavaScriptの例
 
-<CodePreview initialJS={`function popRow(field, rowIndex) {
+<CodePreview>
+```javascript
+function popRow(field, rowIndex) {
     for (let i = rowIndex - 1; i >= 0; i--) {
         field[i + 1] = field[i];
     }
@@ -29,7 +31,9 @@ function popAlignedRows(field) {
             popRow(field, i);
         }
     }
-}`}/>
+}
+```
+</CodePreview>
 :::
 
 ---
@@ -122,7 +126,9 @@ function popAlignedRows(field) {
 
 すると、次の内容が自動入力される：
 
-<CodePreview initialHTML={`<!DOCTYPE html>
+<CodePreview>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -132,7 +138,9 @@ function popAlignedRows(field) {
 <body>
     
 </body>
-</html>`}/>
+</html>
+```
+</CodePreview>
 
 
 ## HTMLの概略
@@ -165,7 +173,9 @@ HTMLはWebページを作るための言語です。
 
 結果こうなっていればOK：
 
-<CodePreview initialHTML={`<!DOCTYPE html>
+<CodePreview>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -176,7 +186,9 @@ HTMLはWebページを作るための言語です。
     </script>
 </head>
 <body></body>
-</html>`}/>
+</html>
+```
+</CodePreview>
 
 ## インデント
 コードの左の方に書いた余白のことを「 インデント 」という。
@@ -229,9 +241,13 @@ HTMLはWebページを作るための言語です。
 
 プログラムは、上から順番に実行されます。
 
-<CodePreview initialJS={`console.log("あああ");
+<CodePreview>
+```javascript
+console.log("あああ");
 console.log("いいい");
-console.log("ううう");`}/>
+console.log("ううう");
+```
+</CodePreview>
 
 上記のプログラムを実行すると、次のような順序で表示されます。
 
@@ -258,7 +274,9 @@ console.log("ううう");`}/>
 
 <Solution>
 
-<CodePreview initialHTML={`<!DOCTYPE html>
+<CodePreview>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -275,7 +293,9 @@ console.log("ううう");`}/>
 <body>
 </body>
 
-</html>`}/>
+</html>
+```
+</CodePreview>
 
 </Solution>
 
@@ -288,7 +308,9 @@ console.log("ううう");`}/>
 
 <Solution>
 
-<CodePreview initialHTML={`<!DOCTYPE html>
+<CodePreview>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -304,7 +326,9 @@ console.log("ううう");`}/>
 <body>
 </body>
 
-</html>`}/>
+</html>
+```
+</CodePreview>
 
 </Solution>
 

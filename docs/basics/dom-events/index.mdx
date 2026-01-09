@@ -23,24 +23,33 @@ import { CodePreview } from "@metyatech/code-preview";
   htmlVisible={false}
   jsVisible={false}
   cssVisible={false}
-  previewVisible={true}
-  initialHTML={`<button>❤️ 0 いいね</button>`}
-  initialCSS={`button {
+  previewVisible={true}>
+```html
+<button>❤️ 0 いいね</button>
+```
+
+```css
+button {
     padding: 10px 20px;
     background-color: #ff4081;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 18px;
-  }`}
-  initialJS={`// いいねボタンがクリックされたら数を増やす
+  }
+```
+
+```javascript
+// いいねボタンがクリックされたら数を増やす
   let buttonYoso = document.querySelector("button");
   let count = 0;
 
   buttonYoso.addEventListener("click", function() {
     count = count + 1;
     buttonYoso.innerText = "❤️ " + count + " いいね";
-  });`}/>
+  });
+```
+</CodePreview>
 
 ### 例2: ヘルプアイコン（マウスを乗せるとヒントが表示される）
 
@@ -48,12 +57,16 @@ import { CodePreview } from "@metyatech/code-preview";
   htmlVisible={false}
   jsVisible={false}
   cssVisible={false}
-  previewVisible={true}
-  initialHTML={`<div class="help-container">
+  previewVisible={true}>
+```html
+<div class="help-container">
     <div class="help-icon">?</div>
     <div class="tooltip">ヒント: 詳細なヒント</div>
-  </div>`}
-  initialCSS={`.help-container {
+  </div>
+```
+
+```css
+.help-container {
     display: inline-block;
     position: relative;
     padding: 50px;
@@ -83,8 +96,11 @@ import { CodePreview } from "@metyatech/code-preview";
     font-size: 14px;
     opacity: 0;
     pointer-events: none;
-  }`}
-  initialJS={`// ヘルプアイコンにマウスを乗せたらヒントを表示
+  }
+```
+
+```javascript
+// ヘルプアイコンにマウスを乗せたらヒントを表示
   let icon = document.querySelector(".help-icon");
   let tooltip = document.querySelector(".tooltip");
 
@@ -94,7 +110,9 @@ import { CodePreview } from "@metyatech/code-preview";
 
   icon.addEventListener("mouseleave", function() {
     tooltip.style.opacity = "0";
-  });`}/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -123,30 +141,45 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
 });
 ```
 
-<CodePreview
-  initialHTML={`<button>クリックしてね</button>
-  <p>まだクリックされていません</p>`}
-  initialJS={`// ボタンがクリックされたら、メッセージを変更する
+<CodePreview>
+```html
+<button>クリックしてね</button>
+  <p>まだクリックされていません</p>
+```
+
+```javascript
+// ボタンがクリックされたら、メッセージを変更する
   let buttonYoso = document.querySelector("button");
   let pYoso = document.querySelector("p");
 
   buttonYoso.addEventListener("click", function() {
     pYoso.innerText = "ボタンがクリックされました！";
-  });`}/>
+  });
+```
+</CodePreview>
 
-<CodePreview
-  initialHTML={`<div></div>`}
-  initialCSS={`div {
+<CodePreview>
+```html
+<div></div>
+```
+
+```css
+div {
     width: 100px;
     height: 100px;
     background-color: lightblue;
-  }`}
-  initialJS={`// ボックスをクリックしたら、背景色を赤に変更
+  }
+```
+
+```javascript
+// ボックスをクリックしたら、背景色を赤に変更
   let divYoso = document.querySelector("div");
 
   divYoso.addEventListener("click", function() {
     divYoso.style.backgroundColor = "red";
-  });`}/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -159,16 +192,22 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
   sourceId="演習1"
   htmlVisible={true}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<button>変更ボタン</button>
-  <p>初期テキスト</p>`}
-  initialJS={`// ボタンがクリックされたときの処理
+  previewVisible={true}>
+```html
+<button>変更ボタン</button>
+  <p>初期テキスト</p>
+```
+
+```javascript
+// ボタンがクリックされたときの処理
   let buttonYoso = document.querySelector("button");
   let pYoso = document.querySelector("p");
 
   buttonYoso.addEventListener("click", function() {
     pYoso.innerText = "テキストが変更されました";
-  });`}/>
+  });
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習1"/>
@@ -186,20 +225,29 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
   sourceId="演習2"
   htmlVisible={true}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div></div>`}
-  initialCSS={`div {
+  previewVisible={true}>
+```html
+<div></div>
+```
+
+```css
+div {
     width: 200px;
     height: 200px;
     background-color: yellow;
-  }`}
-  initialJS={`// div要素がクリックされたときの処理
+  }
+```
+
+```javascript
+// div要素がクリックされたときの処理
   let divYoso = document.querySelector("div");
 
   divYoso.addEventListener("click", function() {
     divYoso.style.backgroundColor = "blue";
     divYoso.style.width = "300px";
-  });`}/>
+  });
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習2"/>
@@ -217,18 +265,25 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
   sourceId="演習2-発展"
   htmlVisible={true}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div>
+  previewVisible={true}>
+```html
+<div>
     <h3>タイトル</h3>
     <p>説明文</p>
-  </div>`}
-  initialCSS={`div {
+  </div>
+```
+
+```css
+div {
     width: 150px;
     height: 150px;
     background-color: lightgray;
     padding: 10px;
-  }`}
-  initialJS={`// div要素がクリックされたときの処理
+  }
+```
+
+```javascript
+// div要素がクリックされたときの処理
   let divYoso = document.querySelector("div");
   let h3Yoso = document.querySelector("h3");
   let pYoso = document.querySelector("p");
@@ -237,7 +292,9 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
     divYoso.style.backgroundColor = "lightblue";
     h3Yoso.innerText = "選択されました";
     pYoso.innerText = "このカードが選択中です";
-  });`}/>
+  });
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習2-発展"/>
@@ -256,35 +313,53 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
 });
 ```
 
-<CodePreview
-  initialHTML={`<div></div>
-  <p>マウスを乗せてください</p>`}
-  initialCSS={`div {
+<CodePreview>
+```html
+<div></div>
+  <p>マウスを乗せてください</p>
+```
+
+```css
+div {
     width: 150px;
     height: 150px;
     background-color: lightgreen;
-  }`}
-  initialJS={`// マウスが乗ったら、ステータスメッセージを変更
+  }
+```
+
+```javascript
+// マウスが乗ったら、ステータスメッセージを変更
   let divYoso = document.querySelector("div");
   let pYoso = document.querySelector("p");
 
   divYoso.addEventListener("mouseenter", function() {
     pYoso.innerText = "マウスが乗りました";
-  });`}/>
+  });
+```
+</CodePreview>
 
-<CodePreview
-  initialHTML={`<div></div>`}
-  initialCSS={`div {
+<CodePreview>
+```html
+<div></div>
+```
+
+```css
+div {
     width: 100px;
     height: 100px;
     background-color: lightblue;
-  }`}
-  initialJS={`// マウスが乗ったら、背景色を黄色に変更
+  }
+```
+
+```javascript
+// マウスが乗ったら、背景色を黄色に変更
   let divYoso = document.querySelector("div");
 
   divYoso.addEventListener("mouseenter", function() {
     divYoso.style.backgroundColor = "yellow";
-  });`}/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -298,19 +373,28 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
   sourceId="演習3"
   htmlVisible={true}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div></div>`}
-  initialCSS={`div {
+  previewVisible={true}>
+```html
+<div></div>
+```
+
+```css
+div {
     width: 100px;
     height: 100px;
     background-color: lightcoral;
-  }`}
-  initialJS={`// マウスが乗ったときの処理
+  }
+```
+
+```javascript
+// マウスが乗ったときの処理
   let divYoso = document.querySelector("div");
 
   divYoso.addEventListener("mouseenter", function() {
     divYoso.style.borderRadius = "50%";
-  });`}/>
+  });
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習3"/>
@@ -329,21 +413,30 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
 });
 ```
 
-<CodePreview
-  initialHTML={`<div></div>
-  <p>マウスを乗せてから離してください</p>`}
-  initialCSS={`div {
+<CodePreview>
+```html
+<div></div>
+  <p>マウスを乗せてから離してください</p>
+```
+
+```css
+div {
     width: 150px;
     height: 150px;
     background-color: blue;
-  }`}
-  initialJS={`// マウスが離れたら、メッセージを変更
+  }
+```
+
+```javascript
+// マウスが離れたら、メッセージを変更
   let divYoso = document.querySelector("div");
   let pYoso = document.querySelector("p");
 
   divYoso.addEventListener("mouseleave", function() {
     pYoso.innerText = "マウスが離れました";
-  });`}/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -351,15 +444,22 @@ JavaScriptを使うと、このような出来事が起きたときに反応し�
 
 mouseenter と mouseleave を組み合わせると、マウスが乗ったときと離れたときで違う動作をさせることができます。
 
-<CodePreview
-  initialHTML={`<div></div>
-  <p>マウスを乗せてみてください</p>`}
-  initialCSS={`div {
+<CodePreview>
+```html
+<div></div>
+  <p>マウスを乗せてみてください</p>
+```
+
+```css
+div {
     width: 150px;
     height: 150px;
     background-color: lightblue;
-  }`}
-  initialJS={`// マウスが乗ったときと離れたときで動作を変える
+  }
+```
+
+```javascript
+// マウスが乗ったときと離れたときで動作を変える
   let divYoso = document.querySelector("div");
   let pYoso = document.querySelector("p");
 
@@ -371,7 +471,9 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
   divYoso.addEventListener("mouseleave", function() {
     divYoso.style.backgroundColor = "lightblue";
     pYoso.innerText = "マウスが離れました";
-  });`}/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -389,15 +491,22 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
   sourceId="演習4"
   htmlVisible={true}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div></div>
-  <p>ステータス: 待機中</p>`}
-  initialCSS={`div {
+  previewVisible={true}>
+```html
+<div></div>
+  <p>ステータス: 待機中</p>
+```
+
+```css
+div {
     width: 160px;
     height: 160px;
     background-color: lightgray;
-  }`}
-  initialJS={`// マウスが乗ったときと離れたときの処理
+  }
+```
+
+```javascript
+// マウスが乗ったときと離れたときの処理
   let divYoso = document.querySelector("div");
   let pYoso = document.querySelector("p");
 
@@ -409,7 +518,9 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
   divYoso.addEventListener("mouseleave", function() {
     divYoso.style.backgroundColor = "lightgray";
     pYoso.innerText = "ステータス: 待機中";
-  });`}/>
+  });
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習4"/>
@@ -430,15 +541,22 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
   sourceId="演習4-発展1"
   htmlVisible={true}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div></div>
-  <p>ステータス: 待機中</p>`}
-  initialCSS={`div {
+  previewVisible={true}>
+```html
+<div></div>
+  <p>ステータス: 待機中</p>
+```
+
+```css
+div {
     width: 160px;
     height: 160px;
     background-color: lightgray;
-  }`}
-  initialJS={`// 状態管理を含むイベント処理
+  }
+```
+
+```javascript
+// 状態管理を含むイベント処理
   let divYoso = document.querySelector("div");
   let pYoso = document.querySelector("p");
   let isSelected = false;
@@ -461,7 +579,9 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
     divYoso.style.backgroundColor = "gold";
     pYoso.innerText = "ステータス: 選択済み";
     isSelected = true;
-  });`}/>
+  });
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習4-発展1"/>
@@ -481,15 +601,22 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
   sourceId="演習4-発展2"
   htmlVisible={true}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<div></div>
-  <p>クリック回数: 0回</p>`}
-  initialCSS={`div {
+  previewVisible={true}>
+```html
+<div></div>
+  <p>クリック回数: 0回</p>
+```
+
+```css
+div {
     width: 160px;
     height: 160px;
     background-color: lightblue;
-  }`}
-  initialJS={`// カウンター機能を含むイベント処理
+  }
+```
+
+```javascript
+// カウンター機能を含むイベント処理
   let divYoso = document.querySelector("div");
   let pYoso = document.querySelector("p");
   let count = 0;
@@ -504,7 +631,9 @@ mouseenter と mouseleave を組み合わせると、マウスが乗ったとき
         pYoso.innerText = "完了しました";
       }
     }
-  });`}/>
+  });
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習4-発展2"/>

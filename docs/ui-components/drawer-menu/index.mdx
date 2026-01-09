@@ -25,7 +25,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <button class="ham-btn">
       <span class="ham-icon">
         <span class="line top"></span>
@@ -33,8 +35,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <span class="line bottom"></span>
       </span>
     </button>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
       margin: 0; /* ページの端の余白をなくす */
   }
 
@@ -64,8 +69,9 @@ import { CodePreview } from "@metyatech/code-preview";
 
     display: block; /* span はデフォルトで display: inline なので、width, height を効かせるために block にする */
     background-color: black;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習1"/>
@@ -82,7 +88,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <button class="ham-btn">
       <span class="ham-icon">
         <span class="line top"></span>
@@ -101,8 +109,11 @@ import { CodePreview } from "@metyatech/code-preview";
       <li><a href="#">お問い合わせ3</a></li>
       <li><a href="#">お問い合わせ4</a></li>
     </ul>
-  </nav>`}
-  initialCSS={`body {
+  </nav>
+```
+
+```css
+body {
       margin: 0;
   }
 
@@ -147,8 +158,9 @@ import { CodePreview } from "@metyatech/code-preview";
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 右側に影をつける */
 
     padding-top: 60px; /* 上に60pxの余白 */
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -169,7 +181,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <button class="ham-btn">
       <span class="ham-icon">
         <span class="line top"></span>
@@ -188,8 +202,11 @@ import { CodePreview } from "@metyatech/code-preview";
       <li><a href="#">お問い合わせ3</a></li>
       <li><a href="#">お問い合わせ4</a></li>
     </ul>
-  </nav>`}
-  initialCSS={`body {
+  </nav>
+```
+
+```css
+body {
       margin: 0;
   }
 
@@ -240,8 +257,11 @@ import { CodePreview } from "@metyatech/code-preview";
   
   .drawer.open { /* メニューコンテンツに open クラスがついているとき（開いているとき） */
     transform: translateX(0); /* 元の位置に表示する */
-  }`}
-  initialJS={`// ハンバーガーボタンの要素を取得
+  }
+```
+
+```javascript
+// ハンバーガーボタンの要素を取得
   let hamBtnYoso = document.querySelector('.ham-btn');
   // ドロワーの要素を取得
   let drawerYoso = document.querySelector('.drawer');
@@ -250,8 +270,9 @@ import { CodePreview } from "@metyatech/code-preview";
   hamBtnYoso.addEventListener('click', () => {
     // ドロワー要素に対して、open クラスの付け外しを行う
     drawerYoso.classList.toggle('open');
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -272,7 +293,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <button class="ham-btn">
       <span class="ham-icon">
         <span class="line top"></span>
@@ -291,8 +314,11 @@ import { CodePreview } from "@metyatech/code-preview";
       <li><a href="#">お問い合わせ3</a></li>
       <li><a href="#">お問い合わせ4</a></li>
     </ul>
-  </nav>`}
-  initialCSS={`body {
+  </nav>
+```
+
+```css
+body {
       margin: 0;
   }
 
@@ -345,14 +371,18 @@ import { CodePreview } from "@metyatech/code-preview";
   .drawer.open {
     transform: translateX(0);
     box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 開いている時だけ影をつけるようにする */
-  }`}
-  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  }
+```
+
+```javascript
+let hamBtnYoso = document.querySelector('.ham-btn');
   let drawerYoso = document.querySelector('.drawer');
 
   hamBtnYoso.addEventListener('click', () => {
     drawerYoso.classList.toggle('open');
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -376,7 +406,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <button class="ham-btn">
       <span class="ham-icon">
         <span class="line top"></span>
@@ -396,8 +428,11 @@ import { CodePreview } from "@metyatech/code-preview";
       <li><a href="#">お問い合わせ4</a></li>
     </ul>
   </nav>
-  <div class="overlay"></div>`}
-  initialCSS={`body {
+  <div class="overlay"></div>
+```
+
+```css
+body {
       margin: 0;
   }
 
@@ -467,8 +502,11 @@ import { CodePreview } from "@metyatech/code-preview";
 
   .overlay.open { /* オーバーレイに open クラスがついているとき（開いているとき） */
     opacity: 1; /* 見えるようにする */
-  }`}
-  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  }
+```
+
+```javascript
+let hamBtnYoso = document.querySelector('.ham-btn');
   let drawerYoso = document.querySelector('.drawer');
   // オーバーレイ部分の要素を取得
   let overlayYoso = document.querySelector('.overlay');
@@ -482,8 +520,9 @@ import { CodePreview } from "@metyatech/code-preview";
   overlayYoso.addEventListener('click', () => {
     drawerYoso.classList.remove('open'); // メニューを閉じる
     overlayYoso.classList.remove('open'); // オーバーレイ部分も閉じる
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -508,7 +547,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <button class="ham-btn">
       <span class="ham-icon">
         <span class="line top"></span>
@@ -528,8 +569,11 @@ import { CodePreview } from "@metyatech/code-preview";
       <li><a href="#">お問い合わせ4</a></li>
     </ul>
   </nav>
-  <div class="overlay"></div>`}
-  initialCSS={`body {
+  <div class="overlay"></div>
+```
+
+```css
+body {
       margin: 0;
   }
 
@@ -612,8 +656,11 @@ import { CodePreview } from "@metyatech/code-preview";
 
   .overlay.open {
     opacity: 1;
-  }`}
-  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  }
+```
+
+```javascript
+let hamBtnYoso = document.querySelector('.ham-btn');
   let drawerYoso = document.querySelector('.drawer');
   let overlayYoso = document.querySelector('.overlay');
   // ハンバーガーアイコン部分の要素を取得
@@ -629,8 +676,9 @@ import { CodePreview } from "@metyatech/code-preview";
     drawerYoso.classList.remove('open');
     overlayYoso.classList.remove('open');
     hamIconYoso.classList.remove('open'); // ハンバーガーアイコン部分も open クラスを外す
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -652,7 +700,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <button class="ham-btn">
       <span class="ham-icon">
         <span class="line top"></span>
@@ -672,8 +722,11 @@ import { CodePreview } from "@metyatech/code-preview";
       <li><a href="#">お問い合わせ4</a></li>
     </ul>
   </nav>
-  <div class="overlay"></div>`}
-  initialCSS={`body {
+  <div class="overlay"></div>
+```
+
+```css
+body {
       margin: 0;
   }
 
@@ -756,8 +809,11 @@ import { CodePreview } from "@metyatech/code-preview";
 
   .overlay.open {
     opacity: 1;
-  }`}
-  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  }
+```
+
+```javascript
+let hamBtnYoso = document.querySelector('.ham-btn');
   let drawerYoso = document.querySelector('.drawer');
   let overlayYoso = document.querySelector('.overlay');
   let hamIconYoso = document.querySelector('.ham-icon');
@@ -772,8 +828,9 @@ import { CodePreview } from "@metyatech/code-preview";
     drawerYoso.classList.remove('open');
     overlayYoso.classList.remove('open');
     hamIconYoso.classList.remove('open');
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 答えは、線の横幅が少し短く、足りないからです。（あるいは別の表現で、線の高さが高すぎる、間隔が広すぎる、などとも言えます）  
@@ -816,7 +873,9 @@ CSS上で24√2 px は、calc(24px * sqrt(2)) で表すことができます。
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <button class="ham-btn">
       <span class="ham-icon">
         <span class="line top"></span>
@@ -833,8 +892,11 @@ CSS上で24√2 px は、calc(24px * sqrt(2)) で表すことができます。
       <li><a href="#">お問い合わせ</a></li>
     </ul>
   </nav>
-  <div class="overlay"></div>`}
-  initialCSS={`body {
+  <div class="overlay"></div>
+```
+
+```css
+body {
       margin: 0;
   }
 
@@ -936,8 +998,11 @@ CSS上で24√2 px は、calc(24px * sqrt(2)) で表すことができます。
 
   .overlay.open {
     opacity: 1;
-  }`}
-  initialJS={`let hamBtnYoso = document.querySelector('.ham-btn');
+  }
+```
+
+```javascript
+let hamBtnYoso = document.querySelector('.ham-btn');
   let drawerYoso = document.querySelector('.drawer');
   let overlayYoso = document.querySelector('.overlay');
   let hamIconYoso = document.querySelector('.ham-icon');
@@ -952,8 +1017,9 @@ CSS上で24√2 px は、calc(24px * sqrt(2)) で表すことができます。
     drawerYoso.classList.remove('open');
     overlayYoso.classList.remove('open');
     hamIconYoso.classList.remove('open');
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。

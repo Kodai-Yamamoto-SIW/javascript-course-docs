@@ -27,12 +27,18 @@ HTML要素の中に表示されているテキストを、JavaScriptで書き換
 要素.innerText = "新しいテキスト";
 ```
 
-<CodePreview
-  initialHTML={`<body>
+<CodePreview>
+```html
+<body>
     <p>元のメッセージ</p>
-  </body>`}
-  initialJS={`// p要素の中身を書き換え
-document.querySelector("p").innerText = "新しいメッセージ";`}/>
+  </body>
+```
+
+```javascript
+// p要素の中身を書き換え
+document.querySelector("p").innerText = "新しいメッセージ";
+```
+</CodePreview>
 
 ---
 
@@ -51,14 +57,20 @@ document.querySelector("p").innerText = "新しいメッセージ";`}/>
   sourceId="演習1"
   htmlVisible={false}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<p>読み込み中...</p> <!-- "読み込み完了" に変更 -->
-  <p class="info">古い情報</p> <!-- "最新情報" に変更 -->`}
-  initialJS={`// 最初のp要素の中身を変更
+  previewVisible={true}>
+```html
+<p>読み込み中...</p> <!-- "読み込み完了" に変更 -->
+  <p class="info">古い情報</p> <!-- "最新情報" に変更 -->
+```
+
+```javascript
+// 最初のp要素の中身を変更
   document.querySelector("p").innerText = "読み込み完了";
 
   // class="info"の要素の中身を変更
-  document.querySelector(".info").innerText = "最新情報";`}/>
+  document.querySelector(".info").innerText = "最新情報";
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習1"/>
@@ -95,8 +107,9 @@ document.querySelector("p").innerText = "新しいメッセージ";`}/>
   sourceId="演習1-発展"
   htmlVisible={false}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<ul class="option1">
+  previewVisible={true}>
+```html
+<ul class="option1">
     <li class="item">1 - 項目A</li>
     <li class="item selected">1 - 項目B</li>
   </ul>
@@ -109,12 +122,17 @@ document.querySelector("p").innerText = "新しいメッセージ";`}/>
     <p>段落1</p>
     <p>段落2</p>
     <p>段落3</p> <!-- 中身を「ラスト段落」に変更 -->
-  </div>`}
-  initialJS={`// .option2の中の選択中(.selected)のli要素の中身を変更
+  </div>
+```
+
+```javascript
+// .option2の中の選択中(.selected)のli要素の中身を変更
   document.querySelector(".option2 .selected").innerText = "2 - 選択中B";
 
   // id="container"の中の最後のp要素の中身を変更
-  document.querySelector("#container p:last-child").innerText = "ラスト段落";`}/>
+  document.querySelector("#container p:last-child").innerText = "ラスト段落";
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習1-発展"/>

@@ -39,7 +39,9 @@ array.pop();
 // 取り出した要素は pop の戻り値として得られる。
 ```
 
-<CodePreview initialJS={`// push の例: 末尾へ追加する
+<CodePreview>
+```javascript
+// push の例: 末尾へ追加する
 let fruits = ["りんご"]; // 1 つ入った配列
 
 // 末尾に 1 個追加
@@ -48,15 +50,21 @@ console.log(fruits); // 出力: ["りんご","みかん"]
 
 // 末尾に複数を一度に追加
 fruits.push("バナナ", "なし");
-console.log(fruits); // 出力: ["りんご","みかん","バナナ","なし"]`}/>
+console.log(fruits); // 出力: ["りんご","みかん","バナナ","なし"]
+```
+</CodePreview>
 
-<CodePreview initialJS={`// pop の例: 末尾から取り出す
+<CodePreview>
+```javascript
+// pop の例: 末尾から取り出す
 let fruits2 = ["りんご", "みかん", "バナナ"]; // 3 つ入った配列
 
 // 末尾から 1 つ取り出し
 let lastFruit = fruits2.pop();
 console.log("取り出されたもの: " + lastFruit); // 出力: "バナナ"
-console.log("残りの配列: " + fruits2); // 出力: ["りんご", "みかん"]`}/>
+console.log("残りの配列: " + fruits2); // 出力: ["りんご", "みかん"]
+```
+</CodePreview>
 
 <Exercise title="演習1（push / pop 基本）">
 次の配列 `fruits` を使い、下の手順を上から順に正確に実行し、各手順で指示された通りに出力しなさい。
@@ -74,7 +82,9 @@ let fruits = ["りんご", "みかん"];
   - 出力（配列）: ["りんご", "みかん", "バナナ"]
 
 <Solution>
-<CodePreview initialJS={`let fruits = ["りんご", "みかん"];
+<CodePreview>
+```javascript
+let fruits = ["りんご", "みかん"];
   // 1: 末尾に複数を追加
   fruits.push("バナナ", "ぶどう");
   console.log(fruits); // 出力: ["りんご","みかん","バナナ","ぶどう"]
@@ -82,7 +92,9 @@ let fruits = ["りんご", "みかん"];
   // 2: 末尾から1つ取り出す
   let removed = fruits.pop();
   console.log("取り出されたもの: " + removed); // 出力: "ぶどう"
-  console.log("残りの配列: " + fruits); // 出力: ["りんご","みかん","バナナ"]`}/>
+  console.log("残りの配列: " + fruits); // 出力: ["りんご","みかん","バナナ"]
+```
+</CodePreview>
  </Solution>
 </Exercise>
 
@@ -105,7 +117,9 @@ array.shift();
 // 取り出した要素は shift の戻り値（返り値）として得られる。
 ```
 
-<CodePreview initialJS={`// unshift の例: 先頭へ追加する
+<CodePreview>
+```javascript
+// unshift の例: 先頭へ追加する
 let colors = ["青", "緑"]; // 2 つ入った配列
 
 // 先頭に 1 個追加
@@ -114,15 +128,21 @@ console.log(colors); // 出力: ["赤","青","緑"]
 
 // 先頭に複数を一度に追加（引数の順序で先頭へ並ぶ）
 colors.unshift("黄", "白");
-console.log(colors); // 出力: ["黄","白","赤","青","緑"]`}/>
+console.log(colors); // 出力: ["黄","白","赤","青","緑"]
+```
+</CodePreview>
 
-<CodePreview initialJS={`// shift の例: 先頭から取り出す
+<CodePreview>
+```javascript
+// shift の例: 先頭から取り出す
 let colors2 = ["赤", "青", "緑"]; // 3 つ入った配列
 
 // 先頭から 1 つ取り出し
 let firstColor = colors2.shift();
 console.log("shift 取り出し: " + firstColor); // 出力: "赤"
-console.log("残り: " + colors2); // 出力: ["青", "緑"]`}/>
+console.log("残り: " + colors2); // 出力: ["青", "緑"]
+```
+</CodePreview>
 
 <Exercise title="演習2（unshift / shift 基本）">
 次の配列 `colors` を使い、下の手順を上から順に実行し各手順で指示された通りに出力しなさい。
@@ -140,7 +160,9 @@ let colors = ["青", "緑"];
   - 出力（配列）: ["黄", "青", "緑"]
 
 <Solution>
-<CodePreview initialJS={`let colors = ["青", "緑"];
+<CodePreview>
+```javascript
+let colors = ["青", "緑"];
   // 1: 先頭に複数を追加（引数の順序で先頭へ並ぶ）
   colors.unshift("赤", "黄");
   console.log(colors); // 出力: ["赤","黄","青","緑"]
@@ -148,7 +170,9 @@ let colors = ["青", "緑"];
   // 2: 先頭から1つ取り出す
   let removed = colors.shift();
   console.log("取り出されたもの: " + removed); // 出力: "赤"
-  console.log("残りの配列: " + colors); // 出力: ["黄","青","緑"]`}/>
+  console.log("残りの配列: " + colors); // 出力: ["黄","青","緑"]
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -165,9 +189,13 @@ let newArray = array.map(function(要素) {
 // newArray は元配列とは別の配列で、元配列は変更されない
 ```
 
-<CodePreview initialJS={`let array = [100, 23, 12, 7, 4];
+<CodePreview>
+```javascript
+let array = [100, 23, 12, 7, 4];
 let twiceArray = array.map(function(value) { return value * 2; });
-console.log(twiceArray); // 出力: [200,46,24,14,8]`}/>
+console.log(twiceArray); // 出力: [200,46,24,14,8]
+```
+</CodePreview>
 
 <Exercise title="演習3（各要素に1を足す）">
 次の開始配列の各要素に 1 を足した配列を作り、出力せよ。
@@ -183,9 +211,13 @@ let array = [1, 2, 3];
 ```
 
 <Solution>
-<CodePreview initialJS={`let array = [1, 2, 3];
+<CodePreview>
+```javascript
+let array = [1, 2, 3];
 let result = array.map(function(v) { return v + 1; });
-console.log(result); // 出力: [2,3,4]`}/>
+console.log(result); // 出力: [2,3,4]
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -203,9 +235,13 @@ let array = [3, 7, 10];
 ```
 
 <Solution>
-<CodePreview initialJS={`let array = [3, 7, 10];
+<CodePreview>
+```javascript
+let array = [3, 7, 10];
   let result = array.map(function(v) { return "No." + v; });
-  console.log(result); // 出力: ["No.3", "No.7", "No.10"]`}/>
+  console.log(result); // 出力: ["No.3", "No.7", "No.10"]
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -254,14 +290,18 @@ let array2 = ["F", "G", "H"];
 :::
 
 <Solution>
-<CodePreview initialJS={`let array1 = ["A", "B", "C", "D", "E"];
+<CodePreview>
+```javascript
+let array1 = ["A", "B", "C", "D", "E"];
 let array2 = ["F", "G", "H"];
 // array1 の 1 番目から 2 個を取り出す（"B","C"）
 let removed = array1.splice(1, 2);
 // 取り出した要素を array2 の末尾へ結合する
 array2 = array2.concat(removed);
 console.log(array1); // 出力: ["A","D","E"]
-console.log(array2); // 出力: ["F","G","H","B","C"]`}/>
+console.log(array2); // 出力: ["F","G","H","B","C"]
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -283,8 +323,12 @@ let arrayA = ["A", "B", "C", "D", "E"];
 :::
 
 <Solution>
-<CodePreview initialJS={`let arrayA = ["A", "B", "C", "D", "E"];
-console.log(arrayA.join(" ")); // 出力: "A B C D E"`}/>
+<CodePreview>
+```javascript
+let arrayA = ["A", "B", "C", "D", "E"];
+console.log(arrayA.join(" ")); // 出力: "A B C D E"
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -306,9 +350,13 @@ let arrayB = [23, 3, 2, 10, 1, 30];
 :::
 
 <Solution>
-<CodePreview initialJS={`let arrayB = [23, 3, 2, 10, 1, 30];
+<CodePreview>
+```javascript
+let arrayB = [23, 3, 2, 10, 1, 30];
 arrayB.sort(function(a, b) { return a - b; });
-console.log(arrayB); // 出力: [1,2,3,10,23,30]`}/>
+console.log(arrayB); // 出力: [1,2,3,10,23,30]
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -330,10 +378,14 @@ let arrayC = [1, 12, 25, 7, 32, 10, 5, 430];
 :::
 
 <Solution>
-<CodePreview initialJS={`let arrayC = [1, 12, 25, 7, 32, 10, 5, 430];
+<CodePreview>
+```javascript
+let arrayC = [1, 12, 25, 7, 32, 10, 5, 430];
   let pos = arrayC.indexOf(25);
   arrayC.fill(0, pos + 1);
-  console.log(arrayC); // 出力: [1,12,25,0,0,0,0,0]`}/>
+  console.log(arrayC); // 出力: [1,12,25,0,0,0,0,0]
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -371,7 +423,9 @@ let items = [
 :::
 
 <Solution>
-<CodePreview initialJS={`let items = [
+<CodePreview>
+```javascript
+let items = [
   { type: "飲料", name: "お茶", price: 124 },
   { type: "食料", name: "パン", price: 138 },
   { type: "飲料", name: "水", price: 88 },
@@ -387,7 +441,9 @@ items.forEach(function(it) { console.log(it.name + ":" + it.price); });
 let drinks = items.filter(function(it) { return it.type === "飲料"; });
 let sum = drinks.reduce(function(acc, it) { return acc + it.price; }, 0);
 let avg = sum / drinks.length;
-console.log("飲料の平均価格: " + avg);`}/>
+console.log("飲料の平均価格: " + avg);
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -406,7 +462,9 @@ console.log("飲料の平均価格: " + avg);`}/>
 :::
 
 <Solution>
-<CodePreview initialJS={`let items = [
+<CodePreview>
+```javascript
+let items = [
     { type: "飲料", name: "お茶", price: 124 },
     { type: "食料", name: "パン", price: 138 },
     { type: "飲料", name: "水", price: 88 },
@@ -417,6 +475,8 @@ console.log("飲料の平均価格: " + avg);`}/>
   let found = items[idx];
   console.log("インデックス: " + idx);
   console.log("名前: " + found.name);
-  console.log("価格: " + found.price);`}/>
+  console.log("価格: " + found.price);
+```
+</CodePreview>
 </Solution>
 </Exercise>

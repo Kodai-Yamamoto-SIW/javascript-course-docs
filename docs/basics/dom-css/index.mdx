@@ -22,9 +22,15 @@ _HTMLの解析が終わった後_ で、以下の関数を使用する。
 | :-: | :-: |
 | `document.querySelector(セレクタ)` | 指定したCSSのセレクタ(文字列)に一致する、 _最初の要素_ を返す |
 
-<CodePreview initialHTML={`<body>
+<CodePreview>
+```html
+<body>
     <p>テスト</p>
-  </body>`} initialJS={`// body要素を取得
+  </body>
+```
+
+```javascript
+// body要素を取得
 let bodyYouso = document.querySelector("body");
 
 // 取得した要素を出力
@@ -32,7 +38,9 @@ console.log(bodyYouso); // 出力: <body>...</body>
 
 // もちろん変数にいれずに直接出しても良い
 console.log(document.querySelector("p")); // 出力: <p>テスト</p>
-`}/>
+
+```
+</CodePreview>
 
 ## defer属性について
 
@@ -89,8 +97,9 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
   htmlVisible={false}
   jsVisible={false}
   previewVisible={false}
-  consoleVisible={true}
-  initialHTML={`<h1>見出し</h1>
+  consoleVisible={true}>
+```html
+<h1>見出し</h1>
 
   <p>これは段落1です。</p>
   <p>これは段落2です。</p>
@@ -102,8 +111,11 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
   <div class="hako">
     <p>ボックス内の段落1</p>
     <p>ボックス内の段落2</p>
-  </div>`}
-  initialJS={`// h1要素を取得
+  </div>
+```
+
+```javascript
+// h1要素を取得
   console.log(document.querySelector("h1")); // 出力: <h1>見出し</h1>
 
   // 最初のp要素を取得
@@ -116,7 +128,9 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
   console.log(document.querySelector(".raberu")); // 出力: <p class="raberu">段落4 ラベルA</p>
 
   // class="hako"のdiv要素の中の最初のp要素を取得
-  console.log(document.querySelector(".hako p")); // 出力: <p>ボックス内の段落1</p>`}/>
+  console.log(document.querySelector(".hako p")); // 出力: <p>ボックス内の段落1</p>
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習1"/>
@@ -152,8 +166,9 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
   htmlVisible={false}
   jsVisible={false}
   previewVisible={false}
-  consoleVisible={true}
-  initialHTML={`<div class="moodaru open">
+  consoleVisible={true}>
+```html
+<div class="moodaru open">
     <p>モーダルウィンドウ</p>
   </div>
 
@@ -165,12 +180,17 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
   <div class="dorowa">
     <button class="botan">ボタン2</button>
     <p>開いていないドロワー内の段落</p>
-  </div>`}
-  initialJS={`// 開いているドロワー内の button 要素を取得して出力
+  </div>
+```
+
+```javascript
+// 開いているドロワー内の button 要素を取得して出力
   console.log(document.querySelector(".dorowa.open button")); // 出力: <button class="botan">ボタン1</button>
 
   // .open を持たないドロワー内の p 要素を取得して出力
-  console.log(document.querySelector(".dorowa:not(.open) p")); // 出力: <p>開いていないドロワー内の段落</p>`}/>
+  console.log(document.querySelector(".dorowa:not(.open) p")); // 出力: <p>開いていないドロワー内の段落</p>
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習1 - 発展"/>
@@ -187,8 +207,9 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
 要素.style.CSSプロパティ名 = "値"
 ```
 
-<CodePreview
-  initialHTML={`<style>
+<CodePreview>
+```html
+<style>
   p {
     color: green;
     font-size: 100px; /* 見やすいように大きくしただけ */
@@ -196,27 +217,38 @@ _セレクタ_ _（参考：_ [https://saruwakakun.com/html-css/reference/select
   </style>
   <body>
     <p>テスト文章</p>
-  </body>`}
-  initialJS={`// p要素の文字色を赤に変更
+  </body>
+```
+
+```javascript
+// p要素の文字色を赤に変更
   // 要素 = document.querySelector("p")
-  document.querySelector("p").style.color = "red";`}/>
+  document.querySelector("p").style.color = "red";
+```
+</CodePreview>
 
 :::caution
 background-color のようなハイフンのあるCSSプロパティの場合は、backgroundColor のように、ハイフンを消して、その次の文字を大文字にする。
 :::
 
-<CodePreview
-  initialHTML={`<style>
+<CodePreview>
+```html
+<style>
   p {
     font-size: 100px;
   }
   </style>
   <body>
     <p>テスト文章</p>
-  </body>`}
-  initialJS={`// p要素の背景色を水色に変更
+  </body>
+```
+
+```javascript
+// p要素の背景色を水色に変更
   // 要素 = document.querySelector("p")
-  document.querySelector("p").style.backgroundColor = "lightblue";`}/>
+  document.querySelector("p").style.backgroundColor = "lightblue";
+```
+</CodePreview>
 
 ---
 
@@ -240,21 +272,27 @@ background-color のようなハイフンのあるCSSプロパティの場合は
   sourceId="演習2"
   htmlVisible={false}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<h1 class="taitoru">今日の天気</h1> <!-- 文字色を「青色」にせよ -->
+  previewVisible={true}>
+```html
+<h1 class="taitoru">今日の天気</h1> <!-- 文字色を「青色」にせよ -->
   <p>晴れのちくもり</p> <!-- 背景色を「黄色」にせよ -->
 
   <div class="hako">
     <p>最高気温 18度</p> <!-- 文字サイズを「80px」にせよ -->
-  </div>`}
-  initialJS={`// class="taitoru"のh1要素の文字色を青に変更
+  </div>
+```
+
+```javascript
+// class="taitoru"のh1要素の文字色を青に変更
   document.querySelector(".taitoru").style.color = "blue";
 
   // 最初のp要素の背景色を黄色に変更
   document.querySelector("p").style.backgroundColor = "yellow";
 
   // class="hako"のdiv要素の中のp要素の文字サイズを80pxに変更
-  document.querySelector(".hako p").style.fontSize = "80px";`}/>
+  document.querySelector(".hako p").style.fontSize = "80px";
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習2"/>
@@ -306,8 +344,9 @@ background-color のようなハイフンのあるCSSプロパティの場合は
   sourceId="演習3"
   htmlVisible={false}
   jsVisible={false}
-  previewVisible={true}
-  initialHTML={`<!-- 文字色を赤にせよ -->
+  previewVisible={true}>
+```html
+<!-- 文字色を赤にせよ -->
   <h1 class="taitoru">お知らせ</h1>
   <div class="hako">
     <!-- 要素を非表示にせよ -->
@@ -326,8 +365,11 @@ background-color のようなハイフンのあるCSSプロパティの場合は
 
     <!-- 不透明度を 20% にせよ -->
     <p class="usui">詳細はこちらをご確認ください</p>
-  </div>`}
-  initialJS={`// h1.taitoru を赤に
+  </div>
+```
+
+```javascript
+// h1.taitoru を赤に
   document.querySelector(".taitoru").style.color = "red";
 
   // 最初の class="messeji" を非表示にする
@@ -350,7 +392,9 @@ background-color のようなハイフンのあるCSSプロパティの場合は
   maruYouso.style.borderRadius = "50%";
 
   // class="usui" の不透明度を20%にする
-  document.querySelector(".usui").style.opacity = "0.2";`}/>
+  document.querySelector(".usui").style.opacity = "0.2";
+```
+</CodePreview>
 
 :::info CSSのヒント
 | やりたいこと | 書き方 | 例 |
@@ -387,8 +431,9 @@ background-color のようなハイフンのあるCSSプロパティの場合は
   htmlVisible={false}
   jsVisible={false}
   previewVisible={true}
-  consoleVisible={false}
-  initialHTML={`<h2 class="banner">お知らせ</h2>
+  consoleVisible={false}>
+```html
+<h2 class="banner">お知らせ</h2>
   <p>お知らせです</p>
 
   <div class="banner content">
@@ -396,8 +441,11 @@ background-color のようなハイフンのあるCSSプロパティの場合は
     <p class="detail">本日18時よりメンテナンスを実施します</p>
     <p class="message">ご迷惑をおかけします。<br>よろしくお願い致します。</p>
     <div class="icon">⚠️</div>
-  </div>`}
-  initialJS={`// .banner に色と余白を設定
+  </div>
+```
+
+```javascript
+// .banner に色と余白を設定
   let banner = document.querySelector(".banner");
   banner.style.color = "white";
   banner.style.backgroundColor = "#007acc";
@@ -425,7 +473,9 @@ background-color のようなハイフンのあるCSSプロパティの場合は
   icon.style.placeItems = "center";
 
   // .message の行間を 2 倍に
-  document.querySelector(".message").style.lineHeight = "2";`}/>
+  document.querySelector(".message").style.lineHeight = "2";
+```
+</CodePreview>
 
 :::info CSSのヒント
 | やりたいこと | 書き方 |

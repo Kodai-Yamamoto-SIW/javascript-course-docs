@@ -30,12 +30,16 @@ import { CodePreview } from '@metyatech/code-preview';
 :::
 
 #### 例
-<CodePreview initialJS={`let mypet = {
+<CodePreview>
+```javascript
+let mypet = {
     name: "ポチ",
     birthday: "2024/4/1",
     taijuu: 40
 };
-console.log(mypet);`}/>
+console.log(mypet);
+```
+</CodePreview>
 
 ![上記例のイメージ](./img/object-example.png)
 
@@ -47,7 +51,9 @@ console.log(mypet);`}/>
 ```
 
 #### 例
-<CodePreview initialJS={`let mypet = {
+<CodePreview>
+```javascript
+let mypet = {
     name: "ポチ",
     birthday: "4/1",
     taijuu: 40
@@ -57,7 +63,9 @@ console.log(mypet.name);
 // 変数のように値に代入したりできる
 mypet.taijuu = 50;
 // 代入後はちゃんと中身の taijuu が変化している
-console.log(mypet.taijuu);`}/>
+console.log(mypet.taijuu);
+```
+</CodePreview>
 
 * _プロパティ_
   * オブジェクト内の各キーと値の組のこと
@@ -69,7 +77,9 @@ console.log(mypet.taijuu);`}/>
 オブジェクトの値には、文字列・数値・オブジェクト・関数など様々な型の値が使えます。
 :::
 
-<CodePreview initialJS={`let example = {
+<CodePreview>
+```javascript
+let example = {
     // 文字列OK
     str: "文字列",
     // 数値OK
@@ -82,7 +92,9 @@ console.log(mypet.taijuu);`}/>
     }
 };
 console.log(example);
-console.log(example.fn(1, 2));`}/>
+console.log(example.fn(1, 2));
+```
+</CodePreview>
 
 実は関数は Function 型の "値" なので、変数に入れることができる。  
 なお、値として関数を書くときは、関数名の部分は省略できる。
@@ -114,7 +126,11 @@ console.log(console);
 
 #### 確認方法
 
-<CodePreview initialJS={`console.log(console);`}/>
+<CodePreview>
+```javascript
+console.log(console);
+```
+</CodePreview>
 
 ---
 
@@ -131,12 +147,16 @@ console.log(console);
 - 値を取り出すときはドット記法（`オブジェクト.キー`）を使います。`me.name` は文字列、「山田太郎」が返り、`me.age` は数値、`20` が返ります。
 - 取り出した値を `console.log` でそのまま出力します。
 
-<CodePreview initialJS={`let me = {
+<CodePreview>
+```javascript
+let me = {
     name: "山田太郎",
     age: 20
 };
 console.log(me.name);
-console.log(me.age);`}/>
+console.log(me.age);
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -166,13 +186,17 @@ console.log(☆☆☆);
 
 この順番でプロパティをたどると、値「文字列」に到達し、出力できます。
 
-<CodePreview initialJS={`let example = {
+<CodePreview>
+```javascript
+let example = {
     obj: {
         str: "文字列"
     },
     num: 2
 };
-console.log(example.obj.str);`}/>
+console.log(example.obj.str);
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -206,7 +230,9 @@ let dog = {
 - `bark(numberOfBarks)` は、渡した回数だけ「ワン」をつなげて出力します。`for` 文で 1 から指定回数までループし、そのたびに文字列を足し込んでいます。
 - メソッドの呼び出しも通常のプロパティアクセスと同様にドット記法で行います（例: `dog.greet()`、`dog.bark(3)`）。
 
-<CodePreview initialJS={`let dog = {
+<CodePreview>
+```javascript
+let dog = {
     name: "ポチ",
     greet: function() {
         console.log(dog.name + "です。");
@@ -220,7 +246,9 @@ let dog = {
     }
 };
 dog.greet();
-dog.bark(3);`}/>
+dog.bark(3);
+```
+</CodePreview>
 </Solution>
 </Exercise>
 

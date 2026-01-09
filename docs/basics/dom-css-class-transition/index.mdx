@@ -34,8 +34,13 @@ import { CodePreview } from "@metyatech/code-preview";
 ### シンプルな例: ボックスをクリックしたら瞬時に大きくなる
 
 <CodePreview
-  initialHTML={`<div class="box">クリックでサイズ変更</div>`}
-  initialCSS={`.box {
+>
+```html
+<div class="box">クリックでサイズ変更</div>
+```
+
+```css
+.box {
     width: 120px;
     height: 120px;
     background-color: skyblue;
@@ -44,16 +49,20 @@ import { CodePreview } from "@metyatech/code-preview";
     width: 200px;
     height: 200px;
     background-color: deepskyblue;
-  }`}
-  initialJS={`// boxクラスの要素を取得
+  }
+```
+
+```javascript
+// boxクラスの要素を取得
   let boxYoso = document.querySelector(".box");
 
   // クリックされたときの処理を登録
   boxYoso.addEventListener("click", function() {
     // bigクラスを付けたり外したりして切り替え
     boxYoso.classList.toggle("big");
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 #### なぜクリックでサイズが変わるのか
 
@@ -78,8 +87,13 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="box">クリックしてね</div>`}
-  initialCSS={`.box {
+>
+```html
+<div class="box">クリックしてね</div>
+```
+
+```css
+.box {
     width: 150px;
     height: 150px;
     background-color: lightgray;
@@ -88,16 +102,20 @@ import { CodePreview } from "@metyatech/code-preview";
     width: 220px;
     height: 220px;
     background-color: lightgreen;
-  }`}
-  initialJS={`// boxクラスの要素を取得
+  }
+```
+
+```javascript
+// boxクラスの要素を取得
   let boxYoso = document.querySelector(".box");
 
   // クリックされたときの処理を登録
   boxYoso.addEventListener("click", function() {
     // activeクラスを付けたり外したりして切り替え
     boxYoso.classList.toggle("active");
-  });`}
-/><Solution>
+  });
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習1" />
 </Solution>
 </Exercise>
@@ -114,8 +132,13 @@ import { CodePreview } from "@metyatech/code-preview";
 ### 例: 先ほどのボックスにtransitionを追加する
 
 <CodePreview
-  initialHTML={`<div class="box">クリックでサイズ変更</div>`}
-  initialCSS={`.box {
+>
+```html
+<div class="box">クリックでサイズ変更</div>
+```
+
+```css
+.box {
     width: 120px;
     height: 120px;
     background-color: skyblue;
@@ -125,16 +148,20 @@ import { CodePreview } from "@metyatech/code-preview";
     width: 200px;
     height: 200px;
     background-color: deepskyblue;
-  }`}
-  initialJS={`// boxクラスの要素を取得
+  }
+```
+
+```javascript
+// boxクラスの要素を取得
   let boxYoso = document.querySelector(".box");
 
   // クリックされたときの処理を登録
   boxYoso.addEventListener("click", function() {
     // bigクラスを付けたり外したりして切り替え
     boxYoso.classList.toggle("big");
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 :::tip transition を書く場所が大事
 `transition` は両方の状態で常に残る共通クラス（例: `.box`）に書く。そこで指定すると付ける時も外す時も滑らかになる。変化側だけ（例: `.box.big`）に置くと戻りが一瞬になる。複数なら `transition: all 0.3s;`、特定なら `transition: width 0.3s, height 0.3s;`。
@@ -154,8 +181,13 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="box">クリックしてね</div>`}
-  initialCSS={`.box {
+>
+```html
+<div class="box">クリックしてね</div>
+```
+
+```css
+.box {
     width: 150px;
     height: 150px;
     background-color: lightgray;
@@ -165,16 +197,20 @@ import { CodePreview } from "@metyatech/code-preview";
     width: 220px;
     height: 220px;
     background-color: lightgreen;
-  }`}
-  initialJS={`// boxクラスの要素を取得
+  }
+```
+
+```javascript
+// boxクラスの要素を取得
   let boxYoso = document.querySelector(".box");
 
   // クリックされたときの処理を登録
   boxYoso.addEventListener("click", function() {
     // activeクラスを付けたり外したりして切り替え
     boxYoso.classList.toggle("active");
-  });`}
-/><Solution>
+  });
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習2" />
 </Solution>
 </Exercise>
@@ -194,8 +230,13 @@ import { CodePreview } from "@metyatech/code-preview";
 ### 例: ホバーでクラスを付け外しする
 
 <CodePreview
-  initialHTML={`<div class="card">マウスを乗せてね</div>`}
-  initialCSS={`.card {
+>
+```html
+<div class="card">マウスを乗せてね</div>
+```
+
+```css
+.card {
     width: 180px;
     padding: 20px;
     background-color: white;
@@ -205,8 +246,11 @@ import { CodePreview } from "@metyatech/code-preview";
   .card.hovered {
     background-color: #ffe0b2;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }`}
-  initialJS={`// cardクラスの要素を取得
+  }
+```
+
+```javascript
+// cardクラスの要素を取得
   let cardYoso = document.querySelector(".card");
 
   // マウスが乗ったときの処理を登録
@@ -219,8 +263,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cardYoso.addEventListener("mouseleave", function() {
     // hoveredクラスを削除
     cardYoso.classList.remove("hovered");
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -236,9 +281,14 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="card">マウスを乗せてね</div>
-  <p>ステータス: <span class="status">通常</span></p>`}
-  initialCSS={`.card {
+>
+```html
+<div class="card">マウスを乗せてね</div>
+  <p>ステータス: <span class="status">通常</span></p>
+```
+
+```css
+.card {
     width: 200px;
     height: 100px;
     background-color: white;
@@ -248,8 +298,11 @@ import { CodePreview } from "@metyatech/code-preview";
   .card.hovered {
     background-color: #fff3cd;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }`}
-  initialJS={`// cardクラスの要素とstatus要素を取得
+  }
+```
+
+```javascript
+// cardクラスの要素とstatus要素を取得
   let cardYoso = document.querySelector(".card");
   let statusYoso = document.querySelector(".status");
 
@@ -269,8 +322,9 @@ import { CodePreview } from "@metyatech/code-preview";
 
     // ステータステキストを元に戻す
     statusYoso.innerText = "通常";
-  });`}
-/><Solution>
+  });
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習3" />
 </Solution>
 </Exercise>
@@ -293,15 +347,23 @@ import { CodePreview } from "@metyatech/code-preview";
 ### 例: 選択中なら「ON」、そうでなければ「OFF」と表示する
 
 <CodePreview
-  initialHTML={`<button class="btn">ボタン</button>
-  <p>状態: <span class="status">OFF</span></p>`}
-  initialCSS={`.btn {
+>
+```html
+<button class="btn">ボタン</button>
+  <p>状態: <span class="status">OFF</span></p>
+```
+
+```css
+.btn {
     padding: 8px 16px;
   }
   .btn.selected {
     background-color: lightcoral;
-  }`}
-  initialJS={`// ボタンとステータスの要素を取得
+  }
+```
+
+```javascript
+// ボタンとステータスの要素を取得
   let btnYoso = document.querySelector(".btn");
   let statusYoso = document.querySelector(".status");
 
@@ -316,8 +378,9 @@ import { CodePreview } from "@metyatech/code-preview";
     } else {
       statusYoso.innerText = "OFF";
     }
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -333,15 +396,23 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<button class="btn">通知を切り替え</button>
-  <p>通知の状態: <span class="status">無効</span></p>`}
-  initialCSS={`.btn {
+>
+```html
+<button class="btn">通知を切り替え</button>
+  <p>通知の状態: <span class="status">無効</span></p>
+```
+
+```css
+.btn {
     padding: 8px 16px;
   }
   .btn.selected {
     background-color: lightgreen;
-  }`}
-  initialJS={`// ボタンとステータスの要素を取得
+  }
+```
+
+```javascript
+// ボタンとステータスの要素を取得
   let btnYoso = document.querySelector(".btn");
   let statusYoso = document.querySelector(".status");
 
@@ -356,8 +427,9 @@ import { CodePreview } from "@metyatech/code-preview";
     } else {
       statusYoso.innerText = "無効";
     }
-  });`}
-/><Solution>
+  });
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習4" />
 </Solution>
 </Exercise>
@@ -387,9 +459,14 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="favorite-btn">♥</div>
-  <p class="status-text">お気に入りに追加</p>`}
-  initialCSS={`.favorite-btn {
+>
+```html
+<div class="favorite-btn">♥</div>
+  <p class="status-text">お気に入りに追加</p>
+```
+
+```css
+.favorite-btn {
     font-size: 32px;
     color: #ccc;
     cursor: pointer;
@@ -400,8 +477,11 @@ import { CodePreview } from "@metyatech/code-preview";
   }
   .status-text {
     margin-top: 12px;
-  }`}
-  initialJS={`// ボタンとテキスト要素を取得
+  }
+```
+
+```javascript
+// ボタンとテキスト要素を取得
   let btnYoso = document.querySelector(".favorite-btn");
   let textYoso = document.querySelector(".status-text");
 
@@ -416,8 +496,9 @@ import { CodePreview } from "@metyatech/code-preview";
     } else {
       textYoso.innerText = "お気に入りに追加";
     }
-  });`}
-/><Solution>
+  });
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習-発展1" />
 
 **解説**:
@@ -446,12 +527,17 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="notification">
+>
+```html
+<div class="notification">
     <span>新しいメッセージが届きました</span>
     <button class="close-btn">×</button>
   </div>
-  <button class="show-btn">通知を表示</button>`}
-  initialCSS={`.notification {
+  <button class="show-btn">通知を表示</button>
+```
+
+```css
+.notification {
     background-color: #4caf50;
     color: white;
     padding: 16px;
@@ -479,8 +565,11 @@ import { CodePreview } from "@metyatech/code-preview";
   }
   .show-btn.disabled {
     background-color: #ccc;
-  }`}
-  initialJS={`// 各要素を取得
+  }
+```
+
+```javascript
+// 各要素を取得
   let notificationYoso = document.querySelector(".notification");
   let closeBtnYoso = document.querySelector(".close-btn");
   let showBtnYoso = document.querySelector(".show-btn");
@@ -501,8 +590,9 @@ import { CodePreview } from "@metyatech/code-preview";
 
     // ボタンを有効化
     showBtnYoso.classList.remove("disabled");
-  });`}
-/><Solution>
+  });
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習-発展2" />
 
 **解説**:
@@ -571,10 +661,15 @@ for (let cardYoso of cardYosos) {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="card">カード1</div>
+>
+```html
+<div class="card">カード1</div>
   <div class="card">カード2</div>
-  <div class="card">カード3</div>`}
-  initialCSS={`.card {
+  <div class="card">カード3</div>
+```
+
+```css
+.card {
     width: 120px;
     height: 100px;
     background-color: white;
@@ -586,8 +681,11 @@ for (let cardYoso of cardYosos) {
   .card.selected {
     background-color: #e3f2fd;
     border-color: #2196f3;
-  }`}
-  initialJS={`// すべてのカード要素を取得
+  }
+```
+
+```javascript
+// すべてのカード要素を取得
   let cardYosos = document.querySelectorAll(".card");
 
   // すべてのカードをループで処理
@@ -597,8 +695,9 @@ for (let cardYoso of cardYosos) {
       // selectedクラスを付けたり外したりして切り替え
       cardYoso.classList.toggle("selected");
     });
-  }`}
-/><Solution>
+  }
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習-発展3" />
 
 **解説**:
@@ -628,11 +727,16 @@ for (let cardYoso of cardYosos) {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="card">カード1</div>
+>
+```html
+<div class="card">カード1</div>
   <div class="card">カード2</div>
   <div class="card">カード3</div>
-  <p>選択中: <span class="count">0</span>枚</p>`}
-  initialCSS={`.card {
+  <p>選択中: <span class="count">0</span>枚</p>
+```
+
+```css
+.card {
     width: 120px;
     height: 100px;
     background-color: white;
@@ -644,8 +748,11 @@ for (let cardYoso of cardYosos) {
   .card.selected {
     background-color: #e3f2fd;
     border-color: #2196f3;
-  }`}
-  initialJS={`// すべてのカード要素を取得
+  }
+```
+
+```javascript
+// すべてのカード要素を取得
   let cardYosos = document.querySelectorAll(".card");
 
   // カウント表示要素を取得
@@ -669,8 +776,9 @@ for (let cardYoso of cardYosos) {
       // カウントを表示
       countYoso.innerText = selectedCount;
     });
-  }`}
-/><Solution>
+  }
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習-発展4" />
 
 **解説**:
@@ -711,7 +819,9 @@ for (let cardYoso of cardYosos) {
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="faq-item">
+>
+```html
+<div class="faq-item">
     <div class="question">JavaScriptとは何ですか?</div>
     <div class="answer">JavaScriptはWebページに動きをつけるプログラミング言語です。</div>
   </div>
@@ -722,8 +832,11 @@ for (let cardYoso of cardYosos) {
   <div class="faq-item">
     <div class="question">HTMLとは何ですか？</div>
     <div class="answer">HTMLはWebページの構造を作るための言語です。</div>
-  </div>`}
-  initialCSS={`.faq-item {
+  </div>
+```
+
+```css
+.faq-item {
     margin-bottom: 12px;
     border: 1px solid #ddd;
   }
@@ -739,8 +852,11 @@ for (let cardYoso of cardYosos) {
   }
   .answer.open {
     display: block;
-  }`}
-  initialJS={`// すべての質問要素を取得
+  }
+```
+
+```javascript
+// すべての質問要素を取得
   let questionYosos = document.querySelectorAll(".question");
 
   // すべての回答要素を取得
@@ -761,8 +877,9 @@ for (let cardYoso of cardYosos) {
         }
       }
     });
-  }`}
-/><Solution>
+  }
+```
+</CodePreview><Solution>
 <CodePreview sourceId="演習-発展5" />
 
 **解説**:

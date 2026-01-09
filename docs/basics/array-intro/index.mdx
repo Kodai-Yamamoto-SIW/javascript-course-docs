@@ -28,8 +28,12 @@ import { CodePreview } from '@metyatech/code-preview';
 :::
 
 ### 例
-<CodePreview initialJS={`let schools = ["小学校", "中学校", "高校"];
-console.log(schools);`}/>
+<CodePreview>
+```javascript
+let schools = ["小学校", "中学校", "高校"];
+console.log(schools);
+```
+</CodePreview>
 
 ## 配列の値へのアクセス
 
@@ -43,43 +47,59 @@ console.log(schools);`}/>
 :::
 
 ### 例
-<CodePreview initialJS={`let schools = ["小学校", "中学校", "高校"];
+<CodePreview>
+```javascript
+let schools = ["小学校", "中学校", "高校"];
 // 読み取り
 console.log(schools[0]);
 console.log(schools[1]);
 console.log(schools[2]);
 // 書き換え
 schools[2] = "高等学校";
-console.log(schools[2]);`}/>
+console.log(schools[2]);
+```
+</CodePreview>
 
 #### イメージ
 配列は実はオブジェクトの一種で、キーが 0, 1, 2 ... の連番になっています。（イメージ）
 ※ただし、ドット記法ではアクセスできません。
 
-<CodePreview initialJS={`let schools = {
+<CodePreview>
+```javascript
+let schools = {
     0: "小学校",
     1: "中学校",
     2: "高校",
     ...
-};`}/>
+};
+```
+</CodePreview>
 
 ### lengthプロパティ
 配列の要素数が入っています。
 
-<CodePreview initialJS={`let schools = ["小学校", "中学校", "高校"];
+<CodePreview>
+```javascript
+let schools = ["小学校", "中学校", "高校"];
 // 要素数を出力
-console.log(schools.length);`}/>
+console.log(schools.length);
+```
+</CodePreview>
 
 ---
 
 ## 配列の繰り返し処理
 
 ### for-of文
-<CodePreview initialJS={`let schools = ["小学校", "中学校", "高校"];
+<CodePreview>
+```javascript
+let schools = ["小学校", "中学校", "高校"];
 for (let value of schools) {
     // value に要素が入っている。
     console.log(value);
-}`}/>
+}
+```
+</CodePreview>
 
 ---
 
@@ -93,10 +113,14 @@ let arr = ["日", "月", "火", "水", "木", "金", "土"];
 <Solution>
 `for (let day of arr)` で要素を順に取り出し、`console.log(day)` でそのまま出力します。
 
-<CodePreview initialJS={`let arr = ["日", "月", "火", "水", "木", "金", "土"];
+<CodePreview>
+```javascript
+let arr = ["日", "月", "火", "水", "木", "金", "土"];
 for (let day of arr) {
     console.log(day);
-}`}/>
+}
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -116,10 +140,14 @@ let arr = ["日", "月", "火", "水", "木", "金", "土"];
 - 取り出した要素に「曜日」という文字を結合して出力します（例: `"日" + "曜日"` → 「日曜日」）。
 - これを全ての要素について繰り返すことで、日〜土までを順に出力できます。
 
-<CodePreview initialJS={`let arr = ["日", "月", "火", "水", "木", "金", "土"];
+<CodePreview>
+```javascript
+let arr = ["日", "月", "火", "水", "木", "金", "土"];
 for (let day of arr) {
     console.log(day + "曜日");
-}`}/>
+}
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -148,14 +176,18 @@ let arr = [1, 2, 3, 4, 5, 6, 7];
 - ループが終わったら、`avg = sum / arr.length` で平均を計算します（要素数で割る）。
 - 合計と平均をそれぞれ `console.log` で出力して確認します。
 
-<CodePreview initialJS={`let arr = [1, 2, 3, 4, 5, 6, 7];
+<CodePreview>
+```javascript
+let arr = [1, 2, 3, 4, 5, 6, 7];
 let sum = 0;
 for (let num of arr) {
     sum += num;
 }
 let avg = sum / arr.length;
 console.log("合計:", sum);
-console.log("平均:", avg);`}/>
+console.log("平均:", avg);
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -179,10 +211,14 @@ for...of 文では先頭から順番にしかループできないため、逆�
 - `for (let i = arr.length - 1; i >= 0; i--)` のように、`i` を 1 ずつ減らしながら取り出します。
 - 各ステップで `arr[i]` を出力すれば、後ろから前へと値が表示されます。
 
-<CodePreview initialJS={`let arr = ["a", "b", "c", "d", "e"];
+<CodePreview>
+```javascript
+let arr = ["a", "b", "c", "d", "e"];
 for (let i = arr.length - 1; i >= 0; i--) {
     console.log(arr[i]);
-}`}/>
+}
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -209,14 +245,18 @@ let arr = [189, 409, 408, 101, 163, 347, 109, 402, 166, 493];
 - ループで各 `num` を取り出し、`if (num < min)` なら `min` を更新します。
 - すべて見終わった後の `min` が、配列全体の最小値になります。
 
-<CodePreview initialJS={`let arr = [189, 409, 408, 101, 163, 347, 109, 402, 166, 493];
+<CodePreview>
+```javascript
+let arr = [189, 409, 408, 101, 163, 347, 109, 402, 166, 493];
 let min = arr[0];
 for (let num of arr) {
     if (num < min) {
         min = num;
     }
 }
-console.log(min);`}/>
+console.log(min);
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -247,7 +287,9 @@ let tetrisField =
 <Solution>
 各行ごとに文字を連結して 1 行ずつ出力します。外側のループで行、内側のループでセルを処理し、行の前後に `|` を付けます。
 
-<CodePreview initialJS={`let tetrisField = 
+<CodePreview>
+```javascript
+let tetrisField = 
     [
         ["　", "■", "■", "■", "■", "■", "■", "■"],
         ["■", "■", "■", "■", "■", "■", "■", "■"],
@@ -262,7 +304,9 @@ for (let row of tetrisField) {
     }
     line += "|";
     console.log(line);
-}`}/>
+}
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -282,7 +326,9 @@ for (let row of tetrisField) {
 5. いちばん上の行（`field[0]`）は、空行（全角スペース）で初期化します。
 6. 最後に（1）でやったように、2重ループで、行を `|` で囲んだ文字列に連結して出力します。
 
-<CodePreview initialJS={`let tetrisField = [
+<CodePreview>
+```javascript
+let tetrisField = [
     ["　", "■", "■", "■", "■", "■", "■", "■"],
     ["■", "■", "■", "■", "■", "■", "■", "■"],
     ["■", "■", "■", "■", "　", "　", "■", "　"],
@@ -318,6 +364,8 @@ for (let row of tetrisField) {
     }
     line += "|";
     console.log(line);
-}`}/>
+}
+```
+</CodePreview>
 </Solution>
 </Exercise>

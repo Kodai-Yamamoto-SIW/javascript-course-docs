@@ -27,7 +27,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<!-- これを head 内に入れて -->
+>
+```html
+<!-- これを head 内に入れて -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- これを body 内に入れて -->
@@ -56,8 +58,11 @@ import { CodePreview } from "@metyatech/code-preview";
       <li><a href="#">アクセス</a></li>
     </ul>
   </div>
-  `}
-  initialCSS={`.menu {
+  
+```
+
+```css
+.menu {
     width: 280px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -88,8 +93,11 @@ import { CodePreview } from "@metyatech/code-preview";
   .menu a {
     color: #3366cc;
     text-decoration: none;
-  }`}
-  initialJS={`$(".menu .title").on("click", function() {
+  }
+```
+
+```javascript
+$(".menu .title").on("click", function() {
   const item = $(this).closest(".item");
   // 他を閉じる
   item.siblings().find(".submenu").slideUp(200);
@@ -98,8 +106,9 @@ import { CodePreview } from "@metyatech/code-preview";
   // 自分を切り替え
   $(this).toggleClass("open");
   item.find(".submenu").slideToggle(200);
-});`}
-/>
+});
+```
+</CodePreview>
 
 ---
 
@@ -149,15 +158,20 @@ $("セレクタ").slideToggle();
   htmlVisible={true}
   cssVisible={true}
   previewVisible={true}
-  initialHTML={`<!-- これを head 内に入れて -->
+>
+```html
+<!-- これを head 内に入れて -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- これを body 内に入れて -->
   <h3 class="AAA">メニュー</h3>
   <div class="BBB">中身</div>
   <p>後続のテキスト</p>
-  `}
-  initialCSS={`.AAA {
+  
+```
+
+```css
+.AAA {
     cursor: pointer;
     background-color: #eee;
     padding: 8px;
@@ -169,13 +183,17 @@ $("セレクタ").slideToggle();
 
     /* 初めは要素を非表示にしておく */
     display: none;
-  }`}
-  initialJS={`// .AAA の要素をクリックしたときに～
+  }
+```
+
+```javascript
+// .AAA の要素をクリックしたときに～
   document.querySelector(".AAA").addEventListener("click", function() {
     // .BBB の要素の表示/非表示を滑らかに切り替える
     $(".BBB").slideToggle();
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -209,14 +227,19 @@ CSS:
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<!-- これを head 内に入れて -->
+>
+```html
+<!-- これを head 内に入れて -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- これを body 内に入れて -->
   <h3 class="PPP">メニュー</h3>
   <div class="QQQ">中身</div>
-  <p>後続のテキスト</p>`}
-  initialCSS={`.PPP {
+  <p>後続のテキスト</p>
+```
+
+```css
+.PPP {
     cursor: pointer;
     background-color: #eee;
     padding: 8px;
@@ -228,13 +251,17 @@ CSS:
 
     /* 初めは要素を非表示にしておく */
     display: none;
-  }`}
-  initialJS={`// .PPP の要素をクリックしたときに～
+  }
+```
+
+```javascript
+// .PPP の要素をクリックしたときに～
   document.querySelector(".PPP").addEventListener("click", function() {
     // .QQQ の要素の表示/非表示を滑らかに切り替える
     $(".QQQ").slideToggle();
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 :::tip[ヒント]
 - jQuery の読み込みを忘れずに行いましょう。
@@ -257,15 +284,19 @@ CSS:
   sourceId="isOpen"
   htmlVisible={true}
   cssVisible={true}
-  previewVisible={true}
-  initialHTML={`<!-- これを head 内に入れて -->
+  previewVisible={true}>
+```html
+<!-- これを head 内に入れて -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- これを body 内に入れて -->
   <h3 class="aaa">メニュー<span class="icon">＋</span></h3>
   <div class="bbb">中身</div>
-  `}
-  initialCSS={`.aaa {
+  
+```
+
+```css
+.aaa {
     cursor: pointer;
     background-color: #eee;
     padding: 8px;
@@ -277,8 +308,11 @@ CSS:
 
     /* 初めは要素を非表示にしておく */
     display: none;
-  }`}
-  initialJS={`// 開いていますかー？　を表す変数を作って用意しておく
+  }
+```
+
+```javascript
+// 開いていますかー？　を表す変数を作って用意しておく
   // 最初は閉じているので、開いていない = false を入れておく
   let isOpen = false;
 
@@ -292,14 +326,17 @@ CSS:
 
     // isOpen の値を出してみる
     console.log(isOpen);
-  });`}/>
+  });
+```
+</CodePreview>
 
 <CodePreview
   sourceId="isOpen"
   htmlVisible={true}
   cssVisible={true}
-  previewVisible={true}
-  initialJS={`// 開いていますかー？　を表す変数を作って用意しておく
+  previewVisible={true}>
+```javascript
+// 開いていますかー？　を表す変数を作って用意しておく
   // 最初は閉じているので、開いていない = false を入れておく
   let isOpen = false;
 
@@ -318,14 +355,17 @@ CSS:
     else { // 閉じているとき
       console.log("とじています");
     }
-  });`}/>
+  });
+```
+</CodePreview>
 
 <CodePreview
   sourceId="isOpen"
   htmlVisible={true}
   cssVisible={true}
-  previewVisible={true}
-  initialJS={`// 開いていますかー？　を表す変数を作って用意しておく
+  previewVisible={true}>
+```javascript
+// 開いていますかー？　を表す変数を作って用意しておく
   // 最初は閉じているので、開いていない = false を入れておく
   let isOpen = false;
 
@@ -344,7 +384,9 @@ CSS:
     else { // 閉じているとき
       iconYoso.innerText = "＋"; // アイコンを「+」にする
     }
-  });`}/>
+  });
+```
+</CodePreview>
 
 ---
 
@@ -385,14 +427,19 @@ CSS:
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<!-- これを head 内に入れて -->
+>
+```html
+<!-- これを head 内に入れて -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- これを body 内に入れて -->
   <h3 class="aaa">メニュー<span class="icon">＋</span></h3>
   <div class="bbb">中身</div>
-  `}
-  initialCSS={`.aaa {
+  
+```
+
+```css
+.aaa {
     cursor: pointer;
     background-color: #eee;
     padding: 8px;
@@ -404,8 +451,11 @@ CSS:
 
     /* 初めは要素を非表示にしておく */
     display: none;
-  }`}
-  initialJS={`let aaaYoso = document.querySelector(".aaa");
+  }
+```
+
+```javascript
+let aaaYoso = document.querySelector(".aaa");
   
   // 開いていますかー？　を表す変数を作って用意しておく
   // 最初は閉じているので、開いていない = false を入れておく
@@ -428,8 +478,9 @@ CSS:
       iconYoso.innerText = "＋"; // アイコンを「+」にする
       aaaYoso.style.backgroundColor = "#eee"; // 背景色を元の #eee に戻す
     }
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習2"/>
@@ -473,14 +524,19 @@ CSS:
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<!-- これを head 内に入れて -->
+>
+```html
+<!-- これを head 内に入れて -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- これを body 内に入れて -->
   <h3 class="ccc">メニュー</h3>
   <div class="ddd">中身</div>
-  <div class="count">開いた回数: 0回</div>`}
-  initialCSS={`.ccc {
+  <div class="count">開いた回数: 0回</div>
+```
+
+```css
+.ccc {
     cursor: pointer;
     background-color: #eee;
     padding: 8px;
@@ -497,8 +553,11 @@ CSS:
   .count {
     margin-top: 8px;
     color: #3366cc;
-  }`}
-  initialJS={`// 開いてる時に回数を増やすカウンタ用
+  }
+```
+
+```javascript
+// 開いてる時に回数を増やすカウンタ用
   let count = 0;
   let isOpen = false;
 
@@ -514,8 +573,9 @@ CSS:
       count++; // 回数を増やす
       document.querySelector(".count").innerText = "開いた回数: " + count + "回"; // 表示を更新
     }
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 :::tip[ヒント]
 - 回数を記憶する変数（let count = 0;）を使いましょう。
@@ -565,14 +625,19 @@ CSS:
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<!-- これを head 内に入れて -->
+>
+```html
+<!-- これを head 内に入れて -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- これを body 内に入れて -->
   <h3 class="ccc">メニュー<span class="icon">＋</span></h3>
   <div class="ddd">中身</div>
-  `}
-  initialCSS={`.ccc {
+  
+```
+
+```css
+.ccc {
     cursor: pointer;
     background-color: #eee;
     padding: 8px;
@@ -586,8 +651,11 @@ CSS:
     margin-left: 8px;
     display: inline-block;
     transition: transform 0.3s;
-  }`}
-  initialJS={`let iconYoso = document.querySelector(".icon");
+  }
+```
+
+```javascript
+let iconYoso = document.querySelector(".icon");
   let cccYoso = document.querySelector(".ccc");
   let isOpen = false;
 
@@ -606,8 +674,9 @@ CSS:
       iconYoso.style.transform = "rotate(0deg)";
       iconYoso.innerText = "＋"; // 元に戻す
     }
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 :::tip[ヒント]
 - `transition`と`transform`でアニメーションを作れます。

@@ -22,7 +22,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -31,8 +33,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0; /* ページの端の余白をなくす */
   }
 
@@ -44,8 +49,9 @@ import { CodePreview } from "@metyatech/code-preview";
     display: flex; /* 横並びに */
     list-style: none; /* リストの点を消す */
     padding: 0; /* ulにデフォルトでついているパディングを消す */
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 <CodePreview sourceId="演習1"/>
@@ -62,7 +68,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -78,8 +86,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -99,8 +110,9 @@ import { CodePreview } from "@metyatech/code-preview";
     border: solid black 1px; /* 枠線 */
     background-color: white; /* 背景色を白に */
     position: absolute; /* 絶対配置にして、その場のスペースを占有せずに、要素を浮かせる */
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -126,7 +138,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -142,8 +156,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -170,8 +187,11 @@ import { CodePreview } from "@metyatech/code-preview";
   .dd-submenu.open { /* サブメニューに open クラスがついているとき（開いているとき） */
     opacity: 1; /* しっかり見えるようにする */
     visibility: visible; /* 見えるようにする */
-  }`}
-  initialJS={`// ドロップダウンメニューの要素を取得
+  }
+```
+
+```javascript
+// ドロップダウンメニューの要素を取得
   let ddMenuYoso = document.querySelector('.dd-menu');
 
   // マウスが乗ったときの処理
@@ -184,8 +204,9 @@ import { CodePreview } from "@metyatech/code-preview";
   ddMenuYoso.addEventListener('mouseleave', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
     submenu.classList.remove('open'); // open クラスを削除して非表示
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -203,7 +224,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -219,8 +242,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -248,8 +274,11 @@ import { CodePreview } from "@metyatech/code-preview";
   .dd-submenu.open {
     opacity: 1;
     visibility: visible;
-  }`}
-  initialJS={`let ddMenuYoso = document.querySelector('.dd-menu');
+  }
+```
+
+```javascript
+let ddMenuYoso = document.querySelector('.dd-menu');
 
   ddMenuYoso.addEventListener('mouseenter', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
@@ -259,8 +288,9 @@ import { CodePreview } from "@metyatech/code-preview";
   ddMenuYoso.addEventListener('mouseleave', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
     submenu.classList.remove('open');
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -278,7 +308,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -294,8 +326,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -352,8 +387,11 @@ import { CodePreview } from "@metyatech/code-preview";
   .dd-submenu.open {
     opacity: 1;
     visibility: visible;
-  }`}
-  initialJS={`
+  }
+```
+
+```javascript
+
     let ddMenuYoso = document.querySelector('.dd-menu');
 
     ddMenuYoso.addEventListener('mouseenter', function() {
@@ -365,8 +403,9 @@ import { CodePreview } from "@metyatech/code-preview";
       let submenu = ddMenuYoso.querySelector('.dd-submenu');
       submenu.classList.remove('open');
     });
-  `}
-/>
+  
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -388,7 +427,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -404,8 +445,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -464,8 +508,11 @@ import { CodePreview } from "@metyatech/code-preview";
     opacity: 1;
     visibility: visible;
     transform: translateY(0); /* 元の位置に移動 */
-  }`}
-  initialJS={`let ddMenuYoso = document.querySelector('.dd-menu');
+  }
+```
+
+```javascript
+let ddMenuYoso = document.querySelector('.dd-menu');
 
   ddMenuYoso.addEventListener('mouseenter', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
@@ -475,8 +522,9 @@ import { CodePreview } from "@metyatech/code-preview";
   ddMenuYoso.addEventListener('mouseleave', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
     submenu.classList.remove('open');
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -502,7 +550,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -518,8 +568,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -579,8 +632,11 @@ import { CodePreview } from "@metyatech/code-preview";
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1); /* 元の位置に移動 + 通常サイズ */
-  }`}
-  initialJS={`let ddMenuYoso = document.querySelector('.dd-menu');
+  }
+```
+
+```javascript
+let ddMenuYoso = document.querySelector('.dd-menu');
 
   ddMenuYoso.addEventListener('mouseenter', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
@@ -590,8 +646,9 @@ import { CodePreview } from "@metyatech/code-preview";
   ddMenuYoso.addEventListener('mouseleave', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
     submenu.classList.remove('open');
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -615,7 +672,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -631,8 +690,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -692,8 +754,11 @@ import { CodePreview } from "@metyatech/code-preview";
     opacity: 1;
     visibility: visible;
     transform: revert; /* 元の状態に戻す　というのは、実は revert という特別な値を設定することで簡単に実現できます。(このような特別な値は initial, inherit, revert, unset などがあり、これらの特別な値は、全てのCSSのプロパティに使用できます) */
-  }`}
-  initialJS={`let ddMenuYoso = document.querySelector('.dd-menu');
+  }
+```
+
+```javascript
+let ddMenuYoso = document.querySelector('.dd-menu');
 
   ddMenuYoso.addEventListener('mouseenter', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
@@ -703,8 +768,9 @@ import { CodePreview } from "@metyatech/code-preview";
   ddMenuYoso.addEventListener('mouseleave', function() {
     let submenu = ddMenuYoso.querySelector('.dd-submenu');
     submenu.classList.remove('open');
-  });`}
-/>
+  });
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -728,7 +794,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -751,8 +819,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -812,8 +883,11 @@ import { CodePreview } from "@metyatech/code-preview";
     opacity: 1;
     visibility: visible;
     transform: revert;
-  }`}
-  initialJS={`// 全てのドロップダウンメニューの要素を取得
+  }
+```
+
+```javascript
+// 全てのドロップダウンメニューの要素を取得
   let ddMenuYosos = document.querySelectorAll('.dd-menu');
 
   // それぞれのドロップダウンメニューに対してイベントを設定
@@ -829,8 +903,9 @@ import { CodePreview } from "@metyatech/code-preview";
       let submenu = ddMenuYoso.querySelector('.dd-submenu'); // 要素.querySelector を使って、ddMenuYoso の中から .dd-submenu にマッチする要素を取得
       submenu.classList.remove('open');
     });
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
@@ -854,7 +929,9 @@ import { CodePreview } from "@metyatech/code-preview";
   cssVisible={false}
   jsVisible={false}
   previewVisible={true}
-  initialHTML={`<header>
+>
+```html
+<header>
     <nav>
       <ul class="menu">
         <li>ホーム</li>
@@ -877,8 +954,11 @@ import { CodePreview } from "@metyatech/code-preview";
         <li>お問い合わせ</li>
       </ul>
     </nav>
-  </header>`}
-  initialCSS={`body {
+  </header>
+```
+
+```css
+body {
     margin: 0;
   }
 
@@ -960,8 +1040,11 @@ import { CodePreview } from "@metyatech/code-preview";
   .dd-submenu.open > li {
     opacity: revert; /* 元の位置に */
     transform: revert; /* 元の位置に */
-  }`}
-  initialJS={`let ddMenuYosos = document.querySelectorAll('.dd-menu');
+  }
+```
+
+```javascript
+let ddMenuYosos = document.querySelectorAll('.dd-menu');
 
   for (let ddMenuYoso of ddMenuYosos) {
     ddMenuYoso.addEventListener('mouseenter', function() {
@@ -973,8 +1056,9 @@ import { CodePreview } from "@metyatech/code-preview";
       let submenu = ddMenuYoso.querySelector('.dd-submenu');
       submenu.classList.remove('open');
     });
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 前の演習から増えたり、変わったりしたところだけ、プロパティの後ろにコメントを書いています。
